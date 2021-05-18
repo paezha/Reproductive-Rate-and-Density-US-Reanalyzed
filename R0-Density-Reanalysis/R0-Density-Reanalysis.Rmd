@@ -1,0 +1,40 @@
+---
+title: "Population density and basic reproductive number of COVID-19 across United States counties revisited"
+author:
+  - name: Antonio Paez
+    email: paezha@mcmaster.ca
+    affiliation: McMaster University
+    corresponding: paezha@mcmaster.ca
+address:
+  - code: McMaster University
+    address: School of Earth, Environment and Society, 1280 Main St West, Hamilton, Ontario L8S 4K1 Canada
+abstract: |
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+  
+author_summary: |
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Nullam sapien tellus, commodo id velit id, eleifend volutpat quam. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+
+bibliography: bibliography.bib
+output: rticles::plos_article
+csl: plos.csl
+---
+
+```{r install-data-package, include = FALSE}
+# Run only once if needed to install data package `sobiEquity`
+if (!require("r0density", character.only = TRUE)) {
+      devtools::install_github("https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed", subdir = "r0density")
+  }
+```
+
+# Introduction
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget porta erat. Morbi consectetur est vel gravida pretium. Suspendisse ut dui eu ante cursus gravida non sed sem. Phasellus mauris velit, dapibus finibus elementum vel, pulvinar non tellus. Nunc pellentesque pretium diam, quis maximus dolor faucibus id. Nunc convallis sodales ante, ut ullamcorper est egestas vitae. Nam sit amet enim ultrices, ultrices elit pulvinar, volutpat risus.
+
+A list
+
+- Item 1
+- Item 2
+
+Here are two sample references: @Feynman1963118 [@Dirac1953888].
+
+# References {#references .unnumbered}

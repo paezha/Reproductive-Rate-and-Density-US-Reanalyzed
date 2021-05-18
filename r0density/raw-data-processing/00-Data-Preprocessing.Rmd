@@ -1,0 +1,457 @@
+---
+title: "00-Data-Preprocessing"
+output: html_notebook
+---
+
+This [R Markdown](http://rmarkdown.rstudio.com) Notebook recovers the data used by Sy et al. ([2020](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0249271)) in their analysis of the basic reproductive number of COVID-19 and population density in US counties.
+
+Sy et al. calculated the basic reproductive number and estimated models to study its relationship to population density (and some other controls). There are two issues with their approach:
+
+1. Data censoring is ignored
+
+2. Spatial autocorrelation is ignored
+
+In this notebook I create a data package with the data necessary to reanalyze this issue.
+
+Load packages:
+```{r message=FALSE, warning=FALSE}
+#library(censReg)
+#library(Matrix)
+#library(nlme)
+#library(spatialprobit)
+library(spdep)
+library(tidycensus)
+library(tidyverse)
+library(units)
+#library(tigris)
+```
+
+Load the data table prepared by Sy et al.:
+```{r}
+load("Sy_USDensityR0_Data.RData")
+```
+
+Notice that the table used by Sy et al. (county_R0_demog) includes only counties for which the basic reproductive number was calculated reliably (see pp. 2-3):
+
+"We restricted our analyses to counties that met a certain threshold of cumulative case counts at the end of the exponential growth period, but including counties with less than 25 cases included daily incidence counts that were insufficient to calculate R0 and yielded computational errors. Our final analytic sample included counties with 25 cases or greater at the end of the exponential growth period."
+
+Use `tidycensus` to retrieve the geometry of _all_ counties. The geometry is then used to calculate the population density (`vars <- tidycensus::load_variables()` can be used to explore the variable names):
+```{r}
+county_geo <- get_decennial(geography = "county", 
+                            variables = "P001001", # Total population
+                            year = 2010, 
+                            geometry = TRUE, 
+                            keep_geo_vars = TRUE) %>%
+  rename(population = value) %>%
+  select(-variable) %>%
+  mutate(area = st_area(geometry) %>%
+           set_units(km^2),
+         density = population/(1000 * area)) # 1,000 people per square km
+```
+
+Also, retrieve other socio-economic and demographic variables (median household income and travel by private transportation):
+```{r}
+sed_variables <- get_acs(geography = "county", 
+                            variables = c("B19013_001",
+                                          "B08006_001",
+                                          "B08006_002"), 
+                            year = 2019, 
+                            geometry = FALSE) %>%
+  select(-moe) %>%
+  pivot_wider(names_from = variable,
+              values_from = estimate) %>%
+  rename(hincome = B19013_001, 
+         commuters = B08006_001,
+         car = B08006_002) %>%
+  transmute(GEOID,
+            commuters,
+            car,
+            hincome = hincome/10000) # Median household income in tens of thousands
+         #hincome_log = log(hincome),
+         #private = car/commuters * 100) # Percentage of commuters who travel by car/van/truck
+  
+```
+
+These are the variables collected. 
+
+2010 Census:
+
+P001001: Total Population
+
+2019 ACS:
+
+B19013_001: Estimate!!Median household income in the past 12 months (in 2019 inflation-adjusted dollars) (MEDIAN HOUSEHOLD INCOME IN THE PAST 12 MONTHS IN 2019 INFLATION-ADJUSTED DOLLARS)
+B08006_001: Estimate!!Total (SEX OF WORKERS BY MEANS OF TRANSPORTATION TO WORK)
+B08006_002: Estimate!!Total:!!Car, truck, or van (SEX OF WORKERS BY MEANS OF TRANSPORTATION TO WORK)
+
+Join the two tables:
+```{r}
+county_geo <- county_geo %>%
+  left_join(sed_variables,
+            by = "GEOID")
+```
+
+Now join Sy's data to the counties with geometry and other socio-economic variables (the equivalent variables are dropped from Sy et al.'s table, because they are missing all the counties without a basic reproductive number):
+```{r}
+county_geo <- county_geo %>%
+  mutate(GEOID.num = as.numeric(GEOID)) %>%
+  left_join(county_R0_demog %>%
+              select(GEOID, state, R, R_death, sensitivitydensity),
+            by = c("GEOID.num" = "GEOID")) %>%
+  select(-GEOID.num, -CENSUSAREA, -COUNTYFP, -STATEFP, -starts_with("geometry"), geometry)
+```
+
+Save data table:
+```{r}
+save(county_geo, file = "county_geo.RData", compress = "xz")
+```
+
+Copy data file to data folder!
+
+<!--
+
+
+Convert missing R's to zeros and calculate expansion variables:
+```{r}
+county_geo_clean <- county_geo %>%
+  mutate(R = replace_na(R, 0),
+         density_2 = density^2) %>%
+  drop_na(commuters) %>%
+  st_as_sf()
+```
+
+Create list of neighbors:
+```{r}
+county_nb <- poly2nb(county_geo_clean)
+```
+
+Check list of neighbors:
+```{r}
+summary(county_nb)
+```
+
+Notice that there are 9 counties that are isolates. Which counties are these?
+```{r}
+county_geo_clean[c(69, 546, 547, 549, 1226, 1876, 2974, 3146, 3200),]
+```
+
+Find nearest neighbors by distance:
+```{r}
+county_nb_dist <- knearneigh(county_geo_clean %>% 
+                               st_centroid()) %>%
+  knn2nb()
+```
+
+Add nearest neighbor to isolates:
+```{r}
+county_nb[[69]] <- county_nb_dist[[69]]
+county_nb[[546]] <- county_nb_dist[[546]]
+county_nb[[547]] <- county_nb_dist[[547]]
+county_nb[[549]] <- county_nb_dist[[549]]
+county_nb[[1226]] <- county_nb_dist[[1226]]
+county_nb[[1876]] <- county_nb_dist[[1876]]
+county_nb[[2974]] <- county_nb_dist[[2974]]
+county_nb[[3146]] <- county_nb_dist[[3146]]
+county_nb[[3200]] <- county_nb_dist[[3200]]
+```
+
+Convert nearest neighbors to listw:
+```{r}
+nb_B <- nb2listw(county_nb, 
+                 style="B", 
+                 zero.policy = TRUE)
+nb_B$style
+```
+
+Convert listw to sparse matrix for use in spatial tobit:
+```{r}
+B <- as(nb_B, "CsparseMatrix")
+all(B == t(B))
+```
+
+## Replicate Sy et al.
+
+Fit (mixed) linear models as in Sy et al.:
+```{r}
+table1model1 <- lme(R ~ density_log , 
+                    random = ~ 1| state, 
+                    data = county_geo_clean %>%
+                      filter(R > 0))
+summary(table1model1)
+intervals(table1model1)
+```
+
+Linear mixed models of R0 and density + % private transportation
+```{r}
+table1model2 <- lme(R ~ density_log + private , 
+                    random = ~ 1| state, 
+                    data = county_geo_clean %>%
+                      filter(R > 0))
+summary(table1model2)
+intervals(table1model2)
+```
+
+Linear mixed models of R0 and density + % private transportation + median income
+```{r}
+table1model3 <- lme(R ~ density_log + private + hincome, 
+                    random = ~ 1| state, 
+                    data = county_geo_clean %>%
+                      filter(R > 0))
+summary(table1model3)
+intervals(table1model3)
+```
+
+Linear mixed models of R0 and density + % private transportation + median income + interaction of density and % private transportation
+```{r}
+table1model4 <- lme(R ~ density_log*private + hincome, 
+                    random = ~ 1| state, 
+                    data = county_R0_demog)
+summary(table1model4)
+intervals(table1model4)
+```
+
+## Fit tobit version of models
+
+```{r}
+table1model1 <- censReg(R ~ density_log, 
+                        left = 0,
+                    data = county_geo_clean)
+summary(table1model1)
+```
+
+Linear mixed models of R0 and density + % private transportation
+```{r}
+table1model2 <- censReg(R ~ density_log + private, 
+                    data = county_geo_clean)
+summary(table1model2)
+```
+
+Linear mixed models of R0 and density + % private transportation + median income
+```{r}
+table1model3 <- censReg(R ~ density_log + private + hincome, 
+                    data = county_geo_clean)
+summary(table1model3)
+```
+
+Tobit models of R0 and density + % private transportation + median income + interaction of density and % private transportation
+```{r}
+table1model4 <- censReg(R ~ density_log*private + hincome, 
+                    data = county_geo_clean)
+summary(table1model4)
+
+```
+
+## Spatially autoregressive tobit
+
+Fit spatially autoregressive tobit:
+```{r}
+# Fit SAR Tobit
+fit_sartobit <- sartobit(R ~ density_log + private + hincome_log,
+                         B,
+                         ndraw = 1000,
+                         burn.in = 200, 
+                         showProgress = TRUE,
+                         data = county_geo_clean,
+                         computeMarginalEffects = TRUE)
+summary(fit_sartobit)
+impacts(fit_sartobit)
+```
+
+With interactions:
+```{r}
+# Fit SAR Tobit
+fit_sartobit <- sartobit(R ~ density_log + density_log:private + hincome_log,
+                         B,
+                         ndraw = 1000,
+                         burn.in = 200, 
+                         showProgress = TRUE,
+                         data = county_geo_clean)
+summary(fit_sartobit)
+impacts(fit_sartobit)
+```
+FIGURE 2 - POPULATION DENSITY THRESHOLD
+
+Compare density of counties with oubreaks vs counties without outbreak
+```{r}
+county_outbreak_yn %>%
+  group_by(included) %>%
+  summarise(mean = median(Density, na.rm=TRUE), 
+            lower_IQR = summary(Density)[2],
+            upper_IQR=summary(Density)[5], 
+            min=summary(Density)[1], 
+            max=summary(Density)[6])
+
+summary(county_outbreak_yn$Density)
+wilcox.test(county_outbreak_yn$Density~county_outbreak_yn$included)
+```
+
+Boxplot of counties with oubreaks vs counties without outbreak
+```{r}
+county_outbreak_yn$included <- as.factor(county_outbreak_yn$included)
+
+ggplot(county_outbreak_yn, aes(included, Density)) + 
+  geom_boxplot(fill="gray92", width=0.5) + 
+  ylim(0,200) + 
+  #theme_minimal() + 
+  ylab("Population Density (population/sq km)") + 
+  xlab("United States Counties") + 
+  theme_minimal(base_size=13)
+```
+
+TABLE 1 - LINEAR MIXED MODELS
+
+Linear mixed models of R0 and density:
+```{r}
+table1model1 <- lme(R ~ density_log , 
+                    random = ~ 1| state, 
+                    data = county_geo_clean %>%
+                      filter(R > 0))
+summary(table1model1)
+intervals(table1model1)
+```
+
+Linear mixed models of R0 and density + % private transportation
+```{r}
+table1model2 <- lme(R ~ density_log + private , 
+                    random = ~ 1| state, 
+                    data = county_geo_clean %>%
+                      filter(R > 0))
+summary(table1model2)
+intervals(table1model2)
+```
+
+Linear mixed models of R0 and density + % private transportation + median income
+```{r}
+table1model3 <- lme(R ~ density_log + private + hincome, 
+                    random = ~ 1| state, 
+                    data = county_geo_clean %>%
+                      filter(R > 0))
+summary(table1model3)
+intervals(table1model3)
+```
+
+Linear mixed models of R0 and density + % private transportation + median income + interaction of density and % private transportation
+```{r}
+table1model4 <- lme(R ~ density_log*private + hincome, 
+                    random = ~ 1| state, 
+                    data = county_R0_demog)
+summary(table1model4)
+intervals(table1model4)
+```
+
+## TABLE 2 - SENSITIVITY ANALYSIS
+
+a. Deaths only - Subset counties with R0 from deaths only
+
+```{r}
+county_R0_demog_a <- subset(county_R0_demog, !is.na(county_R0_demog$R_death))
+```
+
+Linear mixed models of R0 (death) and density 
+```{r}
+table2model1_a <- lme(R_death ~ density_log , random = ~ 1| state, data = county_R0_demog_a)
+summary(table2model1_a)
+intervals(table2model1_a)
+```
+
+Linear mixed models of R0 (death) and density + % private transportation
+```{r}
+table2model2_a <- lme(R_death~ density_log + private , random = ~ 1| state, data = county_R0_demog_a)
+summary(table2model2_a)
+intervals(table2model2_a)
+```
+
+Linear mixed models of R0 (death) and density + % private transportation + median income
+```{r}
+table2model3_a <- lme(R_death~ density_log + private + hincome, random = ~ 1| state, data = county_R0_demog_a)
+summary(table2model3_a)
+intervals(table2model3_a)
+```
+
+Linear mixed models of R0 (death) and density + % private transportation + median income + interaction of density and % private transportation
+```{r}
+table2model4_a <- lme(R_death~ density_log*private + hincome, random = ~ 1| state, data = county_R0_demog_a)
+summary(table2model4_a)
+intervals(table2model4_a)
+```
+
+b. No counties adjacent to high density counties - within 15 mile radius, high density > 144.0492 population/sq km
+```{r}
+county_R0_demog_b <- county_R0_demog[county_R0_demog$sensitivitydensity,]
+```
+
+Linear mixed models of R0 and density (no counties adjacent to high density counties)
+```{r}
+table2model1_b <- lme(R ~ density_log , random = ~ 1| state, data = county_R0_demog_b)
+summary(table2model1_b)
+intervals(table2model1_b)
+```
+
+Linear mixed models of R0 and density + % private transportation (no counties adjacent to high density counties)
+```{r}
+table2model2_b <- lme(R ~ density_log + private , random = ~ 1| state, data = county_R0_demog_b)
+summary(table2model2_b)
+intervals(table2model2_b)
+```
+
+Linear mixed models of R0 and density + % private transportation + median income (no counties adjacent to high density counties)
+```{r}
+table2model3_b <- lme(R ~ density_log + private + hincome, random = ~ 1| state, data = county_R0_demog_b)
+summary(table2model3_b)
+intervals(table2model3_b)
+```
+
+Linear mixed models of R0 and density + % private transportation + median income + interaction of density and % private transportation (no counties adjacent to high density counties)
+```{r}
+table2model4_b <- lme(R ~ density_log*private + hincome , random = ~ 1| state, data = county_R0_demog_b)
+summary(table2model4_b)
+intervals(table2model4_b)
+```
+
+c. Removing high influence counties - Cook's D over 4/N for each model)
+
+Linear mixed models of R0 and density (no outliers)
+```{r}
+sample_size<-nobs(table1model1)
+cooksd1 <- CookD(table1model1)
+influential <- as.numeric(names(cooksd1)[(cooksd1 > (4/sample_size))])
+county_R0_demog_c <- county_R0_demog[-influential, ]
+table1model1_c <- lme(R ~ density_log , random = ~ 1| state, data = county_R0_demog_c)
+summary(table1model1_c)
+intervals(table1model1_c)
+```
+
+Linear mixed models of R0 and density + % private transportation (no outliers)
+```{r}
+sample_size<-nobs(table1model2)
+cooksd1 <- CookD(table1model2)
+influential <- as.numeric(names(cooksd1)[(cooksd1 > (4/sample_size))])
+county_R0_demog_c <- county_R0_demog[-influential, ]
+table1model2_c <- lme(R ~ density_log + private , random = ~ 1| state, data = county_R0_demog_c)
+summary(table1model2_c)
+intervals(table1model2_c)
+```
+
+Linear mixed models of R0 and density + % private transportation + median income (no outliers)
+```{r}
+sample_size<-nobs(table1model3)
+cooksd1 <- CookD(table1model3)
+influential <- as.numeric(names(cooksd1)[(cooksd1 > (4/sample_size))])
+county_R0_demog_c <- county_R0_demog[-influential, ]
+table1model3_c <- lme(R ~ density_log + private + hincome, random = ~ 1| state, data = county_R0_demog_c)
+summary(table1model3_c)
+intervals(table1model3_c)
+```
+
+Linear mixed models of R0 and density + % private transportation + median income + interaction of density and % private transportation (no outliers)
+```{r}
+sample_size<-nobs(table1model4)
+cooksd1 <- CookD(table1model4)
+influential <- as.numeric(names(cooksd1)[(cooksd1 > (4/sample_size))])
+county_R0_demog_c <- county_R0_demog[-influential, ]
+table1model4_c <- lme(R ~ density_log*private + hincome, random = ~ 1| state, data = county_R0_demog_c)
+summary(table1model4_c)
+intervals(table1model4_c)
+```
+
+
