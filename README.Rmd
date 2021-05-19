@@ -1,0 +1,50 @@
+---
+output:
+  github_document:
+    pandoc_args: --webtex
+always_allow_html: true
+bibliography: R0-Density-Reanalysis/bibliography.bib
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# The importance of reproducibility in COVID-19 research: the case of population density and the spread of the pandemic
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+Antonio Páez (McMaster University)  
+
+Paper in preparation for submision to *PLoS ONE*
+
+## Abstract
+
+The emergence of the novel SARS-CoV-2 coronavirus and the global COVID-19 pandemic has led to explosive growth in scientific research. Given the high stakes of the situation, it is essential that scientific activites, on which good policy depends, are as transparent and reproducible as possible. Reproducibility is key for the efficient operation of the self-correction mechanisms of science, which work to weed out errors and refine our understanding of social and physical phenomena. In this paper, the importance of reproducibility is illustrated for the case of the association between population density and the the spread of SARS-CoV-2. Transparency and openness means that the same problem can, with relatively modest efforts, be examined by independent researchers who can verify findings, and bring to bear different perspectives, approaches, and methods—sometimes with consequantial changes in the conclusions, as the empirical example in this paper shows.
+
+## Keywords
+
+- COVID-19  
+- Reproducible research  
+- Population density  
+- Basic reproductive number  
+
+## Introduction
+
+The emergence of the novel SARS-CoV-2 coronavirus in 2019, and the global pandemic that followed in its wake, led to an explosive growth of research. According to Fraser et al. [-@Fraser2021evolving], over 125,000 COVID-19-related papers were released in the first ten months from the first confirmed case of the disease. Of these, more than 30,000 were shared in pre-print servers, the use of which also exploded in the past year [@Kwon2021swamped; @Vlasschaert2020proliferation; @Anazco2021publication]. 
+
+Given the heavy human and economic cost of the pandemic, there has been a natural tension in the scientific community between the need to publish research results quickly and the imperative to maintain consistently high quality standards in scientific reporting; indeed, a call for maintaining the standards in published research has even called this deluge of publications a "carnage of substandard research" [@Bramstedt2020carnage]. Part of the challenge of maintaining quality standards in published research is that, despite an abundance of recommendations and guidelines [@Broggini2017reproducible; @Ince2012case; @Ioannidis2014increasing; @Brunsdon2020opening], in practice reproducibility has remained a lofty but somewhat aspirational goal [@Konkol2019examination; @Konkol2019computational]. As reported in the literature, only a woefully small proportion of published research was actually reproducible before the pandemic [@Iqbal2016reproducible; @Stodden2018empirical], a situation that does not appear to have changed substantially since [@Sumner2020reproducibility; @Gustot2020quality].
+
+The push for open data and software, along with more strenuous efforts towards open, reproducible research, is simply a continuation of long-standing scientific practices of independent verification. Despite the (at times disproportionate) attention that high profile scandals in science tend to elicit in the media, science as a collective endeavor is remarkable for being a self-correcting enterprise, one with built-in mechanisms and incentives to weed out erroneous ideas. Over the long term, facts tend to prevail in science. At stake is the shorter-term impacts that research may have in other spheres of economic and social life. The case of economists Reinhart and Rogoff comes to mind: by the time the inaccuracies in their research were uncovered [see @Herndon2014high], their claims about debt and economic growth had already been seized by policy-makers on both sides of the Atlantic to justify austerity policies in the aftermath of the Great Recession of 2007-2009^[Nobel Prize in Economics Paul Krugman noted that "Reinhart–Rogoff may have had more immediate influence on public debate than any previous paper in the history of economics" \url{https://www.nybooks.com/articles/2013/06/06/how-case-austerity-has-crumbled/?pagination=false}]. As later research has demonstrated, those policies cast a long shadow, and their sequels continued to be felt for years [@Basu2017ten]. 
+
+In the context of COVID-19, a topic that has grabbed the imagination of numerous thinkers has been the prospect of life in cities after the pandemic [@Florida2020how]. The fact that the worst of the pandemic was initially felt in dense population centers such as Wuhan, Milan, Madrid, and New York, prompted a flurry of research into the associations between density and the spread of the pandemic. Some important questions hang on the results of these research efforts. For example, are lower density regions safer from the pandemic? Are de-densification policies warranted, at least in the short term? And in the longer term, will the risks of life in high density regions presage a flight from cities? Over the past year, numerous papers have sought to throw light into the underlying issue of density and the pandemic; nonetheless the results, as will be detailed next, remain mixed. Further, to complicate matters, precious few of these studies appear to be sufficiently open to support independent verification.
+
+The objective of this paper is to illustrate the importance of reproducibility in research, particularly in the context of the flood of COVID-19 papers. To this end, a recent study by Sy et al. [@Sy2021population] is chosen as an example of reproducible research. The objective is not to malign the analysis of these researchers, but rather to demonstrate the value of openness to allow for independent verification and further analysis. Open data and open code mean that an independent researcher can, with only modest efforts, not only verify the findings reported, but also examine the same data from a perspective which may not have been available to the original researchers due to differences in disciplinary perspectives, methodological traditions, and/or training, among other possible factors. The example, which shows consequential changes in the conclusions reached by different analyses, should serve as a call to researchers to redouble their efforts to increase transparency and reproducibility in research. This paper, in addition, aims to show how data can be packaged in well-documented, shareable units, and code can be embedded into self-contained documents suitable for review and independent verification. The source for this paper is an [R Markdown](http://rmarkdown.rstudio.com) document which, along with the data package, is available in a public repository^[\url{https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed}].
+
+## References

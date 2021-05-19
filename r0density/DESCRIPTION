@@ -1,11 +1,11 @@
 Package: r0density
 Type: Package
-Title: Data package for "Population Density and Basic Reproductive Number of COVID-19 Revisited"
+Title: Data package for "The importance of reproducibility in COVID-19 research: the case of population density and the basic reproductive number of COVID-19"
 Version: 0.1.0
 Author: Antonio Paez
 Maintainer: Antonio Paez <paezha@mcmaster.ca>
 Description: 
-    r0density is a companion package for the paper "Population Density and Basic Reproductive Number of COVID-19 Revisited". The package includes the data used in the analysis.
+    r0density is a companion package for the paper "The importance of reproducibility in COVID-19 research: the case of population density and the basic reproductive number of COVID-19". The package includes the data used in the analysis.
     Contains open data from the United States Census Bureau.
     Contains data prepared by Sy et al. (https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0249271).
 License: CC-BY-SA
