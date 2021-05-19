@@ -421,51 +421,55 @@ capture in the mechanistic framework of differential equations {[}or can
 be missing in agent-based models, 27{]}; these adaptations, in fact, can
 be a key aspect of disease transmission.
 
-A plausible behavioral adaptiation during a pandemic, especially one
+A plausible behavioral adaptation during a pandemic, especially one
 broadcast as widely and intensely as COVID-19, is risk compensation.
 Risk compensation is a process whereby people adjust their behavior in
-response to their \emph{perception} of risk {[}28--30{]}. For example,
-it is possible that people who listened to the message of leaders saying
-that they were safe because of low density may not have taken adequate
-precautions. People in dense places who could more directly observe the
-impact of the pandemic may have become overly cautious. Both Paez et al.
-{[}31{]} and Hamidi et al. {[}32{]} posit this mechanism (i.e., greater
-compliance with social distancing in denser regions) to explain the
-results of their analyses. The evidence available does indeed show that
-there were important changes in behavior during the pandemic, at least
-with respect to mobility {[}33--35{]}; furthermore, shelter in place
-orders may have had greater buy-in from the public in higher density
-regions {[}36{]}, and the behavior may have persisted beyond the
-duration of official social-distancing policies {[}37{]}. In addition,
-there is evidence that changes in mobility correlated with the
-trajectory of the pandemic {[}38,39{]}. Given the potential for
-behavioral adaptation, the question of density becomes more nuanced: it
-is not just a matter of proximity, but also of human behavior, which is
-better studied using population-level data and models.
+response to their \emph{perception} of risk {[}28--30{]}. In the case of
+COVID-19, Chauhan et al. {[}31{]} have found that perception of risks in
+the US varies between rural, suburban, and urban residents, with rural
+residents in general displaying less concerns about the virus. It is
+possible that people who listened to the message of leaders saying that
+they were safe because of low density may not have taken adequate
+precautions against the virus. People in dense places who could more
+directly observe the impact of the pandemic may have become overly
+cautious. Both Paez et al. {[}32{]} and Hamidi et al. {[}33{]} posit
+this mechanism (i.e., greater compliance with social distancing in
+denser regions) to explain the results of their analyses. The evidence
+available does indeed show that there were important changes in behavior
+during the pandemic, at least with respect to mobility {[}34--36{]};
+furthermore, shelter in place orders may have had greater buy-in from
+the public in higher density regions {[}37{]}, and the behavior may have
+persisted beyond the duration of official social-distancing policies
+{[}38{]}. In addition, there is evidence that changes in mobility
+correlated with the trajectory of the pandemic {[}39,40{]}. Given the
+potential for behavioral adaptation, the question of density becomes
+more nuanced: it is not just a matter of proximity, but also of human
+behavior, which is better studied using population-level data and
+models.
 
 In this respect, the literature to date remains inconclusive.
 
 On the one hand, there are studies that report positive associations
 between population density and various COVID-19-related outcomes. Bhadra
-{[}40{]}, for example, reported a moderate positive correlation between
+{[}41{]}, for example, reported a moderate positive correlation between
 the spread of COVID-19 and population density at the district level in
 India, however their analysis was bivariate and did not control for
-other variables, such as income. Similarly, Kadi and Khelfaoui {[}41{]}
+other variables, such as income. Similarly, Kadi and Khelfaoui {[}42{]}
 found a positive and significant correlation between number of cases and
 population density in cities in Algeria in a series of simple regression
 models (i.e., without other controls). A question in these relatively
 simple analyses is whether density is not a proxy for other factors.
-Other studies have included controls, such as Pequeno et al. {[}42{]}, a
+Other studies have included controls, such as Pequeno et al. {[}43{]}, a
 team that reported a positive association between density and cumulative
 counts of confirmed COVID-19 cases in state capitals in Brazil after
 controlling for covariates, including income, transport connectivity,
-and economic status. In a similar vein, Fielding-Miller et al. {[}43{]}
+and economic status. In a similar vein, Fielding-Miller et al. {[}44{]}
 reported a positive relationship between the absolute number of COVID-19
 deaths and population density (rate) in rural counties in the US. Roy
-and Ghosh {[}44{]} used a battery of machine learning techniques to find
+and Ghosh {[}45{]} used a battery of machine learning techniques to find
 discriminatory factors, and a positive and significant association
 between COVID-19 infection and death rates in US states. Wong and Li
-{[}45{]} also found a positive and significant association between
+{[}46{]} also found a positive and significant association between
 population density and number of confirmed COVID-19 cases in US
 counties, using both univariate and multivariate regressions with
 spatial effects. Most recently, Sy et al. {[}19{]} reported that the
@@ -474,24 +478,24 @@ with population density, but at a decreasing rate at higher densities.
 
 On the gripping hand, a number of studies report non-significant or
 negative associations between population density and COVID-19 outcomes.
-This includes the research of Sun et al. {[}46{]} who did not find
+This includes the research of Sun et al. {[}47{]} who did not find
 evidence of significant correlation between population density and
 confirmed number of cases per day \emph{in conditions of lockdown} in
-China. This finding echoes the results of Paez et al. {[}31{]}, who in
+China. This finding echoes the results of Paez et al. {[}32{]}, who in
 their study of provinces in Spain reported non-significant associations
 between population density and infection rates in the early days of the
 first wave of COVID-19, and negative significant associations in the
-later part of the first lockdown. Similarly, {[}47{]} found zero or
+later part of the first lockdown. Similarly, {[}48{]} found zero or
 negative associations between population density and infection
-numbers/deaths by country. Fielding-Miller et al. {[}43{]} found a
+numbers/deaths by country. Fielding-Miller et al. {[}44{]} found a
 negative relationship between COVID-19 deaths and population density
 urban counties in the US. In their investigation of doubling time, White
-and Hébert-Dufresne {[}48{]} identified a negative and significant
+and Hébert-Dufresne {[}49{]} identified a negative and significant
 correlation between population density and doubling time in US states.
-Likewise, {[}49{]} fond a small negative (and significant) association
+Likewise, {[}50{]} fond a small negative (and significant) association
 between population density and COVID-19 morbidity in districts in
 Tehran. And two of the most complete studies in the US by Hamidi et al.
-{[}32,50{]} used an extensive set of controls to find negative and
+{[}33,51{]} used an extensive set of controls to find negative and
 significant correlations between density at the level of counties in the
 US and COVID-19 cases and fatalities.
 
@@ -522,11 +526,11 @@ Alas, reproducibility is not necessarily the norm.
 
 There are various reasons why a project can fail to be reproducible. In
 some cases, there might be legitimate reasons to withhold the data,
-perhaps due to confidentiality and privacy reasons {[}e.g., 51{]}. But
+perhaps due to confidentiality and privacy reasons {[}e.g., 52{]}. But
 in many other cases the data are publicly available, as has been
 commonly the case with population-level COVID-19 information. Often the
 provenance of the data is documented, but the data themselves are not
-shared {[}25,32,40,43,50,e.g., 52,53--55{]}. As any researcher can
+shared {[}25,33,41,44,51,e.g., 53,54--56{]}. As any researcher can
 attest, whether a graduate student or a seasoned scientist, collecting,
 organizing, and preparing data for a project can take a substantial
 amount of time. Pointing to the sources of data, even when these sources
@@ -534,19 +538,19 @@ are public, is a small step towards reproducibility-but only a very
 small one. Faced with the prospect of having to recreate a data set from
 raw sources is probably sufficient to dissuade all but the most
 dedicated (or stubborn) researcher. This is true even if part of the
-data are shared {[}e.g., 45{]}. In other cases, data are shared, but the
+data are shared {[}e.g., 46{]}. In other cases, data are shared, but the
 processes to document the preparation of the data are not fully
-documented {[}47,e.g., 56{]}. These processes matter, as shown by the
+documented {[}48,e.g., 57{]}. These processes matter, as shown by the
 errors in the spreadsheets of Reinhart and Rogoff {[}16{]}, and the data
 of biologist Jonathan Pruitt that led to an ``avalanche'' of paper
 retractions\footnote{\url{https://doi.org/10.1038/d41586-020-00287-y}}.
 Another situation is when papers share well-documented data, but fail to
-provide the code used in the analysis {[}42,e.g., 57,58{]}. Making code
-available only ``on demand'' {[}e.g., 59{]} is an unnecessary barrier
+provide the code used in the analysis {[}43,e.g., 58,59{]}. Making code
+available only ``on demand'' {[}e.g., 60{]} is an unnecessary barrier
 when most journals offer the facility to share supplemental materials
 online. Then there are those papers that strive towards reproducibility,
 sharing well-documented processes and data, as well as the code used in
-any analyses reported {[}e.g., 31,36,48,60{]}.
+any analyses reported {[}e.g., 32,37,49,61{]}.
 
 \hypertarget{replicating-swn}{%
 \subsection{Replicating SWN}\label{replicating-swn}}
@@ -1355,49 +1359,57 @@ doi:\href{https://doi.org/10.1016/s0140-6736(99)09109-6}{10.1016/s0140-6736(99)0
 bicycle helmets. Risk Analysis. 2011;31: 1187--1195.
 doi:\href{https://doi.org/10.1111/j.1539-6924.2011.01589.x}{10.1111/j.1539-6924.2011.01589.x}}
 
-\leavevmode\hypertarget{ref-Paez2020spatio}{}%
+\leavevmode\hypertarget{ref-Chauhan2021covid}{}%
 \CSLLeftMargin{31. }
+\CSLRightInline{Chauhan RS, Capasso da Silva D, Salon D, Shamshiripour
+A, Rahimi E, Sutradhar U, et al. COVID-19 related attitudes and risk
+perceptions across urban, rural, and suburban areas in the united
+states. Findings. Network Design Lab; 2021;
+doi:\href{https://doi.org/10.32866/001c.23714}{10.32866/001c.23714}}
+
+\leavevmode\hypertarget{ref-Paez2020spatio}{}%
+\CSLLeftMargin{32. }
 \CSLRightInline{Paez A, Lopez FA, Menezes T, Cavalcanti R, Pitta MG da
 R. A spatio-temporal analysis of the environmental correlates of
 COVID-19 incidence in spain. Geographical Analysis. 2020;n/a.
 doi:\href{https://doi.org/10.1111/gean.12241}{10.1111/gean.12241}}
 
 \leavevmode\hypertarget{ref-Hamidi2020density}{}%
-\CSLLeftMargin{32. }
+\CSLLeftMargin{33. }
 \CSLRightInline{Hamidi S, Sabouri S, Ewing R. Does density aggravate the
 COVID-19 pandemic? Journal of the American Planning Association.
 2020;86: 495--509.
 doi:\href{https://doi.org/10.1080/01944363.2020.1777891}{10.1080/01944363.2020.1777891}}
 
 \leavevmode\hypertarget{ref-Jamal2020Changes}{}%
-\CSLLeftMargin{33. }
+\CSLLeftMargin{34. }
 \CSLRightInline{Jamal S, Paez A. Changes in trip-making frequency by
 mode during COVID-19. Findings. Network Design Lab; 2020;
 doi:\href{https://doi.org/10.32866/001c.17977}{10.32866/001c.17977}}
 
 \leavevmode\hypertarget{ref-Harris2021Changes}{}%
-\CSLLeftMargin{34. }
+\CSLLeftMargin{35. }
 \CSLRightInline{Harris MA, Branion-Calles M. Changes in commute mode
 attributed to COVID-19 risk in canadian national survey data. Findings.
 Network Design Lab; 2021;
 doi:\href{https://doi.org/10.32866/001c.19088}{10.32866/001c.19088}}
 
 \leavevmode\hypertarget{ref-Molloy2020Tracing}{}%
-\CSLLeftMargin{35. }
+\CSLLeftMargin{36. }
 \CSLRightInline{Molloy J, Tchervenkov C, Hintermann B, Axhausen KW.
 Tracing the sars-CoV-2 impact: The first month in switzerland. Findings.
 Network Design Lab; 2020;
 doi:\href{https://doi.org/10.32866/001c.12903}{10.32866/001c.12903}}
 
 \leavevmode\hypertarget{ref-Feyman2020effectiveness}{}%
-\CSLLeftMargin{36. }
+\CSLLeftMargin{37. }
 \CSLRightInline{Feyman Y, Bor J, Raifman J, Griffith KN. Effectiveness
 of COVID-19 shelter-in-place orders varied by state. PLOS ONE. 2020;15:
 e0245008.
 doi:\href{https://doi.org/10.1371/journal.pone.0245008}{10.1371/journal.pone.0245008}}
 
 \leavevmode\hypertarget{ref-Praharaj2020Using}{}%
-\CSLLeftMargin{37. }
+\CSLLeftMargin{38. }
 \CSLRightInline{Praharaj S, King D, Pettit C, Wentz E. Using aggregated
 mobility data to measure the effect of COVID-19 policies on mobility
 changes in sydney, london, phoenix, and pune. Findings. Network Design
@@ -1405,60 +1417,60 @@ Lab; 2020;
 doi:\href{https://doi.org/10.32866/001c.17590}{10.32866/001c.17590}}
 
 \leavevmode\hypertarget{ref-Paez2020using}{}%
-\CSLLeftMargin{38. }
+\CSLLeftMargin{39. }
 \CSLRightInline{Paez A. Using google community mobility reports to
 investigate the incidence of COVID-19 in the united states. Findings.
 2020; doi:\url{https://doi.org/10.32866/001c.12976}}
 
 \leavevmode\hypertarget{ref-Noland2021mobility}{}%
-\CSLLeftMargin{39. }
+\CSLLeftMargin{40. }
 \CSLRightInline{Noland RB. Mobility and the effective reproduction rate
 of COVID-19. Journal of Transport \& Health. 2021;20: 101016.
 doi:\url{https://doi.org/10.1016/j.jth.2021.101016}}
 
 \leavevmode\hypertarget{ref-Bhadra2021impact}{}%
-\CSLLeftMargin{40. }
+\CSLLeftMargin{41. }
 \CSLRightInline{Bhadra A, Mukherjee A, Sarkar K. Impact of population
 density on covid-19 infected and mortality rate in india. Modeling Earth
 Systems and Environment. 2021;7: 623--629.
 doi:\href{https://doi.org/10.1007/s40808-020-00984-7}{10.1007/s40808-020-00984-7}}
 
 \leavevmode\hypertarget{ref-Kadi2020population}{}%
-\CSLLeftMargin{41. }
+\CSLLeftMargin{42. }
 \CSLRightInline{Kadi N, Khelfaoui M. Population density, a factor in the
 spread of COVID-19 in algeria: Statistic study. Bulletin of the National
 Research Centre. 2020;44.
 doi:\href{https://doi.org/10.1186/s42269-020-00393-x}{10.1186/s42269-020-00393-x}}
 
 \leavevmode\hypertarget{ref-Pequeno2020air}{}%
-\CSLLeftMargin{42. }
+\CSLLeftMargin{43. }
 \CSLRightInline{Pequeno P, Mendel B, Rosa C, Bosholn M, Souza JL,
 Baccaro F, et al. Air transportation, population density and temperature
 predict the spread of COVID-19 in brazil. PeerJ. 2020;8: e9322.
 doi:\href{https://doi.org/10.7717/peerj.9322}{10.7717/peerj.9322}}
 
 \leavevmode\hypertarget{ref-Fielding2020social}{}%
-\CSLLeftMargin{43. }
+\CSLLeftMargin{44. }
 \CSLRightInline{Fielding-Miller RK, Sundaram ME, Brouwer K. Social
 determinants of COVID-19 mortality at the county level. PLOS ONE.
 2020;15: e0240151.
 doi:\href{https://doi.org/10.1371/journal.pone.0240151}{10.1371/journal.pone.0240151}}
 
 \leavevmode\hypertarget{ref-Roy2020factors}{}%
-\CSLLeftMargin{44. }
+\CSLLeftMargin{45. }
 \CSLRightInline{Roy S, Ghosh P. Factors affecting COVID-19 infected and
 death rates inform lockdown-related policymaking. PLOS ONE. 2020;15:
 e0241165.
 doi:\href{https://doi.org/10.1371/journal.pone.0241165}{10.1371/journal.pone.0241165}}
 
 \leavevmode\hypertarget{ref-Wong2020spreading}{}%
-\CSLLeftMargin{45. }
+\CSLLeftMargin{46. }
 \CSLRightInline{Wong DWS, Li Y. Spreading of COVID-19: Density matters.
 PLOS ONE. 2020;15: e0242398.
 doi:\href{https://doi.org/10.1371/journal.pone.0242398}{10.1371/journal.pone.0242398}}
 
 \leavevmode\hypertarget{ref-Sun2020impacts}{}%
-\CSLLeftMargin{46. }
+\CSLLeftMargin{47. }
 \CSLRightInline{Sun Z, Zhang H, Yang Y, Wan H, Wang Y. Impacts of
 geographic factors and population density on the COVID-19 spreading
 under the lockdown policies of china. Science of The Total Environment.
@@ -1466,28 +1478,28 @@ under the lockdown policies of china. Science of The Total Environment.
 doi:\href{https://doi.org/10.1016/j.scitotenv.2020.141347}{10.1016/j.scitotenv.2020.141347}}
 
 \leavevmode\hypertarget{ref-Skorka2020macroecology}{}%
-\CSLLeftMargin{47. }
+\CSLLeftMargin{48. }
 \CSLRightInline{Skórka P, Grzywacz B, Moroń D, Lenda M. The macroecology
 of the COVID-19 pandemic in the anthropocene. PLOS ONE. 2020;15:
 e0236856.
 doi:\href{https://doi.org/10.1371/journal.pone.0236856}{10.1371/journal.pone.0236856}}
 
 \leavevmode\hypertarget{ref-White2020state}{}%
-\CSLLeftMargin{48. }
+\CSLLeftMargin{49. }
 \CSLRightInline{White ER, Hébert-Dufresne L. State-level variation of
 initial COVID-19 dynamics in the united states. PLOS ONE. 2020;15:
 e0240648.
 doi:\href{https://doi.org/10.1371/journal.pone.0240648}{10.1371/journal.pone.0240648}}
 
 \leavevmode\hypertarget{ref-Khavarian2021high}{}%
-\CSLLeftMargin{49. }
+\CSLLeftMargin{50. }
 \CSLRightInline{Khavarian-Garmsir AR, Sharifi A, Moradpour N. Are
 high-density districts more vulnerable to the COVID-19 pandemic?
 Sustainable Cities and Society. 2021;70: 102911.
 doi:\href{https://doi.org/10.1016/j.scs.2021.102911}{10.1016/j.scs.2021.102911}}
 
 \leavevmode\hypertarget{ref-Hamidi2020longitudinal}{}%
-\CSLLeftMargin{50. }
+\CSLLeftMargin{51. }
 \CSLRightInline{Hamidi S, Ewing R, Sabouri S. Longitudinal analyses of
 the relationship between development density and the COVID-19 morbidity
 and mortality rates: Early evidence from 1,165 metropolitan counties in
@@ -1495,14 +1507,14 @@ the united states. Health \& Place. 2020;64: 102378.
 doi:\href{https://doi.org/10.1016/j.healthplace.2020.102378}{10.1016/j.healthplace.2020.102378}}
 
 \leavevmode\hypertarget{ref-Lee2020human}{}%
-\CSLLeftMargin{51. }
+\CSLLeftMargin{52. }
 \CSLRightInline{Lee M, Zhao J, Sun Q, Pan Y, Zhou W, Xiong C, et al.
 Human mobility trends during the early stage of the COVID-19 pandemic in
 the united states. PLOS ONE. 2020;15: e0241468.
 doi:\href{https://doi.org/10.1371/journal.pone.0241468}{10.1371/journal.pone.0241468}}
 
 \leavevmode\hypertarget{ref-Amadu2021assessing}{}%
-\CSLLeftMargin{52. }
+\CSLLeftMargin{53. }
 \CSLRightInline{Amadu I, Ahinkorah BO, Afitiri A-R, Seidu A-A, Ameyaw
 EK, Hagan JE, et al. Assessing sub-regional-specific strengths of
 healthcare systems associated with COVID-19 prevalence, deaths and
@@ -1510,48 +1522,48 @@ recoveries in africa. PLOS ONE. 2021;16: e0247274.
 doi:\href{https://doi.org/10.1371/journal.pone.0247274}{10.1371/journal.pone.0247274}}
 
 \leavevmode\hypertarget{ref-Feng2020spread}{}%
-\CSLLeftMargin{53. }
+\CSLLeftMargin{54. }
 \CSLRightInline{Feng Y, Li Q, Tong X, Wang R, Zhai S, Gao C, et al.
 Spatiotemporal spread pattern of the COVID-19 cases in china. PLOS ONE.
 2020;15: e0244351.
 doi:\href{https://doi.org/10.1371/journal.pone.0244351}{10.1371/journal.pone.0244351}}
 
 \leavevmode\hypertarget{ref-Inbaraj2021seroprevalence}{}%
-\CSLLeftMargin{54. }
+\CSLLeftMargin{55. }
 \CSLRightInline{Inbaraj LR, George CE, Chandrasingh S. Seroprevalence of
 COVID-19 infection in a rural district of south india: A
 population-based seroepidemiological study. PLOS ONE. 2021;16: e0249247.
 doi:\href{https://doi.org/10.1371/journal.pone.0249247}{10.1371/journal.pone.0249247}}
 
 \leavevmode\hypertarget{ref-Souris2020covid}{}%
-\CSLLeftMargin{55. }
+\CSLLeftMargin{56. }
 \CSLRightInline{Souris M, Gonzalez J-P. COVID-19: Spatial analysis of
 hospital case-fatality rate in france. PLOS ONE. 2020;15: e0243606.
 doi:\href{https://doi.org/10.1371/journal.pone.0243606}{10.1371/journal.pone.0243606}}
 
 \leavevmode\hypertarget{ref-Ahmad2020association}{}%
-\CSLLeftMargin{56. }
+\CSLLeftMargin{57. }
 \CSLRightInline{Ahmad K, Erqou S, Shah N, Nazir U, Morrison AR,
 Choudhary G, et al. Association of poor housing conditions with COVID-19
 incidence and mortality across US counties. PLOS ONE. 2020;15: e0241327.
 doi:\href{https://doi.org/10.1371/journal.pone.0241327}{10.1371/journal.pone.0241327}}
 
 \leavevmode\hypertarget{ref-Noury2021how}{}%
-\CSLLeftMargin{57. }
+\CSLLeftMargin{58. }
 \CSLRightInline{Noury A, François A, Gergaud O, Garel A. How does
 COVID-19 affect electoral participation? Evidence from the french
 municipal elections. PLOS ONE. 2021;16: e0247026.
 doi:\href{https://doi.org/10.1371/journal.pone.0247026}{10.1371/journal.pone.0247026}}
 
 \leavevmode\hypertarget{ref-Wang2021transmission}{}%
-\CSLLeftMargin{58. }
+\CSLLeftMargin{59. }
 \CSLRightInline{Wang F, Tan Z, Yu Z, Yao S, Guo C. Transmission and
 control pressure analysis of the COVID-19 epidemic situation using
 multisource spatio-temporal big data. PLOS ONE. 2021;16: e0249145.
 doi:\href{https://doi.org/10.1371/journal.pone.0249145}{10.1371/journal.pone.0249145}}
 
 \leavevmode\hypertarget{ref-Brandtner2021creatures}{}%
-\CSLLeftMargin{59. }
+\CSLLeftMargin{60. }
 \CSLRightInline{Brandtner C, Bettencourt LMA, Berman MG, Stier AJ.
 Creatures of the state? Metropolitan counties compensated for state
 inaction in initial u.s. Response to COVID-19 pandemic. PLOS ONE.
@@ -1559,7 +1571,7 @@ inaction in initial u.s. Response to COVID-19 pandemic. PLOS ONE.
 doi:\href{https://doi.org/10.1371/journal.pone.0246249}{10.1371/journal.pone.0246249}}
 
 \leavevmode\hypertarget{ref-Stephens2021impact}{}%
-\CSLLeftMargin{60. }
+\CSLLeftMargin{61. }
 \CSLRightInline{Stephens KE, Chernyavskiy P, Bruns DR. Impact of
 altitude on COVID-19 infection and death in the united states: A
 modeling and observational study. PLOS ONE. 2021;16: e0245055.
