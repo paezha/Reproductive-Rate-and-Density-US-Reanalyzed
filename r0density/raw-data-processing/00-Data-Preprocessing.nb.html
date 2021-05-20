@@ -733,6 +733,158 @@ Using Census Summary File 1</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Retrieve the state boundaries for plotting:</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RhdGVfZ2VvIDwtIGdldF9kZWNlbm5pYWwoZ2VvZ3JhcGh5ID0gXCJzdGF0ZVwiLCBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICB2YXJpYWJsZXMgPSBcIlAwMDEwMDFcIiwgIyBUb3RhbCBwb3B1bGF0aW9uXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgeWVhciA9IDIwMTAsIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdlb21ldHJ5ID0gVFJVRSwgXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAga2VlcF9nZW9fdmFycyA9IFRSVUUpICU+JVxuICByZW5hbWUocG9wdWxhdGlvbiA9IHZhbHVlKSAlPiVcbiAgc2VsZWN0KC12YXJpYWJsZSlcbmBgYCJ9 -->
+<pre class="r"><code>state_geo &lt;- get_decennial(geography = &quot;state&quot;, 
+                            variables = &quot;P001001&quot;, # Total population
+                            year = 2010, 
+                            geometry = TRUE, 
+                            keep_geo_vars = TRUE) %&gt;%
+  rename(population = value) %&gt;%
+  select(-variable)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiR2V0dGluZyBkYXRhIGZyb20gdGhlIDIwMTAgZGVjZW5uaWFsIENlbnN1c1xuRG93bmxvYWRpbmcgZmVhdHVyZSBnZW9tZXRyeSBmcm9tIHRoZSBDZW5zdXMgd2Vic2l0ZS4gIFRvIGNhY2hlIHNoYXBlZmlsZXMgZm9yIHVzZSBpbiBmdXR1cmUgc2Vzc2lvbnMsIHNldCBgb3B0aW9ucyh0aWdyaXNfdXNlX2NhY2hlID0gVFJVRSlgLlxuVXNpbmcgQ2Vuc3VzIFN1bW1hcnkgRmlsZSAxXG4ifQ== -->
+<pre><code>Getting data from the 2010 decennial Census
+Downloading feature geometry from the Census website.  To cache shapefiles for use in future sessions, set `options(tigris_use_cache = TRUE)`.
+Using Census Summary File 1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiXG5Eb3dubG9hZGluZzogMTYga0IgICAgIFxuRG93bmxvYWRpbmc6IDE2IGtCICAgICBcbkRvd25sb2FkaW5nOiAyNSBrQiAgICAgXG5Eb3dubG9hZGluZzogMjUga0IgICAgIFxuRG93bmxvYWRpbmc6IDI1IGtCICAgICBcbkRvd25sb2FkaW5nOiAyNSBrQiAgICAgXG5Eb3dubG9hZGluZzogMzgga0IgICAgIFxuRG93bmxvYWRpbmc6IDM4IGtCICAgICBcbkRvd25sb2FkaW5nOiAzOCBrQiAgICAgXG5Eb3dubG9hZGluZzogMzgga0IgICAgIFxuRG93bmxvYWRpbmc6IDY1IGtCICAgICBcbkRvd25sb2FkaW5nOiA2NSBrQiAgICAgXG5Eb3dubG9hZGluZzogNjUga0IgICAgIFxuRG93bmxvYWRpbmc6IDY1IGtCICAgICBcbkRvd25sb2FkaW5nOiA4MSBrQiAgICAgXG5Eb3dubG9hZGluZzogODEga0IgICAgIFxuRG93bmxvYWRpbmc6IDk3IGtCICAgICBcbkRvd25sb2FkaW5nOiA5NyBrQiAgICAgXG5Eb3dubG9hZGluZzogOTcga0IgICAgIFxuRG93bmxvYWRpbmc6IDk3IGtCICAgICBcbkRvd25sb2FkaW5nOiAxMTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDExMCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTMwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxMzAga0IgICAgIFxuRG93bmxvYWRpbmc6IDEzMCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTMwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxNTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDE1MCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTYwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxNjAga0IgICAgIFxuRG93bmxvYWRpbmc6IDE2MCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTYwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxNjAga0IgICAgIFxuRG93bmxvYWRpbmc6IDE2MCBrQiAgICAgXG5Eb3dubG9hZGluZzogMTkwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxOTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDIwMCBrQiAgICAgXG5Eb3dubG9hZGluZzogMjAwIGtCICAgICBcbkRvd25sb2FkaW5nOiAyNDAga0IgICAgIFxuRG93bmxvYWRpbmc6IDI0MCBrQiAgICAgXG5Eb3dubG9hZGluZzogMjcwIGtCICAgICBcbkRvd25sb2FkaW5nOiAyNzAga0IgICAgIFxuRG93bmxvYWRpbmc6IDI4MCBrQiAgICAgXG5Eb3dubG9hZGluZzogMjgwIGtCICAgICBcbkRvd25sb2FkaW5nOiAyODAga0IgICAgIFxuRG93bmxvYWRpbmc6IDI4MCBrQiAgICAgXG5Eb3dubG9hZGluZzogMzEwIGtCICAgICBcbkRvd25sb2FkaW5nOiAzMTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDMzMCBrQiAgICAgXG5Eb3dubG9hZGluZzogMzMwIGtCICAgICBcbkRvd25sb2FkaW5nOiAzMzAga0IgICAgIFxuRG93bmxvYWRpbmc6IDMzMCBrQiAgICAgXG5Eb3dubG9hZGluZzogMzUwIGtCICAgICBcbkRvd25sb2FkaW5nOiAzNTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDM1MCBrQiAgICAgXG5Eb3dubG9hZGluZzogMzUwIGtCICAgICBcbkRvd25sb2FkaW5nOiAzODAga0IgICAgIFxuRG93bmxvYWRpbmc6IDM4MCBrQiAgICAgXG5Eb3dubG9hZGluZzogNDEwIGtCICAgICBcbkRvd25sb2FkaW5nOiA0MTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDQxMCBrQiAgICAgXG5Eb3dubG9hZGluZzogNDEwIGtCICAgICBcbkRvd25sb2FkaW5nOiA0MTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDQxMCBrQiAgICAgXG5Eb3dubG9hZGluZzogNDUwIGtCICAgICBcbkRvd25sb2FkaW5nOiA0NTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDQ1MCBrQiAgICAgXG5Eb3dubG9hZGluZzogNDUwIGtCICAgICBcbkRvd25sb2FkaW5nOiA1MDAga0IgICAgIFxuRG93bmxvYWRpbmc6IDUwMCBrQiAgICAgXG5Eb3dubG9hZGluZzogNTEwIGtCICAgICBcbkRvd25sb2FkaW5nOiA1MTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDU3MCBrQiAgICAgXG5Eb3dubG9hZGluZzogNTcwIGtCICAgICBcbkRvd25sb2FkaW5nOiA2MDAga0IgICAgIFxuRG93bmxvYWRpbmc6IDYwMCBrQiAgICAgXG5Eb3dubG9hZGluZzogNjAwIGtCICAgICBcbkRvd25sb2FkaW5nOiA2MDAga0IgICAgIFxuRG93bmxvYWRpbmc6IDYyMCBrQiAgICAgXG5Eb3dubG9hZGluZzogNjIwIGtCICAgICBcbkRvd25sb2FkaW5nOiA2NTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDY1MCBrQiAgICAgXG5Eb3dubG9hZGluZzogNjUwIGtCICAgICBcbkRvd25sb2FkaW5nOiA2NTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDY1MCBrQiAgICAgXG5Eb3dubG9hZGluZzogNjUwIGtCICAgICBcbkRvd25sb2FkaW5nOiA2NzAga0IgICAgIFxuRG93bmxvYWRpbmc6IDY3MCBrQiAgICAgXG5Eb3dubG9hZGluZzogNzEwIGtCICAgICBcbkRvd25sb2FkaW5nOiA3MTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDcxMCBrQiAgICAgXG5Eb3dubG9hZGluZzogNzEwIGtCICAgICBcbkRvd25sb2FkaW5nOiA3MzAga0IgICAgIFxuRG93bmxvYWRpbmc6IDczMCBrQiAgICAgXG5Eb3dubG9hZGluZzogNzYwIGtCICAgICBcbkRvd25sb2FkaW5nOiA3NjAga0IgICAgIFxuRG93bmxvYWRpbmc6IDc4MCBrQiAgICAgXG5Eb3dubG9hZGluZzogNzgwIGtCICAgICBcbkRvd25sb2FkaW5nOiA3ODAga0IgICAgIFxuRG93bmxvYWRpbmc6IDc4MCBrQiAgICAgXG5Eb3dubG9hZGluZzogODAwIGtCICAgICBcbkRvd25sb2FkaW5nOiA4MDAga0IgICAgIFxuRG93bmxvYWRpbmc6IDgzMCBrQiAgICAgXG5Eb3dubG9hZGluZzogODMwIGtCICAgICBcbkRvd25sb2FkaW5nOiA4MzAga0IgICAgIFxuRG93bmxvYWRpbmc6IDgzMCBrQiAgICAgXG5Eb3dubG9hZGluZzogODUwIGtCICAgICBcbkRvd25sb2FkaW5nOiA4NTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDg3MCBrQiAgICAgXG5Eb3dubG9hZGluZzogODcwIGtCICAgICBcbkRvd25sb2FkaW5nOiA4OTAga0IgICAgIFxuRG93bmxvYWRpbmc6IDg5MCBrQiAgICAgXG5Eb3dubG9hZGluZzogOTAwIGtCICAgICBcbkRvd25sb2FkaW5nOiA5MDAga0IgICAgIFxuRG93bmxvYWRpbmc6IDkwMCBrQiAgICAgXG5Eb3dubG9hZGluZzogOTAwIGtCICAgICBcbkRvd25sb2FkaW5nOiA5NjAga0IgICAgIFxuRG93bmxvYWRpbmc6IDk2MCBrQiAgICAgXG5Eb3dubG9hZGluZzogOTgwIGtCICAgICBcbkRvd25sb2FkaW5nOiA5ODAga0IgICAgIFxuRG93bmxvYWRpbmc6IDk4MCBrQiAgICAgXG5Eb3dubG9hZGluZzogOTgwIGtCICAgICBcbkRvd25sb2FkaW5nOiAxIE1CICAgICBcbkRvd25sb2FkaW5nOiAxIE1CICAgICBcbkRvd25sb2FkaW5nOiAxIE1CICAgICBcbkRvd25sb2FkaW5nOiAxIE1CICAgICBcbkRvd25sb2FkaW5nOiAxLjEgTUIgICAgIFxuRG93bmxvYWRpbmc6IDEuMSBNQiAgICAgXG5Eb3dubG9hZGluZzogMS4xIE1CICAgICBcbkRvd25sb2FkaW5nOiAxLjEgTUIgICAgIFxuIn0= -->
+<pre><code>
+Downloading: 16 kB     
+Downloading: 16 kB     
+Downloading: 25 kB     
+Downloading: 25 kB     
+Downloading: 25 kB     
+Downloading: 25 kB     
+Downloading: 38 kB     
+Downloading: 38 kB     
+Downloading: 38 kB     
+Downloading: 38 kB     
+Downloading: 65 kB     
+Downloading: 65 kB     
+Downloading: 65 kB     
+Downloading: 65 kB     
+Downloading: 81 kB     
+Downloading: 81 kB     
+Downloading: 97 kB     
+Downloading: 97 kB     
+Downloading: 97 kB     
+Downloading: 97 kB     
+Downloading: 110 kB     
+Downloading: 110 kB     
+Downloading: 130 kB     
+Downloading: 130 kB     
+Downloading: 130 kB     
+Downloading: 130 kB     
+Downloading: 150 kB     
+Downloading: 150 kB     
+Downloading: 160 kB     
+Downloading: 160 kB     
+Downloading: 160 kB     
+Downloading: 160 kB     
+Downloading: 160 kB     
+Downloading: 160 kB     
+Downloading: 190 kB     
+Downloading: 190 kB     
+Downloading: 200 kB     
+Downloading: 200 kB     
+Downloading: 240 kB     
+Downloading: 240 kB     
+Downloading: 270 kB     
+Downloading: 270 kB     
+Downloading: 280 kB     
+Downloading: 280 kB     
+Downloading: 280 kB     
+Downloading: 280 kB     
+Downloading: 310 kB     
+Downloading: 310 kB     
+Downloading: 330 kB     
+Downloading: 330 kB     
+Downloading: 330 kB     
+Downloading: 330 kB     
+Downloading: 350 kB     
+Downloading: 350 kB     
+Downloading: 350 kB     
+Downloading: 350 kB     
+Downloading: 380 kB     
+Downloading: 380 kB     
+Downloading: 410 kB     
+Downloading: 410 kB     
+Downloading: 410 kB     
+Downloading: 410 kB     
+Downloading: 410 kB     
+Downloading: 410 kB     
+Downloading: 450 kB     
+Downloading: 450 kB     
+Downloading: 450 kB     
+Downloading: 450 kB     
+Downloading: 500 kB     
+Downloading: 500 kB     
+Downloading: 510 kB     
+Downloading: 510 kB     
+Downloading: 570 kB     
+Downloading: 570 kB     
+Downloading: 600 kB     
+Downloading: 600 kB     
+Downloading: 600 kB     
+Downloading: 600 kB     
+Downloading: 620 kB     
+Downloading: 620 kB     
+Downloading: 650 kB     
+Downloading: 650 kB     
+Downloading: 650 kB     
+Downloading: 650 kB     
+Downloading: 650 kB     
+Downloading: 650 kB     
+Downloading: 670 kB     
+Downloading: 670 kB     
+Downloading: 710 kB     
+Downloading: 710 kB     
+Downloading: 710 kB     
+Downloading: 710 kB     
+Downloading: 730 kB     
+Downloading: 730 kB     
+Downloading: 760 kB     
+Downloading: 760 kB     
+Downloading: 780 kB     
+Downloading: 780 kB     
+Downloading: 780 kB     
+Downloading: 780 kB     
+Downloading: 800 kB     
+Downloading: 800 kB     
+Downloading: 830 kB     
+Downloading: 830 kB     
+Downloading: 830 kB     
+Downloading: 830 kB     
+Downloading: 850 kB     
+Downloading: 850 kB     
+Downloading: 870 kB     
+Downloading: 870 kB     
+Downloading: 890 kB     
+Downloading: 890 kB     
+Downloading: 900 kB     
+Downloading: 900 kB     
+Downloading: 900 kB     
+Downloading: 900 kB     
+Downloading: 960 kB     
+Downloading: 960 kB     
+Downloading: 980 kB     
+Downloading: 980 kB     
+Downloading: 980 kB     
+Downloading: 980 kB     
+Downloading: 1 MB     
+Downloading: 1 MB     
+Downloading: 1 MB     
+Downloading: 1 MB     
+Downloading: 1.1 MB     
+Downloading: 1.1 MB     
+Downloading: 1.1 MB     
+Downloading: 1.1 MB     </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p>Now join Sy’s data to the counties with geometry and other socio-economic variables (the equivalent variables are dropped from Sy et al.’s table, because they are missing all the counties without a basic reproductive number):</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -746,6 +898,15 @@ Using Census Summary File 1</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<p>Prepare state boundaries for saving</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3RhdGVfZ2VvIDwtIHN0YXRlX2dlbyAlPiVcbiAgc2VsZWN0KC1DRU5TVVNBUkVBLCAtc3RhcnRzX3dpdGgoXCJnZW9tZXRyeVwiKSwgZ2VvbWV0cnkpXG5gYGAifQ== -->
+<pre class="r"><code>state_geo &lt;- state_geo %&gt;%
+  select(-CENSUSAREA, -starts_with(&quot;geometry&quot;), geometry)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <p>Save data table:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -755,477 +916,9 @@ Using Census Summary File 1</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Copy data file to data folder!</p>
-<!--
+<!-- rnb-text-end -->
 
-
-Convert missing R's to zeros and calculate expansion variables:
-
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY291bnR5X2dlb19jbGVhbiA8LSBjb3VudHlfZ2VvICU+JVxuICBtdXRhdGUoUiA9IHJlcGxhY2VfbmEoUiwgMCksXG4gICAgICAgICBkZW5zaXR5XzIgPSBkZW5zaXR5XjIpICU+JVxuICBkcm9wX25hKGNvbW11dGVycykgJT4lXG4gIHN0X2FzX3NmKClcbmBgYCJ9 -->
-<pre class="r"><code>county_geo_clean &lt;- county_geo %&gt;%
-  mutate(R = replace_na(R, 0),
-         density_2 = density^2) %&gt;%
-  drop_na(commuters) %&gt;%
-  st_as_sf()</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Create list of neighbors:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY291bnR5X25iIDwtIHBvbHkybmIoY291bnR5X2dlb19jbGVhbilcbmBgYCJ9 -->
-<pre class="r"><code>county_nb &lt;- poly2nb(county_geo_clean)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Check list of neighbors:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3VtbWFyeShjb3VudHlfbmIpXG5gYGAifQ== -->
-<pre class="r"><code>summary(county_nb)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Notice that there are 9 counties that are isolates. Which counties are these?</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY291bnR5X2dlb19jbGVhbltjKDY5LCA1NDYsIDU0NywgNTQ5LCAxMjI2LCAxODc2LCAyOTc0LCAzMTQ2LCAzMjAwKSxdXG5gYGAifQ== -->
-<pre class="r"><code>county_geo_clean[c(69, 546, 547, 549, 1226, 1876, 2974, 3146, 3200),]</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Find nearest neighbors by distance:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY291bnR5X25iX2Rpc3QgPC0ga25lYXJuZWlnaChjb3VudHlfZ2VvX2NsZWFuICU+JSBcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdF9jZW50cm9pZCgpKSAlPiVcbiAga25uMm5iKClcbmBgYCJ9 -->
-<pre class="r"><code>county_nb_dist &lt;- knearneigh(county_geo_clean %&gt;% 
-                               st_centroid()) %&gt;%
-  knn2nb()</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Add nearest neighbor to isolates:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY291bnR5X25iW1s2OV1dIDwtIGNvdW50eV9uYl9kaXN0W1s2OV1dXG5jb3VudHlfbmJbWzU0Nl1dIDwtIGNvdW50eV9uYl9kaXN0W1s1NDZdXVxuY291bnR5X25iW1s1NDddXSA8LSBjb3VudHlfbmJfZGlzdFtbNTQ3XV1cbmNvdW50eV9uYltbNTQ5XV0gPC0gY291bnR5X25iX2Rpc3RbWzU0OV1dXG5jb3VudHlfbmJbWzEyMjZdXSA8LSBjb3VudHlfbmJfZGlzdFtbMTIyNl1dXG5jb3VudHlfbmJbWzE4NzZdXSA8LSBjb3VudHlfbmJfZGlzdFtbMTg3Nl1dXG5jb3VudHlfbmJbWzI5NzRdXSA8LSBjb3VudHlfbmJfZGlzdFtbMjk3NF1dXG5jb3VudHlfbmJbWzMxNDZdXSA8LSBjb3VudHlfbmJfZGlzdFtbMzE0Nl1dXG5jb3VudHlfbmJbWzMyMDBdXSA8LSBjb3VudHlfbmJfZGlzdFtbMzIwMF1dXG5gYGAifQ== -->
-<pre class="r"><code>county_nb[[69]] &lt;- county_nb_dist[[69]]
-county_nb[[546]] &lt;- county_nb_dist[[546]]
-county_nb[[547]] &lt;- county_nb_dist[[547]]
-county_nb[[549]] &lt;- county_nb_dist[[549]]
-county_nb[[1226]] &lt;- county_nb_dist[[1226]]
-county_nb[[1876]] &lt;- county_nb_dist[[1876]]
-county_nb[[2974]] &lt;- county_nb_dist[[2974]]
-county_nb[[3146]] &lt;- county_nb_dist[[3146]]
-county_nb[[3200]] &lt;- county_nb_dist[[3200]]</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Convert nearest neighbors to listw:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubmJfQiA8LSBuYjJsaXN0dyhjb3VudHlfbmIsIFxuICAgICAgICAgICAgICAgICBzdHlsZT1cIkJcIiwgXG4gICAgICAgICAgICAgICAgIHplcm8ucG9saWN5ID0gVFJVRSlcbm5iX0Ikc3R5bGVcbmBgYCJ9 -->
-<pre class="r"><code>nb_B &lt;- nb2listw(county_nb, 
-                 style=&quot;B&quot;, 
-                 zero.policy = TRUE)
-nb_B$style</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Convert listw to sparse matrix for use in spatial tobit:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQiA8LSBhcyhuYl9CLCBcIkNzcGFyc2VNYXRyaXhcIilcbmFsbChCID09IHQoQikpXG5gYGAifQ== -->
-<pre class="r"><code>B &lt;- as(nb_B, &quot;CsparseMatrix&quot;)
-all(B == t(B))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<div id="replicate-sy-et-al." class="section level2">
-<h2>Replicate Sy et al.</h2>
-<p>Fit (mixed) linear models as in Sy et al.:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUxbW9kZWwxIDwtIGxtZShSIH4gZGVuc2l0eV9sb2cgLCBcbiAgICAgICAgICAgICAgICAgICAgcmFuZG9tID0gfiAxfCBzdGF0ZSwgXG4gICAgICAgICAgICAgICAgICAgIGRhdGEgPSBjb3VudHlfZ2VvX2NsZWFuICU+JVxuICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcihSID4gMCkpXG5zdW1tYXJ5KHRhYmxlMW1vZGVsMSlcbmludGVydmFscyh0YWJsZTFtb2RlbDEpXG5gYGAifQ== -->
-<pre class="r"><code>table1model1 &lt;- lme(R ~ density_log , 
-                    random = ~ 1| state, 
-                    data = county_geo_clean %&gt;%
-                      filter(R &gt; 0))
-summary(table1model1)
-intervals(table1model1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUxbW9kZWwyIDwtIGxtZShSIH4gZGVuc2l0eV9sb2cgKyBwcml2YXRlICwgXG4gICAgICAgICAgICAgICAgICAgIHJhbmRvbSA9IH4gMXwgc3RhdGUsIFxuICAgICAgICAgICAgICAgICAgICBkYXRhID0gY291bnR5X2dlb19jbGVhbiAlPiVcbiAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXIoUiA+IDApKVxuc3VtbWFyeSh0YWJsZTFtb2RlbDIpXG5pbnRlcnZhbHModGFibGUxbW9kZWwyKVxuYGBgIn0= -->
-<pre class="r"><code>table1model2 &lt;- lme(R ~ density_log + private , 
-                    random = ~ 1| state, 
-                    data = county_geo_clean %&gt;%
-                      filter(R &gt; 0))
-summary(table1model2)
-intervals(table1model2)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation + median income</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUxbW9kZWwzIDwtIGxtZShSIH4gZGVuc2l0eV9sb2cgKyBwcml2YXRlICsgaGluY29tZSwgXG4gICAgICAgICAgICAgICAgICAgIHJhbmRvbSA9IH4gMXwgc3RhdGUsIFxuICAgICAgICAgICAgICAgICAgICBkYXRhID0gY291bnR5X2dlb19jbGVhbiAlPiVcbiAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXIoUiA+IDApKVxuc3VtbWFyeSh0YWJsZTFtb2RlbDMpXG5pbnRlcnZhbHModGFibGUxbW9kZWwzKVxuYGBgIn0= -->
-<pre class="r"><code>table1model3 &lt;- lme(R ~ density_log + private + hincome, 
-                    random = ~ 1| state, 
-                    data = county_geo_clean %&gt;%
-                      filter(R &gt; 0))
-summary(table1model3)
-intervals(table1model3)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation + median income + interaction of density and % private transportation</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUxbW9kZWw0IDwtIGxtZShSIH4gZGVuc2l0eV9sb2cqcHJpdmF0ZSArIGhpbmNvbWUsIFxuICAgICAgICAgICAgICAgICAgICByYW5kb20gPSB+IDF8IHN0YXRlLCBcbiAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGNvdW50eV9SMF9kZW1vZylcbnN1bW1hcnkodGFibGUxbW9kZWw0KVxuaW50ZXJ2YWxzKHRhYmxlMW1vZGVsNClcbmBgYCJ9 -->
-<pre class="r"><code>table1model4 &lt;- lme(R ~ density_log*private + hincome, 
-                    random = ~ 1| state, 
-                    data = county_R0_demog)
-summary(table1model4)
-intervals(table1model4)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="fit-tobit-version-of-models" class="section level2">
-<h2>Fit tobit version of models</h2>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUxbW9kZWwxIDwtIGNlbnNSZWcoUiB+IGRlbnNpdHlfbG9nLCBcbiAgICAgICAgICAgICAgICAgICAgICAgIGxlZnQgPSAwLFxuICAgICAgICAgICAgICAgICAgICBkYXRhID0gY291bnR5X2dlb19jbGVhbilcbnN1bW1hcnkodGFibGUxbW9kZWwxKVxuYGBgIn0= -->
-<pre class="r"><code>table1model1 &lt;- censReg(R ~ density_log, 
-                        left = 0,
-                    data = county_geo_clean)
-summary(table1model1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUxbW9kZWwyIDwtIGNlbnNSZWcoUiB+IGRlbnNpdHlfbG9nICsgcHJpdmF0ZSwgXG4gICAgICAgICAgICAgICAgICAgIGRhdGEgPSBjb3VudHlfZ2VvX2NsZWFuKVxuc3VtbWFyeSh0YWJsZTFtb2RlbDIpXG5gYGAifQ== -->
-<pre class="r"><code>table1model2 &lt;- censReg(R ~ density_log + private, 
-                    data = county_geo_clean)
-summary(table1model2)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation + median income</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUxbW9kZWwzIDwtIGNlbnNSZWcoUiB+IGRlbnNpdHlfbG9nICsgcHJpdmF0ZSArIGhpbmNvbWUsIFxuICAgICAgICAgICAgICAgICAgICBkYXRhID0gY291bnR5X2dlb19jbGVhbilcbnN1bW1hcnkodGFibGUxbW9kZWwzKVxuYGBgIn0= -->
-<pre class="r"><code>table1model3 &lt;- censReg(R ~ density_log + private + hincome, 
-                    data = county_geo_clean)
-summary(table1model3)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Tobit models of R0 and density + % private transportation + median income + interaction of density and % private transportation</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUxbW9kZWw0IDwtIGNlbnNSZWcoUiB+IGRlbnNpdHlfbG9nKnByaXZhdGUgKyBoaW5jb21lLCBcbiAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGNvdW50eV9nZW9fY2xlYW4pXG5zdW1tYXJ5KHRhYmxlMW1vZGVsNClcblxuYGBgIn0= -->
-<pre class="r"><code>table1model4 &lt;- censReg(R ~ density_log*private + hincome, 
-                    data = county_geo_clean)
-summary(table1model4)
-</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="spatially-autoregressive-tobit" class="section level2">
-<h2>Spatially autoregressive tobit</h2>
-<p>Fit spatially autoregressive tobit:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBGaXQgU0FSIFRvYml0XG5maXRfc2FydG9iaXQgPC0gc2FydG9iaXQoUiB+IGRlbnNpdHlfbG9nICsgcHJpdmF0ZSArIGhpbmNvbWVfbG9nLFxuICAgICAgICAgICAgICAgICAgICAgICAgIEIsXG4gICAgICAgICAgICAgICAgICAgICAgICAgbmRyYXcgPSAxMDAwLFxuICAgICAgICAgICAgICAgICAgICAgICAgIGJ1cm4uaW4gPSAyMDAsIFxuICAgICAgICAgICAgICAgICAgICAgICAgIHNob3dQcm9ncmVzcyA9IFRSVUUsXG4gICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGNvdW50eV9nZW9fY2xlYW4sXG4gICAgICAgICAgICAgICAgICAgICAgICAgY29tcHV0ZU1hcmdpbmFsRWZmZWN0cyA9IFRSVUUpXG5zdW1tYXJ5KGZpdF9zYXJ0b2JpdClcbmltcGFjdHMoZml0X3NhcnRvYml0KVxuYGBgIn0= -->
-<pre class="r"><code># Fit SAR Tobit
-fit_sartobit &lt;- sartobit(R ~ density_log + private + hincome_log,
-                         B,
-                         ndraw = 1000,
-                         burn.in = 200, 
-                         showProgress = TRUE,
-                         data = county_geo_clean,
-                         computeMarginalEffects = TRUE)
-summary(fit_sartobit)
-impacts(fit_sartobit)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>With interactions:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBGaXQgU0FSIFRvYml0XG5maXRfc2FydG9iaXQgPC0gc2FydG9iaXQoUiB+IGRlbnNpdHlfbG9nICsgZGVuc2l0eV9sb2c6cHJpdmF0ZSArIGhpbmNvbWVfbG9nLFxuICAgICAgICAgICAgICAgICAgICAgICAgIEIsXG4gICAgICAgICAgICAgICAgICAgICAgICAgbmRyYXcgPSAxMDAwLFxuICAgICAgICAgICAgICAgICAgICAgICAgIGJ1cm4uaW4gPSAyMDAsIFxuICAgICAgICAgICAgICAgICAgICAgICAgIHNob3dQcm9ncmVzcyA9IFRSVUUsXG4gICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGNvdW50eV9nZW9fY2xlYW4pXG5zdW1tYXJ5KGZpdF9zYXJ0b2JpdClcbmltcGFjdHMoZml0X3NhcnRvYml0KVxuYGBgIn0= -->
-<pre class="r"><code># Fit SAR Tobit
-fit_sartobit &lt;- sartobit(R ~ density_log + density_log:private + hincome_log,
-                         B,
-                         ndraw = 1000,
-                         burn.in = 200, 
-                         showProgress = TRUE,
-                         data = county_geo_clean)
-summary(fit_sartobit)
-impacts(fit_sartobit)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>FIGURE 2 - POPULATION DENSITY THRESHOLD</p>
-<p>Compare density of counties with oubreaks vs counties without outbreak</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY291bnR5X291dGJyZWFrX3luICU+JVxuICBncm91cF9ieShpbmNsdWRlZCkgJT4lXG4gIHN1bW1hcmlzZShtZWFuID0gbWVkaWFuKERlbnNpdHksIG5hLnJtPVRSVUUpLCBcbiAgICAgICAgICAgIGxvd2VyX0lRUiA9IHN1bW1hcnkoRGVuc2l0eSlbMl0sXG4gICAgICAgICAgICB1cHBlcl9JUVI9c3VtbWFyeShEZW5zaXR5KVs1XSwgXG4gICAgICAgICAgICBtaW49c3VtbWFyeShEZW5zaXR5KVsxXSwgXG4gICAgICAgICAgICBtYXg9c3VtbWFyeShEZW5zaXR5KVs2XSlcblxuc3VtbWFyeShjb3VudHlfb3V0YnJlYWtfeW4kRGVuc2l0eSlcbndpbGNveC50ZXN0KGNvdW50eV9vdXRicmVha195biREZW5zaXR5fmNvdW50eV9vdXRicmVha195biRpbmNsdWRlZClcbmBgYCJ9 -->
-<pre class="r"><code>county_outbreak_yn %&gt;%
-  group_by(included) %&gt;%
-  summarise(mean = median(Density, na.rm=TRUE), 
-            lower_IQR = summary(Density)[2],
-            upper_IQR=summary(Density)[5], 
-            min=summary(Density)[1], 
-            max=summary(Density)[6])
-
-summary(county_outbreak_yn$Density)
-wilcox.test(county_outbreak_yn$Density~county_outbreak_yn$included)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Boxplot of counties with oubreaks vs counties without outbreak</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY291bnR5X291dGJyZWFrX3luJGluY2x1ZGVkIDwtIGFzLmZhY3Rvcihjb3VudHlfb3V0YnJlYWtfeW4kaW5jbHVkZWQpXG5cbmdncGxvdChjb3VudHlfb3V0YnJlYWtfeW4sIGFlcyhpbmNsdWRlZCwgRGVuc2l0eSkpICsgXG4gIGdlb21fYm94cGxvdChmaWxsPVwiZ3JheTkyXCIsIHdpZHRoPTAuNSkgKyBcbiAgeWxpbSgwLDIwMCkgKyBcbiAgI3RoZW1lX21pbmltYWwoKSArIFxuICB5bGFiKFwiUG9wdWxhdGlvbiBEZW5zaXR5IChwb3B1bGF0aW9uL3NxIGttKVwiKSArIFxuICB4bGFiKFwiVW5pdGVkIFN0YXRlcyBDb3VudGllc1wiKSArIFxuICB0aGVtZV9taW5pbWFsKGJhc2Vfc2l6ZT0xMylcbmBgYCJ9 -->
-<pre class="r"><code>county_outbreak_yn$included &lt;- as.factor(county_outbreak_yn$included)
-
-ggplot(county_outbreak_yn, aes(included, Density)) + 
-  geom_boxplot(fill=&quot;gray92&quot;, width=0.5) + 
-  ylim(0,200) + 
-  #theme_minimal() + 
-  ylab(&quot;Population Density (population/sq km)&quot;) + 
-  xlab(&quot;United States Counties&quot;) + 
-  theme_minimal(base_size=13)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>TABLE 1 - LINEAR MIXED MODELS</p>
-<p>Linear mixed models of R0 and density:</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUxbW9kZWwxIDwtIGxtZShSIH4gZGVuc2l0eV9sb2cgLCBcbiAgICAgICAgICAgICAgICAgICAgcmFuZG9tID0gfiAxfCBzdGF0ZSwgXG4gICAgICAgICAgICAgICAgICAgIGRhdGEgPSBjb3VudHlfZ2VvX2NsZWFuICU+JVxuICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcihSID4gMCkpXG5zdW1tYXJ5KHRhYmxlMW1vZGVsMSlcbmludGVydmFscyh0YWJsZTFtb2RlbDEpXG5gYGAifQ== -->
-<pre class="r"><code>table1model1 &lt;- lme(R ~ density_log , 
-                    random = ~ 1| state, 
-                    data = county_geo_clean %&gt;%
-                      filter(R &gt; 0))
-summary(table1model1)
-intervals(table1model1)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUxbW9kZWwyIDwtIGxtZShSIH4gZGVuc2l0eV9sb2cgKyBwcml2YXRlICwgXG4gICAgICAgICAgICAgICAgICAgIHJhbmRvbSA9IH4gMXwgc3RhdGUsIFxuICAgICAgICAgICAgICAgICAgICBkYXRhID0gY291bnR5X2dlb19jbGVhbiAlPiVcbiAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXIoUiA+IDApKVxuc3VtbWFyeSh0YWJsZTFtb2RlbDIpXG5pbnRlcnZhbHModGFibGUxbW9kZWwyKVxuYGBgIn0= -->
-<pre class="r"><code>table1model2 &lt;- lme(R ~ density_log + private , 
-                    random = ~ 1| state, 
-                    data = county_geo_clean %&gt;%
-                      filter(R &gt; 0))
-summary(table1model2)
-intervals(table1model2)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation + median income</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUxbW9kZWwzIDwtIGxtZShSIH4gZGVuc2l0eV9sb2cgKyBwcml2YXRlICsgaGluY29tZSwgXG4gICAgICAgICAgICAgICAgICAgIHJhbmRvbSA9IH4gMXwgc3RhdGUsIFxuICAgICAgICAgICAgICAgICAgICBkYXRhID0gY291bnR5X2dlb19jbGVhbiAlPiVcbiAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXIoUiA+IDApKVxuc3VtbWFyeSh0YWJsZTFtb2RlbDMpXG5pbnRlcnZhbHModGFibGUxbW9kZWwzKVxuYGBgIn0= -->
-<pre class="r"><code>table1model3 &lt;- lme(R ~ density_log + private + hincome, 
-                    random = ~ 1| state, 
-                    data = county_geo_clean %&gt;%
-                      filter(R &gt; 0))
-summary(table1model3)
-intervals(table1model3)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation + median income + interaction of density and % private transportation</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUxbW9kZWw0IDwtIGxtZShSIH4gZGVuc2l0eV9sb2cqcHJpdmF0ZSArIGhpbmNvbWUsIFxuICAgICAgICAgICAgICAgICAgICByYW5kb20gPSB+IDF8IHN0YXRlLCBcbiAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGNvdW50eV9SMF9kZW1vZylcbnN1bW1hcnkodGFibGUxbW9kZWw0KVxuaW50ZXJ2YWxzKHRhYmxlMW1vZGVsNClcbmBgYCJ9 -->
-<pre class="r"><code>table1model4 &lt;- lme(R ~ density_log*private + hincome, 
-                    random = ~ 1| state, 
-                    data = county_R0_demog)
-summary(table1model4)
-intervals(table1model4)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-</div>
-<div id="table-2---sensitivity-analysis" class="section level2">
-<h2>TABLE 2 - SENSITIVITY ANALYSIS</h2>
-<ol style="list-style-type: lower-alpha">
-<li>Deaths only - Subset counties with R0 from deaths only</li>
-</ol>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY291bnR5X1IwX2RlbW9nX2EgPC0gc3Vic2V0KGNvdW50eV9SMF9kZW1vZywgIWlzLm5hKGNvdW50eV9SMF9kZW1vZyRSX2RlYXRoKSlcbmBgYCJ9 -->
-<pre class="r"><code>county_R0_demog_a &lt;- subset(county_R0_demog, !is.na(county_R0_demog$R_death))</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 (death) and density</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUybW9kZWwxX2EgPC0gbG1lKFJfZGVhdGggfiBkZW5zaXR5X2xvZyAsIHJhbmRvbSA9IH4gMXwgc3RhdGUsIGRhdGEgPSBjb3VudHlfUjBfZGVtb2dfYSlcbnN1bW1hcnkodGFibGUybW9kZWwxX2EpXG5pbnRlcnZhbHModGFibGUybW9kZWwxX2EpXG5gYGAifQ== -->
-<pre class="r"><code>table2model1_a &lt;- lme(R_death ~ density_log , random = ~ 1| state, data = county_R0_demog_a)
-summary(table2model1_a)
-intervals(table2model1_a)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 (death) and density + % private transportation</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUybW9kZWwyX2EgPC0gbG1lKFJfZGVhdGh+IGRlbnNpdHlfbG9nICsgcHJpdmF0ZSAsIHJhbmRvbSA9IH4gMXwgc3RhdGUsIGRhdGEgPSBjb3VudHlfUjBfZGVtb2dfYSlcbnN1bW1hcnkodGFibGUybW9kZWwyX2EpXG5pbnRlcnZhbHModGFibGUybW9kZWwyX2EpXG5gYGAifQ== -->
-<pre class="r"><code>table2model2_a &lt;- lme(R_death~ density_log + private , random = ~ 1| state, data = county_R0_demog_a)
-summary(table2model2_a)
-intervals(table2model2_a)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 (death) and density + % private transportation + median income</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUybW9kZWwzX2EgPC0gbG1lKFJfZGVhdGh+IGRlbnNpdHlfbG9nICsgcHJpdmF0ZSArIGhpbmNvbWUsIHJhbmRvbSA9IH4gMXwgc3RhdGUsIGRhdGEgPSBjb3VudHlfUjBfZGVtb2dfYSlcbnN1bW1hcnkodGFibGUybW9kZWwzX2EpXG5pbnRlcnZhbHModGFibGUybW9kZWwzX2EpXG5gYGAifQ== -->
-<pre class="r"><code>table2model3_a &lt;- lme(R_death~ density_log + private + hincome, random = ~ 1| state, data = county_R0_demog_a)
-summary(table2model3_a)
-intervals(table2model3_a)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 (death) and density + % private transportation + median income + interaction of density and % private transportation</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUybW9kZWw0X2EgPC0gbG1lKFJfZGVhdGh+IGRlbnNpdHlfbG9nKnByaXZhdGUgKyBoaW5jb21lLCByYW5kb20gPSB+IDF8IHN0YXRlLCBkYXRhID0gY291bnR5X1IwX2RlbW9nX2EpXG5zdW1tYXJ5KHRhYmxlMm1vZGVsNF9hKVxuaW50ZXJ2YWxzKHRhYmxlMm1vZGVsNF9hKVxuYGBgIn0= -->
-<pre class="r"><code>table2model4_a &lt;- lme(R_death~ density_log*private + hincome, random = ~ 1| state, data = county_R0_demog_a)
-summary(table2model4_a)
-intervals(table2model4_a)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<ol start="2" style="list-style-type: lower-alpha">
-<li>No counties adjacent to high density counties - within 15 mile radius, high density &gt; 144.0492 population/sq km</li>
-</ol>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY291bnR5X1IwX2RlbW9nX2IgPC0gY291bnR5X1IwX2RlbW9nW2NvdW50eV9SMF9kZW1vZyRzZW5zaXRpdml0eWRlbnNpdHksXVxuYGBgIn0= -->
-<pre class="r"><code>county_R0_demog_b &lt;- county_R0_demog[county_R0_demog$sensitivitydensity,]</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density (no counties adjacent to high density counties)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUybW9kZWwxX2IgPC0gbG1lKFIgfiBkZW5zaXR5X2xvZyAsIHJhbmRvbSA9IH4gMXwgc3RhdGUsIGRhdGEgPSBjb3VudHlfUjBfZGVtb2dfYilcbnN1bW1hcnkodGFibGUybW9kZWwxX2IpXG5pbnRlcnZhbHModGFibGUybW9kZWwxX2IpXG5gYGAifQ== -->
-<pre class="r"><code>table2model1_b &lt;- lme(R ~ density_log , random = ~ 1| state, data = county_R0_demog_b)
-summary(table2model1_b)
-intervals(table2model1_b)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation (no counties adjacent to high density counties)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUybW9kZWwyX2IgPC0gbG1lKFIgfiBkZW5zaXR5X2xvZyArIHByaXZhdGUgLCByYW5kb20gPSB+IDF8IHN0YXRlLCBkYXRhID0gY291bnR5X1IwX2RlbW9nX2IpXG5zdW1tYXJ5KHRhYmxlMm1vZGVsMl9iKVxuaW50ZXJ2YWxzKHRhYmxlMm1vZGVsMl9iKVxuYGBgIn0= -->
-<pre class="r"><code>table2model2_b &lt;- lme(R ~ density_log + private , random = ~ 1| state, data = county_R0_demog_b)
-summary(table2model2_b)
-intervals(table2model2_b)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation + median income (no counties adjacent to high density counties)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUybW9kZWwzX2IgPC0gbG1lKFIgfiBkZW5zaXR5X2xvZyArIHByaXZhdGUgKyBoaW5jb21lLCByYW5kb20gPSB+IDF8IHN0YXRlLCBkYXRhID0gY291bnR5X1IwX2RlbW9nX2IpXG5zdW1tYXJ5KHRhYmxlMm1vZGVsM19iKVxuaW50ZXJ2YWxzKHRhYmxlMm1vZGVsM19iKVxuYGBgIn0= -->
-<pre class="r"><code>table2model3_b &lt;- lme(R ~ density_log + private + hincome, random = ~ 1| state, data = county_R0_demog_b)
-summary(table2model3_b)
-intervals(table2model3_b)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation + median income + interaction of density and % private transportation (no counties adjacent to high density counties)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudGFibGUybW9kZWw0X2IgPC0gbG1lKFIgfiBkZW5zaXR5X2xvZypwcml2YXRlICsgaGluY29tZSAsIHJhbmRvbSA9IH4gMXwgc3RhdGUsIGRhdGEgPSBjb3VudHlfUjBfZGVtb2dfYilcbnN1bW1hcnkodGFibGUybW9kZWw0X2IpXG5pbnRlcnZhbHModGFibGUybW9kZWw0X2IpXG5gYGAifQ== -->
-<pre class="r"><code>table2model4_b &lt;- lme(R ~ density_log*private + hincome , random = ~ 1| state, data = county_R0_demog_b)
-summary(table2model4_b)
-intervals(table2model4_b)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<ol start="3" style="list-style-type: lower-alpha">
-<li>Removing high influence counties - Cook’s D over 4/N for each model)</li>
-</ol>
-<p>Linear mixed models of R0 and density (no outliers)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2FtcGxlX3NpemU8LW5vYnModGFibGUxbW9kZWwxKVxuY29va3NkMSA8LSBDb29rRCh0YWJsZTFtb2RlbDEpXG5pbmZsdWVudGlhbCA8LSBhcy5udW1lcmljKG5hbWVzKGNvb2tzZDEpWyhjb29rc2QxID4gKDQvc2FtcGxlX3NpemUpKV0pXG5jb3VudHlfUjBfZGVtb2dfYyA8LSBjb3VudHlfUjBfZGVtb2dbLWluZmx1ZW50aWFsLCBdXG50YWJsZTFtb2RlbDFfYyA8LSBsbWUoUiB+IGRlbnNpdHlfbG9nICwgcmFuZG9tID0gfiAxfCBzdGF0ZSwgZGF0YSA9IGNvdW50eV9SMF9kZW1vZ19jKVxuc3VtbWFyeSh0YWJsZTFtb2RlbDFfYylcbmludGVydmFscyh0YWJsZTFtb2RlbDFfYylcbmBgYCJ9 -->
-<pre class="r"><code>sample_size&lt;-nobs(table1model1)
-cooksd1 &lt;- CookD(table1model1)
-influential &lt;- as.numeric(names(cooksd1)[(cooksd1 &gt; (4/sample_size))])
-county_R0_demog_c &lt;- county_R0_demog[-influential, ]
-table1model1_c &lt;- lme(R ~ density_log , random = ~ 1| state, data = county_R0_demog_c)
-summary(table1model1_c)
-intervals(table1model1_c)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation (no outliers)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2FtcGxlX3NpemU8LW5vYnModGFibGUxbW9kZWwyKVxuY29va3NkMSA8LSBDb29rRCh0YWJsZTFtb2RlbDIpXG5pbmZsdWVudGlhbCA8LSBhcy5udW1lcmljKG5hbWVzKGNvb2tzZDEpWyhjb29rc2QxID4gKDQvc2FtcGxlX3NpemUpKV0pXG5jb3VudHlfUjBfZGVtb2dfYyA8LSBjb3VudHlfUjBfZGVtb2dbLWluZmx1ZW50aWFsLCBdXG50YWJsZTFtb2RlbDJfYyA8LSBsbWUoUiB+IGRlbnNpdHlfbG9nICsgcHJpdmF0ZSAsIHJhbmRvbSA9IH4gMXwgc3RhdGUsIGRhdGEgPSBjb3VudHlfUjBfZGVtb2dfYylcbnN1bW1hcnkodGFibGUxbW9kZWwyX2MpXG5pbnRlcnZhbHModGFibGUxbW9kZWwyX2MpXG5gYGAifQ== -->
-<pre class="r"><code>sample_size&lt;-nobs(table1model2)
-cooksd1 &lt;- CookD(table1model2)
-influential &lt;- as.numeric(names(cooksd1)[(cooksd1 &gt; (4/sample_size))])
-county_R0_demog_c &lt;- county_R0_demog[-influential, ]
-table1model2_c &lt;- lme(R ~ density_log + private , random = ~ 1| state, data = county_R0_demog_c)
-summary(table1model2_c)
-intervals(table1model2_c)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation + median income (no outliers)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2FtcGxlX3NpemU8LW5vYnModGFibGUxbW9kZWwzKVxuY29va3NkMSA8LSBDb29rRCh0YWJsZTFtb2RlbDMpXG5pbmZsdWVudGlhbCA8LSBhcy5udW1lcmljKG5hbWVzKGNvb2tzZDEpWyhjb29rc2QxID4gKDQvc2FtcGxlX3NpemUpKV0pXG5jb3VudHlfUjBfZGVtb2dfYyA8LSBjb3VudHlfUjBfZGVtb2dbLWluZmx1ZW50aWFsLCBdXG50YWJsZTFtb2RlbDNfYyA8LSBsbWUoUiB+IGRlbnNpdHlfbG9nICsgcHJpdmF0ZSArIGhpbmNvbWUsIHJhbmRvbSA9IH4gMXwgc3RhdGUsIGRhdGEgPSBjb3VudHlfUjBfZGVtb2dfYylcbnN1bW1hcnkodGFibGUxbW9kZWwzX2MpXG5pbnRlcnZhbHModGFibGUxbW9kZWwzX2MpXG5gYGAifQ== -->
-<pre class="r"><code>sample_size&lt;-nobs(table1model3)
-cooksd1 &lt;- CookD(table1model3)
-influential &lt;- as.numeric(names(cooksd1)[(cooksd1 &gt; (4/sample_size))])
-county_R0_demog_c &lt;- county_R0_demog[-influential, ]
-table1model3_c &lt;- lme(R ~ density_log + private + hincome, random = ~ 1| state, data = county_R0_demog_c)
-summary(table1model3_c)
-intervals(table1model3_c)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<p>Linear mixed models of R0 and density + % private transportation + median income + interaction of density and % private transportation (no outliers)</p>
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2FtcGxlX3NpemU8LW5vYnModGFibGUxbW9kZWw0KVxuY29va3NkMSA8LSBDb29rRCh0YWJsZTFtb2RlbDQpXG5pbmZsdWVudGlhbCA8LSBhcy5udW1lcmljKG5hbWVzKGNvb2tzZDEpWyhjb29rc2QxID4gKDQvc2FtcGxlX3NpemUpKV0pXG5jb3VudHlfUjBfZGVtb2dfYyA8LSBjb3VudHlfUjBfZGVtb2dbLWluZmx1ZW50aWFsLCBdXG50YWJsZTFtb2RlbDRfYyA8LSBsbWUoUiB+IGRlbnNpdHlfbG9nKnByaXZhdGUgKyBoaW5jb21lLCByYW5kb20gPSB+IDF8IHN0YXRlLCBkYXRhID0gY291bnR5X1IwX2RlbW9nX2MpXG5zdW1tYXJ5KHRhYmxlMW1vZGVsNF9jKVxuaW50ZXJ2YWxzKHRhYmxlMW1vZGVsNF9jKVxuYGBgIn0= -->
-<pre class="r"><code>sample_size&lt;-nobs(table1model4)
-cooksd1 &lt;- CookD(table1model4)
-influential &lt;- as.numeric(names(cooksd1)[(cooksd1 &gt; (4/sample_size))])
-county_R0_demog_c &lt;- county_R0_demog[-influential, ]
-table1model4_c &lt;- lme(R ~ density_log*private + hincome, random = ~ 1| state, data = county_R0_demog_c)
-summary(table1model4_c)
-intervals(table1model4_c)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-</div>
-
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIjAwLURhdGEtUHJlcHJvY2Vzc2luZyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNClRoaXMgW1IgTWFya2Rvd25dKGh0dHA6Ly9ybWFya2Rvd24ucnN0dWRpby5jb20pIE5vdGVib29rIHJlY292ZXJzIHRoZSBkYXRhIHVzZWQgYnkgU3kgZXQgYWwuIChbMjAyMF0oaHR0cHM6Ly9qb3VybmFscy5wbG9zLm9yZy9wbG9zb25lL2FydGljbGU/aWQ9MTAuMTM3MS9qb3VybmFsLnBvbmUuMDI0OTI3MSkpIGluIHRoZWlyIGFuYWx5c2lzIG9mIHRoZSBiYXNpYyByZXByb2R1Y3RpdmUgbnVtYmVyIG9mIENPVklELTE5IGFuZCBwb3B1bGF0aW9uIGRlbnNpdHkgaW4gVVMgY291bnRpZXMuDQoNClN5IGV0IGFsLiBjYWxjdWxhdGVkIHRoZSBiYXNpYyByZXByb2R1Y3RpdmUgbnVtYmVyIGFuZCBlc3RpbWF0ZWQgbW9kZWxzIHRvIHN0dWR5IGl0cyByZWxhdGlvbnNoaXAgdG8gcG9wdWxhdGlvbiBkZW5zaXR5IChhbmQgc29tZSBvdGhlciBjb250cm9scykuIFRoZXJlIGFyZSB0d28gaXNzdWVzIHdpdGggdGhlaXIgYXBwcm9hY2g6DQoNCjEuIERhdGEgY2Vuc29yaW5nIGlzIGlnbm9yZWQNCg0KMi4gU3BhdGlhbCBhdXRvY29ycmVsYXRpb24gaXMgaWdub3JlZA0KDQpJbiB0aGlzIG5vdGVib29rIEkgY3JlYXRlIGEgZGF0YSBwYWNrYWdlIHdpdGggdGhlIGRhdGEgbmVjZXNzYXJ5IHRvIHJlYW5hbHl6ZSB0aGlzIGlzc3VlLg0KDQpMb2FkIHBhY2thZ2VzOg0KYGBge3IgbWVzc2FnZT1GQUxTRSwgd2FybmluZz1GQUxTRX0NCiNsaWJyYXJ5KGNlbnNSZWcpDQojbGlicmFyeShNYXRyaXgpDQojbGlicmFyeShubG1lKQ0KI2xpYnJhcnkoc3BhdGlhbHByb2JpdCkNCmxpYnJhcnkoc3BkZXApDQpsaWJyYXJ5KHRpZHljZW5zdXMpDQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkodW5pdHMpDQojbGlicmFyeSh0aWdyaXMpDQpgYGANCg0KTG9hZCB0aGUgZGF0YSB0YWJsZSBwcmVwYXJlZCBieSBTeSBldCBhbC46DQpgYGB7cn0NCmxvYWQoIlN5X1VTRGVuc2l0eVIwX0RhdGEuUkRhdGEiKQ0KYGBgDQoNCk5vdGljZSB0aGF0IHRoZSB0YWJsZSB1c2VkIGJ5IFN5IGV0IGFsLiAoY291bnR5X1IwX2RlbW9nKSBpbmNsdWRlcyBvbmx5IGNvdW50aWVzIGZvciB3aGljaCB0aGUgYmFzaWMgcmVwcm9kdWN0aXZlIG51bWJlciB3YXMgY2FsY3VsYXRlZCByZWxpYWJseSAoc2VlIHBwLiAyLTMpOg0KDQoiV2UgcmVzdHJpY3RlZCBvdXIgYW5hbHlzZXMgdG8gY291bnRpZXMgdGhhdCBtZXQgYSBjZXJ0YWluIHRocmVzaG9sZCBvZiBjdW11bGF0aXZlIGNhc2UgY291bnRzIGF0IHRoZSBlbmQgb2YgdGhlIGV4cG9uZW50aWFsIGdyb3d0aCBwZXJpb2QsIGJ1dCBpbmNsdWRpbmcgY291bnRpZXMgd2l0aCBsZXNzIHRoYW4gMjUgY2FzZXMgaW5jbHVkZWQgZGFpbHkgaW5jaWRlbmNlIGNvdW50cyB0aGF0IHdlcmUgaW5zdWZmaWNpZW50IHRvIGNhbGN1bGF0ZSBSMCBhbmQgeWllbGRlZCBjb21wdXRhdGlvbmFsIGVycm9ycy4gT3VyIGZpbmFsIGFuYWx5dGljIHNhbXBsZSBpbmNsdWRlZCBjb3VudGllcyB3aXRoIDI1IGNhc2VzIG9yIGdyZWF0ZXIgYXQgdGhlIGVuZCBvZiB0aGUgZXhwb25lbnRpYWwgZ3Jvd3RoIHBlcmlvZC4iDQoNClVzZSBgdGlkeWNlbnN1c2AgdG8gcmV0cmlldmUgdGhlIGdlb21ldHJ5IG9mIF9hbGxfIGNvdW50aWVzLiBUaGUgZ2VvbWV0cnkgaXMgdGhlbiB1c2VkIHRvIGNhbGN1bGF0ZSB0aGUgcG9wdWxhdGlvbiBkZW5zaXR5IChgdmFycyA8LSB0aWR5Y2Vuc3VzOjpsb2FkX3ZhcmlhYmxlcygpYCBjYW4gYmUgdXNlZCB0byBleHBsb3JlIHRoZSB2YXJpYWJsZSBuYW1lcyk6DQpgYGB7cn0NCmNvdW50eV9nZW8gPC0gZ2V0X2RlY2VubmlhbChnZW9ncmFwaHkgPSAiY291bnR5IiwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFibGVzID0gIlAwMDEwMDEiLCAjIFRvdGFsIHBvcHVsYXRpb24NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB5ZWFyID0gMjAxMCwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2VvbWV0cnkgPSBUUlVFLCANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBrZWVwX2dlb192YXJzID0gVFJVRSkgJT4lDQogIHJlbmFtZShwb3B1bGF0aW9uID0gdmFsdWUpICU+JQ0KICBzZWxlY3QoLXZhcmlhYmxlKSAlPiUNCiAgbXV0YXRlKGFyZWEgPSBzdF9hcmVhKGdlb21ldHJ5KSAlPiUNCiAgICAgICAgICAgc2V0X3VuaXRzKGttXjIpLA0KICAgICAgICAgZGVuc2l0eSA9IHBvcHVsYXRpb24vKDEwMDAgKiBhcmVhKSkgIyAxLDAwMCBwZW9wbGUgcGVyIHNxdWFyZSBrbQ0KYGBgDQoNCkFsc28sIHJldHJpZXZlIG90aGVyIHNvY2lvLWVjb25vbWljIGFuZCBkZW1vZ3JhcGhpYyB2YXJpYWJsZXMgKG1lZGlhbiBob3VzZWhvbGQgaW5jb21lIGFuZCB0cmF2ZWwgYnkgcHJpdmF0ZSB0cmFuc3BvcnRhdGlvbik6DQpgYGB7cn0NCnNlZF92YXJpYWJsZXMgPC0gZ2V0X2FjcyhnZW9ncmFwaHkgPSAiY291bnR5IiwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFibGVzID0gYygiQjE5MDEzXzAwMSIsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiQjA4MDA2XzAwMSIsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiQjA4MDA2XzAwMiIpLCANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB5ZWFyID0gMjAxOSwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2VvbWV0cnkgPSBGQUxTRSkgJT4lDQogIHNlbGVjdCgtbW9lKSAlPiUNCiAgcGl2b3Rfd2lkZXIobmFtZXNfZnJvbSA9IHZhcmlhYmxlLA0KICAgICAgICAgICAgICB2YWx1ZXNfZnJvbSA9IGVzdGltYXRlKSAlPiUNCiAgcmVuYW1lKGhpbmNvbWUgPSBCMTkwMTNfMDAxLCANCiAgICAgICAgIGNvbW11dGVycyA9IEIwODAwNl8wMDEsDQogICAgICAgICBjYXIgPSBCMDgwMDZfMDAyKSAlPiUNCiAgdHJhbnNtdXRlKEdFT0lELA0KICAgICAgICAgICAgY29tbXV0ZXJzLA0KICAgICAgICAgICAgY2FyLA0KICAgICAgICAgICAgaGluY29tZSA9IGhpbmNvbWUvMTAwMDApICMgTWVkaWFuIGhvdXNlaG9sZCBpbmNvbWUgaW4gdGVucyBvZiB0aG91c2FuZHMNCiAgICAgICAgICNoaW5jb21lX2xvZyA9IGxvZyhoaW5jb21lKSwNCiAgICAgICAgICNwcml2YXRlID0gY2FyL2NvbW11dGVycyAqIDEwMCkgIyBQZXJjZW50YWdlIG9mIGNvbW11dGVycyB3aG8gdHJhdmVsIGJ5IGNhci92YW4vdHJ1Y2sNCiAgDQpgYGANCg0KVGhlc2UgYXJlIHRoZSB2YXJpYWJsZXMgY29sbGVjdGVkLiANCg0KMjAxMCBDZW5zdXM6DQoNClAwMDEwMDE6IFRvdGFsIFBvcHVsYXRpb24NCg0KMjAxOSBBQ1M6DQoNCkIxOTAxM18wMDE6IEVzdGltYXRlISFNZWRpYW4gaG91c2Vob2xkIGluY29tZSBpbiB0aGUgcGFzdCAxMiBtb250aHMgKGluIDIwMTkgaW5mbGF0aW9uLWFkanVzdGVkIGRvbGxhcnMpIChNRURJQU4gSE9VU0VIT0xEIElOQ09NRSBJTiBUSEUgUEFTVCAxMiBNT05USFMgSU4gMjAxOSBJTkZMQVRJT04tQURKVVNURUQgRE9MTEFSUykNCkIwODAwNl8wMDE6IEVzdGltYXRlISFUb3RhbCAoU0VYIE9GIFdPUktFUlMgQlkgTUVBTlMgT0YgVFJBTlNQT1JUQVRJT04gVE8gV09SSykNCkIwODAwNl8wMDI6IEVzdGltYXRlISFUb3RhbDohIUNhciwgdHJ1Y2ssIG9yIHZhbiAoU0VYIE9GIFdPUktFUlMgQlkgTUVBTlMgT0YgVFJBTlNQT1JUQVRJT04gVE8gV09SSykNCg0KSm9pbiB0aGUgdHdvIHRhYmxlczoNCmBgYHtyfQ0KY291bnR5X2dlbyA8LSBjb3VudHlfZ2VvICU+JQ0KICBsZWZ0X2pvaW4oc2VkX3ZhcmlhYmxlcywNCiAgICAgICAgICAgIGJ5ID0gIkdFT0lEIikNCmBgYA0KDQpOb3cgam9pbiBTeSdzIGRhdGEgdG8gdGhlIGNvdW50aWVzIHdpdGggZ2VvbWV0cnkgYW5kIG90aGVyIHNvY2lvLWVjb25vbWljIHZhcmlhYmxlcyAodGhlIGVxdWl2YWxlbnQgdmFyaWFibGVzIGFyZSBkcm9wcGVkIGZyb20gU3kgZXQgYWwuJ3MgdGFibGUsIGJlY2F1c2UgdGhleSBhcmUgbWlzc2luZyBhbGwgdGhlIGNvdW50aWVzIHdpdGhvdXQgYSBiYXNpYyByZXByb2R1Y3RpdmUgbnVtYmVyKToNCmBgYHtyfQ0KY291bnR5X2dlbyA8LSBjb3VudHlfZ2VvICU+JQ0KICBtdXRhdGUoR0VPSUQubnVtID0gYXMubnVtZXJpYyhHRU9JRCkpICU+JQ0KICBsZWZ0X2pvaW4oY291bnR5X1IwX2RlbW9nICU+JQ0KICAgICAgICAgICAgICBzZWxlY3QoR0VPSUQsIHN0YXRlLCBSLCBSX2RlYXRoLCBzZW5zaXRpdml0eWRlbnNpdHkpLA0KICAgICAgICAgICAgYnkgPSBjKCJHRU9JRC5udW0iID0gIkdFT0lEIikpICU+JQ0KICBzZWxlY3QoLUdFT0lELm51bSwgLUNFTlNVU0FSRUEsIC1DT1VOVFlGUCwgLVNUQVRFRlAsIC1zdGFydHNfd2l0aCgiZ2VvbWV0cnkiKSwgZ2VvbWV0cnkpDQpgYGANCg0KU2F2ZSBkYXRhIHRhYmxlOg0KYGBge3J9DQpzYXZlKGNvdW50eV9nZW8sIGZpbGUgPSAiY291bnR5X2dlby5SRGF0YSIsIGNvbXByZXNzID0gInh6IikNCmBgYA0KDQpDb3B5IGRhdGEgZmlsZSB0byBkYXRhIGZvbGRlciENCg0KPCEtLQ0KDQoNCkNvbnZlcnQgbWlzc2luZyBSJ3MgdG8gemVyb3MgYW5kIGNhbGN1bGF0ZSBleHBhbnNpb24gdmFyaWFibGVzOg0KYGBge3J9DQpjb3VudHlfZ2VvX2NsZWFuIDwtIGNvdW50eV9nZW8gJT4lDQogIG11dGF0ZShSID0gcmVwbGFjZV9uYShSLCAwKSwNCiAgICAgICAgIGRlbnNpdHlfMiA9IGRlbnNpdHleMikgJT4lDQogIGRyb3BfbmEoY29tbXV0ZXJzKSAlPiUNCiAgc3RfYXNfc2YoKQ0KYGBgDQoNCkNyZWF0ZSBsaXN0IG9mIG5laWdoYm9yczoNCmBgYHtyfQ0KY291bnR5X25iIDwtIHBvbHkybmIoY291bnR5X2dlb19jbGVhbikNCmBgYA0KDQpDaGVjayBsaXN0IG9mIG5laWdoYm9yczoNCmBgYHtyfQ0Kc3VtbWFyeShjb3VudHlfbmIpDQpgYGANCg0KTm90aWNlIHRoYXQgdGhlcmUgYXJlIDkgY291bnRpZXMgdGhhdCBhcmUgaXNvbGF0ZXMuIFdoaWNoIGNvdW50aWVzIGFyZSB0aGVzZT8NCmBgYHtyfQ0KY291bnR5X2dlb19jbGVhbltjKDY5LCA1NDYsIDU0NywgNTQ5LCAxMjI2LCAxODc2LCAyOTc0LCAzMTQ2LCAzMjAwKSxdDQpgYGANCg0KRmluZCBuZWFyZXN0IG5laWdoYm9ycyBieSBkaXN0YW5jZToNCmBgYHtyfQ0KY291bnR5X25iX2Rpc3QgPC0ga25lYXJuZWlnaChjb3VudHlfZ2VvX2NsZWFuICU+JSANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdF9jZW50cm9pZCgpKSAlPiUNCiAga25uMm5iKCkNCmBgYA0KDQpBZGQgbmVhcmVzdCBuZWlnaGJvciB0byBpc29sYXRlczoNCmBgYHtyfQ0KY291bnR5X25iW1s2OV1dIDwtIGNvdW50eV9uYl9kaXN0W1s2OV1dDQpjb3VudHlfbmJbWzU0Nl1dIDwtIGNvdW50eV9uYl9kaXN0W1s1NDZdXQ0KY291bnR5X25iW1s1NDddXSA8LSBjb3VudHlfbmJfZGlzdFtbNTQ3XV0NCmNvdW50eV9uYltbNTQ5XV0gPC0gY291bnR5X25iX2Rpc3RbWzU0OV1dDQpjb3VudHlfbmJbWzEyMjZdXSA8LSBjb3VudHlfbmJfZGlzdFtbMTIyNl1dDQpjb3VudHlfbmJbWzE4NzZdXSA8LSBjb3VudHlfbmJfZGlzdFtbMTg3Nl1dDQpjb3VudHlfbmJbWzI5NzRdXSA8LSBjb3VudHlfbmJfZGlzdFtbMjk3NF1dDQpjb3VudHlfbmJbWzMxNDZdXSA8LSBjb3VudHlfbmJfZGlzdFtbMzE0Nl1dDQpjb3VudHlfbmJbWzMyMDBdXSA8LSBjb3VudHlfbmJfZGlzdFtbMzIwMF1dDQpgYGANCg0KQ29udmVydCBuZWFyZXN0IG5laWdoYm9ycyB0byBsaXN0dzoNCmBgYHtyfQ0KbmJfQiA8LSBuYjJsaXN0dyhjb3VudHlfbmIsIA0KICAgICAgICAgICAgICAgICBzdHlsZT0iQiIsIA0KICAgICAgICAgICAgICAgICB6ZXJvLnBvbGljeSA9IFRSVUUpDQpuYl9CJHN0eWxlDQpgYGANCg0KQ29udmVydCBsaXN0dyB0byBzcGFyc2UgbWF0cml4IGZvciB1c2UgaW4gc3BhdGlhbCB0b2JpdDoNCmBgYHtyfQ0KQiA8LSBhcyhuYl9CLCAiQ3NwYXJzZU1hdHJpeCIpDQphbGwoQiA9PSB0KEIpKQ0KYGBgDQoNCiMjIFJlcGxpY2F0ZSBTeSBldCBhbC4NCg0KRml0IChtaXhlZCkgbGluZWFyIG1vZGVscyBhcyBpbiBTeSBldCBhbC46DQpgYGB7cn0NCnRhYmxlMW1vZGVsMSA8LSBsbWUoUiB+IGRlbnNpdHlfbG9nICwgDQogICAgICAgICAgICAgICAgICAgIHJhbmRvbSA9IH4gMXwgc3RhdGUsIA0KICAgICAgICAgICAgICAgICAgICBkYXRhID0gY291bnR5X2dlb19jbGVhbiAlPiUNCiAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXIoUiA+IDApKQ0Kc3VtbWFyeSh0YWJsZTFtb2RlbDEpDQppbnRlcnZhbHModGFibGUxbW9kZWwxKQ0KYGBgDQoNCkxpbmVhciBtaXhlZCBtb2RlbHMgb2YgUjAgYW5kIGRlbnNpdHkgKyAlIHByaXZhdGUgdHJhbnNwb3J0YXRpb24NCmBgYHtyfQ0KdGFibGUxbW9kZWwyIDwtIGxtZShSIH4gZGVuc2l0eV9sb2cgKyBwcml2YXRlICwgDQogICAgICAgICAgICAgICAgICAgIHJhbmRvbSA9IH4gMXwgc3RhdGUsIA0KICAgICAgICAgICAgICAgICAgICBkYXRhID0gY291bnR5X2dlb19jbGVhbiAlPiUNCiAgICAgICAgICAgICAgICAgICAgICBmaWx0ZXIoUiA+IDApKQ0Kc3VtbWFyeSh0YWJsZTFtb2RlbDIpDQppbnRlcnZhbHModGFibGUxbW9kZWwyKQ0KYGBgDQoNCkxpbmVhciBtaXhlZCBtb2RlbHMgb2YgUjAgYW5kIGRlbnNpdHkgKyAlIHByaXZhdGUgdHJhbnNwb3J0YXRpb24gKyBtZWRpYW4gaW5jb21lDQpgYGB7cn0NCnRhYmxlMW1vZGVsMyA8LSBsbWUoUiB+IGRlbnNpdHlfbG9nICsgcHJpdmF0ZSArIGhpbmNvbWUsIA0KICAgICAgICAgICAgICAgICAgICByYW5kb20gPSB+IDF8IHN0YXRlLCANCiAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGNvdW50eV9nZW9fY2xlYW4gJT4lDQogICAgICAgICAgICAgICAgICAgICAgZmlsdGVyKFIgPiAwKSkNCnN1bW1hcnkodGFibGUxbW9kZWwzKQ0KaW50ZXJ2YWxzKHRhYmxlMW1vZGVsMykNCmBgYA0KDQpMaW5lYXIgbWl4ZWQgbW9kZWxzIG9mIFIwIGFuZCBkZW5zaXR5ICsgJSBwcml2YXRlIHRyYW5zcG9ydGF0aW9uICsgbWVkaWFuIGluY29tZSArIGludGVyYWN0aW9uIG9mIGRlbnNpdHkgYW5kICUgcHJpdmF0ZSB0cmFuc3BvcnRhdGlvbg0KYGBge3J9DQp0YWJsZTFtb2RlbDQgPC0gbG1lKFIgfiBkZW5zaXR5X2xvZypwcml2YXRlICsgaGluY29tZSwgDQogICAgICAgICAgICAgICAgICAgIHJhbmRvbSA9IH4gMXwgc3RhdGUsIA0KICAgICAgICAgICAgICAgICAgICBkYXRhID0gY291bnR5X1IwX2RlbW9nKQ0Kc3VtbWFyeSh0YWJsZTFtb2RlbDQpDQppbnRlcnZhbHModGFibGUxbW9kZWw0KQ0KYGBgDQoNCiMjIEZpdCB0b2JpdCB2ZXJzaW9uIG9mIG1vZGVscw0KDQpgYGB7cn0NCnRhYmxlMW1vZGVsMSA8LSBjZW5zUmVnKFIgfiBkZW5zaXR5X2xvZywgDQogICAgICAgICAgICAgICAgICAgICAgICBsZWZ0ID0gMCwNCiAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGNvdW50eV9nZW9fY2xlYW4pDQpzdW1tYXJ5KHRhYmxlMW1vZGVsMSkNCmBgYA0KDQpMaW5lYXIgbWl4ZWQgbW9kZWxzIG9mIFIwIGFuZCBkZW5zaXR5ICsgJSBwcml2YXRlIHRyYW5zcG9ydGF0aW9uDQpgYGB7cn0NCnRhYmxlMW1vZGVsMiA8LSBjZW5zUmVnKFIgfiBkZW5zaXR5X2xvZyArIHByaXZhdGUsIA0KICAgICAgICAgICAgICAgICAgICBkYXRhID0gY291bnR5X2dlb19jbGVhbikNCnN1bW1hcnkodGFibGUxbW9kZWwyKQ0KYGBgDQoNCkxpbmVhciBtaXhlZCBtb2RlbHMgb2YgUjAgYW5kIGRlbnNpdHkgKyAlIHByaXZhdGUgdHJhbnNwb3J0YXRpb24gKyBtZWRpYW4gaW5jb21lDQpgYGB7cn0NCnRhYmxlMW1vZGVsMyA8LSBjZW5zUmVnKFIgfiBkZW5zaXR5X2xvZyArIHByaXZhdGUgKyBoaW5jb21lLCANCiAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGNvdW50eV9nZW9fY2xlYW4pDQpzdW1tYXJ5KHRhYmxlMW1vZGVsMykNCmBgYA0KDQpUb2JpdCBtb2RlbHMgb2YgUjAgYW5kIGRlbnNpdHkgKyAlIHByaXZhdGUgdHJhbnNwb3J0YXRpb24gKyBtZWRpYW4gaW5jb21lICsgaW50ZXJhY3Rpb24gb2YgZGVuc2l0eSBhbmQgJSBwcml2YXRlIHRyYW5zcG9ydGF0aW9uDQpgYGB7cn0NCnRhYmxlMW1vZGVsNCA8LSBjZW5zUmVnKFIgfiBkZW5zaXR5X2xvZypwcml2YXRlICsgaGluY29tZSwgDQogICAgICAgICAgICAgICAgICAgIGRhdGEgPSBjb3VudHlfZ2VvX2NsZWFuKQ0Kc3VtbWFyeSh0YWJsZTFtb2RlbDQpDQoNCmBgYA0KDQojIyBTcGF0aWFsbHkgYXV0b3JlZ3Jlc3NpdmUgdG9iaXQNCg0KRml0IHNwYXRpYWxseSBhdXRvcmVncmVzc2l2ZSB0b2JpdDoNCmBgYHtyfQ0KIyBGaXQgU0FSIFRvYml0DQpmaXRfc2FydG9iaXQgPC0gc2FydG9iaXQoUiB+IGRlbnNpdHlfbG9nICsgcHJpdmF0ZSArIGhpbmNvbWVfbG9nLA0KICAgICAgICAgICAgICAgICAgICAgICAgIEIsDQogICAgICAgICAgICAgICAgICAgICAgICAgbmRyYXcgPSAxMDAwLA0KICAgICAgICAgICAgICAgICAgICAgICAgIGJ1cm4uaW4gPSAyMDAsIA0KICAgICAgICAgICAgICAgICAgICAgICAgIHNob3dQcm9ncmVzcyA9IFRSVUUsDQogICAgICAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGNvdW50eV9nZW9fY2xlYW4sDQogICAgICAgICAgICAgICAgICAgICAgICAgY29tcHV0ZU1hcmdpbmFsRWZmZWN0cyA9IFRSVUUpDQpzdW1tYXJ5KGZpdF9zYXJ0b2JpdCkNCmltcGFjdHMoZml0X3NhcnRvYml0KQ0KYGBgDQoNCldpdGggaW50ZXJhY3Rpb25zOg0KYGBge3J9DQojIEZpdCBTQVIgVG9iaXQNCmZpdF9zYXJ0b2JpdCA8LSBzYXJ0b2JpdChSIH4gZGVuc2l0eV9sb2cgKyBkZW5zaXR5X2xvZzpwcml2YXRlICsgaGluY29tZV9sb2csDQogICAgICAgICAgICAgICAgICAgICAgICAgQiwNCiAgICAgICAgICAgICAgICAgICAgICAgICBuZHJhdyA9IDEwMDAsDQogICAgICAgICAgICAgICAgICAgICAgICAgYnVybi5pbiA9IDIwMCwgDQogICAgICAgICAgICAgICAgICAgICAgICAgc2hvd1Byb2dyZXNzID0gVFJVRSwNCiAgICAgICAgICAgICAgICAgICAgICAgICBkYXRhID0gY291bnR5X2dlb19jbGVhbikNCnN1bW1hcnkoZml0X3NhcnRvYml0KQ0KaW1wYWN0cyhmaXRfc2FydG9iaXQpDQpgYGANCkZJR1VSRSAyIC0gUE9QVUxBVElPTiBERU5TSVRZIFRIUkVTSE9MRA0KDQpDb21wYXJlIGRlbnNpdHkgb2YgY291bnRpZXMgd2l0aCBvdWJyZWFrcyB2cyBjb3VudGllcyB3aXRob3V0IG91dGJyZWFrDQpgYGB7cn0NCmNvdW50eV9vdXRicmVha195biAlPiUNCiAgZ3JvdXBfYnkoaW5jbHVkZWQpICU+JQ0KICBzdW1tYXJpc2UobWVhbiA9IG1lZGlhbihEZW5zaXR5LCBuYS5ybT1UUlVFKSwgDQogICAgICAgICAgICBsb3dlcl9JUVIgPSBzdW1tYXJ5KERlbnNpdHkpWzJdLA0KICAgICAgICAgICAgdXBwZXJfSVFSPXN1bW1hcnkoRGVuc2l0eSlbNV0sIA0KICAgICAgICAgICAgbWluPXN1bW1hcnkoRGVuc2l0eSlbMV0sIA0KICAgICAgICAgICAgbWF4PXN1bW1hcnkoRGVuc2l0eSlbNl0pDQoNCnN1bW1hcnkoY291bnR5X291dGJyZWFrX3luJERlbnNpdHkpDQp3aWxjb3gudGVzdChjb3VudHlfb3V0YnJlYWtfeW4kRGVuc2l0eX5jb3VudHlfb3V0YnJlYWtfeW4kaW5jbHVkZWQpDQpgYGANCg0KQm94cGxvdCBvZiBjb3VudGllcyB3aXRoIG91YnJlYWtzIHZzIGNvdW50aWVzIHdpdGhvdXQgb3V0YnJlYWsNCmBgYHtyfQ0KY291bnR5X291dGJyZWFrX3luJGluY2x1ZGVkIDwtIGFzLmZhY3Rvcihjb3VudHlfb3V0YnJlYWtfeW4kaW5jbHVkZWQpDQoNCmdncGxvdChjb3VudHlfb3V0YnJlYWtfeW4sIGFlcyhpbmNsdWRlZCwgRGVuc2l0eSkpICsgDQogIGdlb21fYm94cGxvdChmaWxsPSJncmF5OTIiLCB3aWR0aD0wLjUpICsgDQogIHlsaW0oMCwyMDApICsgDQogICN0aGVtZV9taW5pbWFsKCkgKyANCiAgeWxhYigiUG9wdWxhdGlvbiBEZW5zaXR5IChwb3B1bGF0aW9uL3NxIGttKSIpICsgDQogIHhsYWIoIlVuaXRlZCBTdGF0ZXMgQ291bnRpZXMiKSArIA0KICB0aGVtZV9taW5pbWFsKGJhc2Vfc2l6ZT0xMykNCmBgYA0KDQpUQUJMRSAxIC0gTElORUFSIE1JWEVEIE1PREVMUw0KDQpMaW5lYXIgbWl4ZWQgbW9kZWxzIG9mIFIwIGFuZCBkZW5zaXR5Og0KYGBge3J9DQp0YWJsZTFtb2RlbDEgPC0gbG1lKFIgfiBkZW5zaXR5X2xvZyAsIA0KICAgICAgICAgICAgICAgICAgICByYW5kb20gPSB+IDF8IHN0YXRlLCANCiAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGNvdW50eV9nZW9fY2xlYW4gJT4lDQogICAgICAgICAgICAgICAgICAgICAgZmlsdGVyKFIgPiAwKSkNCnN1bW1hcnkodGFibGUxbW9kZWwxKQ0KaW50ZXJ2YWxzKHRhYmxlMW1vZGVsMSkNCmBgYA0KDQpMaW5lYXIgbWl4ZWQgbW9kZWxzIG9mIFIwIGFuZCBkZW5zaXR5ICsgJSBwcml2YXRlIHRyYW5zcG9ydGF0aW9uDQpgYGB7cn0NCnRhYmxlMW1vZGVsMiA8LSBsbWUoUiB+IGRlbnNpdHlfbG9nICsgcHJpdmF0ZSAsIA0KICAgICAgICAgICAgICAgICAgICByYW5kb20gPSB+IDF8IHN0YXRlLCANCiAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGNvdW50eV9nZW9fY2xlYW4gJT4lDQogICAgICAgICAgICAgICAgICAgICAgZmlsdGVyKFIgPiAwKSkNCnN1bW1hcnkodGFibGUxbW9kZWwyKQ0KaW50ZXJ2YWxzKHRhYmxlMW1vZGVsMikNCmBgYA0KDQpMaW5lYXIgbWl4ZWQgbW9kZWxzIG9mIFIwIGFuZCBkZW5zaXR5ICsgJSBwcml2YXRlIHRyYW5zcG9ydGF0aW9uICsgbWVkaWFuIGluY29tZQ0KYGBge3J9DQp0YWJsZTFtb2RlbDMgPC0gbG1lKFIgfiBkZW5zaXR5X2xvZyArIHByaXZhdGUgKyBoaW5jb21lLCANCiAgICAgICAgICAgICAgICAgICAgcmFuZG9tID0gfiAxfCBzdGF0ZSwgDQogICAgICAgICAgICAgICAgICAgIGRhdGEgPSBjb3VudHlfZ2VvX2NsZWFuICU+JQ0KICAgICAgICAgICAgICAgICAgICAgIGZpbHRlcihSID4gMCkpDQpzdW1tYXJ5KHRhYmxlMW1vZGVsMykNCmludGVydmFscyh0YWJsZTFtb2RlbDMpDQpgYGANCg0KTGluZWFyIG1peGVkIG1vZGVscyBvZiBSMCBhbmQgZGVuc2l0eSArICUgcHJpdmF0ZSB0cmFuc3BvcnRhdGlvbiArIG1lZGlhbiBpbmNvbWUgKyBpbnRlcmFjdGlvbiBvZiBkZW5zaXR5IGFuZCAlIHByaXZhdGUgdHJhbnNwb3J0YXRpb24NCmBgYHtyfQ0KdGFibGUxbW9kZWw0IDwtIGxtZShSIH4gZGVuc2l0eV9sb2cqcHJpdmF0ZSArIGhpbmNvbWUsIA0KICAgICAgICAgICAgICAgICAgICByYW5kb20gPSB+IDF8IHN0YXRlLCANCiAgICAgICAgICAgICAgICAgICAgZGF0YSA9IGNvdW50eV9SMF9kZW1vZykNCnN1bW1hcnkodGFibGUxbW9kZWw0KQ0KaW50ZXJ2YWxzKHRhYmxlMW1vZGVsNCkNCmBgYA0KDQojIyBUQUJMRSAyIC0gU0VOU0lUSVZJVFkgQU5BTFlTSVMNCg0KYS4gRGVhdGhzIG9ubHkgLSBTdWJzZXQgY291bnRpZXMgd2l0aCBSMCBmcm9tIGRlYXRocyBvbmx5DQoNCmBgYHtyfQ0KY291bnR5X1IwX2RlbW9nX2EgPC0gc3Vic2V0KGNvdW50eV9SMF9kZW1vZywgIWlzLm5hKGNvdW50eV9SMF9kZW1vZyRSX2RlYXRoKSkNCmBgYA0KDQpMaW5lYXIgbWl4ZWQgbW9kZWxzIG9mIFIwIChkZWF0aCkgYW5kIGRlbnNpdHkgDQpgYGB7cn0NCnRhYmxlMm1vZGVsMV9hIDwtIGxtZShSX2RlYXRoIH4gZGVuc2l0eV9sb2cgLCByYW5kb20gPSB+IDF8IHN0YXRlLCBkYXRhID0gY291bnR5X1IwX2RlbW9nX2EpDQpzdW1tYXJ5KHRhYmxlMm1vZGVsMV9hKQ0KaW50ZXJ2YWxzKHRhYmxlMm1vZGVsMV9hKQ0KYGBgDQoNCkxpbmVhciBtaXhlZCBtb2RlbHMgb2YgUjAgKGRlYXRoKSBhbmQgZGVuc2l0eSArICUgcHJpdmF0ZSB0cmFuc3BvcnRhdGlvbg0KYGBge3J9DQp0YWJsZTJtb2RlbDJfYSA8LSBsbWUoUl9kZWF0aH4gZGVuc2l0eV9sb2cgKyBwcml2YXRlICwgcmFuZG9tID0gfiAxfCBzdGF0ZSwgZGF0YSA9IGNvdW50eV9SMF9kZW1vZ19hKQ0Kc3VtbWFyeSh0YWJsZTJtb2RlbDJfYSkNCmludGVydmFscyh0YWJsZTJtb2RlbDJfYSkNCmBgYA0KDQpMaW5lYXIgbWl4ZWQgbW9kZWxzIG9mIFIwIChkZWF0aCkgYW5kIGRlbnNpdHkgKyAlIHByaXZhdGUgdHJhbnNwb3J0YXRpb24gKyBtZWRpYW4gaW5jb21lDQpgYGB7cn0NCnRhYmxlMm1vZGVsM19hIDwtIGxtZShSX2RlYXRofiBkZW5zaXR5X2xvZyArIHByaXZhdGUgKyBoaW5jb21lLCByYW5kb20gPSB+IDF8IHN0YXRlLCBkYXRhID0gY291bnR5X1IwX2RlbW9nX2EpDQpzdW1tYXJ5KHRhYmxlMm1vZGVsM19hKQ0KaW50ZXJ2YWxzKHRhYmxlMm1vZGVsM19hKQ0KYGBgDQoNCkxpbmVhciBtaXhlZCBtb2RlbHMgb2YgUjAgKGRlYXRoKSBhbmQgZGVuc2l0eSArICUgcHJpdmF0ZSB0cmFuc3BvcnRhdGlvbiArIG1lZGlhbiBpbmNvbWUgKyBpbnRlcmFjdGlvbiBvZiBkZW5zaXR5IGFuZCAlIHByaXZhdGUgdHJhbnNwb3J0YXRpb24NCmBgYHtyfQ0KdGFibGUybW9kZWw0X2EgPC0gbG1lKFJfZGVhdGh+IGRlbnNpdHlfbG9nKnByaXZhdGUgKyBoaW5jb21lLCByYW5kb20gPSB+IDF8IHN0YXRlLCBkYXRhID0gY291bnR5X1IwX2RlbW9nX2EpDQpzdW1tYXJ5KHRhYmxlMm1vZGVsNF9hKQ0KaW50ZXJ2YWxzKHRhYmxlMm1vZGVsNF9hKQ0KYGBgDQoNCmIuIE5vIGNvdW50aWVzIGFkamFjZW50IHRvIGhpZ2ggZGVuc2l0eSBjb3VudGllcyAtIHdpdGhpbiAxNSBtaWxlIHJhZGl1cywgaGlnaCBkZW5zaXR5ID4gMTQ0LjA0OTIgcG9wdWxhdGlvbi9zcSBrbQ0KYGBge3J9DQpjb3VudHlfUjBfZGVtb2dfYiA8LSBjb3VudHlfUjBfZGVtb2dbY291bnR5X1IwX2RlbW9nJHNlbnNpdGl2aXR5ZGVuc2l0eSxdDQpgYGANCg0KTGluZWFyIG1peGVkIG1vZGVscyBvZiBSMCBhbmQgZGVuc2l0eSAobm8gY291bnRpZXMgYWRqYWNlbnQgdG8gaGlnaCBkZW5zaXR5IGNvdW50aWVzKQ0KYGBge3J9DQp0YWJsZTJtb2RlbDFfYiA8LSBsbWUoUiB+IGRlbnNpdHlfbG9nICwgcmFuZG9tID0gfiAxfCBzdGF0ZSwgZGF0YSA9IGNvdW50eV9SMF9kZW1vZ19iKQ0Kc3VtbWFyeSh0YWJsZTJtb2RlbDFfYikNCmludGVydmFscyh0YWJsZTJtb2RlbDFfYikNCmBgYA0KDQpMaW5lYXIgbWl4ZWQgbW9kZWxzIG9mIFIwIGFuZCBkZW5zaXR5ICsgJSBwcml2YXRlIHRyYW5zcG9ydGF0aW9uIChubyBjb3VudGllcyBhZGphY2VudCB0byBoaWdoIGRlbnNpdHkgY291bnRpZXMpDQpgYGB7cn0NCnRhYmxlMm1vZGVsMl9iIDwtIGxtZShSIH4gZGVuc2l0eV9sb2cgKyBwcml2YXRlICwgcmFuZG9tID0gfiAxfCBzdGF0ZSwgZGF0YSA9IGNvdW50eV9SMF9kZW1vZ19iKQ0Kc3VtbWFyeSh0YWJsZTJtb2RlbDJfYikNCmludGVydmFscyh0YWJsZTJtb2RlbDJfYikNCmBgYA0KDQpMaW5lYXIgbWl4ZWQgbW9kZWxzIG9mIFIwIGFuZCBkZW5zaXR5ICsgJSBwcml2YXRlIHRyYW5zcG9ydGF0aW9uICsgbWVkaWFuIGluY29tZSAobm8gY291bnRpZXMgYWRqYWNlbnQgdG8gaGlnaCBkZW5zaXR5IGNvdW50aWVzKQ0KYGBge3J9DQp0YWJsZTJtb2RlbDNfYiA8LSBsbWUoUiB+IGRlbnNpdHlfbG9nICsgcHJpdmF0ZSArIGhpbmNvbWUsIHJhbmRvbSA9IH4gMXwgc3RhdGUsIGRhdGEgPSBjb3VudHlfUjBfZGVtb2dfYikNCnN1bW1hcnkodGFibGUybW9kZWwzX2IpDQppbnRlcnZhbHModGFibGUybW9kZWwzX2IpDQpgYGANCg0KTGluZWFyIG1peGVkIG1vZGVscyBvZiBSMCBhbmQgZGVuc2l0eSArICUgcHJpdmF0ZSB0cmFuc3BvcnRhdGlvbiArIG1lZGlhbiBpbmNvbWUgKyBpbnRlcmFjdGlvbiBvZiBkZW5zaXR5IGFuZCAlIHByaXZhdGUgdHJhbnNwb3J0YXRpb24gKG5vIGNvdW50aWVzIGFkamFjZW50IHRvIGhpZ2ggZGVuc2l0eSBjb3VudGllcykNCmBgYHtyfQ0KdGFibGUybW9kZWw0X2IgPC0gbG1lKFIgfiBkZW5zaXR5X2xvZypwcml2YXRlICsgaGluY29tZSAsIHJhbmRvbSA9IH4gMXwgc3RhdGUsIGRhdGEgPSBjb3VudHlfUjBfZGVtb2dfYikNCnN1bW1hcnkodGFibGUybW9kZWw0X2IpDQppbnRlcnZhbHModGFibGUybW9kZWw0X2IpDQpgYGANCg0KYy4gUmVtb3ZpbmcgaGlnaCBpbmZsdWVuY2UgY291bnRpZXMgLSBDb29rJ3MgRCBvdmVyIDQvTiBmb3IgZWFjaCBtb2RlbCkNCg0KTGluZWFyIG1peGVkIG1vZGVscyBvZiBSMCBhbmQgZGVuc2l0eSAobm8gb3V0bGllcnMpDQpgYGB7cn0NCnNhbXBsZV9zaXplPC1ub2JzKHRhYmxlMW1vZGVsMSkNCmNvb2tzZDEgPC0gQ29va0QodGFibGUxbW9kZWwxKQ0KaW5mbHVlbnRpYWwgPC0gYXMubnVtZXJpYyhuYW1lcyhjb29rc2QxKVsoY29va3NkMSA+ICg0L3NhbXBsZV9zaXplKSldKQ0KY291bnR5X1IwX2RlbW9nX2MgPC0gY291bnR5X1IwX2RlbW9nWy1pbmZsdWVudGlhbCwgXQ0KdGFibGUxbW9kZWwxX2MgPC0gbG1lKFIgfiBkZW5zaXR5X2xvZyAsIHJhbmRvbSA9IH4gMXwgc3RhdGUsIGRhdGEgPSBjb3VudHlfUjBfZGVtb2dfYykNCnN1bW1hcnkodGFibGUxbW9kZWwxX2MpDQppbnRlcnZhbHModGFibGUxbW9kZWwxX2MpDQpgYGANCg0KTGluZWFyIG1peGVkIG1vZGVscyBvZiBSMCBhbmQgZGVuc2l0eSArICUgcHJpdmF0ZSB0cmFuc3BvcnRhdGlvbiAobm8gb3V0bGllcnMpDQpgYGB7cn0NCnNhbXBsZV9zaXplPC1ub2JzKHRhYmxlMW1vZGVsMikNCmNvb2tzZDEgPC0gQ29va0QodGFibGUxbW9kZWwyKQ0KaW5mbHVlbnRpYWwgPC0gYXMubnVtZXJpYyhuYW1lcyhjb29rc2QxKVsoY29va3NkMSA+ICg0L3NhbXBsZV9zaXplKSldKQ0KY291bnR5X1IwX2RlbW9nX2MgPC0gY291bnR5X1IwX2RlbW9nWy1pbmZsdWVudGlhbCwgXQ0KdGFibGUxbW9kZWwyX2MgPC0gbG1lKFIgfiBkZW5zaXR5X2xvZyArIHByaXZhdGUgLCByYW5kb20gPSB+IDF8IHN0YXRlLCBkYXRhID0gY291bnR5X1IwX2RlbW9nX2MpDQpzdW1tYXJ5KHRhYmxlMW1vZGVsMl9jKQ0KaW50ZXJ2YWxzKHRhYmxlMW1vZGVsMl9jKQ0KYGBgDQoNCkxpbmVhciBtaXhlZCBtb2RlbHMgb2YgUjAgYW5kIGRlbnNpdHkgKyAlIHByaXZhdGUgdHJhbnNwb3J0YXRpb24gKyBtZWRpYW4gaW5jb21lIChubyBvdXRsaWVycykNCmBgYHtyfQ0Kc2FtcGxlX3NpemU8LW5vYnModGFibGUxbW9kZWwzKQ0KY29va3NkMSA8LSBDb29rRCh0YWJsZTFtb2RlbDMpDQppbmZsdWVudGlhbCA8LSBhcy5udW1lcmljKG5hbWVzKGNvb2tzZDEpWyhjb29rc2QxID4gKDQvc2FtcGxlX3NpemUpKV0pDQpjb3VudHlfUjBfZGVtb2dfYyA8LSBjb3VudHlfUjBfZGVtb2dbLWluZmx1ZW50aWFsLCBdDQp0YWJsZTFtb2RlbDNfYyA8LSBsbWUoUiB+IGRlbnNpdHlfbG9nICsgcHJpdmF0ZSArIGhpbmNvbWUsIHJhbmRvbSA9IH4gMXwgc3RhdGUsIGRhdGEgPSBjb3VudHlfUjBfZGVtb2dfYykNCnN1bW1hcnkodGFibGUxbW9kZWwzX2MpDQppbnRlcnZhbHModGFibGUxbW9kZWwzX2MpDQpgYGANCg0KTGluZWFyIG1peGVkIG1vZGVscyBvZiBSMCBhbmQgZGVuc2l0eSArICUgcHJpdmF0ZSB0cmFuc3BvcnRhdGlvbiArIG1lZGlhbiBpbmNvbWUgKyBpbnRlcmFjdGlvbiBvZiBkZW5zaXR5IGFuZCAlIHByaXZhdGUgdHJhbnNwb3J0YXRpb24gKG5vIG91dGxpZXJzKQ0KYGBge3J9DQpzYW1wbGVfc2l6ZTwtbm9icyh0YWJsZTFtb2RlbDQpDQpjb29rc2QxIDwtIENvb2tEKHRhYmxlMW1vZGVsNCkNCmluZmx1ZW50aWFsIDwtIGFzLm51bWVyaWMobmFtZXMoY29va3NkMSlbKGNvb2tzZDEgPiAoNC9zYW1wbGVfc2l6ZSkpXSkNCmNvdW50eV9SMF9kZW1vZ19jIDwtIGNvdW50eV9SMF9kZW1vZ1staW5mbHVlbnRpYWwsIF0NCnRhYmxlMW1vZGVsNF9jIDwtIGxtZShSIH4gZGVuc2l0eV9sb2cqcHJpdmF0ZSArIGhpbmNvbWUsIHJhbmRvbSA9IH4gMXwgc3RhdGUsIGRhdGEgPSBjb3VudHlfUjBfZGVtb2dfYykNCnN1bW1hcnkodGFibGUxbW9kZWw0X2MpDQppbnRlcnZhbHModGFibGUxbW9kZWw0X2MpDQpgYGANCg0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIjAwLURhdGEtUHJlcHJvY2Vzc2luZyINCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KLS0tDQoNClRoaXMgW1IgTWFya2Rvd25dKGh0dHA6Ly9ybWFya2Rvd24ucnN0dWRpby5jb20pIE5vdGVib29rIHJlY292ZXJzIHRoZSBkYXRhIHVzZWQgYnkgU3kgZXQgYWwuIChbMjAyMF0oaHR0cHM6Ly9qb3VybmFscy5wbG9zLm9yZy9wbG9zb25lL2FydGljbGU/aWQ9MTAuMTM3MS9qb3VybmFsLnBvbmUuMDI0OTI3MSkpIGluIHRoZWlyIGFuYWx5c2lzIG9mIHRoZSBiYXNpYyByZXByb2R1Y3RpdmUgbnVtYmVyIG9mIENPVklELTE5IGFuZCBwb3B1bGF0aW9uIGRlbnNpdHkgaW4gVVMgY291bnRpZXMuDQoNClN5IGV0IGFsLiBjYWxjdWxhdGVkIHRoZSBiYXNpYyByZXByb2R1Y3RpdmUgbnVtYmVyIGFuZCBlc3RpbWF0ZWQgbW9kZWxzIHRvIHN0dWR5IGl0cyByZWxhdGlvbnNoaXAgdG8gcG9wdWxhdGlvbiBkZW5zaXR5IChhbmQgc29tZSBvdGhlciBjb250cm9scykuIFRoZXJlIGFyZSB0d28gaXNzdWVzIHdpdGggdGhlaXIgYXBwcm9hY2g6DQoNCjEuIERhdGEgY2Vuc29yaW5nIGlzIGlnbm9yZWQNCg0KMi4gU3BhdGlhbCBhdXRvY29ycmVsYXRpb24gaXMgaWdub3JlZA0KDQpJbiB0aGlzIG5vdGVib29rIEkgY3JlYXRlIGEgZGF0YSBwYWNrYWdlIHdpdGggdGhlIGRhdGEgbmVjZXNzYXJ5IHRvIHJlYW5hbHl6ZSB0aGlzIGlzc3VlLg0KDQpMb2FkIHBhY2thZ2VzOg0KYGBge3IgbWVzc2FnZT1GQUxTRSwgd2FybmluZz1GQUxTRX0NCiNsaWJyYXJ5KGNlbnNSZWcpDQojbGlicmFyeShNYXRyaXgpDQojbGlicmFyeShubG1lKQ0KI2xpYnJhcnkoc3BhdGlhbHByb2JpdCkNCmxpYnJhcnkoc3BkZXApDQpsaWJyYXJ5KHRpZHljZW5zdXMpDQpsaWJyYXJ5KHRpZHl2ZXJzZSkNCmxpYnJhcnkodW5pdHMpDQojbGlicmFyeSh0aWdyaXMpDQpgYGANCg0KTG9hZCB0aGUgZGF0YSB0YWJsZSBwcmVwYXJlZCBieSBTeSBldCBhbC46DQpgYGB7cn0NCmxvYWQoIlN5X1VTRGVuc2l0eVIwX0RhdGEuUkRhdGEiKQ0KYGBgDQoNCk5vdGljZSB0aGF0IHRoZSB0YWJsZSB1c2VkIGJ5IFN5IGV0IGFsLiAoY291bnR5X1IwX2RlbW9nKSBpbmNsdWRlcyBvbmx5IGNvdW50aWVzIGZvciB3aGljaCB0aGUgYmFzaWMgcmVwcm9kdWN0aXZlIG51bWJlciB3YXMgY2FsY3VsYXRlZCByZWxpYWJseSAoc2VlIHBwLiAyLTMpOg0KDQoiV2UgcmVzdHJpY3RlZCBvdXIgYW5hbHlzZXMgdG8gY291bnRpZXMgdGhhdCBtZXQgYSBjZXJ0YWluIHRocmVzaG9sZCBvZiBjdW11bGF0aXZlIGNhc2UgY291bnRzIGF0IHRoZSBlbmQgb2YgdGhlIGV4cG9uZW50aWFsIGdyb3d0aCBwZXJpb2QsIGJ1dCBpbmNsdWRpbmcgY291bnRpZXMgd2l0aCBsZXNzIHRoYW4gMjUgY2FzZXMgaW5jbHVkZWQgZGFpbHkgaW5jaWRlbmNlIGNvdW50cyB0aGF0IHdlcmUgaW5zdWZmaWNpZW50IHRvIGNhbGN1bGF0ZSBSMCBhbmQgeWllbGRlZCBjb21wdXRhdGlvbmFsIGVycm9ycy4gT3VyIGZpbmFsIGFuYWx5dGljIHNhbXBsZSBpbmNsdWRlZCBjb3VudGllcyB3aXRoIDI1IGNhc2VzIG9yIGdyZWF0ZXIgYXQgdGhlIGVuZCBvZiB0aGUgZXhwb25lbnRpYWwgZ3Jvd3RoIHBlcmlvZC4iDQoNClVzZSBgdGlkeWNlbnN1c2AgdG8gcmV0cmlldmUgdGhlIGdlb21ldHJ5IG9mIF9hbGxfIGNvdW50aWVzLiBUaGUgZ2VvbWV0cnkgaXMgdGhlbiB1c2VkIHRvIGNhbGN1bGF0ZSB0aGUgcG9wdWxhdGlvbiBkZW5zaXR5IChgdmFycyA8LSB0aWR5Y2Vuc3VzOjpsb2FkX3ZhcmlhYmxlcygpYCBjYW4gYmUgdXNlZCB0byBleHBsb3JlIHRoZSB2YXJpYWJsZSBuYW1lcyk6DQpgYGB7cn0NCmNvdW50eV9nZW8gPC0gZ2V0X2RlY2VubmlhbChnZW9ncmFwaHkgPSAiY291bnR5IiwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFibGVzID0gIlAwMDEwMDEiLCAjIFRvdGFsIHBvcHVsYXRpb24NCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB5ZWFyID0gMjAxMCwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2VvbWV0cnkgPSBUUlVFLCANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICBrZWVwX2dlb192YXJzID0gVFJVRSkgJT4lDQogIHJlbmFtZShwb3B1bGF0aW9uID0gdmFsdWUpICU+JQ0KICBzZWxlY3QoLXZhcmlhYmxlKSAlPiUNCiAgbXV0YXRlKGFyZWEgPSBzdF9hcmVhKGdlb21ldHJ5KSAlPiUNCiAgICAgICAgICAgc2V0X3VuaXRzKGttXjIpLA0KICAgICAgICAgZGVuc2l0eSA9IHBvcHVsYXRpb24vKDEwMDAgKiBhcmVhKSkgIyAxLDAwMCBwZW9wbGUgcGVyIHNxdWFyZSBrbQ0KYGBgDQoNCkFsc28sIHJldHJpZXZlIG90aGVyIHNvY2lvLWVjb25vbWljIGFuZCBkZW1vZ3JhcGhpYyB2YXJpYWJsZXMgKG1lZGlhbiBob3VzZWhvbGQgaW5jb21lIGFuZCB0cmF2ZWwgYnkgcHJpdmF0ZSB0cmFuc3BvcnRhdGlvbik6DQpgYGB7cn0NCnNlZF92YXJpYWJsZXMgPC0gZ2V0X2FjcyhnZW9ncmFwaHkgPSAiY291bnR5IiwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgdmFyaWFibGVzID0gYygiQjE5MDEzXzAwMSIsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiQjA4MDA2XzAwMSIsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiQjA4MDA2XzAwMiIpLCANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICB5ZWFyID0gMjAxOSwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgZ2VvbWV0cnkgPSBGQUxTRSkgJT4lDQogIHNlbGVjdCgtbW9lKSAlPiUNCiAgcGl2b3Rfd2lkZXIobmFtZXNfZnJvbSA9IHZhcmlhYmxlLA0KICAgICAgICAgICAgICB2YWx1ZXNfZnJvbSA9IGVzdGltYXRlKSAlPiUNCiAgcmVuYW1lKGhpbmNvbWUgPSBCMTkwMTNfMDAxLCANCiAgICAgICAgIGNvbW11dGVycyA9IEIwODAwNl8wMDEsDQogICAgICAgICBjYXIgPSBCMDgwMDZfMDAyKSAlPiUNCiAgdHJhbnNtdXRlKEdFT0lELA0KICAgICAgICAgICAgY29tbXV0ZXJzLA0KICAgICAgICAgICAgY2FyLA0KICAgICAgICAgICAgaGluY29tZSA9IGhpbmNvbWUvMTAwMDApICMgTWVkaWFuIGhvdXNlaG9sZCBpbmNvbWUgaW4gdGVucyBvZiB0aG91c2FuZHMNCiAgICAgICAgICNoaW5jb21lX2xvZyA9IGxvZyhoaW5jb21lKSwNCiAgICAgICAgICNwcml2YXRlID0gY2FyL2NvbW11dGVycyAqIDEwMCkgIyBQZXJjZW50YWdlIG9mIGNvbW11dGVycyB3aG8gdHJhdmVsIGJ5IGNhci92YW4vdHJ1Y2sNCiAgDQpgYGANCg0KVGhlc2UgYXJlIHRoZSB2YXJpYWJsZXMgY29sbGVjdGVkLiANCg0KMjAxMCBDZW5zdXM6DQoNClAwMDEwMDE6IFRvdGFsIFBvcHVsYXRpb24NCg0KMjAxOSBBQ1M6DQoNCkIxOTAxM18wMDE6IEVzdGltYXRlISFNZWRpYW4gaG91c2Vob2xkIGluY29tZSBpbiB0aGUgcGFzdCAxMiBtb250aHMgKGluIDIwMTkgaW5mbGF0aW9uLWFkanVzdGVkIGRvbGxhcnMpIChNRURJQU4gSE9VU0VIT0xEIElOQ09NRSBJTiBUSEUgUEFTVCAxMiBNT05USFMgSU4gMjAxOSBJTkZMQVRJT04tQURKVVNURUQgRE9MTEFSUykNCkIwODAwNl8wMDE6IEVzdGltYXRlISFUb3RhbCAoU0VYIE9GIFdPUktFUlMgQlkgTUVBTlMgT0YgVFJBTlNQT1JUQVRJT04gVE8gV09SSykNCkIwODAwNl8wMDI6IEVzdGltYXRlISFUb3RhbDohIUNhciwgdHJ1Y2ssIG9yIHZhbiAoU0VYIE9GIFdPUktFUlMgQlkgTUVBTlMgT0YgVFJBTlNQT1JUQVRJT04gVE8gV09SSykNCg0KSm9pbiB0aGUgdHdvIHRhYmxlczoNCmBgYHtyfQ0KY291bnR5X2dlbyA8LSBjb3VudHlfZ2VvICU+JQ0KICBsZWZ0X2pvaW4oc2VkX3ZhcmlhYmxlcywNCiAgICAgICAgICAgIGJ5ID0gIkdFT0lEIikNCmBgYA0KDQpSZXRyaWV2ZSB0aGUgc3RhdGUgYm91bmRhcmllcyBmb3IgcGxvdHRpbmc6DQpgYGB7cn0NCnN0YXRlX2dlbyA8LSBnZXRfZGVjZW5uaWFsKGdlb2dyYXBoeSA9ICJzdGF0ZSIsIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIHZhcmlhYmxlcyA9ICJQMDAxMDAxIiwgIyBUb3RhbCBwb3B1bGF0aW9uDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgeWVhciA9IDIwMTAsIA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIGdlb21ldHJ5ID0gVFJVRSwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAga2VlcF9nZW9fdmFycyA9IFRSVUUpICU+JQ0KICByZW5hbWUocG9wdWxhdGlvbiA9IHZhbHVlKSAlPiUNCiAgc2VsZWN0KC12YXJpYWJsZSkNCmBgYA0KDQpOb3cgam9pbiBTeSdzIGRhdGEgdG8gdGhlIGNvdW50aWVzIHdpdGggZ2VvbWV0cnkgYW5kIG90aGVyIHNvY2lvLWVjb25vbWljIHZhcmlhYmxlcyAodGhlIGVxdWl2YWxlbnQgdmFyaWFibGVzIGFyZSBkcm9wcGVkIGZyb20gU3kgZXQgYWwuJ3MgdGFibGUsIGJlY2F1c2UgdGhleSBhcmUgbWlzc2luZyBhbGwgdGhlIGNvdW50aWVzIHdpdGhvdXQgYSBiYXNpYyByZXByb2R1Y3RpdmUgbnVtYmVyKToNCmBgYHtyfQ0KY291bnR5X2dlbyA8LSBjb3VudHlfZ2VvICU+JQ0KICBtdXRhdGUoR0VPSUQubnVtID0gYXMubnVtZXJpYyhHRU9JRCkpICU+JQ0KICBsZWZ0X2pvaW4oY291bnR5X1IwX2RlbW9nICU+JQ0KICAgICAgICAgICAgICBzZWxlY3QoR0VPSUQsIHN0YXRlLCBSLCBSX2RlYXRoLCBzZW5zaXRpdml0eWRlbnNpdHkpLA0KICAgICAgICAgICAgYnkgPSBjKCJHRU9JRC5udW0iID0gIkdFT0lEIikpICU+JQ0KICBzZWxlY3QoLUdFT0lELm51bSwgLUNFTlNVU0FSRUEsIC1DT1VOVFlGUCwgLVNUQVRFRlAsIC1zdGFydHNfd2l0aCgiZ2VvbWV0cnkiKSwgZ2VvbWV0cnkpDQpgYGANCg0KUHJlcGFyZSBzdGF0ZSBib3VuZGFyaWVzIGZvciBzYXZpbmcNCmBgYHtyfQ0Kc3RhdGVfZ2VvIDwtIHN0YXRlX2dlbyAlPiUNCiAgc2VsZWN0KC1DRU5TVVNBUkVBLCAtc3RhcnRzX3dpdGgoImdlb21ldHJ5IiksIGdlb21ldHJ5KQ0KYGBgDQoNClNhdmUgZGF0YSB0YWJsZToNCmBgYHtyfQ0Kc2F2ZShjb3VudHlfZ2VvLCBmaWxlID0gImNvdW50eV9nZW8uUkRhdGEiLCBjb21wcmVzcyA9ICJ4eiIpDQpzYXZlKHN0YXRlX2dlbywgZmlsZSA9ICJzdGF0ZV9nZW8uUkRhdGEiLCBjb21wcmVzcyA9ICJ4eiIpDQpgYGANCg0KQ29weSBkYXRhIGZpbGUgdG8gZGF0YSBmb2xkZXIhDQoNCg0K</div>
 
 
 

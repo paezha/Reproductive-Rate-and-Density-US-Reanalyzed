@@ -45,3 +45,29 @@ NULL
 #' @source US Bureau of Census
 #' @source Sy KTL, White LF, Nichols BE (2021) Population density and basic reproductive numberof COVID-19 across United States counties. PLoSONE 16(4):e0249271
 "county_geo"
+
+#' States of the United States with population.
+#'
+#' Boundaries of the states in the United States.
+#'
+#' @format A simple features data frame with 52 rows and 8 variables:
+#' \describe{
+#'   \item{GEO_ID}{Unique identifier of the state}
+#'   \item{STATE}{Code of state}
+#'   \item{NAME.x}{Short name of state}
+#'   \item{LSAD}{Code of the Legal/Statistical Area Description}
+#'   \item{GEOID}{Unique identifier of the county}
+#'   \item{NAME.y}{Longer name of state}
+#'   \item{population}{Total population from the 2010 Census (variable P001001)}
+#'   \item{geometry}{Geometry of boundaries}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @keywords covid-19
+#' @keywords Census
+#' @keywords United States
+#' @name state_geo
+#' @usage data(state_geo)
+#' @source US Bureau of Census
+"state_geo"
