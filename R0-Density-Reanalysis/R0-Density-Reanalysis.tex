@@ -237,6 +237,20 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 
 
 
@@ -321,9 +335,9 @@ this deluge of publications a ``carnage of substandard research''
 {[}5{]}. Part of the challenge of maintaining quality standards in
 published research is that, despite an abundance of recommendations and
 guidelines {[}6--9{]}, in practice reproducibility has remained a lofty
-but somewhat aspirational goal {[}10,11{]}. As reported in the
+and somewhat aspirational goal {[}10,11{]}. As reported in the
 literature, only a woefully small proportion of published research was
-actually reproducible before the pandemic {[}12,13{]}, a situation that
+actually reproducible before the pandemic {[}12,13{]}, and the situation
 does not appear to have changed substantially since {[}14,15{]}.
 
 The push for open data and software, along with more strenuous efforts
@@ -336,10 +350,10 @@ mechanisms and incentives to weed out erroneous ideas. Over the long
 term, facts tend to prevail in science. At stake is the shorter-term
 impacts that research may have in other spheres of economic and social
 life. The case of economists Reinhart and Rogoff comes to mind: by the
-time the inaccuracies in their research were uncovered {[}see 16{]},
-their claims about debt and economic growth had already been seized by
-policy-makers on both sides of the Atlantic to justify austerity
-policies in the aftermath of the Great Recession of
+time the inaccuracies and errors in their research were uncovered {[}see
+16{]}, their claims about debt and economic growth had already been
+seized by policy-makers on both sides of the Atlantic to justify
+austerity policies in the aftermath of the Great Recession of
 2007-2009\footnote{Nobel Prize in Economics Paul Krugman noted that
   ``Reinhart--Rogoff may have had more immediate influence on public
   debate than any previous paper in the history of economics''
@@ -351,7 +365,7 @@ In the context of COVID-19, a topic that has grabbed the imagination of
 numerous thinkers has been the prospect of life in cities after the
 pandemic {[}18{]}. The fact that the worst of the pandemic was initially
 felt in dense population centers such as Wuhan, Milan, Madrid, and New
-York, prompted a flurry of research into the associations between
+York, brought a torrent of research into the associations between
 density and the spread of the pandemic. Some important questions hang on
 the results of these research efforts. For example, are lower density
 regions safer from the pandemic? Are de-densification policies
@@ -399,17 +413,17 @@ time-geography 20,21,22{]}. Mathematically, models of exposure and
 contagion indicate that higher densities can catalyze the transmission
 of contagious diseases {[}23,24{]}. Models such as these were likely at
 the root of messages, by some figures in positions of authority, that
-low density regions faced lower risks from the pandemic\footnote{Governor
-  Kristi Noem of South Dakota, for example, claimed that sparse
-  population density allowed her state to face the pandemic without the
-  need for strict policy interventions
+regions with sparse population densities faced lower risks from the
+pandemic\footnote{Governor Kristi Noem of South Dakota, for example,
+  claimed that sparse population density allowed her state to face the
+  pandemic down without the need for strict policy interventions
   \url{https://www.inforum.com/lifestyle/health/5025620-South-Dakota-is-not-New-York-City-Noem-defends-lack-of-statewide-COVID-19-restrictions}}.
 
 As Rocklöv and Sjödin {[}23{]} note, however, mathematical models of
 contagion are valid at small-to-medium spatial scales (and presumably,
 small temporal scales too, such as time spent in restaurants, concert
 halls, cruises), and the results do not necessarily transfer to larger
-spatial units and different time scales. There are good reasons for
+spatial units and different time scales. There are solid reasons for
 this: while in a restaurant, one can hardly avoid being in proximity to
 other customers-however, a person can choose to (or be forced to as a
 matter of policy) not go to a restaurant in the first place.
@@ -418,8 +432,8 @@ transmission is so intuitive that it is often taken for granted even at
 larger scales {[}e.g., 25,26{]}. At larger scales, however, there exists
 the possibility of behavioral adaptations, which are difficult to
 capture in the mechanistic framework of differential equations {[}or can
-be missing in agent-based models, 27{]}; these adaptations, in fact, can
-be a key aspect of disease transmission.
+be missing in agent-based models, e.g., 27{]}; these adaptations, in
+fact, can be a key aspect of disease transmission.
 
 A plausible behavioral adaptation during a pandemic, especially one
 broadcast as widely and intensely as COVID-19, is risk compensation.
@@ -427,7 +441,7 @@ Risk compensation is a process whereby people adjust their behavior in
 response to their \emph{perception} of risk {[}28--30{]}. In the case of
 COVID-19, Chauhan et al. {[}31{]} have found that perception of risks in
 the US varies between rural, suburban, and urban residents, with rural
-residents in general displaying less concerns about the virus. It is
+residents in general expressing less concern about the virus. It is
 possible that people who listened to the message of leaders saying that
 they were safe because of low density may not have taken adequate
 precautions against the virus. People in dense places who could more
@@ -436,9 +450,9 @@ cautious. Both Paez et al. {[}32{]} and Hamidi et al. {[}33{]} posit
 this mechanism (i.e., greater compliance with social distancing in
 denser regions) to explain the results of their analyses. The evidence
 available does indeed show that there were important changes in behavior
-during the pandemic, at least with respect to mobility {[}34--36{]};
-furthermore, shelter in place orders may have had greater buy-in from
-the public in higher density regions {[}37{]}, and the behavior may have
+with respect to mobility during the pandemic {[}34--36{]}; furthermore,
+shelter in place orders may have had greater buy-in from the public in
+higher density regions {[}37{]}, and the associated behavior may have
 persisted beyond the duration of official social-distancing policies
 {[}38{]}. In addition, there is evidence that changes in mobility
 correlated with the trajectory of the pandemic {[}39,40{]}. Given the
@@ -472,32 +486,33 @@ between COVID-19 infection and death rates in US states. Wong and Li
 {[}46{]} also found a positive and significant association between
 population density and number of confirmed COVID-19 cases in US
 counties, using both univariate and multivariate regressions with
-spatial effects. Most recently, Sy et al. {[}19{]} reported that the
-basic reproductive number of COVID-19 in US counties tends to increase
+spatial effects. More recently, Sy et al. {[}19{]} reported that the
+basic reproductive number of COVID-19 in US counties tended to increase
 with population density, but at a decreasing rate at higher densities.
 
-On the gripping hand, a number of studies report non-significant or
-negative associations between population density and COVID-19 outcomes.
-This includes the research of Sun et al. {[}47{]} who did not find
-evidence of significant correlation between population density and
-confirmed number of cases per day \emph{in conditions of lockdown} in
-China. This finding echoes the results of Paez et al. {[}32{]}, who in
-their study of provinces in Spain reported non-significant associations
-between population density and infection rates in the early days of the
-first wave of COVID-19, and negative significant associations in the
-later part of the first lockdown. Similarly, {[}48{]} found zero or
-negative associations between population density and infection
-numbers/deaths by country. Fielding-Miller et al. {[}44{]} found a
-negative relationship between COVID-19 deaths and population density
-urban counties in the US. In their investigation of doubling time, White
-and Hébert-Dufresne {[}49{]} identified a negative and significant
-correlation between population density and doubling time in US states.
-Likewise, {[}50{]} fond a small negative (and significant) association
-between population density and COVID-19 morbidity in districts in
-Tehran. And two of the most complete studies in the US by Hamidi et al.
-{[}33,51{]} used an extensive set of controls to find negative and
-significant correlations between density at the level of counties in the
-US and COVID-19 cases and fatalities.
+On the flip side, a number of studies report non-significant or negative
+associations between population density and COVID-19 outcomes. This
+includes the research of Sun et al. {[}47{]} who did not find evidence
+of significant correlation between population density and confirmed
+number of cases per day \emph{in conditions of lockdown} in China. This
+finding echoes the results of Paez et al. {[}32{]}, who in their study
+of provinces in Spain reported non-significant associations between
+population density and infection rates in the early days of the first
+wave of COVID-19, and negative significant associations in the later
+part of the first lockdown. Similarly, {[}48{]} found zero or negative
+associations between population density and infection numbers/deaths by
+country. Fielding-Miller et al. {[}44{]} contrast their finding about
+rural counties with a negative relationship between COVID-19 deaths and
+population density in urban counties in the US. For their part, in their
+investigation of doubling time, White and Hébert-Dufresne {[}49{]}
+identified a negative and significant correlation between population
+density and doubling time in US states. Likewise, {[}50{]} fond a small
+negative (and significant) association between population density and
+COVID-19 morbidity in districts in Tehran. Finally, two of the most
+complete studies in the US {[}by Hamidi et al.; {[}51{]}; {[}33{]}{]}
+used an extensive set of controls to find negative and significant
+correlations between density and COVID-19 cases and fatalities at the
+level of counties in the US.
 
 As can be seen, these studies are implemented at different scales in
 different regions of the world. They also use a range of techniques,
@@ -507,11 +522,20 @@ expected: individual researchers have only limited time and expertise.
 This is why reproducibility is important. To pick an example (which will
 be further elaborated in the following sections), the study of Sy et
 al.~{[}{[}19{]}; hereafter SWN{]} would immediately grab the attention
-of a researcher with expertise in spatial modelling. Such an expert
-would likely ask some of the following questions: how were missing
-counties treated? Is it possible to spatially interpolate missing
+of a researcher with expertise in spatial modelling.
+
+SWN investigated the basic reproductive number of COVID-19 in US
+counties, and its association with population density, median household
+income, and prevalence of private mobility. The basic reproductive
+number can only be calculated reliably with a minimum number of cases,
+and a large number of counties did not meet such threshold. As
+researchers do, SWN made certain seemingly reasonable modelling
+decision, for instance basing their analysis only on counties with valid
+observations. An experiences spatial modeler would likely ask some of
+the following questions on reading SWN's paper: how were missing
+counties treated? Is it possible to spatially interpolate the missing
 observations? What are the implications of the spatial sampling
-framework used in the analysis? Was there evidence of spatial
+framework used in the analysis? And, was there evidence of spatial
 autocorrelation in the residuals of the models? These are questions that
 in most cases would not occur to a researcher who has not been exposed
 to spatial statistics or spatial econometrics. Nonetheless, they are
@@ -522,318 +546,107 @@ that an independent expert can, with only a moderate investment of time
 and effort, replicate the results in the paper, as well as ask
 additional questions.
 
-Alas, reproducibility is not necessarily the norm.
+Alas, reproducibility is not necessarily the norm in the relevant
+literature.
 
 There are various reasons why a project can fail to be reproducible. In
 some cases, there might be legitimate reasons to withhold the data,
 perhaps due to confidentiality and privacy reasons {[}e.g., 52{]}. But
-in many other cases the data are publicly available, as has been
-commonly the case with population-level COVID-19 information. Often the
-provenance of the data is documented, but the data themselves are not
-shared {[}25,33,41,44,51,e.g., 53,54--56{]}. As any researcher can
-attest, whether a graduate student or a seasoned scientist, collecting,
-organizing, and preparing data for a project can take a substantial
-amount of time. Pointing to the sources of data, even when these sources
-are public, is a small step towards reproducibility-but only a very
-small one. Faced with the prospect of having to recreate a data set from
-raw sources is probably sufficient to dissuade all but the most
-dedicated (or stubborn) researcher. This is true even if part of the
-data are shared {[}e.g., 46{]}. In other cases, data are shared, but the
-processes to document the preparation of the data are not fully
-documented {[}48,e.g., 57{]}. These processes matter, as shown by the
-errors in the spreadsheets of Reinhart and Rogoff {[}16{]}, and the data
-of biologist Jonathan Pruitt that led to an ``avalanche'' of paper
+in many other cases the data are publicly available, which in fact has
+commonly been the case with population-level COVID-19 information.
+Typically the provenance of the data is documented, but in numerous
+studies the data themselves are not shared {[}25,33,41,44,51,53--56{]}.
+As any researcher can attest, whether a graduate student or a seasoned
+scientist, collecting, organizing, and preparing data for a project can
+take a substantial amount of time. Pointing to the sources of data, even
+when these sources are public, is a small step towards
+reproducibility-but only a very small one. Faced with the prospect of
+having to recreate a data set from raw sources is probably sufficient to
+dissuade all but the most dedicated (or stubborn) researcher from
+independent verification. This is true even if part of the data are
+shared {[}e.g., 46{]}. In other cases, data are shared, but the
+processes followed in the preparation of the data are not fully
+documented {[}48,57{]}. These processes matter, as shown by the errors
+in the spreadsheets of Reinhart and Rogoff {[}16{]} and the data of
+biologist Jonathan Pruitt that led to an ``avalanche'' of paper
 retractions\footnote{\url{https://doi.org/10.1038/d41586-020-00287-y}}.
 Another situation is when papers share well-documented data, but fail to
-provide the code used in the analysis {[}43,e.g., 58,59{]}. Making code
+provide the code used in the analysis {[}43,58,59{]}. Making code
 available only ``on demand'' {[}e.g., 60{]} is an unnecessary barrier
 when most journals offer the facility to share supplemental materials
-online. Then there are those papers that strive towards reproducibility,
-sharing well-documented processes and data, as well as the code used in
-any analyses reported {[}e.g., 32,37,49,61{]}.
+online. Then there are those papers that more closely comply with
+reproducibility standards, and share well-documented processes and data,
+as well as the code used in any analyses reported {[}19,32,37,49,61{]}.
+
+In the following sections, the analysis of RWN is replicated, some
+relevant questions from the perspective of a spatial modeler are asked,
+and the data are reanalyzed.
 
 \hypertarget{replicating-swn}{%
 \subsection{Replicating SWN}\label{replicating-swn}}
 
-Fit (mixed) linear models as in Sy et al.:
+SWN examined the association between the basic reproductive number of
+COVID-19 and population density. The basic reproductive number \(R_0\)
+is a summary measure of contact rates, probability of transmission of a
+pathogen, and duration of infectiousness. In rough terms, \(R_0\)
+measures how many new infections each infections begets. Infectious
+disease outbreaks generally tend to die out when \(R_0<1\), and to grow
+when \(R_0>1\). Reliable calculation of \(R_0\) requires a minimum
+number of cases to be able to assume that there is community
+transmission of the pathogen. Accordingly, SNW based their analysis only
+on counties that had at least 25 cases or more at the end of the
+exponential growth phase (see Fig. \ref{fig:R0-map}). Their final sample
+included 1,151 counties in the US, including in Alaska, Hawaii, Puerto
+Rico, and island territories.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{table1model1 }\OtherTok{\textless{}{-}} \FunctionTok{lme}\NormalTok{(R }\SpecialCharTok{\textasciitilde{}}\NormalTok{ density\_log , }
-                    \AttributeTok{random =} \SpecialCharTok{\textasciitilde{}} \DecValTok{1}\SpecialCharTok{|}\NormalTok{ state, }
-                    \AttributeTok{data =}\NormalTok{ county\_geo\_clean }\SpecialCharTok{\%\textgreater{}\%}
-                      \FunctionTok{filter}\NormalTok{(R }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{))}
-\FunctionTok{summary}\NormalTok{(table1model1)}
-\end{Highlighting}
-\end{Shaded}
+\begin{figure}
+\centering
+\includegraphics{R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf}
+\caption{\label{fig:R0-map}Basic reproductive rate in US counties
+(Alaska, Hawaii, Puerto Rico, and territories not shown).}
+\end{figure}
 
-\begin{verbatim}
-## Linear mixed-effects model fit by REML
-##   Data: county_geo_clean %>% filter(R > 0) 
-##        AIC      BIC    logLik
-##   2383.621 2403.808 -1187.811
-## 
-## Random effects:
-##  Formula: ~1 | state
-##         (Intercept)  Residual
-## StdDev:    0.165504 0.6648325
-## 
-## Fixed effects:  R ~ density_log 
-##                 Value  Std.Error   DF  t-value p-value
-## (Intercept) 2.2740045 0.05468629 1099 41.58272       0
-## density_log 0.1621127 0.01485543 1099 10.91269       0
-##  Correlation: 
-##             (Intr)
-## density_log 0.797 
-## 
-## Standardized Within-Group Residuals:
-##        Min         Q1        Med         Q3        Max 
-## -2.3847932 -0.5972261 -0.1682299  0.3681864 16.2716371 
-## 
-## Number of Observations: 1151
-## Number of Groups: 51
-\end{verbatim}
+SWN used for their multivariate analysis mixed linear models. This is a
+reasonable modelling choice: \(R_0\) is an interval-ratio variable that
+is suitably modeled using linear regression; further, as SWN note there
+is a likelihood that the process in not independent ``among counties
+within each state, potentially due to variable resource allocation and
+differing health systems across states'' (p.~3). A mixed linear model
+accounts for this by introducing random components (in the case of SNW,
+random intercepts at the state level). SWN estimated various models with
+different combinations of variables, including median household income
+and prevalence of travel by private transportation. These are sensible
+controls, given potential variations in behavior: people in more
+affluent counties may have greater opportunities to work from home, and
+use of private transportation reduces contact with strangers. Moreover,
+they also conducted various sensitivity analyses. After these efforts,
+SNW conclude that there is a positive association between the basic
+reproductive number and population density at the level of counties in
+the US.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{intervals}\NormalTok{(table1model1)}
-\end{Highlighting}
-\end{Shaded}
+Table \ref{tab:swn-results} replicates Table 1 of SWN (p.~6).
 
-\begin{verbatim}
-## Approximate 95% confidence intervals
-## 
-##  Fixed effects:
-##                 lower      est.     upper
-## (Intercept) 2.1667032 2.2740045 2.3813058
-## density_log 0.1329645 0.1621127 0.1912609
-## attr(,"label")
-## [1] "Fixed effects:"
-## 
-##  Random Effects:
-##   Level: state 
-##                     lower     est.     upper
-## sd((Intercept)) 0.1080424 0.165504 0.2535261
-## 
-##  Within-group standard error:
-##     lower      est.     upper 
-## 0.6375478 0.6648325 0.6932849
-\end{verbatim}
+\begin{table}
 
-Linear mixed models of R0 and density + \% private transportation
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{table1model2 }\OtherTok{\textless{}{-}} \FunctionTok{lme}\NormalTok{(R }\SpecialCharTok{\textasciitilde{}}\NormalTok{ density\_log }\SpecialCharTok{+}\NormalTok{ private , }
-                    \AttributeTok{random =} \SpecialCharTok{\textasciitilde{}} \DecValTok{1}\SpecialCharTok{|}\NormalTok{ state, }
-                    \AttributeTok{data =}\NormalTok{ county\_geo\_clean }\SpecialCharTok{\%\textgreater{}\%}
-                      \FunctionTok{filter}\NormalTok{(R }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{))}
-\FunctionTok{summary}\NormalTok{(table1model2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Linear mixed-effects model fit by REML
-##   Data: county_geo_clean %>% filter(R > 0) 
-##        AIC      BIC    logLik
-##   2385.478 2410.707 -1187.739
-## 
-## Random effects:
-##  Formula: ~1 | state
-##         (Intercept)  Residual
-## StdDev:   0.1358322 0.6649714
-## 
-## Fixed effects:  R ~ density_log + private 
-##                 Value Std.Error   DF   t-value p-value
-## (Intercept)  3.347070 0.3418910 1098  9.789874  0.0000
-## density_log  0.145258 0.0156188 1098  9.300177  0.0000
-## private     -0.012547 0.0039434 1098 -3.181760  0.0015
-##  Correlation: 
-##             (Intr) dnsty_
-## density_log -0.222       
-## private     -0.988  0.344
-## 
-## Standardized Within-Group Residuals:
-##        Min         Q1        Med         Q3        Max 
-## -2.7347592 -0.6005758 -0.1610880  0.3876853 16.2104980 
-## 
-## Number of Observations: 1151
-## Number of Groups: 51
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{intervals}\NormalTok{(table1model2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Approximate 95% confidence intervals
-## 
-##  Fixed effects:
-##                   lower       est.        upper
-## (Intercept)  2.67623619  3.3470697  4.017903160
-## density_log  0.11461177  0.1452579  0.175904019
-## private     -0.02028416 -0.0125468 -0.004809444
-## attr(,"label")
-## [1] "Fixed effects:"
-## 
-##  Random Effects:
-##   Level: state 
-##                      lower      est.    upper
-## sd((Intercept)) 0.08059718 0.1358322 0.228921
-## 
-##  Within-group standard error:
-##     lower      est.     upper 
-## 0.6376445 0.6649714 0.6934695
-\end{verbatim}
-
-Linear mixed models of R0 and density + \% private transportation +
-median income
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{table1model3 }\OtherTok{\textless{}{-}} \FunctionTok{lme}\NormalTok{(R }\SpecialCharTok{\textasciitilde{}}\NormalTok{ density\_log }\SpecialCharTok{+}\NormalTok{ private }\SpecialCharTok{+}\NormalTok{ hincome, }
-                    \AttributeTok{random =} \SpecialCharTok{\textasciitilde{}} \DecValTok{1}\SpecialCharTok{|}\NormalTok{ state, }
-                    \AttributeTok{data =}\NormalTok{ county\_geo\_clean }\SpecialCharTok{\%\textgreater{}\%}
-                      \FunctionTok{filter}\NormalTok{(R }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{))}
-\FunctionTok{summary}\NormalTok{(table1model3)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Linear mixed-effects model fit by REML
-##   Data: county_geo_clean %>% filter(R > 0) 
-##       AIC     BIC   logLik
-##   2393.98 2424.25 -1190.99
-## 
-## Random effects:
-##  Formula: ~1 | state
-##         (Intercept)  Residual
-## StdDev:   0.1373995 0.6651151
-## 
-## Fixed effects:  R ~ density_log + private + hincome 
-##                 Value Std.Error   DF   t-value p-value
-## (Intercept)  3.385550 0.3933810 1097  8.606289  0.0000
-## density_log  0.146826 0.0171534 1097  8.559585  0.0000
-## private     -0.012707 0.0040548 1097 -3.133786  0.0018
-## hincome     -0.003256 0.0151105 1097 -0.215493  0.8294
-##  Correlation: 
-##             (Intr) dnsty_ privat
-## density_log  0.027              
-## private     -0.950  0.211       
-## hincome     -0.493 -0.412  0.228
-## 
-## Standardized Within-Group Residuals:
-##        Min         Q1        Med         Q3        Max 
-## -2.7162603 -0.5984817 -0.1626793  0.3887931 16.2029477 
-## 
-## Number of Observations: 1151
-## Number of Groups: 51
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{intervals}\NormalTok{(table1model3)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Approximate 95% confidence intervals
-## 
-##  Fixed effects:
-##                   lower         est.       upper
-## (Intercept)  2.61368596  3.385550103  4.15741424
-## density_log  0.11316880  0.146825984  0.18048317
-## private     -0.02066315 -0.012707018 -0.00475089
-## hincome     -0.03290488 -0.003256195  0.02639249
-## attr(,"label")
-## [1] "Fixed effects:"
-## 
-##  Random Effects:
-##   Level: state 
-##                    lower      est.     upper
-## sd((Intercept)) 0.081461 0.1373995 0.2317504
-## 
-##  Within-group standard error:
-##     lower      est.     upper 
-## 0.6377582 0.6651151 0.6936455
-\end{verbatim}
-
-Linear mixed models of R0 and density + \% private transportation +
-median income + interaction of density and \% private transportation
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{table1model4 }\OtherTok{\textless{}{-}} \FunctionTok{lme}\NormalTok{(R }\SpecialCharTok{\textasciitilde{}}\NormalTok{ density\_log}\SpecialCharTok{*}\NormalTok{private }\SpecialCharTok{+}\NormalTok{ hincome, }
-                    \AttributeTok{random =} \SpecialCharTok{\textasciitilde{}} \DecValTok{1}\SpecialCharTok{|}\NormalTok{ state, }
-                    \AttributeTok{data =}\NormalTok{ county\_geo\_clean }\SpecialCharTok{\%\textgreater{}\%}
-                      \FunctionTok{filter}\NormalTok{(R }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{))}
-\FunctionTok{summary}\NormalTok{(table1model4)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Linear mixed-effects model fit by REML
-##   Data: county_geo_clean %>% filter(R > 0) 
-##       AIC      BIC   logLik
-##   2407.04 2442.349 -1196.52
-## 
-## Random effects:
-##  Formula: ~1 | state
-##         (Intercept)  Residual
-## StdDev:   0.1378096 0.6653589
-## 
-## Fixed effects:  R ~ density_log * private + hincome 
-##                         Value Std.Error   DF   t-value p-value
-## (Intercept)          3.415859 0.4157861 1096  8.215424  0.0000
-## density_log          0.177645 0.1350641 1096  1.315266  0.1887
-## private             -0.013123 0.0044568 1096 -2.944502  0.0033
-## hincome             -0.002719 0.0153117 1096 -0.177607  0.8591
-## density_log:private -0.000354 0.0015414 1096 -0.229894  0.8182
-##  Correlation: 
-##                     (Intr) dnsty_ privat hincom
-## density_log          0.323                     
-## private             -0.952 -0.386              
-## hincome             -0.409  0.105  0.139       
-## density_log:private -0.323 -0.992  0.414 -0.158
-## 
-## Standardized Within-Group Residuals:
-##        Min         Q1        Med         Q3        Max 
-## -2.7371582 -0.5968733 -0.1638499  0.3883700 16.1980628 
-## 
-## Number of Observations: 1151
-## Number of Groups: 51
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{intervals}\NormalTok{(table1model4)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Approximate 95% confidence intervals
-## 
-##  Fixed effects:
-##                            lower          est.        upper
-## (Intercept)          2.600032192  3.4158588336  4.231685475
-## density_log         -0.087368297  0.1776452292  0.442658756
-## private             -0.021867960 -0.0131231030 -0.004378246
-## hincome             -0.032762972 -0.0027194668  0.027324038
-## density_log:private -0.003378809 -0.0003543603  0.002670088
-## attr(,"label")
-## [1] "Fixed effects:"
-## 
-##  Random Effects:
-##   Level: state 
-##                      lower      est.     upper
-## sd((Intercept)) 0.08169505 0.1378096 0.2324679
-## 
-##  Within-group standard error:
-##     lower      est.     upper 
-## 0.6379755 0.6653589 0.6939176
-\end{verbatim}
+\caption{\label{tab:tabulate-swn-results}\label{tab:swn-results}Replicating SWN: Models 1-3}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lllllrl}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Model 1} & \multicolumn{2}{c}{Model 2} & \multicolumn{2}{c}{Model 3} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5} \cmidrule(l{3pt}r{3pt}){6-7}
+Variable & beta & 95\% CI & beta & 95\% CI & beta & 95\% CI\\
+\midrule
+Intercept & 2.274 & [2.167, 2.381] & 3.347 & [2.676, 4.018] & 3.386 & [2.614, 4.157]\\
+Log of population density & 0.162 & [0.133, 0.191] & 0.145 & [0.115, 0.176] & 0.147 & [0.113, 0.18]\\
+Percent of private transportation &  &  & -0.013 & [-0.02, -0.005] & -0.013 & [-0.021, -0.005]\\
+Median household income (\$10,000) &  &  &  &  & -0.003 & [-0.033, 0.026]\\
+Standard deviation (Intercept) & 0.166 & [0.108, 0.254] & 0.136 & [0.081, 0.229] & 0.137 & [0.081, 0.232]\\
+\addlinespace
+Within-group standard error & 0.665 & [0.638, 0.693] & 0.665 & [0.638, 0.693] & 0.665 & [0.638, 0.694]\\
+\bottomrule
+\end{tabular}}
+\end{table}
 
 \hypertarget{some-relevant-questions}{%
 \section{Some relevant questions}\label{some-relevant-questions}}
@@ -1095,7 +908,7 @@ Fit spatially autoregressive tobit:
 
 \begin{verbatim}
 ## ----MCMC spatial autoregressive Tobit model ----
-## Execution time  = 40.052 secs
+## Execution time  = 41.022 secs
 ## 
 ## N draws         =   1000, N omit (burn-in)=    200
 ## N observations  =   3218, K covariates    =      4
