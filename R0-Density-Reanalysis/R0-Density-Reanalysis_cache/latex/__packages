@@ -26,3 +26,5 @@ stringr
 forcats
 units
 kableExtra
+viridisLite
+viridis

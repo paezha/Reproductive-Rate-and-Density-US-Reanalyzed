@@ -112,8 +112,22 @@ county_geo <- county_geo %>%
   select(-GEOID.num, -CENSUSAREA, -COUNTYFP, -STATEFP, -starts_with("geometry"), geometry)
 ```
 
-Prepare state boundaries for saving
+Prepare state boundaries for saving:
 ```{r}
+# Get state number code and two letter code from county table:
+state_key <- county_geo %>% 
+  st_drop_geometry() %>%
+  drop_na(state) %>% 
+  distinct(STATE, 
+           .keep_all = TRUE) %>% 
+  select(STATE, state) 
+
+# Join state two letter code to table:
+state_geo <- state_geo %>%
+  left_join(state_key,
+            by = "STATE")
+  
+
 state_geo <- state_geo %>%
   select(-CENSUSAREA, -starts_with("geometry"), geometry)
 ```

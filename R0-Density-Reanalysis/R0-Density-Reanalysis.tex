@@ -169,46 +169,6 @@
 \newcommand{\lorem}{{\bf LOREM}}
 \newcommand{\ipsum}{{\bf IPSUM}}
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\BuiltInTok}[1]{#1}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-\newcommand{\ExtensionTok}[1]{#1}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\ImportTok}[1]{#1}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-\newcommand{\NormalTok}[1]{#1}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-\newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 
 % Pandoc citation processing
 \newlength{\csllabelwidth}
@@ -582,8 +542,8 @@ In the following sections, the analysis of RWN is replicated, some
 relevant questions from the perspective of a spatial modeler are asked,
 and the data are reanalyzed.
 
-\hypertarget{replicating-swn}{%
-\subsection{Replicating SWN}\label{replicating-swn}}
+\hypertarget{reproducing-swn}{%
+\section{Reproducing SWN}\label{reproducing-swn}}
 
 SWN examined the association between the basic reproductive number of
 COVID-19 and population density. The basic reproductive number \(R_0\)
@@ -600,10 +560,7 @@ included 1,151 counties in the US, including in Alaska, Hawaii, Puerto
 Rico, and island territories.
 
 \begin{figure}
-\centering
-\includegraphics{R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf}
-\caption{\label{fig:R0-map}Basic reproductive rate in US counties
-(Alaska, Hawaii, Puerto Rico, and territories not shown).}
+\includegraphics[width=1\linewidth]{R0-Density-Reanalysis_files/figure-latex/R0-map-1} \caption{\label{fig:R0-map}Basic reproductive rate in US counties (Alaska, Hawaii, Puerto Rico, and territories not shown).}\label{fig:R0-map}
 \end{figure}
 
 SWN used for their multivariate analysis mixed linear models. This is a
@@ -624,7 +581,21 @@ SNW conclude that there is a positive association between the basic
 reproductive number and population density at the level of counties in
 the US.
 
-Table \ref{tab:swn-results} replicates Table 1 of SWN (p.~6).
+Table \ref{tab:swn-results} replicates the first three models of SWN
+(the fourth model did not have any significant variables; see Table 1 in
+SNW). It is possible to verify that the results match with the minor
+(and irrelevant) exception of the magnitude of the coefficient for
+travel by private transportation, which is due to a difference in the
+input (here the variable is one percent units, whereas in SWN it was ten
+percent units). The intercept in these models is a random variable, and
+the standard deviation is reported in the fourth row of Table
+\ref{tab:swn-results}. It is useful to map the random intercepts: as
+seen in Figure \ref{fig:random-terms-map}, other things being equal,
+counties in Texas tended to have somewhat lower values of \(R_0\) (i.e.,
+a negative random intercept), whereas counties in South Dakota tended to
+have higher values of \(R_0\). The key of the analysis, that population
+density has a positive association with the basic reproductive number,
+is verified. But is it really?
 
 \begin{table}
 
@@ -648,8 +619,31 @@ Within-group standard error & 0.665 & [0.638, 0.693] & 0.665 & [0.638, 0.693] & 
 \end{tabular}}
 \end{table}
 
-\hypertarget{some-relevant-questions}{%
-\section{Some relevant questions}\label{some-relevant-questions}}
+\begin{figure}
+\includegraphics[width=1\linewidth]{R0-Density-Reanalysis_files/figure-latex/random-terms-map-1} \caption{\label{fig:random-terms-map}Random intercepts of Model 3 (Alaska, Hawaii, Puerto Rico, and territories not shown).}\label{fig:random-terms-map}
+\end{figure}
+
+\hypertarget{expanding-on-swn}{%
+\section{Expanding on SWN}\label{expanding-on-swn}}
+
+Thanks to the availability of code and data, it was possible to verify
+the results reported by SWN. As noted earlier, though, an experienced
+spatial modeller would have asked themselves about the implications of
+the spatial sampling procedure used by SWN. The decision to use a sample
+of counties with reliable basic reproductive numbers, although seemingly
+sensible, results in a non-random sampling scheme. Turning our attention
+back to Figure \ref{fig:R0-map}, we see that many counties without
+reliable values of \(R_0\) are in more rural, less dense parts of the
+United States. The fact that \(R_0\) could not be accurately computed in
+those counties does not mean that there was no transmission of the
+virus: it simply means that we do not know with precision whether that
+was the case. The low number of cases may be related to low population
+and/or low population density. This is intriguing, to say the least: by
+excluding cases in a non-random way such as this, we are in effect
+\emph{truncating} the sample.
+
+The issue with sample truncation is that parameter estimates can become
+unreliable.
 
 Alas, despite decades' worth of developments in the field of
 geographical analysis, not all research presented to date has used
@@ -673,287 +667,29 @@ geographical data. Furthermore,
 \subsection{Fit tobit version of
 models}\label{fit-tobit-version-of-models}}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{table1model1 }\OtherTok{\textless{}{-}} \FunctionTok{censReg}\NormalTok{(R }\SpecialCharTok{\textasciitilde{}}\NormalTok{ density\_log, }
-                        \AttributeTok{left =} \DecValTok{0}\NormalTok{,}
-                    \AttributeTok{data =}\NormalTok{ county\_geo\_clean)}
-\FunctionTok{summary}\NormalTok{(table1model1)}
-\end{Highlighting}
-\end{Shaded}
+\begin{table}
 
-\begin{verbatim}
-## 
-## Call:
-## censReg(formula = R ~ density_log, left = 0, data = county_geo_clean)
-## 
-## Observations:
-##          Total  Left-censored     Uncensored Right-censored 
-##           3218           2067           1151              0 
-## 
-## Coefficients:
-##             Estimate Std. error t value Pr(> t)    
-## (Intercept)  2.33967    0.09232   25.34  <2e-16 ***
-## density_log  0.74323    0.02672   27.82  <2e-16 ***
-## logSigma     0.56894    0.02396   23.74  <2e-16 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Newton-Raphson maximisation, 7 iterations
-## Return code 8: successive function values within relative tolerance limit (reltol)
-## Log-likelihood: -3246.5 on 3 Df
-\end{verbatim}
-
-Linear mixed models of R0 and density + \% private transportation
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{table1model2 }\OtherTok{\textless{}{-}} \FunctionTok{censReg}\NormalTok{(R }\SpecialCharTok{\textasciitilde{}}\NormalTok{ density\_log }\SpecialCharTok{+}\NormalTok{ private, }
-                    \AttributeTok{data =}\NormalTok{ county\_geo\_clean)}
-\FunctionTok{summary}\NormalTok{(table1model2)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Call:
-## censReg(formula = R ~ density_log + private, data = county_geo_clean)
-## 
-## Observations:
-##          Total  Left-censored     Uncensored Right-censored 
-##           3218           2067           1151              0 
-## 
-## Coefficients:
-##             Estimate Std. error t value Pr(> t)    
-## (Intercept) 0.825319   0.583014   1.416 0.15689    
-## density_log 0.754516   0.027546  27.391 < 2e-16 ***
-## private     0.017186   0.006548   2.624 0.00868 ** 
-## logSigma    0.570248   0.023977  23.783 < 2e-16 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Newton-Raphson maximisation, 7 iterations
-## Return code 8: successive function values within relative tolerance limit (reltol)
-## Log-likelihood: -3242.96 on 4 Df
-\end{verbatim}
-
-Linear mixed models of R0 and density + \% private transportation +
-median income
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{table1model3 }\OtherTok{\textless{}{-}} \FunctionTok{censReg}\NormalTok{(R }\SpecialCharTok{\textasciitilde{}}\NormalTok{ density\_log }\SpecialCharTok{+}\NormalTok{ private }\SpecialCharTok{+}\NormalTok{ hincome, }
-                    \AttributeTok{data =}\NormalTok{ county\_geo\_clean)}
-\FunctionTok{summary}\NormalTok{(table1model3)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Call:
-## censReg(formula = R ~ density_log + private + hincome, data = county_geo_clean)
-## 
-## Observations:
-##          Total  Left-censored     Uncensored Right-censored 
-##           3218           2067           1151              0 
-## 
-## Coefficients:
-##              Estimate Std. error t value  Pr(> t)    
-## (Intercept) -3.201908   0.680988  -4.702 2.58e-06 ***
-## density_log  0.662526   0.026876  24.651  < 2e-16 ***
-## private      0.040886   0.006844   5.974 2.32e-09 ***
-## hincome      0.297763   0.025726  11.574  < 2e-16 ***
-## logSigma     0.531694   0.023920  22.228  < 2e-16 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Newton-Raphson maximisation, 7 iterations
-## Return code 8: successive function values within relative tolerance limit (reltol)
-## Log-likelihood: -3174.96 on 5 Df
-\end{verbatim}
-
-Tobit models of R0 and density + \% private transportation + median
-income + interaction of density and \% private transportation
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{table1model4 }\OtherTok{\textless{}{-}} \FunctionTok{censReg}\NormalTok{(R }\SpecialCharTok{\textasciitilde{}}\NormalTok{ density\_log}\SpecialCharTok{*}\NormalTok{private }\SpecialCharTok{+}\NormalTok{ hincome, }
-                    \AttributeTok{data =}\NormalTok{ county\_geo\_clean)}
-\FunctionTok{summary}\NormalTok{(table1model4)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## 
-## Call:
-## censReg(formula = R ~ density_log * private + hincome, data = county_geo_clean)
-## 
-## Observations:
-##          Total  Left-censored     Uncensored Right-censored 
-##           3218           2067           1151              0 
-## 
-## Coefficients:
-##                      Estimate Std. error t value  Pr(> t)    
-## (Intercept)         -3.687016   0.733410  -5.027 4.98e-07 ***
-## density_log          0.311841   0.174521   1.787   0.0740 .  
-## private              0.047454   0.007712   6.154 7.58e-10 ***
-## hincome              0.291536   0.025807  11.297  < 2e-16 ***
-## density_log:private  0.004097   0.002028   2.020   0.0434 *  
-## logSigma             0.530095   0.023924  22.158  < 2e-16 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Newton-Raphson maximisation, 7 iterations
-## Return code 8: successive function values within relative tolerance limit (reltol)
-## Log-likelihood: -3173.008 on 6 Df
-\end{verbatim}
+\caption{\label{tab:unnamed-chunk-3}\label{tab:tobit-results}Marginal effects of sample selection models}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lllllrl}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Tobit Model 1} & \multicolumn{2}{c}{Tobit Model 2} & \multicolumn{2}{c}{Tobit Model 3} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5} \cmidrule(l{3pt}r{3pt}){6-7}
+Variable & m.e. & 95\% CI & m.e. & 95\% CI & m.e. & 95\% CI\\
+\midrule
+Log of population density & 0.264 & [0.246, 0.281] & 0.264 & [0.247, 0.281] & 0.233 & [0.216, 0.25]\\
+Percent of private transportation &  &  & 0.006 & [0.002, 0.01] & 0.014 & [0.01, 0.019]\\
+Median household income (\$10,000) &  &  &  &  & 0.105 & [0.087, 0.122]\\
+\bottomrule
+\end{tabular}}
+\end{table}
 
 \hypertarget{spatially-autoregressive-tobit}{%
 \subsection{Spatially autoregressive
 tobit}\label{spatially-autoregressive-tobit}}
 
 Fit spatially autoregressive tobit:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Fit SAR Tobit}
-\NormalTok{fit\_sartobit }\OtherTok{\textless{}{-}} \FunctionTok{sartobit}\NormalTok{(R }\SpecialCharTok{\textasciitilde{}}\NormalTok{ density\_log }\SpecialCharTok{+}\NormalTok{ private }\SpecialCharTok{+}\NormalTok{ hincome\_log,}
-\NormalTok{                         B,}
-                         \AttributeTok{ndraw =} \DecValTok{1000}\NormalTok{,}
-                         \AttributeTok{burn.in =} \DecValTok{200}\NormalTok{, }
-                         \AttributeTok{showProgress =} \ConstantTok{TRUE}\NormalTok{,}
-                         \AttributeTok{data =}\NormalTok{ county\_geo\_clean,}
-                         \AttributeTok{computeMarginalEffects =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## Warning in model.matrix.default(mt, mf, contrasts): non-list contrasts argument
-## ignored
-\end{verbatim}
-
-\begin{verbatim}
-## Warning: Function SE_classic_setup moved to the spatialreg package
-\end{verbatim}
-
-\begin{verbatim}
-## Registered S3 methods overwritten by 'spatialreg':
-##   method                   from 
-##   residuals.stsls          spdep
-##   deviance.stsls           spdep
-##   coef.stsls               spdep
-##   print.stsls              spdep
-##   summary.stsls            spdep
-##   print.summary.stsls      spdep
-##   residuals.gmsar          spdep
-##   deviance.gmsar           spdep
-##   coef.gmsar               spdep
-##   fitted.gmsar             spdep
-##   print.gmsar              spdep
-##   summary.gmsar            spdep
-##   print.summary.gmsar      spdep
-##   print.lagmess            spdep
-##   summary.lagmess          spdep
-##   print.summary.lagmess    spdep
-##   residuals.lagmess        spdep
-##   deviance.lagmess         spdep
-##   coef.lagmess             spdep
-##   fitted.lagmess           spdep
-##   logLik.lagmess           spdep
-##   fitted.SFResult          spdep
-##   print.SFResult           spdep
-##   fitted.ME_res            spdep
-##   print.ME_res             spdep
-##   print.lagImpact          spdep
-##   plot.lagImpact           spdep
-##   summary.lagImpact        spdep
-##   HPDinterval.lagImpact    spdep
-##   print.summary.lagImpact  spdep
-##   print.sarlm              spdep
-##   summary.sarlm            spdep
-##   residuals.sarlm          spdep
-##   deviance.sarlm           spdep
-##   coef.sarlm               spdep
-##   vcov.sarlm               spdep
-##   fitted.sarlm             spdep
-##   logLik.sarlm             spdep
-##   anova.sarlm              spdep
-##   predict.sarlm            spdep
-##   print.summary.sarlm      spdep
-##   print.sarlm.pred         spdep
-##   as.data.frame.sarlm.pred spdep
-##   residuals.spautolm       spdep
-##   deviance.spautolm        spdep
-##   coef.spautolm            spdep
-##   fitted.spautolm          spdep
-##   print.spautolm           spdep
-##   summary.spautolm         spdep
-##   logLik.spautolm          spdep
-##   print.summary.spautolm   spdep
-##   print.WXImpact           spdep
-##   summary.WXImpact         spdep
-##   print.summary.WXImpact   spdep
-##   predict.SLX              spdep
-\end{verbatim}
-
-\begin{verbatim}
-##   |                                                                              |                                                                      |   0%  |                                                                              |                                                                      |   1%  |                                                                              |=                                                                     |   1%  |                                                                              |=                                                                     |   2%  |                                                                              |==                                                                    |   2%  |                                                                              |==                                                                    |   3%  |                                                                              |==                                                                    |   4%  |                                                                              |===                                                                   |   4%  |                                                                              |===                                                                   |   5%  |                                                                              |====                                                                  |   5%  |                                                                              |====                                                                  |   6%  |                                                                              |=====                                                                 |   6%  |                                                                              |=====                                                                 |   7%  |                                                                              |=====                                                                 |   8%  |                                                                              |======                                                                |   8%  |                                                                              |======                                                                |   9%  |                                                                              |=======                                                               |   9%  |                                                                              |=======                                                               |  10%  |                                                                              |=======                                                               |  11%  |                                                                              |========                                                              |  11%  |                                                                              |========                                                              |  12%  |                                                                              |=========                                                             |  12%  |                                                                              |=========                                                             |  13%  |                                                                              |=========                                                             |  14%  |                                                                              |==========                                                            |  14%  |                                                                              |==========                                                            |  15%  |                                                                              |===========                                                           |  15%  |                                                                              |===========                                                           |  16%  |                                                                              |============                                                          |  16%  |                                                                              |============                                                          |  17%  |                                                                              |============                                                          |  18%  |                                                                              |=============                                                         |  18%  |                                                                              |=============                                                         |  19%  |                                                                              |==============                                                        |  19%  |                                                                              |==============                                                        |  20%  |                                                                              |==============                                                        |  21%  |                                                                              |===============                                                       |  21%  |                                                                              |===============                                                       |  22%  |                                                                              |================                                                      |  22%  |                                                                              |================                                                      |  23%  |                                                                              |================                                                      |  24%  |                                                                              |=================                                                     |  24%  |                                                                              |=================                                                     |  25%  |                                                                              |==================                                                    |  25%  |                                                                              |==================                                                    |  26%  |                                                                              |===================                                                   |  26%  |                                                                              |===================                                                   |  27%  |                                                                              |===================                                                   |  28%  |                                                                              |====================                                                  |  28%  |                                                                              |====================                                                  |  29%  |                                                                              |=====================                                                 |  29%  |                                                                              |=====================                                                 |  30%  |                                                                              |=====================                                                 |  31%  |                                                                              |======================                                                |  31%  |                                                                              |======================                                                |  32%  |                                                                              |=======================                                               |  32%  |                                                                              |=======================                                               |  33%  |                                                                              |=======================                                               |  34%  |                                                                              |========================                                              |  34%  |                                                                              |========================                                              |  35%  |                                                                              |=========================                                             |  35%  |                                                                              |=========================                                             |  36%  |                                                                              |==========================                                            |  36%  |                                                                              |==========================                                            |  37%  |                                                                              |==========================                                            |  38%  |                                                                              |===========================                                           |  38%  |                                                                              |===========================                                           |  39%  |                                                                              |============================                                          |  39%  |                                                                              |============================                                          |  40%  |                                                                              |============================                                          |  41%  |                                                                              |=============================                                         |  41%  |                                                                              |=============================                                         |  42%  |                                                                              |==============================                                        |  42%  |                                                                              |==============================                                        |  43%  |                                                                              |==============================                                        |  44%  |                                                                              |===============================                                       |  44%  |                                                                              |===============================                                       |  45%  |                                                                              |================================                                      |  45%  |                                                                              |================================                                      |  46%  |                                                                              |=================================                                     |  46%  |                                                                              |=================================                                     |  47%  |                                                                              |=================================                                     |  48%  |                                                                              |==================================                                    |  48%  |                                                                              |==================================                                    |  49%  |                                                                              |===================================                                   |  49%  |                                                                              |===================================                                   |  50%  |                                                                              |===================================                                   |  51%  |                                                                              |====================================                                  |  51%  |                                                                              |====================================                                  |  52%  |                                                                              |=====================================                                 |  52%  |                                                                              |=====================================                                 |  53%  |                                                                              |=====================================                                 |  54%  |                                                                              |======================================                                |  54%  |                                                                              |======================================                                |  55%  |                                                                              |=======================================                               |  55%  |                                                                              |=======================================                               |  56%  |                                                                              |========================================                              |  56%  |                                                                              |========================================                              |  57%  |                                                                              |========================================                              |  58%  |                                                                              |=========================================                             |  58%  |                                                                              |=========================================                             |  59%  |                                                                              |==========================================                            |  59%  |                                                                              |==========================================                            |  60%  |                                                                              |==========================================                            |  61%  |                                                                              |===========================================                           |  61%  |                                                                              |===========================================                           |  62%  |                                                                              |============================================                          |  62%  |                                                                              |============================================                          |  63%  |                                                                              |============================================                          |  64%  |                                                                              |=============================================                         |  64%  |                                                                              |=============================================                         |  65%  |                                                                              |==============================================                        |  65%  |                                                                              |==============================================                        |  66%  |                                                                              |===============================================                       |  66%  |                                                                              |===============================================                       |  67%  |                                                                              |===============================================                       |  68%  |                                                                              |================================================                      |  68%  |                                                                              |================================================                      |  69%  |                                                                              |=================================================                     |  69%  |                                                                              |=================================================                     |  70%  |                                                                              |=================================================                     |  71%  |                                                                              |==================================================                    |  71%  |                                                                              |==================================================                    |  72%  |                                                                              |===================================================                   |  72%  |                                                                              |===================================================                   |  73%  |                                                                              |===================================================                   |  74%  |                                                                              |====================================================                  |  74%  |                                                                              |====================================================                  |  75%  |                                                                              |=====================================================                 |  75%  |                                                                              |=====================================================                 |  76%  |                                                                              |======================================================                |  76%  |                                                                              |======================================================                |  77%  |                                                                              |======================================================                |  78%  |                                                                              |=======================================================               |  78%  |                                                                              |=======================================================               |  79%  |                                                                              |========================================================              |  79%  |                                                                              |========================================================              |  80%  |                                                                              |========================================================              |  81%  |                                                                              |=========================================================             |  81%  |                                                                              |=========================================================             |  82%  |                                                                              |==========================================================            |  82%  |                                                                              |==========================================================            |  83%  |                                                                              |==========================================================            |  84%  |                                                                              |===========================================================           |  84%  |                                                                              |===========================================================           |  85%  |                                                                              |============================================================          |  85%  |                                                                              |============================================================          |  86%  |                                                                              |=============================================================         |  86%  |                                                                              |=============================================================         |  87%  |                                                                              |=============================================================         |  88%  |                                                                              |==============================================================        |  88%  |                                                                              |==============================================================        |  89%  |                                                                              |===============================================================       |  89%  |                                                                              |===============================================================       |  90%  |                                                                              |===============================================================       |  91%  |                                                                              |================================================================      |  91%  |                                                                              |================================================================      |  92%  |                                                                              |=================================================================     |  92%  |                                                                              |=================================================================     |  93%  |                                                                              |=================================================================     |  94%  |                                                                              |==================================================================    |  94%  |                                                                              |==================================================================    |  95%  |                                                                              |===================================================================   |  95%  |                                                                              |===================================================================   |  96%  |                                                                              |====================================================================  |  96%  |                                                                              |====================================================================  |  97%  |                                                                              |====================================================================  |  98%  |                                                                              |===================================================================== |  98%  |                                                                              |===================================================================== |  99%  |                                                                              |======================================================================|  99%  |                                                                              |======================================================================| 100%
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{summary}\NormalTok{(fit\_sartobit)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## ----MCMC spatial autoregressive Tobit model ----
-## Execution time  = 41.022 secs
-## 
-## N draws         =   1000, N omit (burn-in)=    200
-## N observations  =   3218, K covariates    =      4
-## # censored values =   2067, # observed values =   1151
-## Min rho         = -1.000, Max rho         =  1.000
-## --------------------------------------------------
-## 
-##              Estimate  Std. Dev   p-level t-value Pr(>|z|)    
-## (Intercept) -4.399260  0.737342  0.000000  -5.966 2.69e-09 ***
-## density_log  0.562608  0.026714  0.000000  21.061  < 2e-16 ***
-## private      0.039826  0.006874  0.000000   5.794 7.54e-09 ***
-## hincome_log  1.572387  0.138627  0.000000  11.343  < 2e-16 ***
-## sige         2.992428  0.173624  0.000000  17.235  < 2e-16 ***
-## rho          0.056389  0.004937  0.000000  11.421  < 2e-16 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{impacts}\NormalTok{(fit\_sartobit)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## --------Marginal Effects--------
-## 
-## (a) Direct effects
-##             lower_005 posterior_mean upper_095
-## density_log   0.21275        0.23102     0.248
-## private       0.01180        0.01635     0.021
-## hincome_log   0.55351        0.64566     0.744
-## 
-## (b) Indirect effects
-##             lower_005 posterior_mean upper_095
-## density_log  -0.29273       -0.27252    -0.251
-## private      -0.02504       -0.01929    -0.014
-## hincome_log  -0.88010       -0.76178    -0.651
-## 
-## (c) Total effects
-##             lower_005 posterior_mean upper_095
-## density_log -0.044493      -0.041495    -0.038
-## private     -0.003850      -0.002942    -0.002
-## hincome_log -0.136033      -0.116125    -0.097
-\end{verbatim}
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}

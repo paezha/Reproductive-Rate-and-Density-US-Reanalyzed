@@ -59,6 +59,7 @@ NULL
 #'   \item{GEOID}{Unique identifier of the county}
 #'   \item{NAME.y}{Longer name of state}
 #'   \item{population}{Total population from the 2010 Census (variable P001001)}
+#'   \item{state}{Two letter code of state (from Sy et al.)}
 #'   \item{geometry}{Geometry of boundaries}
 #' }
 #'

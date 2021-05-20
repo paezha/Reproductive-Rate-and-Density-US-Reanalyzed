@@ -14,6 +14,7 @@ A simple features data frame with 52 rows and 8 variables:
   \item{GEOID}{Unique identifier of the county}
   \item{NAME.y}{Longer name of state}
   \item{population}{Total population from the 2010 Census (variable P001001)}
+  \item{state}{Two letter code of state (from Sy et al.)}
   \item{geometry}{Geometry of boundaries}
 }
 }

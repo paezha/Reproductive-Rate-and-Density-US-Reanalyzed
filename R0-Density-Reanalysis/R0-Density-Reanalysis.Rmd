@@ -41,10 +41,12 @@ library(spdep) # Utilities to create spatial weights and work with spatial data
 library(tidycensus) # Package to retrieve census information 
 library(tidyverse) # Data carpentry and analysis tools
 library(units) # Package to work with units of measurement
+library(viridis) # Color palettes
 ```
 
 ```{r invoke-data, include=FALSE}
 data(county_geo)
+data(state_geo)
 ```
 
 ```{r prepare-data, include=FALSE}
@@ -61,7 +63,13 @@ county_geo_clean <- county_geo %>%
 
 ```{r list-of-geographical-neighbors, include=FALSE}
 # Create a list of neighbors based on the polygons; the default contiguity criterion is Queen:
-county_nb <- poly2nb(county_geo_clean)
+# Counties
+county_nb <- county_geo_clean %>%
+  poly2nb()
+# States
+state_nb <- state_geo %>% 
+  filter(!STATE %in% c("02", "15", "72")) %>%
+  poly2nb()
 ```
 
 ```{r spatial-data-check, include=FALSE}
@@ -92,6 +100,10 @@ county_nb[[3200]] <- county_nb_dist[[3200]]
 # Convert the nearest neighbor object to a listw object:
 nb_B <- nb2listw(county_nb, 
                  style="B", 
+                 zero.policy = TRUE)
+
+state_listw <- nb2listw(state_nb, 
+                 style="W", 
                  zero.policy = TRUE)
 
 # Convert listw to sparse matrix for use in spatial tobit:
@@ -157,11 +169,11 @@ There are various reasons why a project can fail to be reproducible. In some cas
 
 In the following sections, the analysis of RWN is replicated, some relevant questions from the perspective of a spatial modeler are asked, and the data are reanalyzed. 
 
-## Replicating SWN
+# Reproducing SWN
 
 SWN examined the association between the basic reproductive number of COVID-19 and population density. The basic reproductive number $R_0$ is a summary measure of contact rates, probability of transmission of a pathogen, and duration of infectiousness. In rough terms, $R_0$ measures how many new infections each infections begets. Infectious disease outbreaks generally tend to die out when $R_0<1$, and to grow when $R_0>1$. Reliable calculation of $R_0$ requires a minimum number of cases to be able to assume that there is community transmission of the pathogen. Accordingly, SNW based their analysis only on counties that had at least 25 cases or more at the end of the exponential growth phase (see Fig. \ref{fig:R0-map}). Their final sample included `r prettyNum(nrow(county_geo %>% filter(!is.na(R))), big.mark = ",")` counties in the US, including in Alaska, Hawaii, Puerto Rico, and island territories.
 
-```{r R0-map, echo=FALSE, fig.cap="\\label{fig:R0-map}Basic reproductive rate in US counties (Alaska, Hawaii, Puerto Rico, and territories not shown)."}
+```{r R0-map, echo=FALSE, out.width= "1\\linewidth", fig.cap="\\label{fig:R0-map}Basic reproductive rate in US counties (Alaska, Hawaii, Puerto Rico, and territories not shown)."}
 # Choropleth map of basic reproductive number
 ggplot() + # Create a ggplot
   # Choropleth map of basic reproductive number
@@ -186,12 +198,13 @@ ggplot() + # Create a ggplot
   # Add caption
   labs(caption = "Note: counties in white represent missing values of the basic reproductive number") +
   # Set theme of plot
-  theme_minimal()
+  theme_minimal() +
+  theme(legend.position = "bottom")
 ```
 
 SWN used for their multivariate analysis mixed linear models. This is a reasonable modelling choice: $R_0$ is an interval-ratio variable that is suitably modeled using linear regression; further, as SWN note there is a likelihood that the process in not independent "among counties within each state, potentially due to variable resource allocation and differing health systems across states"  (p. 3). A mixed linear model accounts for this by introducing random components (in the case of SNW, random intercepts at the state level). SWN estimated various models with different combinations of variables, including median household income and prevalence of travel by private transportation. These are sensible controls, given potential variations in behavior: people in more affluent counties may have greater opportunities to work from home, and use of private transportation reduces contact with strangers. Moreover, they also conducted various sensitivity analyses. After these efforts, SNW conclude that there is a positive association between the basic reproductive number and population density at the level of counties in the US.
 
-Table \ref{tab:swn-results} replicates Table 1 of SWN (p. 6).
+Table \ref{tab:swn-results} replicates the first three models of SWN (the fourth model did not have any significant variables; see Table 1 in SNW). It is possible to verify that the results match with the minor (and irrelevant) exception of the magnitude of the coefficient for travel by private transportation, which is due to a difference in the input (here the variable is one percent units, whereas in SWN it was ten percent units). The intercept in these models is a random variable, and the standard deviation is reported in the fourth row of Table \ref{tab:swn-results}. It is useful to map the random intercepts: as seen in Figure \ref{fig:random-terms-map}, other things being equal, counties in Texas tended to have somewhat lower values of $R_0$ (i.e., a negative random intercept), whereas counties in South Dakota tended to have higher values of $R_0$. The key of the analysis, that population density has a positive association with the basic reproductive number, is verified. But is it really?
 
 ```{r replicate-swn, include=FALSE}
 # Fit (mixed) linear models as in Sy et al. These models are reported in table 1 of their paper
@@ -227,6 +240,15 @@ model4 <- lme(R ~ density_log*private + hincome,
                       filter(R > 0)) # Exclude observations with missing R
 #summary(model4)
 model4_intervals <- intervals(model4)
+```
+
+```{r join-random-intercepts, include=FALSE}
+state_geo <- state_geo %>% 
+  left_join(model3$coefficients$random$state %>%
+              as.data.frame() %>%
+              rownames_to_column(var = "state"),
+            by = "state") %>%
+  rename(random_intercepts = `(Intercept)`)
 ```
 
 ```{r prepare-swn-results-for-table, include=FALSE}
@@ -321,46 +343,151 @@ results_swn %>%
   add_header_above(c(" ", "Model 1" = 2, "Model 2" = 2, "Model 3" = 2))
 ```
 
+```{r random-terms-map, echo=FALSE, out.width= "1\\linewidth", fig.cap="\\label{fig:random-terms-map}Random intercepts of Model 3 (Alaska, Hawaii, Puerto Rico, and territories not shown)."}
+# Choropleth map of basic reproductive number
+ggplot() + 
+  geom_sf(data = state_geo %>%
+            filter(!STATE %in% c("02", "15", "72")), # Exclude Alaska, Hawaii, and Puerto Rico
+          aes(fill = random_intercepts), # Add the simple features object to the plot
+          color = "lightgray") +
+  # Use viridis color palette: viriis color palettes are designed to print well in monochrome, are perceptually uniform, and effective for colorblindness
+  scale_fill_viridis(name = "Random Intercepts",
+                     option = "turbo",
+                       direction = -1) +
+  # Set theme of plot
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
 
-# Some relevant questions
+# Expanding on SWN
+
+Thanks to the availability of code and data, it was possible to verify the results reported by SWN. As noted earlier, though, an experienced spatial modeller would have asked themselves about the implications of the spatial sampling procedure used by SWN. The decision to use a sample of counties with reliable basic reproductive numbers, although seemingly sensible, results in a non-random sampling scheme. Turning our attention back to Figure \ref{fig:R0-map}, we see that many counties without reliable values of $R_0$ are in more rural, less dense parts of the United States. The fact that $R_0$ could not be accurately computed in those counties does not mean that there was no transmission of the virus: it simply means that we do not know with precision whether that was the case. The low number of cases may be related to low population and/or low population density. This is intriguing, to say the least: by excluding cases in a non-random way such as this, we are in effect _truncating_ the sample.
+
+The issue with sample truncation is that parameter estimates can become unreliable. 
 
 Alas, despite decades' worth of developments in the field of geographical analysis, not all research presented to date has used proper methods for the study of COVID-19. While the answer to the question "do spatial effects really matter in regression analysis" was definitively answered in the positive at least 40 years ago, in practice many researchers continue to ignore the pitfalls of ignoring them. In this paper, I present a reanalysis of the data used by Sy et al. (2021) to study the correlations between the basic reproductive number of COVID-19 and population density in counties. I highlight two related issues: non-systematic sampling in space and spatial autocorrelation. The reanalysis is based on the use of tobit models to account for non-systematic sampling, and spatially autoregressive tobit models to account for spatial autocorrelation in the data generation process. The reanalysis highlights the importance of openness and reproducibility in COVID-19 research. Finally, the results provide a sobering example of the risks of not using appropriate methods in the analysis of geographical data. Furthermore, 
 
 ## Fit tobit version of models
 
-```{r}
-table1model1 <- censReg(R ~ density_log, 
+```{r include=FALSE}
+#
+tobit1 <- censReg(R ~ density_log, 
                         left = 0,
                     data = county_geo_clean)
-summary(table1model1)
-```
 
-Linear mixed models of R0 and density + % private transportation
-```{r}
-table1model2 <- censReg(R ~ density_log + private, 
+#
+tobit2 <- censReg(R ~ density_log + private, 
                     data = county_geo_clean)
-summary(table1model2)
-```
 
-Linear mixed models of R0 and density + % private transportation + median income
-```{r}
-table1model3 <- censReg(R ~ density_log + private + hincome, 
+#
+tobit3 <- censReg(R ~ density_log + private + hincome, 
                     data = county_geo_clean)
-summary(table1model3)
 ```
 
-Tobit models of R0 and density + % private transportation + median income + interaction of density and % private transportation
-```{r}
-table1model4 <- censReg(R ~ density_log*private + hincome, 
-                    data = county_geo_clean)
-summary(table1model4)
+```{r include=FALSE}
+tobit1_me <- tobit1 %>%
+  margEff() %>%
+  summary() %>%
+  as.data.frame()
 
+colnames(tobit1_me) <- c("me", "se", "t", "p")
+
+tobit1_me <- tobit1_me %>%  rownames_to_column(var = "Variable") %>% 
+  transmute(Variable,
+            me,
+            ll = me - 1.96 * se, 
+            ul = me + 1.96 * se)
+
+tobit2_me <- tobit2 %>%
+  margEff() %>%
+  summary() %>%
+  as.data.frame()
+
+colnames(tobit2_me) <- c("me", "se", "t", "p")
+
+tobit2_me <- tobit2_me %>%  rownames_to_column(var = "Variable") %>% 
+  transmute(Variable,
+            me,
+            ll = me - 1.96 * se, 
+            ul = me + 1.96 * se)
+
+tobit3_me <- tobit3 %>%
+  margEff() %>%
+  summary() %>%
+  as.data.frame()
+
+colnames(tobit3_me) <- c("me", "se", "t", "p")
+
+tobit3_me <- tobit3_me %>%  rownames_to_column(var = "Variable") %>% 
+  transmute(Variable,
+            me,
+            ll = me - 1.96 * se, 
+            ul = me + 1.96 * se)
+
+results_me_tobit <- tobit1_me %>%
+  full_join(tobit2_me,
+            by = "Variable") %>%
+  full_join(tobit3_me,
+            by = "Variable") 
+
+colnames(results_me_tobit) <- c("Variable",
+                                "b1",
+                                "l1",
+                                "u1",
+                                "b2",
+                                "l2",
+                                "u2",
+                                "b3",
+                                "l3",
+                                "u3")
+
+results_me_tobit <- results_me_tobit %>%
+  transmute(Variable,
+            b1 = ifelse(is.na(b1),
+                        " ", 
+                        round(b1, 3)),
+            ci1 = ifelse(is.na(l1), 
+                         " ",
+                         paste0("[", round(l1, 3), ", ", round(u1, 3), "]")),
+            b2 = ifelse(is.na(b2),
+                        " ", 
+                        round(b2, 3)),
+            ci2 = ifelse(is.na(l2), 
+                         " ",
+                         paste0("[", round(l2, 3), ", ", round(u2, 3), "]")),
+            b3 = ifelse(is.na(b3),
+                        " ", 
+                        round(b3, 3)),
+            ci3 = ifelse(is.na(l3), 
+                         " ",
+                         paste0("[", round(l3, 3), ", ", round(u3, 3), "]")))
 ```
+
+```{r echo=FALSE}
+results_me_tobit %>%
+  mutate(Variable = c("Log of population density",
+                      "Percent of private transportation", 
+                      "Median household income ($10,000)")) %>%
+  kable("latex",
+        digits = 3,
+        booktabs = TRUE,
+        col.names = c("Variable",
+                      "m.e.",
+                      "95% CI",
+                      "m.e.",
+                      "95% CI",
+                      "m.e.",
+                      "95% CI"),
+        caption = "\\label{tab:tobit-results}Marginal effects of sample selection models") %>%
+  kable_styling(latex_options = c("scale_down")) %>%
+  add_header_above(c(" ", "Tobit Model 1" = 2, "Tobit Model 2" = 2, "Tobit Model 3" = 2))
+```
+
 
 ## Spatially autoregressive tobit
 
 Fit spatially autoregressive tobit:
-```{r}
+```{r include=FALSE}
 # Fit SAR Tobit
 fit_sartobit <- sartobit(R ~ density_log + private + hincome_log,
                          B,
