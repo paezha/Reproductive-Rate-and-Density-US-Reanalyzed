@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 Antonio Páez (McMaster University)  
 
-Paper in preparation for submision to *PLoS ONE*
+Paper submitted to *PLoS ONE*
 
 ## Abstract
 
@@ -35,16 +35,677 @@ The emergence of the novel SARS-CoV-2 coronavirus and the global COVID-19 pandem
 - Population density  
 - Basic reproductive number  
 
-## Introduction
 
-The emergence of the novel SARS-CoV-2 coronavirus in 2019, and the global pandemic that followed in its wake, led to an explosive growth of research. According to Fraser et al. [-@Fraser2021evolving], over 125,000 COVID-19-related papers were released in the first ten months from the first confirmed case of the disease. Of these, more than 30,000 were shared in pre-print servers, the use of which also exploded in the past year [@Kwon2021swamped; @Vlasschaert2020proliferation; @Anazco2021publication]. 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = TRUE)
+```
 
-Given the heavy human and economic cost of the pandemic, there has been a natural tension in the scientific community between the need to publish research results quickly and the imperative to maintain consistently high quality standards in scientific reporting; indeed, a call for maintaining the standards in published research has even called this deluge of publications a "carnage of substandard research" [@Bramstedt2020carnage]. Part of the challenge of maintaining quality standards in published research is that, despite an abundance of recommendations and guidelines [@Broggini2017reproducible; @Ince2012case; @Ioannidis2014increasing; @Brunsdon2020opening], in practice reproducibility has remained a lofty but somewhat aspirational goal [@Konkol2019examination; @Konkol2019computational]. As reported in the literature, only a woefully small proportion of published research was actually reproducible before the pandemic [@Iqbal2016reproducible; @Stodden2018empirical], a situation that does not appear to have changed substantially since [@Sumner2020reproducibility; @Gustot2020quality].
+```{r install-data-package, include = FALSE}
+# Run only once if needed to install data package `r0density`
+if (!require("r0density", character.only = TRUE)) {
+  devtools::install_github("https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed", subdir = "r0density")
+}
+```
 
-The push for open data and software, along with more strenuous efforts towards open, reproducible research, is simply a continuation of long-standing scientific practices of independent verification. Despite the (at times disproportionate) attention that high profile scandals in science tend to elicit in the media, science as a collective endeavor is remarkable for being a self-correcting enterprise, one with built-in mechanisms and incentives to weed out erroneous ideas. Over the long term, facts tend to prevail in science. At stake is the shorter-term impacts that research may have in other spheres of economic and social life. The case of economists Reinhart and Rogoff comes to mind: by the time the inaccuracies in their research were uncovered [see @Herndon2014high], their claims about debt and economic growth had already been seized by policy-makers on both sides of the Atlantic to justify austerity policies in the aftermath of the Great Recession of 2007-2009^[Nobel Prize in Economics Paul Krugman noted that "Reinhart–Rogoff may have had more immediate influence on public debate than any previous paper in the history of economics" \url{https://www.nybooks.com/articles/2013/06/06/how-case-austerity-has-crumbled/?pagination=false}]. As later research has demonstrated, those policies cast a long shadow, and their sequels continued to be felt for years [@Basu2017ten]. 
+```{r load-packages, include=FALSE, cache=FALSE}
+library(censReg) # Package to estimate tobit model
+library(gridExtra)
+library(kableExtra) # Package for creating tables
+library(Matrix) # Used to convert list of spatial weights to sparse matrix; needed for spatialprobit
+library(nlme) # Used to estimate 
+library(patchwork)
+library(r0density) # Data package
+library(sampleSelection) # Package to estimate sampling selection models
+library(sf) # Package to work with spatial information in simple features format
+library(spatialprobit) # Used to estimate spatially autoregressive tobit
+library(spdep) # Utilities to create spatial weights and work with spatial data
+library(tidycensus) # Package to retrieve census information 
+library(tidyverse) # Data carpentry and analysis tools
+library(units) # Package to work with units of measurement
+library(viridis) # Color palettes
+```
 
-In the context of COVID-19, a topic that has grabbed the imagination of numerous thinkers has been the prospect of life in cities after the pandemic [@Florida2020how]. The fact that the worst of the pandemic was initially felt in dense population centers such as Wuhan, Milan, Madrid, and New York, prompted a flurry of research into the associations between density and the spread of the pandemic. Some important questions hang on the results of these research efforts. For example, are lower density regions safer from the pandemic? Are de-densification policies warranted, at least in the short term? And in the longer term, will the risks of life in high density regions presage a flight from cities? Over the past year, numerous papers have sought to throw light into the underlying issue of density and the pandemic; nonetheless the results, as will be detailed next, remain mixed. Further, to complicate matters, precious few of these studies appear to be sufficiently open to support independent verification.
+```{r invoke-data, include=FALSE}
+data(county_geo)
+data(state_geo)
+data(urba_geo)
+```
+
+```{r prepare-data, include=FALSE}
+# Convert missing R's to zeros and calculate expansion variables: 
+county_geo_clean <- county_geo %>%
+  mutate(R = replace_na(R, 0),
+         density_log = log(drop_units(density)),
+         density_2 = drop_units(density)^2,
+         hincome_log = log(hincome),
+         private = car/commuters * 100) %>% # Percentage of commuters who travel by car/van/truck (in 10%)
+  drop_na(commuters) %>%
+  st_as_sf()
+
+# Boundary of continental US excluding Alaska
+us_geo <- st_union(state_geo %>% filter(!STATE %in% c("02", "15", "72")))
+```
+
+```{r list-of-geographical-neighbors, include=FALSE}
+# Create a list of neighbors based on the polygons; the default contiguity criterion is Queen:
+# Counties
+county_nb <- county_geo_clean %>%
+  poly2nb()
+# States
+state_nb <- state_geo %>% 
+  filter(!STATE %in% c("02", "15", "72")) %>%
+  poly2nb()
+```
+
+```{r spatial-data-check, include=FALSE}
+# Check list of neighbors
+summary(county_nb)
+
+# Notice that there are 9 counties that are isolates. These are the counties that do not have neighbors based on contiguity
+county_geo_clean[c(69, 546, 547, 549, 1226, 1876, 2974, 3146, 3200),]
+
+# To rectify the lack of neighbors, find the first nearest neighbor using the centroids:
+county_nb_dist <- knearneigh(county_geo_clean %>% 
+                               st_centroid()) %>%
+  knn2nb()
+
+# Add nearest neighbor to isolates:
+county_nb[[69]] <- county_nb_dist[[69]]
+county_nb[[546]] <- county_nb_dist[[546]]
+county_nb[[547]] <- county_nb_dist[[547]]
+county_nb[[549]] <- county_nb_dist[[549]]
+county_nb[[1226]] <- county_nb_dist[[1226]]
+county_nb[[1876]] <- county_nb_dist[[1876]]
+county_nb[[2974]] <- county_nb_dist[[2974]]
+county_nb[[3146]] <- county_nb_dist[[3146]]
+county_nb[[3200]] <- county_nb_dist[[3200]]
+```
+
+```{r spatial-weights, include=FALSE}
+# Convert the nearest neighbor object to a listw object:
+nb_B <- nb2listw(county_nb, 
+                 style="B", 
+                 zero.policy = TRUE)
+
+state_listw <- nb2listw(state_nb, 
+                        style="W", 
+                        zero.policy = TRUE)
+
+# Convert listw to sparse matrix for use in spatial tobit:
+B <- as(nb_B, "CsparseMatrix")
+```
+
+# Introduction
+
+The emergence of the novel SARS-CoV-2 coronavirus in 2019, and the global pandemic that followed in its wake, led to an explosive growth of research around the globe. According to Fraser et al. [-@Fraser2021evolving], over 125,000 COVID-19-related papers were released in the first ten months from the first confirmed case of the disease. Of these, more than 30,000 were shared in pre-print servers, the use of which also exploded in the past year [@Kwon2021swamped; @Vlasschaert2020proliferation; @Anazco2021publication]. 
+
+Given the heavy human and economic cost of the pandemic, there has been a natural tension in the scientific community between the need to publish research results quickly and the imperative to maintain consistently high quality standards in scientific reporting; indeed, a call for maintaining the standards in published research has even called this deluge of publications a "carnage of substandard research" [@Bramstedt2020carnage]. Part of the challenge of maintaining quality standards in published research is that, despite an abundance of recommendations and guidelines [@Broggini2017reproducible; @Ince2012case; @Ioannidis2014increasing; @Brunsdon2020opening], in practice reproducibility has remained a lofty and somewhat aspirational goal [@Konkol2019examination; @Konkol2019computational]. As reported in the literature, only a woefully small proportion of published research was actually reproducible before the pandemic [@Iqbal2016reproducible; @Stodden2018empirical], and the situation does not appear to have changed substantially since [@Sumner2020reproducibility; @Gustot2020quality].
+
+The push for open data and software, along with more strenuous efforts towards open, reproducible research, is simply a continuation of long-standing scientific practices of independent verification. Despite the (at times disproportionate) attention that high profile scandals in science tend to elicit in the media, science as a collective endeavor is remarkable for being a self-correcting enterprise, one with built-in mechanisms and incentives to weed out erroneous ideas. Over the long term, facts tend to prevail in science. At stake is the shorter-term impacts that research may have in other spheres of economic and social life. The case of economists Reinhart and Rogoff comes to mind: by the time the inaccuracies and errors in their research were uncovered [see @Herndon2014high], their claims about debt and economic growth had already been seized by policy-makers on both sides of the Atlantic to justify austerity policies in the aftermath of the Great Recession of 2007-2009^[Nobel Prize in Economics Paul Krugman noted that "Reinhart–Rogoff may have had more immediate influence on public debate than any previous paper in the history of economics" \url{https://www.nybooks.com/articles/2013/06/06/how-case-austerity-has-crumbled/?pagination=false}]. As later research has demonstrated, those policies cast a long shadow, and their sequels continued to be felt for years [@Basu2017ten]. 
+
+In the context of COVID-19, a topic that has grabbed the imagination of numerous thinkers has been the prospect of life in cities after the pandemic [@Florida2020how]. The fact that the worst of the pandemic was initially felt in dense population centers such as Wuhan, Milan, Madrid, and New York, brought a torrent of research into the associations between density and the spread of the pandemic. Some important questions hang on the results of these research efforts. For example, are lower density regions safer from the pandemic? Are de-densification policies warranted, even if just in the short term? And in the longer term, will the risks of life in high density regions presage a flight from cities? Over the past year, numerous papers have sought to throw light into the underlying issue of density and the pandemic; nonetheless the results, as will be detailed next, remain mixed. Further, to complicate matters, precious few of these studies appear to be sufficiently open to support independent verification.
 
 The objective of this paper is to illustrate the importance of reproducibility in research, particularly in the context of the flood of COVID-19 papers. To this end, a recent study by Sy et al. [@Sy2021population] is chosen as an example of reproducible research. The objective is not to malign the analysis of these researchers, but rather to demonstrate the value of openness to allow for independent verification and further analysis. Open data and open code mean that an independent researcher can, with only modest efforts, not only verify the findings reported, but also examine the same data from a perspective which may not have been available to the original researchers due to differences in disciplinary perspectives, methodological traditions, and/or training, among other possible factors. The example, which shows consequential changes in the conclusions reached by different analyses, should serve as a call to researchers to redouble their efforts to increase transparency and reproducibility in research. This paper, in addition, aims to show how data can be packaged in well-documented, shareable units, and code can be embedded into self-contained documents suitable for review and independent verification. The source for this paper is an [R Markdown](http://rmarkdown.rstudio.com) document which, along with the data package, is available in a public repository^[\url{https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed}].
 
-## References
+# Background: the intuitive relationship between density and spread of contagious diseases
+
+The concern with population density and the spread of the virus during the COVID-19 pandemic was fueled, at least in part, by dramatic scenes seen in real-time around the world from large urban centers such as Wuhan, Milan, Madrid, and New York. In theory, there are good reasons to believe that higher density may have a positive association with the transmission of a contagious virus. It has long been known that the potential for inter-personal contact is greater in regions with higher density [see for example the research on urban fields and time-geography @Moore1970urban; @Moore1970some; @Farber2011running]. Mathematically, models of exposure and contagion indicate that higher densities can catalyze the transmission of contagious diseases [@Rocklov2020high; @Li2018effect]. The idea is intuitive and likely at the root of messages, by some figures in positions of authority, that regions with sparse population densities faced lower risks from the pandemic^[Governor Kristi Noem of South Dakota, for example, claimed that sparse population density allowed her state to face the pandemic down without the need for strict policy interventions \url{https://www.inforum.com/lifestyle/health/5025620-South-Dakota-is-not-New-York-City-Noem-defends-lack-of-statewide-COVID-19-restrictions}]. 
+
+As Rocklöv and Sjödin [@Rocklov2020high] note, however, mathematical models of contagion are valid at small-to-medium spatial scales (and presumably, small temporal scales too, such as time spent in restaurants, concert halls, cruises), and the results do not necessarily transfer to larger spatial units and different time scales. There are solid reasons for this: while in a restaurant, one can hardly avoid being in proximity to other customers-however, a person can choose to (or be forced to as a matter of policy) not go to a restaurant in the first place. Nonetheless, the idea that high density correlates with high transmission is so seemingly reasonable that it is often taken for granted even at larger scales [e.g., @Cruz2020exploring; @Micallef2020first]. At larger scales, however, there exists the possibility of behavioral adaptations, which are difficult to capture in the mechanistic framework of differential equations [or can be missing in agent-based models, e.g., @Gomez2021infekta]; these adaptations, in fact, can be a key aspect of disease transmission. 
+
+A plausible behavioral adaptation during a pandemic, especially one broadcast as widely and intensely as COVID-19, is risk compensation. Risk compensation is a process whereby people adjust their behavior in response to their _perception_ of risk [@Noland1995perceived; @Richens2000condoms; @Phillips2011risk]. In the case of COVID-19, Chauhan et al. [@Chauhan2021covid] have found that perception of risks in the US varies between rural, suburban, and urban residents, with rural residents in general expressing less concern about the virus. It is possible that people who listened to the message of leaders saying that they were safe because of low density may not have taken adequate precautions against the virus. People in dense places who could more directly observe the impact of the pandemic may have become overly cautious. Both Paez et al. [-@Paez2020spatio] and Hamidi et al. [-@Hamidi2020density] posit this mechanism (i.e., greater compliance with social distancing in denser regions) to explain the results of their analyses. The evidence available does indeed show that there were important changes in behavior with respect to mobility during the pandemic [@Jamal2020Changes; @Harris2021Changes; @Molloy2020Tracing]; furthermore, shelter in place orders may have had greater buy-in from the public in higher density regions [@Feyman2020effectiveness], and the associated behavior may have persisted beyond the duration of official social-distancing policies [@Praharaj2020Using]. In addition, there is evidence that changes in mobility correlated with the trajectory of the pandemic [@Paez2020using; @Noland2021mobility]. Given the potential for behavioral adaptation, the question of density becomes more nuanced: it is not just a matter of proximity, but also of human behavior, which is better studied using population-level data and models.
+
+# Background: but what does the literature say?
+
+When it comes to population density and the spread of COVID-19, the international literature to date remains inconclusive. 
+
+On the one hand, there are studies that report positive associations between population density and various COVID-19-related outcomes. Bhadra [-@Bhadra2021impact], for example, reported a moderate positive correlation between the spread of COVID-19 and population density at the district level in India, however their analysis was bivariate and did not control for other variables, such as income. Similarly, Kadi and Khelfaoui [-@Kadi2020population] found a positive and significant correlation between number of cases and population density in cities in Algeria in a series of simple regression models (i.e., without other controls). A question in these relatively simple analyses is whether density is not a proxy for other factors. Other studies have included controls, such as Pequeno et al. [-@Pequeno2020air], a team that reported a positive association between density and cumulative counts of confirmed COVID-19 cases in state capitals in Brazil after controlling for covariates, including income, transport connectivity, and economic status. In a similar vein, Fielding-Miller et al. [-@Fielding2020social] reported a positive relationship between the absolute number of COVID-19 deaths and population density (rate) in rural counties in the US. Roy and Ghosh [-@Roy2020factors] used a battery of machine learning techniques to find discriminatory factors, and a positive and significant association between COVID-19 infection and death rates in US states. Wong and Li [-@Wong2020spreading] also found a positive and significant association between population density and number of confirmed COVID-19 cases in US counties, using both univariate and multivariate regressions with spatial effects. More recently, Sy et al. [-@Sy2021population] reported that the basic reproductive number of COVID-19 in US counties tended to increase with population density, but at a decreasing rate at higher densities.
+
+On the flip side, a number of studies report non-significant or negative associations between population density and COVID-19 outcomes. This includes the research of Sun et al. [-@Sun2020impacts] who did not find evidence of significant correlation between population density and confirmed number of cases per day _in conditions of lockdown_ in China. This finding echoes the results of Paez et al. [-@Paez2020spatio], who in their study of provinces in Spain reported non-significant associations between population density and infection rates in the early days of the first wave of COVID-19, and negative significant associations in the later part of the first lockdown. Similarly, [-@Skorka2020macroecology] found zero or negative associations between population density and infection numbers/deaths by country. Fielding-Miller et al. [-@Fielding2020social] contrast their finding about rural counties with a negative relationship between COVID-19 deaths and population density in urban counties in the US. For their part, in their investigation of doubling time, White and Hébert-Dufresne [-@White2020state] identified a negative and significant correlation between population density and doubling time in US states. Likewise, [-@Khavarian2021high] fond a small negative (and significant) association between population density and COVID-19 morbidity in districts in Tehran. Finally, two of the most complete studies in the US [by Hamidi et al.; -@Hamidi2020longitudinal; -@Hamidi2020density] used an extensive set of controls to find negative and significant correlations between density and COVID-19 cases and fatalities at the level of counties in the US.
+
+As can be seen, these studies are implemented at different scales in different regions of the world. They also use a range of techniques, from correlation analysis, to multivariate regression, spatial regressions, and machine learning techniques. This is natural and to be expected: individual researchers have only limited time and expertise. This is why reproducibility is important. To pick an example (which will be further elaborated in later sections of this paper), the study of Sy et al. [-@Sy2021population; hereafter SWN] would immediately grab the attention of a researcher with a somewhat different toolbox. 
+
+# Reproducibility of research
+
+SWN investigated the basic reproductive number of COVID-19 in US counties, and its association with population density, median household income, and prevalence of private mobility. For their multivariate analysis, SWN used mixed linear models. This is a reasonable modelling choice: $R_0$ is an interval-ratio variable that is suitably modeled using linear regression; further, as SWN note there is a likelihood that the process in not independent "among counties within each state, potentially due to variable resource allocation and differing health systems across states"  (p. 3). A mixed linear model accounts for this by introducing random components (in the case of SWN, random intercepts at the state level). SWN estimated various models with different combinations of variables, including median household income and prevalence of travel by private transportation. These are sensible controls, given potential variations in behavior: people in more affluent counties may have greater opportunities to work from home, and use of private transportation reduces contact with strangers. Moreover, they also conducted various sensitivity analyses. After these efforts, SWN conclude that there is a positive association between the basic reproductive number and population density at the level of counties in the US.
+
+One salient aspect of the analysis in SWN is that the basic reproductive number can only be calculated reliably with a minimum number of cases, and a large number of counties did not meet such threshold. As researchers do, SWN made modelling decisions, in this case basing their analysis only on counties with valid observations. A modeler with expertise in different methods would likely ask some of the following questions on reading SWN's paper: how were missing counties treated? What are the implications of the spatial sampling framework used in the analysis? Is it possible to spatially interpolate the missing observations? And, was there evidence of spatial autocorrelation in the residuals of the models? These questions are relevant and their implications important. Fortunately, SWN are an example of a reasonably open, reproducible research product: their paper is accompanied by (most of) the data and (most of) the code used in the analysis. This means that an independent expert can, with only a moderate investment of time and effort, reproduce the results in the paper, as well as ask additional questions.
+
+Alas, reproducibility is not necessarily the norm in the relevant literature.
+
+There are various reasons why a project can fail to be reproducible. In some cases, there might be legitimate reasons to withhold the data, perhaps due to confidentiality and privacy reasons [e.g., @Lee2020human]. But in many other cases the data are publicly available, which in fact has commonly been the case with population-level COVID-19 information. Typically the provenance of the data is documented, but in numerous studies the data themselves are not shared [@Amadu2021assessing; @Bhadra2021impact; @Cruz2020exploring; @Feng2020spread; @Fielding2020social; @Hamidi2020longitudinal; @Hamidi2020density; @Inbaraj2021seroprevalence; @Souris2020covid]. As any researcher can attest, whether a graduate student or a seasoned scientist, collecting, organizing, and preparing data for a project can take a substantial amount of time. Pointing to the sources of data, even when these sources are public, is a small step towards reproducibility-but only a very small one. Faced with the prospect of having to recreate a data set from raw sources is probably sufficient to dissuade all but the most dedicated (or stubborn) researcher from independent verification. This is true even if part of the data are shared [e.g., @Wong2020spreading]. In other cases, data are shared, but the processes followed in the preparation of the data are not fully documented [@Ahmad2020association; @Skorka2020macroecology]. These processes matter, as shown by the errors in the spreadsheets of Reinhart and Rogoff [@Herndon2014high] and the data of biologist Jonathan Pruitt that led to an "avalanche" of paper retractions^[\url{https://doi.org/10.1038/d41586-020-00287-y}]. Another situation is when papers share well-documented data, but fail to provide the code used in the analysis [@Noury2021how; @Pequeno2020air; @Wang2021transmission]. Making code available only "on demand" [e.g., @Brandtner2021creatures] is an unnecessary barrier when most journals offer the facility to share supplemental materials online. Then there are those papers that more closely comply with reproducibility standards, and share well-documented processes and data, as well as the code used in any analyses reported [@Paez2020spatio; @Feyman2020effectiveness; @Stephens2021impact; @White2020state; @Sy2021population].
+
+<!--
+@Ahmad2020association -> code is not shared, data are provided but data pre-processing is not documented
+@Amadu2021assessing -> code is not shared, data provenance is documented, data are not shared
+@Bhadra2021impact -> (code and data not available; only data provenance is documented)
+@Brandtner2021creatures -> code is available on demand, data are shared
+@Cruz2020exploring -> code is shared, sources of data are documented, data are not actually provided
+@Feng2020spread -> code not shared, data provenance is documented, data are not shared
+@Feyman2020effectiveness -> code and data are provided
+@Fielding2020social -> code is not shared, data provenance is documented, data are not actually provided
+@Hamidi2020longitudinal, @Hamidi2020density ->  (code and data not available)
+@Inbaraj2021seroprevalence -> code is not shared, data are not shared
+@Lee2020human -> code not provided, data sources are documented but data are not shared (privacy & confidentiality)
+@Noury2021how -> code is not shared, data are shared
+@Pequeno2020air -> (raw data supplied in suplemental files, code not available)
+@Roy2020factors -> code is not shared, data are provided and data processing is documented
+@Skorka2020macroecology -> code and data are shared but data processing is not documented, 
+@Souris2020covid -> code not provided, data sources are documented but data are not shared
+@Stephens2021impact -> code and data are shared
+@Wang2021transmission -> code is not shared, data are available
+@White2020state -> code and data are in repository
+@Wong2020spreading -> code not provided, data are shared but data preprocessing is not documented
+-->
+
+In the following sections, the analysis of RWN is reproduced, some relevant questions from the perspective of a spatial modeler are asked, and the data are reanalyzed. 
+
+# Reproducing SWN
+
+SWN examined the association between the basic reproductive number of COVID-19 and population density. The basic reproductive number $R_0$ is a summary measure of contact rates, probability of transmission of a pathogen, and duration of infectiousness. In rough terms, $R_0$ measures how many new infections each infections begets. Infectious disease outbreaks generally tend to die out when $R_0<1$, and to grow when $R_0>1$. Reliable calculation of $R_0$ requires a minimum number of cases to be able to assume that there is community transmission of the pathogen. Accordingly, SWN based their analysis only on counties that had at least 25 cases or more at the end of the exponential growth phase (see Fig. \ref{fig:R0-map}). Their final sample included `r prettyNum(nrow(county_geo %>% filter(!is.na(R))), big.mark = ",")` counties in the US, including in Alaska, Hawaii, Puerto Rico, and island territories.
+
+```{r R0-map, echo=FALSE, fig.cap="\\label{fig:R0-map}Basic reproductive rate in US counties (Alaska, Hawaii, Puerto Rico, and territories not shown)."}
+# Choropleth map of basic reproductive number
+ggplot() + # Create a ggplot
+  # Choropleth map of basic reproductive number
+  geom_sf(data = county_geo_clean %>% # Add the simple features object to the plot
+            filter(!STATE %in% c("02", "15", "72")), # Exclude Alaska, Hawaii, and Puerto Rico
+          aes(fill = R),
+          color = NA) +
+  # Use viridis color palette: viriis color palettes are designed to print well in monochrome, are perceptually uniform, and effective for colorblindness
+  scale_fill_viridis_c(name = expression(R[0]),
+                       direction = -1) +
+  # Overlay counties with missing values of the reproductive number in white
+  geom_sf(data = county_geo_clean %>% # Add the simple features object to the plot
+            filter(!STATE %in% c("02", "15", "72"), # Exclude Alaska, Hawaii, and Puerto Rico
+                   R == 0), 
+          fill = "white",
+          color = NA) +
+  # Overlay county boundaries
+  geom_sf(data = county_geo_clean %>% # Add the simple features object to the plot
+            filter(!STATE %in% c("02", "15", "72")), # Exclude Alaska, Hawaii, and Puerto Rico
+          fill = NA,
+          color = "lightgray") +
+  # Add boundary of continental US
+  geom_sf(data = us_geo,
+          fill = NA) + 
+  # Add caption
+  labs(caption = "Note: counties in white represent missing values of the basic reproductive number") +
+  # Set theme of plot
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+Table \ref{tab:swn-results} reproduces the first three models of SWN (the fourth model did not have any significant variables; see Table 1 in SWN). It is possible to verify that the results match, with only the minor (and irrelevant) exception of the magnitude of the coefficient for travel by private transportation, which is due to a difference in the input (here the variable is one percent units, whereas in SWN it was ten percent units). The mixed linear model gives random intercepts (i.e., the intercept is a random variable), and the standard deviation is reported in the fourth row of Table \ref{tab:swn-results}. It is useful to map the random intercepts: as seen in Figure \ref{fig:random-terms-map}, other things being equal, counties in Texas tend to have somewhat lower values of $R_0$ (i.e., a negative random intercept), whereas counties in South Dakota tend to have higher values of $R_0$. The key of the analysis, after extensive sensitivity analysis, is a robust finding that population density has a positive association with the basic reproductive number. But does it?
+
+```{r reproduce-swn, include=FALSE}
+# Fit (mixed) linear models as in Sy et al. These models are reported in table 1 of their paper
+
+# Model 1
+model1 <- lme(R ~ density_log , 
+              random = ~ 1| state, 
+              data = county_geo_clean %>%
+                filter(R > 0)) # Exclude observations with missing R
+#summary(table1model1)
+model1_intervals <- intervals(model1)
+
+# Model 2
+model2 <- lme(R ~ density_log + private , 
+              random = ~ 1| state, 
+              data = county_geo_clean %>%
+                filter(R > 0)) # Exclude observations with missing R
+#summary(model2)
+model2_intervals <- intervals(model2)
+
+# Model 3
+model3 <- lme(R ~ density_log + private + hincome, 
+              random = ~ 1| state, 
+              data = county_geo_clean %>%
+                filter(R > 0)) # Exclude observations with missing R
+#summary(model3)
+model3_intervals <- intervals(model3)
+
+# Model 4
+model4 <- lme(R ~ density_log*private + hincome, 
+              random = ~ 1| state, 
+              data = county_geo_clean %>%
+                filter(R > 0)) # Exclude observations with missing R
+#summary(model4)
+model4_intervals <- intervals(model4)
+```
+
+```{r join-random-intercepts, include=FALSE}
+state_geo <- state_geo %>% 
+  left_join(model3$coefficients$random$state %>%
+              as.data.frame() %>%
+              rownames_to_column(var = "state"),
+            by = "state") %>%
+  rename(random_intercepts = `(Intercept)`)
+```
+
+```{r prepare-swn-results-for-table, include=FALSE}
+# Join tables with results
+main_effects <- full_join(model1_intervals$fixed %>%
+                            as.data.frame() %>%
+                            rownames_to_column(),
+                          model2_intervals$fixed %>%
+                            as.data.frame() %>%
+                            rownames_to_column(),
+                          by = "rowname") %>%
+  full_join(model3_intervals$fixed %>%
+              as.data.frame() %>%
+              rownames_to_column(),
+            by = "rowname")
+
+random_component <- full_join(model1_intervals$reStruct$state %>%
+                                as.data.frame() %>%
+                                rownames_to_column(),
+                              model2_intervals$reStruct$state %>%
+                                as.data.frame() %>%
+                                rownames_to_column(),
+                              by = "rowname") %>%
+  full_join(model3_intervals$reStruct$state %>%
+              as.data.frame() %>%
+              rownames_to_column(),
+            by = "rowname")
+
+within_group_se <- full_join(model1_intervals$sigma %>%
+                               t() %>%
+                               as.data.frame() %>%
+                               rownames_to_column(),
+                             model2_intervals$sigma %>%
+                               t() %>%
+                               as.data.frame() %>%
+                               rownames_to_column(),
+                             by = "rowname") %>%
+  full_join(model3_intervals$sigma %>%
+              t() %>%
+              as.data.frame() %>%
+              rownames_to_column(),
+            by = "rowname")
+
+results_swn <- rbind(main_effects,
+                     random_component,
+                     within_group_se)
+
+colnames(results_swn) <- c("Variable", "l1", "b1", "u1", "l2", "b2", "u2", "l3", "b3", "u3")
+
+results_swn <- results_swn %>%
+  transmute(Variable,
+            b1 = ifelse(is.na(b1),
+                        " ", 
+                        round(b1, 3)),
+            ci1 = ifelse(is.na(l1), 
+                         " ",
+                         paste0("[", round(l1, 3), ", ", round(u1, 3), "]")),
+            b2 = ifelse(is.na(b2),
+                        " ", 
+                        round(b2, 3)),
+            ci2 = ifelse(is.na(l2), 
+                         " ",
+                         paste0("[", round(l2, 3), ", ", round(u2, 3), "]")),
+            b3 = ifelse(is.na(b3),
+                        " ", 
+                        round(b3, 3)),
+            ci3 = ifelse(is.na(l3), 
+                         " ",
+                         paste0("[", round(l3, 3), ", ", round(u3, 3), "]")))
+```
+
+```{r tabulate-swn-results, echo=FALSE}
+results_swn %>%
+  mutate(Variable = c("Intercept", 
+                      "Log of population density",
+                      "Percent of private transportation", 
+                      "Median household income ($10,000)",
+                      "Standard deviation (Intercept)",
+                      "Within-group standard error")) %>%
+  kable("html",
+        digits = 3,
+        booktabs = TRUE,
+        col.names = c("Variable",
+                      "beta",
+                      "95% CI",
+                      "beta",
+                      "95% CI",
+                      "beta",
+                      "95% CI"),
+        caption = "\\label{tab:swn-results}Reproducing SWN: Models 1-3") %>%
+  kable_styling(latex_options = c("scale_down")) %>%
+  add_header_above(c(" ", "Model 1" = 2, "Model 2" = 2, "Model 3" = 2))
+```
+
+```{r random-terms-map, echo=FALSE, fig.cap="\\label{fig:random-terms-map}Random intercepts of Model 3 (Alaska, Hawaii, Puerto Rico, and territories not shown)."}
+# Choropleth map of basic reproductive number
+ggplot() + 
+  geom_sf(data = state_geo %>%
+            filter(!STATE %in% c("02", "15", "72")), # Exclude Alaska, Hawaii, and Puerto Rico
+          aes(fill = random_intercepts), # Add the simple features object to the plot
+          color = "lightgray") +
+  # Add boundary of continental US
+  geom_sf(data = us_geo,
+          fill = NA) + 
+  # Use viridis color palette: viriis color palettes are designed to print well in monochrome, are perceptually uniform, and effective for colorblindness
+  scale_fill_viridis(name = "Random Intercepts",
+                     option = "turbo",
+                     direction = -1) +
+  # Set theme of plot
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+# Expanding on SWN
+
+The preceding section shows that thanks to the availability of code and data, it is possible to verify the results reported by SWN. As noted earlier, though, an independent researcher might have wondered about the implications of the spatial sampling procedure used by SWN. The decision to use a sample of counties with reliable basic reproductive numbers, although apparently sensible, results in a non-random spatial sampling scheme. Turning our attention back to Figure \ref{fig:R0-map}, we form the impression that many counties without reliable values of $R_0$ are in more rural, less dense parts of the United States. This impression is reinforced when we overlay the boundaries of urban areas with population greater than 50,000 on the counties with valid values of $R_0$ (see Figure \ref{fig:urban-areas-map}). The fact that $R_0$ could not be accurately computed in many counties without large urban areas does not mean that there was no transmission of the virus: it simply means that we do not know with precision whether that was the case. The low number of cases may be related to low population and/or low population density. This is intriguing, to say the least: by excluding cases based on the ability to calculate $R_0$ we are potentially _censoring_ the sample in a non-random way.
+
+```{r urban-areas-map, echo=FALSE, fig.cap="\\label{fig:urban-areas-map}Urban areas with population > 50,000 (Alaska, Hawaii, Puerto Rico, and territories not shown)."}
+# Choropleth map of basic reproductive number
+ggplot() + # Create a ggplot
+  # Choropleth map of basic reproductive number
+  geom_sf(data = county_geo_clean %>% # Add the simple features object to the plot
+            filter(!STATE %in% c("02", "15", "72")), # Exclude Alaska, Hawaii, and Puerto Rico
+          aes(fill = R),
+          color = NA) +
+  # Use viridis color palette: viriis color palettes are designed to print well in monochrome, are perceptually uniform, and effective for colorblindness
+  scale_fill_viridis_c(name = "R0",
+                       direction = -1) +
+  # Overlay counties with missing values of the reproductive number in white
+  geom_sf(data = county_geo_clean %>% # Add the simple features object to the plot
+            filter(!STATE %in% c("02", "15", "72"), # Exclude Alaska, Hawaii, and Puerto Rico
+                   R == 0), 
+          fill = "white",
+          color = NA) +
+  # Overlay boundaries of urban areas
+  geom_sf(data = urban_geo %>% # Add the simple features object to the plot
+            filter(!STATE %in% c("02", "15", "72"), # Exclude Alaska, Hawaii, and Puerto Rico
+                   UATYP10 == "U"), # Include only urbanized areas with population > 50,000
+          fill = NA,
+          color = "red") +
+  # Add boundary of continental US
+  geom_sf(data = us_geo,
+          fill = NA) + 
+  # Add caption
+  labs(caption = "Note: boundaris of urbanized areas with population > 50,000 are shown in red") +
+  # Set theme of plot
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+A problematic issue with non-random sample selection is that parameter estimates can become unreliable, and numerous techniques have been developed over time to address this. A model useful for sample selection problems is Heckman's selection model [see @Maddala1983limited]. The selection model is in fact a system of two equations, as follows:
+
+$$
+\begin{array}{c}
+y_i^{S*} = \beta^{S\prime}x_i^S+\epsilon_i^S\\
+y_i^{O*} = \beta^{O\prime}x_i^O+\epsilon_i^O
+\end{array}
+$$
+\noindent where $y_i^{S*}$ is a latent variable for the sample selection process, and $y_i^{O*}$ is the latent outcome. Vectors $x_i^S$ and $x_i^O$ are explanatory variables (with the possibility that $x_i^S = x_i^S$). Both equations include random terms (i.e., $\epsilon_i^S$ and $\epsilon_i^O$)  The first equation is designed to model the _probability_ of sampling, and the second equation the outcome of interest (say $R_0$). The random terms are jointly distributed and correlated with parameter $\rho$.
+
+What the analyst observes is the following:
+$$
+y_i^S =
+\begin{cases}
+0 & \text{if } y_i^{S*} < 0\\
+1 & \text{otherwise}
+\end{cases}
+$$
+\noindent and:
+$$
+y_i^O =
+\begin{cases}
+0 & \text{if } y_i^{S} = 0\\
+y_i^{O*} & \text{otherwise}
+\end{cases}
+$$
+
+In other words, the outcome of interest is observed _only_ for certain cases ($y_i^S=1$, i.e., for sampled observations). The probability of sampling depends on $x_i^S$. For the cases observed, the outcome $y_i^O$ depends on $x_i^O$.
+
+A sample selection model is estimated using the same selection of variables as SWN Model 3. This is Sample Selection Model 1 in Table \ref{tab:selection-results}. The first thing to notice about this model is that the sample selection process and the outcome are not independent ($\rho\ne0$ with 5% of confidence). The selection equation indicates that the probability of a county to be in the sample increases with population density (but at a decreasing rate due to the log-transformation), when travel by private modes is more prevalent, and as median household income in the county is higher. This is in line with the impression left by Figure \ref{fig:urban-areas-map} that counties with reliable values of $R_0$ tended to be those with larger urban centers. Once that the selection probabilities are accounted for in the model, several things happen with the outcomes model. First, the coefficient for population density is still positive, but the magnitude changes: in effect, it appears that the effect of density is more pronounced than what SWN Model 3 indicated. The coefficient for percent of private transportation changes signs. And the coefficient for median household income is now significant.
+
+The second model in Table \ref{tab:selection-results} (Selection Model 2) changes the way the variables are entered into the model. The log-transformation of density in SWN and Selection Model 1 assumes that the association between density and $R_0$ is monotonically increasing (if the sign of the coefficient is positive) or decreasing (if the sign of the coefficient is negative). There are some indications that the relationship may actually not be monotonical. For example, Paez et al. [-@Paez2020spatio] found a positive (if non-significant) relationship between density and incidence of COVID-19 in the provinces of Spain at the beginning of the pandemic. This changed to a negative (and significant) relationship during the lockdown. In the case of the US, Fielding-Miller et al. [-@Fielding2020social] found that the association between COVID-19 deaths and population density was positive in rural counties, but negative in urban counties. A variable transformation that allows for non-monotonic changes in the relationship is the square of the density.
+
+As seen in the table, Selection Model 2 replaces the log-transformation of population density with a quadratic expansion. The results of this analysis indicate that with this variable transformation, the selection and outcome processes are still not independent ($\rho\ne0$ with 5% of confidence). But a few interesting things emerge. When we examine the outcomes model, we see that the quadratic expansion has a positive coefficient for the first order term, but a negative coefficient for the second order term. This indicates that $R_0$ initially tends to increase with higher density, but only up to a point, after which the negative second term (which grows more rapidly due to the square), becomes increasingly dominant. Secondly, the sign of the coefficient for travel by private transportation becomes negative again. This, of course, makes more sense than the positive sign of Selection Model 1: if people tend to travel in private transportation, the potential for contact should be lower instead of higher. And finally median household income is no longer significant. 
+
+```{r selection-variable, include=FALSE}
+# Create selection variable
+county_geo_clean <- county_geo_clean %>%
+  mutate(Ys = ifelse(R>0, TRUE, FALSE))
+```
+
+```{r estimate-selection-models, include=FALSE}
+# Selection model using SWN variables
+selection1 <- selection(Ys ~ density_log + private + hincome, R ~ density_log + private + hincome, data = county_geo_clean)
+#summary(selection1)
+
+# Selection model with different variable specification
+selection2 <- selection(Ys ~ density + density_2 + private + hincome, R ~ density + density_2 + private + hincome, data = county_geo_clean)
+#summary(selection2)
+
+# Checking SWN with different variable specification
+model3.2 <- lme(R ~ density + density_2 + private + hincome, 
+                random = ~ 1| state, 
+                data = county_geo_clean %>%
+                  filter(R > 0))
+#summary(model3.2)
+```
+
+```{r prepare-selection-results, include=FALSE}
+selection1_me <- selection1 %>%
+  summary()
+
+selection1_me <- selection1_me$estimate %>%
+  as.data.frame()
+
+colnames(selection1_me) <- c("b", "se", "t", "p")
+
+selection1_me <- selection1_me %>%  
+  rownames_to_column(var = "Variable") %>% 
+  transmute(Variable,
+            b,
+            ll = b - 1.96 * se, 
+            ul = b + 1.96 * se)
+
+selection2_me <- selection2 %>%
+  summary()
+
+selection2_me <- selection2_me$estimate %>%
+  as.data.frame()
+
+colnames(selection2_me) <- c("b", "se", "t", "p")
+
+selection2_me <- selection2_me %>%  
+  rownames_to_column(var = "Variable") %>% 
+  transmute(Variable,
+            b,
+            ll = b - 1.96 * se, 
+            ul = b + 1.96 * se)
+
+results_selection <- selection1_me %>%
+  full_join(selection2_me,
+            by = "Variable") 
+
+colnames(results_selection) <- c("Variable",
+                                 "b1",
+                                 "l1",
+                                 "u1",
+                                 "b2",
+                                 "l2",
+                                 "u2")
+
+results_selection <- results_selection %>%
+  transmute(Order = c(1, 2, 5, 6, 7, 8, 11, 12, 13, 14, 3, 4, 9, 10),
+            Variable,
+            b1 = ifelse(is.na(b1),
+                        " ", 
+                        round(b1, 3)),
+            ci1 = ifelse(is.na(l1), 
+                         " ",
+                         paste0("[", round(l1, 3), ", ", round(u1, 3), "]")),
+            b2 = ifelse(is.na(b2),
+                        " ", 
+                        round(b2, 3)),
+            ci2 = ifelse(is.na(l2), 
+                         " ",
+                         paste0("[", round(l2, 3), ", ", round(u2, 3), "]"))) %>%
+  arrange(Order) %>%
+  select(-Order)
+```
+
+```{r tabulate-sample-selection-results, echo=FALSE}
+results_selection  %>%
+  mutate(Variable = c("Intercept",
+                      "Log of population density",
+                      "Density (1,000 per sq.km)",
+                      "Density squared",
+                      "Percent of private transportation", 
+                      "Median household income (10,000)",
+                      "Intercept",
+                      "Log of population density",
+                      "Density (1,000 per sq.km)",
+                      "Density squared",
+                      "Percent of private transportation", 
+                      "Median household income (\\$10,000)",
+                      "$\\sigma$",
+                      "$\\rho$")) %>%
+  kable("html",
+        digits = 3,
+        booktabs = TRUE,
+        escape = FALSE,
+        col.names = c("Variable",
+                      "$\\beta$", 
+                      "95\\% CI",
+                      "$\\beta$",
+                      "95\\% CI"),
+        align = c("lcccc"),
+        caption = "\\label{tab:selection-results}Estimation results of sample selection models") %>%
+  kable_styling(latex_options = c("scale_down")) %>% 
+  pack_rows(group_label = "Sample Selection Model", 1, 6) %>%
+  pack_rows(group_label = "Outcome Model", 7, 12) %>%
+  add_header_above(c(" ", "Selection Model 1" = 2, "Selection Model 2" = 2))
+```
+
+<!--
+If x is the density:
+$$
+\frac{dR}{dx} = 0.758 - 2 * 0.132 * density 
+$$
+
+Then, the maximum of this curve is when the density is:
+$$
+density = \frac{0.758}{2 * 0.132}
+$$
+-->
+
+How relevant is the difference between these different model specifications? Figure \ref{fig:comparison-results} shows the relationship between density and $R_0$ implied by SWN Model 1 and Selection Model 2. The left panel of the figure shows the non-linear but monotonic relationship implied by SWN Model 1. The conclusion is that at higher densities, $R_0$ is _always_ higher. The right panel, in contrast, shows that, according to Selection Model 2, $R_0$ is zero when density is zero (as expected), and then it tends to increase at higher densities. This continues until a density of approximately 2.9 (1,000 people per sq.km). At higher densities than that $R_0$ begins to decline, and the relationship becomes negative at densities higher than approximately 5.7 (1,000 people per sq.km). 
+
+Thus, other things being equal, the effect of density in a county like Charlottesville in Virginia	 (density ~1,639 people per sq.km) is roughly the same as that in a county like Philadelphia (density ~4,127 people per sq.km). In contrast, the effect of density on $R_0$ in a county like Arlington in Virginia (density ~3,093 people per sq.km) is _stronger_ than either of the previous two examples. Lastly, the density of counties like San Francisco in California, or Queens and Bronx in NY, which are among the densest in the US, contributes even less to $R_0$ than even the most rural counties in the country.
+
+It is worth at this point to recall Cressie's dictum about modelling: "[w]hat is one person's mean structure could be another person's correlation structure" [@Cressie1989geostatistics, p. 201]. There are almost always multiple ways to approach a modelling situation. In the present case, we would argue that spatial sampling is an important aspect of the modeling process, but one that perhaps required different technical skills than those available to SWN. There is nothing wrong with that. What matters is that, by adopting relatively high reproducibility standards, these researchers made a valuable and honest contribution to the collective enterprise of seeking knowledge. Their effort, and subsequent efforts to validate and expand on their work, can potentially contribute to provide clarity to ongoing conversations about the relevance of density and the spread of COVID-19.
+
+In particular, it is noteworthy that a sample selection model with a different variable transformation does not lend support to the thesis that higher density is _always_ associated with a greater risk of spread of the virus [as put by Wong and Li, "'Density is destiny' is probably an overstatement"; -@Wong2020spreading]. At the same time, this also stands in contrast to the findings of Hamidi et al., who found that higher density was either not significantly associated with the rate of the virus in a cross-sectional study [@Hamidi2020density], or was negatively associated with in a longitudinal setting [@Hamidi2020longitudinal. In this sense, the conclusion that density does not aggravate the pandemic may have been somewhat premature; instead, reanalysis of the data of SWN suggests that Fielding-Miller et al. [-@Fielding2020social] might be onto something with respect to the difference between rural and urban counties. More generally, in population-level studies, density is indicative of proximity, no doubt about that, but also for adaptive behavior. And it is possible that the determining factor during COVID-19, at least in the US, has been variations in perceptions of the risks associated with contagion [@Chauhan2021covid], and subsequent compensations in behavior in more and less dense regions.
+
+```{r comparison-results, echo=FALSE, fig.cap="\\label{fig:comparison-results}Effect of density according to SWN Model 3 and Sample Selection Model 2."}
+# The maximum in-sample density is 6.255358
+# county_geo_clean %>% st_drop_geometry() %>% filter(R > 0) %>% summary()
+
+example_df <- data.frame(density = seq(0, 6.3, 0.01)) %>% 
+  mutate(density_log = log(density),
+         density_2 = density^2, 
+         b_swn = model3$coefficients$fixed["density_log"] * density_log,
+         b_selection = selection2$estimate[7] * density + selection2$estimate[8] * density_2)
+
+# Plot of coefficient of density to R_0 according to SWN Model 3
+density_swn <- ggplot(data = example_df) + 
+  geom_line(aes(x = density, 
+                y = b_swn)) +
+  ggtitle("SWN Model 3") +
+  ylab(expression(paste("E[", R[0], "]"))) +
+  theme_minimal()
+
+# Plot of coefficient of density to R_0  
+density_selection <- ggplot(data = example_df) + 
+  geom_line(aes(x = density, 
+                y = b_selection)) +
+  ggtitle("Selection Model 2") +
+  ylab(expression(paste("E[", R[0], "]"))) +
+  theme_minimal()
+
+grid.arrange(density_swn, density_selection, nrow = 1)
+```
+
+```{r counties-by-density, include=FALSE}
+# the relationship between density and R_0 become negative in Selection Model 2 at about 5.74
+
+# Values of b_selection for a density similar a Philadelphia 
+example_df %>% filter(density > 4.10 & density < 4.14)
+# Densities with a similar b_selection
+example_df %>% filter(b_selection > 0.87 & b_selection < 0.89)
+
+# Counties with densities with similar response to Philadelphia
+county_geo_clean %>% 
+  mutate(density = drop_units(density)) %>%
+  filter(density > 1.59 & density < 1.64) %>%
+  select(NAME.y, density)
+
+# Counties with densities associated with the highest response to density
+county_geo_clean %>% 
+  mutate(density = drop_units(density)) %>%
+  filter(density > 2.70 & density < 3.10) %>%
+  select(NAME.y, density)
+
+# Highly dense counties
+county_geo_clean %>% 
+  mutate(density = drop_units(density)) %>%
+  filter(density > 5.74) %>%
+  select(NAME.y)
+
+```
+
+<!--
+
+## Experiments with tobit and spatially autoregressive tobit
+
+## Fit tobit version of models
+
+```{r include=FALSE}
+#
+tobit1 <- censReg(R ~ density_log, 
+                  left = 0,
+                  data = county_geo_clean)
+
+#
+tobit2 <- censReg(R ~ density_log + private, 
+                  data = county_geo_clean)
+
+#
+tobit3 <- censReg(R ~ density_log + private + hincome, 
+                  data = county_geo_clean)
+```
+
+## Spatially autoregressive tobit
+
+Fit spatially autoregressive tobit:
+```{r include=FALSE}
+# Fit SAR Tobit
+fit_sartobit <- sartobit(R ~ density_log + private + hincome_log,
+                         B,
+                         ndraw = 1000,
+                         burn.in = 200, 
+                         showProgress = TRUE,
+                         data = county_geo_clean,
+                         computeMarginalEffects = TRUE)
+summary(fit_sartobit)
+impacts(fit_sartobit)
+```
+
+-->
+
+# Conclusion
+
+The tension between the need to publish research potentially useful in dealing with a global pandemic, and a "carnage of substandard research" [@Bramstedt2020carnage], highlights the importance of efforts to maintain the quality of scientific outputs during COVID-19. An important part of quality control is the ability of independent researchers to verify and examine the results of materials published in the literature. As previous research illustrates, reproducibility in scientific research remains an important but elusive goal [e.g., @Iqbal2016reproducible; @Stodden2018empirical; @Sumner2020reproducibility; @Gustot2020quality]. This idea is reinforced by the review conducted for this paper in the context of research about population density and the spread of COVID-19.  
+
+Taking one recent example from the literature [Sy et al., @Sy2021population; SWN], the present paper illustrates the importance of good reproducibility practices. Sharing data and code can catalyze research, by allowing independent verification of findings, as well as additional research. After verifying the results of SWN, experiments with sample selection models and variations in the definition of model inputs, lead to an important reappraisal of the conclusion that high density is associated with greater spread of the virus. Instead, the possibility of a non-monotonical relationship between population density and contagion is raised.
+
+In the spirit of openness, this paper is prepared as an R Markdown document, an a companion data package is provided. The data package contains the relevant documentation of the data, and all data pre-processing is fully documented. Hopefully this, and similar reproducible papers, will continue to encourage others to adopt reproducible standards in their research.
+
+# References {#references .unnumbered}
