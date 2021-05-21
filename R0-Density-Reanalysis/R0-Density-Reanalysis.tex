@@ -280,11 +280,11 @@ this paper shows.
 
 The emergence of the novel SARS-CoV-2 coronavirus in 2019, and the
 global pandemic that followed in its wake, led to an explosive growth of
-research. According to Fraser et al. {[}1{]}, over 125,000
-COVID-19-related papers were released in the first ten months from the
-first confirmed case of the disease. Of these, more than 30,000 were
-shared in pre-print servers, the use of which also exploded in the past
-year {[}2--4{]}.
+research around the globe. According to Fraser et al. {[}1{]}, over
+125,000 COVID-19-related papers were released in the first ten months
+from the first confirmed case of the disease. Of these, more than 30,000
+were shared in pre-print servers, the use of which also exploded in the
+past year {[}2--4{]}.
 
 Given the heavy human and economic cost of the pandemic, there has been
 a natural tension in the scientific community between the need to
@@ -329,9 +329,9 @@ York, brought a torrent of research into the associations between
 density and the spread of the pandemic. Some important questions hang on
 the results of these research efforts. For example, are lower density
 regions safer from the pandemic? Are de-densification policies
-warranted, at least in the short term? And in the longer term, will the
-risks of life in high density regions presage a flight from cities? Over
-the past year, numerous papers have sought to throw light into the
+warranted, even if just in the short term? And in the longer term, will
+the risks of life in high density regions presage a flight from cities?
+Over the past year, numerous papers have sought to throw light into the
 underlying issue of density and the pandemic; nonetheless the results,
 as will be detailed next, remain mixed. Further, to complicate matters,
 precious few of these studies appear to be sufficiently open to support
@@ -358,8 +358,10 @@ for review and independent verification. The source for this paper is an
 \href{http://rmarkdown.rstudio.com}{R Markdown} document which, along
 with the data package, is available in a public repository\footnote{\url{https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed}}.
 
-\hypertarget{background}{%
-\section{Background}\label{background}}
+\hypertarget{background-the-intuitive-relationship-between-density-and-spread-of-contagious-diseases}{%
+\section{Background: the intuitive relationship between density and
+spread of contagious
+diseases}\label{background-the-intuitive-relationship-between-density-and-spread-of-contagious-diseases}}
 
 The concern with population density and the spread of the virus during
 the COVID-19 pandemic was fueled, at least in part, by dramatic scenes
@@ -371,7 +373,7 @@ potential for inter-personal contact is greater in regions with higher
 density {[}see for example the research on urban fields and
 time-geography 20,21,22{]}. Mathematically, models of exposure and
 contagion indicate that higher densities can catalyze the transmission
-of contagious diseases {[}23,24{]}. Models such as these were likely at
+of contagious diseases {[}23,24{]}. The idea is intuitive and likely at
 the root of messages, by some figures in positions of authority, that
 regions with sparse population densities faced lower risks from the
 pandemic\footnote{Governor Kristi Noem of South Dakota, for example,
@@ -388,12 +390,12 @@ this: while in a restaurant, one can hardly avoid being in proximity to
 other customers-however, a person can choose to (or be forced to as a
 matter of policy) not go to a restaurant in the first place.
 Nonetheless, the idea that high density correlates with high
-transmission is so intuitive that it is often taken for granted even at
-larger scales {[}e.g., 25,26{]}. At larger scales, however, there exists
-the possibility of behavioral adaptations, which are difficult to
-capture in the mechanistic framework of differential equations {[}or can
-be missing in agent-based models, e.g., 27{]}; these adaptations, in
-fact, can be a key aspect of disease transmission.
+transmission is so seemingly reasonable that it is often taken for
+granted even at larger scales {[}e.g., 25,26{]}. At larger scales,
+however, there exists the possibility of behavioral adaptations, which
+are difficult to capture in the mechanistic framework of differential
+equations {[}or can be missing in agent-based models, e.g., 27{]}; these
+adaptations, in fact, can be a key aspect of disease transmission.
 
 A plausible behavioral adaptation during a pandemic, especially one
 broadcast as widely and intensely as COVID-19, is risk compensation.
@@ -421,7 +423,12 @@ more nuanced: it is not just a matter of proximity, but also of human
 behavior, which is better studied using population-level data and
 models.
 
-In this respect, the literature to date remains inconclusive.
+\hypertarget{background-but-what-does-the-literature-say}{%
+\section{Background: but what does the literature
+say?}\label{background-but-what-does-the-literature-say}}
+
+When it comes to population density and the spread of COVID-19, the
+international literature to date remains inconclusive.
 
 On the one hand, there are studies that report positive associations
 between population density and various COVID-19-related outcomes. Bhadra
@@ -480,30 +487,51 @@ from correlation analysis, to multivariate regression, spatial
 regressions, and machine learning techniques. This is natural and to be
 expected: individual researchers have only limited time and expertise.
 This is why reproducibility is important. To pick an example (which will
-be further elaborated in the following sections), the study of Sy et
-al.~{[}{[}19{]}; hereafter SWN{]} would immediately grab the attention
-of a researcher with expertise in spatial modelling.
+be further elaborated in later sections of this paper), the study of Sy
+et al.~{[}{[}19{]}; hereafter SWN{]} would immediately grab the
+attention of a researcher with a somewhat different toolbox.
+
+\hypertarget{reproducibility-of-research}{%
+\section{Reproducibility of
+research}\label{reproducibility-of-research}}
 
 SWN investigated the basic reproductive number of COVID-19 in US
 counties, and its association with population density, median household
-income, and prevalence of private mobility. The basic reproductive
+income, and prevalence of private mobility. For their multivariate
+analysis, SWN used mixed linear models. This is a reasonable modelling
+choice: \(R_0\) is an interval-ratio variable that is suitably modeled
+using linear regression; further, as SWN note there is a likelihood that
+the process in not independent ``among counties within each state,
+potentially due to variable resource allocation and differing health
+systems across states'' (p.~3). A mixed linear model accounts for this
+by introducing random components (in the case of SWN, random intercepts
+at the state level). SWN estimated various models with different
+combinations of variables, including median household income and
+prevalence of travel by private transportation. These are sensible
+controls, given potential variations in behavior: people in more
+affluent counties may have greater opportunities to work from home, and
+use of private transportation reduces contact with strangers. Moreover,
+they also conducted various sensitivity analyses. After these efforts,
+SWN conclude that there is a positive association between the basic
+reproductive number and population density at the level of counties in
+the US.
+
+One salient aspect of the analysis in SWN is that the basic reproductive
 number can only be calculated reliably with a minimum number of cases,
 and a large number of counties did not meet such threshold. As
-researchers do, SWN made certain seemingly reasonable modelling
-decision, for instance basing their analysis only on counties with valid
-observations. An experiences spatial modeler would likely ask some of
-the following questions on reading SWN's paper: how were missing
-counties treated? Is it possible to spatially interpolate the missing
-observations? What are the implications of the spatial sampling
-framework used in the analysis? And, was there evidence of spatial
-autocorrelation in the residuals of the models? These are questions that
-in most cases would not occur to a researcher who has not been exposed
-to spatial statistics or spatial econometrics. Nonetheless, they are
-relevant and important. Fortunately, SWN give an example of a reasonably
+researchers do, SWN made modelling decisions, in this case basing their
+analysis only on counties with valid observations. A modeler with
+expertise in different methods would likely ask some of the following
+questions on reading SWN's paper: how were missing counties treated?
+What are the implications of the spatial sampling framework used in the
+analysis? Is it possible to spatially interpolate the missing
+observations? And, was there evidence of spatial autocorrelation in the
+residuals of the models? These questions are relevant and their
+implications important. Fortunately, SWN are an example of a reasonably
 open, reproducible research product: their paper is accompanied by (most
 of) the data and (most of) the code used in the analysis. This means
 that an independent expert can, with only a moderate investment of time
-and effort, replicate the results in the paper, as well as ask
+and effort, reproduce the results in the paper, as well as ask
 additional questions.
 
 Alas, reproducibility is not necessarily the norm in the relevant
@@ -538,7 +566,7 @@ online. Then there are those papers that more closely comply with
 reproducibility standards, and share well-documented processes and data,
 as well as the code used in any analyses reported {[}19,32,37,49,61{]}.
 
-In the following sections, the analysis of RWN is replicated, some
+In the following sections, the analysis of RWN is reproduced, some
 relevant questions from the perspective of a spatial modeler are asked,
 and the data are reanalyzed.
 
@@ -553,7 +581,7 @@ measures how many new infections each infections begets. Infectious
 disease outbreaks generally tend to die out when \(R_0<1\), and to grow
 when \(R_0>1\). Reliable calculation of \(R_0\) requires a minimum
 number of cases to be able to assume that there is community
-transmission of the pathogen. Accordingly, SNW based their analysis only
+transmission of the pathogen. Accordingly, SWN based their analysis only
 on counties that had at least 25 cases or more at the end of the
 exponential growth phase (see Fig. \ref{fig:R0-map}). Their final sample
 included 1,151 counties in the US, including in Alaska, Hawaii, Puerto
@@ -563,43 +591,26 @@ Rico, and island territories.
 \includegraphics[width=1\linewidth]{R0-Density-Reanalysis_files/figure-latex/R0-map-1} \caption{\label{fig:R0-map}Basic reproductive rate in US counties (Alaska, Hawaii, Puerto Rico, and territories not shown).}\label{fig:R0-map}
 \end{figure}
 
-SWN used for their multivariate analysis mixed linear models. This is a
-reasonable modelling choice: \(R_0\) is an interval-ratio variable that
-is suitably modeled using linear regression; further, as SWN note there
-is a likelihood that the process in not independent ``among counties
-within each state, potentially due to variable resource allocation and
-differing health systems across states'' (p.~3). A mixed linear model
-accounts for this by introducing random components (in the case of SNW,
-random intercepts at the state level). SWN estimated various models with
-different combinations of variables, including median household income
-and prevalence of travel by private transportation. These are sensible
-controls, given potential variations in behavior: people in more
-affluent counties may have greater opportunities to work from home, and
-use of private transportation reduces contact with strangers. Moreover,
-they also conducted various sensitivity analyses. After these efforts,
-SNW conclude that there is a positive association between the basic
-reproductive number and population density at the level of counties in
-the US.
-
-Table \ref{tab:swn-results} replicates the first three models of SWN
+Table \ref{tab:swn-results} reproduces the first three models of SWN
 (the fourth model did not have any significant variables; see Table 1 in
-SNW). It is possible to verify that the results match with the minor
-(and irrelevant) exception of the magnitude of the coefficient for
+SWN). It is possible to verify that the results match, with only the
+minor (and irrelevant) exception of the magnitude of the coefficient for
 travel by private transportation, which is due to a difference in the
 input (here the variable is one percent units, whereas in SWN it was ten
-percent units). The intercept in these models is a random variable, and
-the standard deviation is reported in the fourth row of Table
-\ref{tab:swn-results}. It is useful to map the random intercepts: as
-seen in Figure \ref{fig:random-terms-map}, other things being equal,
-counties in Texas tended to have somewhat lower values of \(R_0\) (i.e.,
-a negative random intercept), whereas counties in South Dakota tended to
-have higher values of \(R_0\). The key of the analysis, that population
-density has a positive association with the basic reproductive number,
-is verified. But is it really?
+percent units). The mixed linear model gives random intercepts (i.e.,
+the intercept is a random variable), and the standard deviation is
+reported in the fourth row of Table \ref{tab:swn-results}. It is useful
+to map the random intercepts: as seen in Figure
+\ref{fig:random-terms-map}, other things being equal, counties in Texas
+tend to have somewhat lower values of \(R_0\) (i.e., a negative random
+intercept), whereas counties in South Dakota tend to have higher values
+of \(R_0\). The key of the analysis, after extensive sensitivity
+analysis, is a robust finding that population density has a positive
+association with the basic reproductive number. But does it?
 
 \begin{table}
 
-\caption{\label{tab:tabulate-swn-results}\label{tab:swn-results}Replicating SWN: Models 1-3}
+\caption{\label{tab:tabulate-swn-results}\label{tab:swn-results}Reproducing SWN: Models 1-3}
 \centering
 \resizebox{\linewidth}{!}{
 \begin{tabular}[t]{lllllrl}
@@ -626,75 +637,247 @@ Within-group standard error & 0.665 & [0.638, 0.693] & 0.665 & [0.638, 0.693] & 
 \hypertarget{expanding-on-swn}{%
 \section{Expanding on SWN}\label{expanding-on-swn}}
 
-Thanks to the availability of code and data, it was possible to verify
-the results reported by SWN. As noted earlier, though, an experienced
-spatial modeller would have asked themselves about the implications of
-the spatial sampling procedure used by SWN. The decision to use a sample
-of counties with reliable basic reproductive numbers, although seemingly
-sensible, results in a non-random sampling scheme. Turning our attention
-back to Figure \ref{fig:R0-map}, we see that many counties without
-reliable values of \(R_0\) are in more rural, less dense parts of the
-United States. The fact that \(R_0\) could not be accurately computed in
-those counties does not mean that there was no transmission of the
-virus: it simply means that we do not know with precision whether that
-was the case. The low number of cases may be related to low population
-and/or low population density. This is intriguing, to say the least: by
-excluding cases in a non-random way such as this, we are in effect
-\emph{truncating} the sample.
+The preceding section shows that thanks to the availability of code and
+data, it is possible to verify the results reported by SWN. As noted
+earlier, though, an independent researcher might have wondered about the
+implications of the spatial sampling procedure used by SWN. The decision
+to use a sample of counties with reliable basic reproductive numbers,
+although apparently sensible, results in a non-random spatial sampling
+scheme. Turning our attention back to Figure \ref{fig:R0-map}, we form
+the impression that many counties without reliable values of \(R_0\) are
+in more rural, less dense parts of the United States. This impression is
+reinforced when we overlay the boundaries of urban areas with population
+greater than 50,000 on the counties with valid values of \(R_0\) (see
+Figure \ref{fig:urban-areas-map}). The fact that \(R_0\) could not be
+accurately computed in many counties without large urban areas does not
+mean that there was no transmission of the virus: it simply means that
+we do not know with precision whether that was the case. The low number
+of cases may be related to low population and/or low population density.
+This is intriguing, to say the least: by excluding cases based on the
+ability to calculate \(R_0\) we are potentially \emph{censoring} the
+sample in a non-random way.
 
-The issue with sample truncation is that parameter estimates can become
-unreliable.
+\begin{figure}
+\includegraphics[width=1\linewidth]{R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1} \caption{\label{fig:urban-areas-map}Urban areas with population > 50,000 (Alaska, Hawaii, Puerto Rico, and territories not shown).}\label{fig:urban-areas-map}
+\end{figure}
 
-Alas, despite decades' worth of developments in the field of
-geographical analysis, not all research presented to date has used
-proper methods for the study of COVID-19. While the answer to the
-question ``do spatial effects really matter in regression analysis'' was
-definitively answered in the positive at least 40 years ago, in practice
-many researchers continue to ignore the pitfalls of ignoring them. In
-this paper, I present a reanalysis of the data used by Sy et al.~(2021)
-to study the correlations between the basic reproductive number of
-COVID-19 and population density in counties. I highlight two related
-issues: non-systematic sampling in space and spatial autocorrelation.
-The reanalysis is based on the use of tobit models to account for
-non-systematic sampling, and spatially autoregressive tobit models to
-account for spatial autocorrelation in the data generation process. The
-reanalysis highlights the importance of openness and reproducibility in
-COVID-19 research. Finally, the results provide a sobering example of
-the risks of not using appropriate methods in the analysis of
-geographical data. Furthermore,
+A problematic issue with non-random sample selection is that parameter
+estimates can become unreliable, and numerous techniques have been
+developed over time to address this. A model useful for sample selection
+problems is Heckman's selection model {[}see 62{]}. The selection model
+is in fact a system of two equations, as follows:
 
-\hypertarget{fit-tobit-version-of-models}{%
-\subsection{Fit tobit version of
-models}\label{fit-tobit-version-of-models}}
+\[
+\begin{array}{c}
+y_i^{S*} = \beta^{S\prime}x_i^S+\epsilon_i^S\\
+y_i^{O*} = \beta^{O\prime}x_i^O+\epsilon_i^O
+\end{array}
+\] \noindent where \(y_i^{S*}\) is a latent variable for the sample
+selection process, and \(y_i^{O*}\) is the latent outcome. Vectors
+\(x_i^S\) and \(x_i^O\) are explanatory variables (with the possibility
+that \(x_i^S = x_i^S\)). Both equations include random terms (i.e.,
+\(\epsilon_i^S\) and \(\epsilon_i^O\)) The first equation is designed to
+model the \emph{probability} of sampling, and the second equation the
+outcome of interest (say \(R_0\)). The random terms are jointly
+distributed and correlated with parameter \(\rho\).
+
+What the analyst observes is the following: \[
+y_i^S =
+\begin{cases}
+0 & \text{if } y_i^{S*} < 0\\
+1 & \text{otherwise}
+\end{cases}
+\] \noindent and: \[
+y_i^O =
+\begin{cases}
+0 & \text{if } y_i^{S} = 0\\
+y_i^{O*} & \text{otherwise}
+\end{cases}
+\]
+
+In other words, the outcome of interest is observed \emph{only} for
+certain cases (\(y_i^S=1\), i.e., for sampled observations). The
+probability of sampling depends on \(x_i^S\). For the cases observed,
+the outcome \(y_i^O\) depends on \(x_i^O\).
+
+A sample selection model is estimated using the same selection of
+variables as SWN Model 3. This is Sample Selection Model 1 in Table
+\ref{tab:selection-results}. The first thing to notice about this model
+is that the sample selection process and the outcome are not independent
+(\(\rho\ne0\) with 5\% of confidence). The selection equation indicates
+that the probability of a county to be in the sample increases with
+population density (but at a decreasing rate due to the
+log-transformation), when travel by private modes is more prevalent, and
+as median household income in the county is higher. This is in line with
+the impression left by Figure \ref{fig:urban-areas-map} that counties
+with reliable values of \(R_0\) tended to be those with larger urban
+centers. Once that the selection probabilities are accounted for in the
+model, several things happen with the outcomes model. First, the
+coefficient for population density is still positive, but the magnitude
+changes: in effect, it appears that the effect of density is more
+pronounced than what SWN Model 3 indicated. The coefficient for percent
+of private transportation changes signs. And the coefficient for median
+household income is now significant.
+
+The second model in Table \ref{tab:selection-results} (Selection Model
+2) changes the way the variables are entered into the model. The
+log-transformation of density in SWN and Selection Model 1 assumes that
+the association between density and \(R_0\) is monotonically increasing
+(if the sign of the coefficient is positive) or decreasing (if the sign
+of the coefficient is negative). There are some indications that the
+relationship may actually not be monotonical. For example, Paez et al.
+{[}32{]} found a positive (if non-significant) relationship between
+density and incidence of COVID-19 in the provinces of Spain at the
+beginning of the pandemic. This changed to a negative (and significant)
+relationship during the lockdown. In the case of the US, Fielding-Miller
+et al. {[}44{]} found that the association between COVID-19 deaths and
+population density was positive in rural counties, but negative in urban
+counties. A variable transformation that allows for non-monotonic
+changes in the relationship is the square of the density.
+
+As seen in the table, Selection Model 2 replaces the log-transformation
+of population density with a quadratic expansion. The results of this
+analysis indicate that with this variable transformation, the selection
+and outcome processes are still not independent (\(\rho\ne0\) with 5\%
+of confidence). But a few interesting things emerge. When we examine the
+outcomes model, we see that the quadratic expansion has a positive
+coefficient for the first order term, but a negative coefficient for the
+second order term. This indicates that \(R_0\) initially tends to
+increase with higher density, but only up to a point, after which the
+negative second term (which grows more rapidly due to the square),
+becomes increasingly dominant. Secondly, the sign of the coefficient for
+travel by private transportation becomes negative again. This, of
+course, makes more sense than the positive sign of Selection Model 1: if
+people tend to travel in private transportation, the potential for
+contact should be lower instead of higher. And finally median household
+income is no longer significant.
 
 \begin{table}
 
-\caption{\label{tab:unnamed-chunk-3}\label{tab:tobit-results}Marginal effects of sample selection models}
+\caption{\label{tab:tabulate-sample-selection-results}\label{tab:selection-results}Estimation results of sample selection models}
 \centering
 \resizebox{\linewidth}{!}{
-\begin{tabular}[t]{lllllrl}
+\begin{tabular}[t]{lcccc}
 \toprule
-\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Tobit Model 1} & \multicolumn{2}{c}{Tobit Model 2} & \multicolumn{2}{c}{Tobit Model 3} \\
-\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5} \cmidrule(l{3pt}r{3pt}){6-7}
-Variable & m.e. & 95\% CI & m.e. & 95\% CI & m.e. & 95\% CI\\
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Selection Model 1} & \multicolumn{2}{c}{Selection Model 2} \\
+\cmidrule(l{3pt}r{3pt}){2-3} \cmidrule(l{3pt}r{3pt}){4-5}
+Variable & $\beta$ & 95\% CI & $\beta$ & 95\% CI\\
 \midrule
-Log of population density & 0.264 & [0.246, 0.281] & 0.264 & [0.247, 0.281] & 0.233 & [0.216, 0.25]\\
-Percent of private transportation &  &  & 0.006 & [0.002, 0.01] & 0.014 & [0.01, 0.019]\\
-Median household income (\$10,000) &  &  &  &  & 0.105 & [0.087, 0.122]\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Sample Selection Model}}\\
+\hspace{1em}Intercept & -2.237 & [-3.109, -1.365] & -7.339 & [-8.381, -6.297]\\
+\hspace{1em}Log of population density & 0.385 & [0.352, 0.418] &  & \\
+\hspace{1em}Density (1,000 per sq.km) &  &  & 2.484 & [2.13, 2.838]\\
+\hspace{1em}Density squared &  &  & -0.387 & [-0.473, -0.3]\\
+\hspace{1em}Percent of private transportation & 0.025 & [0.016, 0.034] & 0.057 & [0.046, 0.067]\\
+\hspace{1em}Median household income (10,000) & 0.202 & [0.168, 0.235] & 0.32 & [0.283, 0.357]\\
+\addlinespace[0.3em]
+\multicolumn{5}{l}{\textbf{Outcome Model}}\\
+\hspace{1em}Intercept & 0.605 & [-0.257, 1.466] & 2.784 & [1.652, 3.915]\\
+\hspace{1em}Log of population density & 0.39 & [0.354, 0.426] &  & \\
+\hspace{1em}Density (1,000 per sq.km) &  &  & 0.758 & [0.509, 1.008]\\
+\hspace{1em}Density squared &  &  & -0.132 & [-0.187, -0.077]\\
+\hspace{1em}Percent of private transportation & 0.01 & [0.001, 0.018] & -0.011 & [-0.021, -0.001]\\
+\hspace{1em}Median household income (\$10,000) & 0.126 & [0.094, 0.159] & 0.002 & [-0.033, 0.037]\\
+$\sigma$ & 0.954 & [0.904, 1.003] & 0.684 & [0.652, 0.716]\\
+$\rho$ & 0.971 & [0.961, 0.98] & -0.199 & [-0.377, -0.022]\\
 \bottomrule
 \end{tabular}}
 \end{table}
 
-\hypertarget{spatially-autoregressive-tobit}{%
-\subsection{Spatially autoregressive
-tobit}\label{spatially-autoregressive-tobit}}
+How relevant is the difference between these different model
+specifications? Figure \ref{fig:comparison-results} shows the
+relationship between density and \(R_0\) implied by SWN Model 1 and
+Selection Model 2. The left panel of the figure shows the non-linear but
+monotonic relationship implied by SWN Model 1. The conclusion is that at
+higher densities, \(R_0\) is \emph{always} higher. The right panel, in
+contrast, shows that, according to Selection Model 2, \(R_0\) is zero
+when density is zero (as expected), and then it tends to increase at
+higher densities. This continues until a density of approximately 2.9
+(1,000 people per sq.km). At higher densities than that \(R_0\) begins
+to decline, and the relationship becomes negative at densities higher
+than approximately 5.7 (1,000 people per sq.km).
 
-Fit spatially autoregressive tobit:
+Thus, other things being equal, the effect of density in a county like
+Charlottesville in Virginia (density \textasciitilde1,639 people per
+sq.km) is roughly the same as that in a county like Philadelphia
+(density \textasciitilde4,127 people per sq.km). In contrast, the effect
+of density on \(R_0\) in a county like Arlington in Virginia (density
+\textasciitilde3,093 people per sq.km) is \emph{stronger} than either of
+the previous two examples. Lastly, the density of counties like San
+Francisco in California, or Queens and Bronx in NY, which are among the
+densest in the US, contributes even less to \(R_0\) than even the most
+rural counties in the country.
+
+It is worth at this point to recall Cressie's dictum about modelling:
+``{[}w{]}hat is one person's mean structure could be another person's
+correlation structure'' {[}63{]}. There are almost always multiple ways
+to approach a modelling situation. In the present case, we would argue
+that spatial sampling is an important aspect of the modeling process,
+but one that perhaps required different technical skills than those
+available to SWN. There is nothing wrong with that. What matters is
+that, by adopting relatively high reproducibility standards, these
+researchers made a valuable and honest contribution to the collective
+enterprise of seeking knowledge. Their effort, and subsequent efforts to
+validate and expand on their work, can potentially contribute to provide
+clarity to ongoing conversations about the relevance of density and the
+spread of COVID-19.
+
+In particular, it is noteworthy that a sample selection model with a
+different variable transformation does not lend support to the thesis
+that higher density is \emph{always} associated with a greater risk of
+spread of the virus {[}as put by Wong and Li, ``\,`Density is destiny'
+is probably an overstatement''; {[}46{]}{]}. At the same time, this also
+stands in contrast to the findings of Hamidi et al., who found that
+higher density was either not significantly associated with the rate of
+the virus in a cross-sectional study {[}33{]}, or was negatively
+associated with in a longitudinal setting {[}{[}51{]}. In this sense,
+the conclusion that density does not aggravate the pandemic may have
+been somewhat premature; instead, reanalysis of the data of SWN suggests
+that Fielding-Miller et al. {[}44{]} might be onto something with
+respect to the difference between rural and urban counties. More
+generally, in population-level studies, density is indicative of
+proximity, no doubt about that, but also for adaptive behavior. And it
+is possible that the determining factor during COVID-19, at least in the
+US, has been variations in perceptions of the risks associated with
+contagion {[}31{]}, and subsequent compensations in behavior in more and
+less dense regions.
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{R0-Density-Reanalysis_files/figure-latex/comparison-results-1} \caption{\label{fig:comparison-results}Effect of density according to SWN Model 3 and Sample Selection Model 2.}\label{fig:comparison-results}
+\end{figure}
 
 \hypertarget{conclusion}{%
 \section{Conclusion}\label{conclusion}}
 
-Words go here.
+The tension between the need to publish research potentially useful in
+dealing with a global pandemic, and a ``carnage of substandard
+research'' {[}5{]}, highlights the importance of efforts to maintain the
+quality of scientific outputs during COVID-19. An important part of
+quality control is the ability of independent researchers to verify and
+examine the results of materials published in the literature. As
+previous research illustrates, reproducibility in scientific research
+remains an important but elusive goal {[}e.g., 12,13--15{]}. This idea
+is reinforced by the review conducted for this paper in the context of
+research about population density and the spread of COVID-19.
+
+Taking one recent example from the literature {[}Sy et al., {[}19{]};
+SWN{]}, the present paper illustrates the importance of good
+reproducibility practices. Sharing data and code can catalyze research,
+by allowing independent verification of findings, as well as additional
+research. After verifying the results of SWN, experiments with sample
+selection models and variations in the definition of model inputs, lead
+to an important reappraisal of the conclusion that high density is
+associated with greater spread of the virus. Instead, the possibility of
+a non-monotonical relationship between population density and contagion
+is raised.
+
+In the spirit of openness, this paper is prepared as an R Markdown
+document, an a companion data package is provided. The data package
+contains the relevant documentation of the data, and all data
+pre-processing is fully documented. Hopefully this, and similar
+reproducible papers, will continue to encourage others to adopt
+reproducible standards in their research.
 
 \hypertarget{references}{%
 \section*{References}\label{references}}
@@ -1125,6 +1308,17 @@ doi:\href{https://doi.org/10.1371/journal.pone.0246249}{10.1371/journal.pone.024
 altitude on COVID-19 infection and death in the united states: A
 modeling and observational study. PLOS ONE. 2021;16: e0245055.
 doi:\href{https://doi.org/10.1371/journal.pone.0245055}{10.1371/journal.pone.0245055}}
+
+\leavevmode\hypertarget{ref-Maddala1983limited}{}%
+\CSLLeftMargin{62. }
+\CSLRightInline{Maddala GS. Limited-dependent and qualitative variables
+in econometrics. Cambridge: Cambridge University Press; 1983. }
+
+\leavevmode\hypertarget{ref-Cressie1989geostatistics}{}%
+\CSLLeftMargin{63. }
+\CSLRightInline{Cressie N. Geostatistics. The American Statistician.
+1989;43: 197.
+doi:\href{https://doi.org/10.2307/2685361}{10.2307/2685361}}
 
 \end{CSLReferences}
 

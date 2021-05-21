@@ -1,0 +1,29 @@
+---
+title: "Cover Letter"
+output:
+  pdf_document: default
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+To the Editor:
+
+Please find attached the paper titled "The importance of reproducibility in COVID-19 research: the case of population density and the spread of the pandemic". The paper illustrates the importance of reproducibility in research in the particular context of COVID-19. It takes a recent paper from the literature (Sy et al., 2021, published in PLoS ONE) and demonstrates how openly sharing data and code can accelerate research.
+
+This paper makes the following contributions to the literature:
+
+1. It reviews the emerging literature on the relationship between population density and the spread of COVID-19.
+
+2. It shows that reproducibility in this literature remains an elusive goal. 
+
+3. It reanalyzes the data of Sy et al., and demonstrates that a different technical approach can lead to substantially different conclusions from those reached by the original analysis of Sy et al.
+
+4. The reanalysis and reappraisal of the conclusions in a matter of weeks demonstrates the importance of reproducible research.
+
+4. Finally, the paper provides an example of a reproducible research project, with extensively documented workflows, from raw data processing, to modelling, and post-modelling outputs. The source document is an R Markdown file, a self-contained document with the text and _all_ the analysis. These materials are publicly available in a repository, as indicated in the paper. 
+
+I trust that you will find that the paper is technically correct, and suitable for publication.
+
+Sincerely,
+
+Antonio Paez
+

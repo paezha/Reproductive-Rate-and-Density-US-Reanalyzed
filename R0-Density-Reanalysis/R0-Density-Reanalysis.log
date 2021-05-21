@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.18)  20 MAY 2021 18:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.18)  21 MAY 2021 17:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -682,6 +682,12 @@ LaTeX Warning: Label `fig:R0-map' multiply defined.
 
 LaTeX Warning: Label `fig:random-terms-map' multiply defined.
 
+
+LaTeX Warning: Label `fig:urban-areas-map' multiply defined.
+
+
+LaTeX Warning: Label `fig:comparison-results' multiply defined.
+
 )
 \openout1 = `R0-Density-Reanalysis.aux'.
 
@@ -810,25 +816,25 @@ Package microtype Info: Loading generic protrusion settings for font family
 
 {c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdft
 ex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 380--380
+Underfull \hbox (badness 10000) in paragraph at lines 382--382
 [][][]\OT1/cmr/m/n/8 (+20) Governor Kristi Noem of South Dakota, for ex-am-ple,
  claimed that sparse
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--380
+Underfull \hbox (badness 10000) in paragraph at lines 382--382
 \OT1/cmr/m/n/8 (+20) pop-u-la-tion den-sity al-lowed her state to face the pan-
 demic down with-out the
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 380--380
+Underfull \hbox (badness 10000) in paragraph at lines 382--382
 \OT1/cmr/m/n/8 (+20) need for strict pol-icy in-ter-ven-tions []$\OT1/cmtt/m/n/
 8 https : / / www . inforum . com / lifestyle / health /
  []
 
 
-Overfull \hbox (27.58824pt too wide) in paragraph at lines 380--380
+Overfull \hbox (27.58824pt too wide) in paragraph at lines 382--382
 \OT1/cmtt/m/n/8 5025620-[]South-[]Dakota-[]is-[]not-[]New-[]York-[]City-[]Noem-
 []defends-[]lack-[]of-[]statewide-[]COVID-[]19-[]restrictions$[]| 
  []
@@ -837,39 +843,57 @@ Overfull \hbox (27.58824pt too wide) in paragraph at lines 380--380
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/ucs/data/uni-0.de
 f
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
-) [3] [4]
-<R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf, id=86, 469.755pt x 325.
+) [3] [4] [5]
+<R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf, id=96, 469.755pt x 325.
 215pt>
 File: R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf Graphic file (type 
 pdf)
 <use R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf 
- used on input line 563.
+ used on input line 591.
 (pdftex.def)             Requested size: 379.4175pt x 262.67339pt.
-[5]
 <R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf, id=100, 469.7
 55pt x 325.215pt>
 File: R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf Graphic f
 ile (type pdf)
 <use R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/random-terms-
-map-1.pdf  used on input line 623.
+map-1.pdf  used on input line 634.
 (pdftex.def)             Requested size: 379.4175pt x 262.67339pt.
 [6 <./R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf>] [7 <./R0-Density-
-Reanalysis_files/figure-latex/random-terms-map-1.pdf>] [8]
-Underfull \hbox (badness 1221) in paragraph at lines 830--830
+Reanalysis_files/figure-latex/random-terms-map-1.pdf>]
+<R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf, id=133, 469.75
+5pt x 325.215pt>
+File: R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf Graphic fi
+le (type pdf)
+<use R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf>
+Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/urban-areas-m
+ap-1.pdf  used on input line 661.
+(pdftex.def)             Requested size: 379.4175pt x 262.67339pt.
+[8 <./R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf>] [9] [10]
+<R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf, id=168, 469
+.755pt x 325.215pt>
+File: R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf Graphic
+ file (type pdf)
+<use R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf>
+Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/comparison-re
+sults-1.pdf  used on input line 847.
+(pdftex.def)             Requested size: 379.4175pt x 262.67339pt.
+[11 <./R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf>] [12]
+
+Underfull \hbox (badness 1221) in paragraph at lines 1013--1013
 \OT1/cmr/m/n/10 (+20) How life in our cities will look af-ter the coro-n-avirus
  pan-demic. For-
  []
 
-[9] [10]
-Underfull \hbox (badness 1546) in paragraph at lines 1006--1006
+[13] [14]
+Underfull \hbox (badness 1546) in paragraph at lines 1189--1189
 []\OT1/cmr/m/n/10 (+20) Fielding-Miller RK, Sun-daram ME, Brouwer K. So-cial de
 -ter-mi-nants of
  []
 
 
-Underfull \hbox (badness 1038) in paragraph at lines 1013--1013
+Underfull \hbox (badness 1038) in paragraph at lines 1196--1196
 []\OT1/cmr/m/n/10 (+20) Roy S, Ghosh P. Fac-tors af-fect-ing COVID-19 in-fected
  and death rates
  []
@@ -879,66 +903,77 @@ Underfull \hbox (badness 1038) in paragraph at lines 1013--1013
 f
 File: uni-1.def 2013/05/13 UCS: Unicode data U+0100..U+01FF
 )
-Underfull \hbox (badness 1107) in paragraph at lines 1034--1034
+Underfull \hbox (badness 1107) in paragraph at lines 1217--1217
 []\OT1/cmr/m/n/10 (+20) Sk^^Sorka P, Grzywacz B, Moro^^Sn D, Lenda M. The macro
 e-col-ogy of the
  []
 
 
-Underfull \hbox (badness 2653) in paragraph at lines 1041--1041
+Underfull \hbox (badness 2653) in paragraph at lines 1224--1224
 []\OT1/cmr/m/n/10 (+20) White ER, H^^Sebert-Dufresne L. State-level vari-a-tion
  of ini-tial COVID-
  []
 
 
-Underfull \hbox (badness 2269) in paragraph at lines 1041--1041
+Underfull \hbox (badness 2269) in paragraph at lines 1224--1224
 \OT1/cmr/m/n/10 (+20) 19 dy-nam-ics in the united states. PLOS ONE. 2020;15: e0
 240648.
  []
 
-[11]
-Underfull \hbox (badness 1292) in paragraph at lines 1120--1120
+[15]
+Underfull \hbox (badness 1292) in paragraph at lines 1303--1303
 \OT1/cmr/m/n/10 (+20) state? Metropoli-tan coun-ties com-pen-sated for state in
 -ac-tion in ini-tial
  []
 
 
+Underfull \hbox (badness 2080) in paragraph at lines 1321--1321
+[]\OT1/cmr/m/n/10 (+20) Cressie N. Geo-statis-tics. The Amer-i-can Statis-ti-ci
+an. 1989;43: 197.
+ []
+
+
 AED: lastpage setting LastPage
-[12] (./R0-Density-Reanalysis.aux)
+[16] (./R0-Density-Reanalysis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `R0-Density-Reanalysis.out' has not changed.
-(rerunfilecheck)             Checksum: 49A96D654704A07BC3A2D5A290099E82;1052.
+(rerunfilecheck)             Checksum: 00FAFC60C59BAAE621FEAE4CEC0C5ED2;1533.
  ) 
 Here is how much of TeX's memory you used:
- 16868 strings out of 480796
- 256005 string characters out of 5903169
- 610467 words of memory out of 5000000
- 33760 multiletter control sequences out of 15000+600000
- 414193 words of font info for 114 fonts, out of 8000000 for 9000
+ 16887 strings out of 480796
+ 257433 string characters out of 5903169
+ 616796 words of memory out of 5000000
+ 33775 multiletter control sequences out of 15000+600000
+ 413480 words of font info for 109 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 67i,11n,76p,356b,583s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 67i,12n,76p,571b,583s stack positions out of 5000i,500n,10000p,200000b,80000s
  <c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/
 ec/tcrm1000.600pk><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/typ
 e1/public/amsfonts/cm/cmbx10.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/Users/paezha/AppData/Roamin
-g/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/Users/paezha
-/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c
-:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr12.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmr6.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr7.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/Users/paezha/AppData/Roa
-ming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/Users/paez
-ha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb
+g/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/Users/paezha
+/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi7.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmr10.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/Users/paezha/AppData/Roaming/TinyT
+eX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/Users/paezha/AppData/
+Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><c:/Users/pa
+ezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
 ><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmtt10.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmtt8.pfb>
-Output written on R0-Density-Reanalysis.pdf (12 pages, 7220271 bytes).
+s/cm/cmss8.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy10.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy7.pfb><c:/Users/paezha/AppData/Roaming/Ti
+nyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/Users/paezha/App
+Data/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><c:/U
+sers/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mtt8.pfb>
+Output written on R0-Density-Reanalysis.pdf (16 pages, 13434680 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 319 compressed objects within 4 object streams
- 100 named destinations out of 1000 (max. 500000)
- 27723 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 418 PDF objects out of 1000 (max. 8388607)
+ 368 compressed objects within 4 object streams
+ 108 named destinations out of 1000 (max. 500000)
+ 23637 words of extra memory for PDF output out of 24883 (max. 10000000)
 
