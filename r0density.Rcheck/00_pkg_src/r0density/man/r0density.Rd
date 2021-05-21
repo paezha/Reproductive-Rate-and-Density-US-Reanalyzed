@@ -3,9 +3,9 @@
 \docType{package}
 \name{r0density}
 \alias{r0density}
-\title{vaccHamilton}
+\title{r0density}
 \description{
-vaccHamilton is a companion package for the paper "Population Density and Basic Reproductive Number of COVID-19 Revisited".
+r0density is a companion package for the paper "The importance of reproducibility in COVID-19 research: the case of population density and the basic reproductive number of COVID-19".
 }
 \details{
 The package includes the data used in the analysis.

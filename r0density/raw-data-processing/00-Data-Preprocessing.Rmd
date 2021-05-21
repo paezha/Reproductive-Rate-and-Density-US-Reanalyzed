@@ -102,6 +102,17 @@ state_geo <- get_decennial(geography = "state",
   select(-variable)
 ```
 
+Retrieve metropolitan/micropolitan boundaries for plotting:
+```{r}
+urban_geo <- get_acs(geography = "urban area", 
+                            variables = "B01003_001", # Total population
+                            year = 2019, 
+                            geometry = TRUE, 
+                            keep_geo_vars = TRUE) %>%
+  rename(population = estimate) %>%
+  select(-c(variable, moe))
+```
+
 Now join Sy's data to the counties with geometry and other socio-economic variables (the equivalent variables are dropped from Sy et al.'s table, because they are missing all the counties without a basic reproductive number):
 ```{r}
 county_geo <- county_geo %>%
@@ -132,9 +143,18 @@ state_geo <- state_geo %>%
   select(-CENSUSAREA, -starts_with("geometry"), geometry)
 ```
 
+Prepare urban boundaries for saving:
+```{r}
+# Get state number code and two letter code from state table:
+urban_geo <- urban_geo %>%
+  st_join(state_geo %>%
+            select(STATE, state))
+```
+
 Save data table:
 ```{r}
 save(county_geo, file = "county_geo.RData", compress = "xz")
+save(urban_geo, file = "urban_geo.RData", compress = "xz")
 save(state_geo, file = "state_geo.RData", compress = "xz")
 ```
 

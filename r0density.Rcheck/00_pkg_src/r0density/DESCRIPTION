@@ -1,13 +1,13 @@
 Package: r0density
 Type: Package
-Title: Data package for "Examining horizontal and vertical equity to a
-        public bicycle share program using a balanced floating
-        catchment area accessibility approach"
+Title: Data package for "The importance of reproducibility in COVID-19
+        research: the case of population density and the basic
+        reproductive number of COVID-19"
 Version: 0.1.0
 Author: Antonio Paez
 Maintainer: Antonio Paez <paezha@mcmaster.ca>
 Description: 
-    r0density is a companion package for the paper "TITLE". The package includes the data used in the analysis.
+    r0density is a companion package for the paper "The importance of reproducibility in COVID-19 research: the case of population density and the basic reproductive number of COVID-19". The package includes the data used in the analysis.
     Contains open data from the United States Census Bureau.
     Contains data prepared by Sy et al. (https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0249271).
 License: CC-BY-SA
@@ -15,5 +15,5 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2021-05-18 16:48:03 UTC; paezha
+Packaged: 2021-05-21 10:36:13 UTC; paezha
 Depends: R (>= 3.5.0)

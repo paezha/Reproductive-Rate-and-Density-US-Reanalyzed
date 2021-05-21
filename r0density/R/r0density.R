@@ -72,3 +72,35 @@ NULL
 #' @usage data(state_geo)
 #' @source US Bureau of Census
 "state_geo"
+
+#' Urban areas of the United States with population.
+#'
+#' Boundaries of urban areas in the United States.
+#'
+#' @format A simple features data frame with 3,779 rows and 13 variables:
+#' \describe{
+#'   \item{UACE10}{2010 Census urban area code}
+#'   \item{AFFGEOID10}{Long geographic identifier}
+#'   \item{GEOID10}{Geographic identifier}
+#'   \item{NAME10}{Short name of area}
+#'   \item{LSAD10}{Code of the Legal/Statistical Area Description}
+#'   \item{UATYP10}{2010 Census urban area type: C: Cluster with more than 2,500 but less than 50,000 population; U: Urbanized area with more than 50,000 population}
+#'   \item{ALAND10}{2010 Census land area}
+#'   \item{AWATER10}{2010 Census water area}
+#'   \item{NAME}{Name of area}
+#'   \item{population}{Total population from the 2010 Census (variable P001001)}
+#'   \item{STATE}{Code of state}
+#'   \item{state}{Two letter code of state (from Sy et al.)}
+#'   \item{geometry}{Geometry of boundaries}
+#' }
+#'
+#' @docType data
+#' @keywords datasets
+#' @keywords covid-19
+#' @keywords Census
+#' @keywords United States
+#' @name urban_geo
+#' @usage data(urban_geo)
+#' @source US Bureau of Census
+"urban_geo"
+

@@ -1,3 +1,6 @@
 county_geo              Counties of the United States with relevant
                         covariates.
-r0density               vaccHamilton
+r0density               r0density
+state_geo               States of the United States with population.
+urban_geo               Urban areas of the United States with
+                        population.
