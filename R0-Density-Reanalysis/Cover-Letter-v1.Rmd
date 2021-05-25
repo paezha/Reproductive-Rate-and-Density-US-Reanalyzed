@@ -7,7 +7,9 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 
 To the Editor:
 
-Please find attached the paper titled "The importance of reproducibility in COVID-19 research: the case of population density and the spread of the pandemic". The paper illustrates the importance of reproducibility in research in the particular context of COVID-19. It takes a recent paper from the literature (Sy et al., 2021, published in PLoS ONE) and demonstrates how openly sharing data and code can accelerate research.
+Please find attached the paper titled "The importance of reproducibility in COVID-19 research: the case of population density and the spread of the pandemic". The paper illustrates the importance of reproducibility in research in the particular context of COVID-19. Research on population density and the spread of COVID-19 has been published in Science of the Total Environment (see Sharifi and Khavarian-Garmsir, 2020; and Sun et al., 2020). 
+
+The present submission includes some original research, since in it I reanalyze data from a recent paper (Sy et al., 2021, published in PLoS ONE) and show that after taking into account sample selection the conclusions are drastically different. I think, however, that this paper is better classified as a "Discussion", since the reanalysis is the motivation for a broader discussion about reproducibility in COVID-19 research, and an example of how openly sharing data and code can accelerate research.
 
 This paper makes the following contributions to the literature:
 

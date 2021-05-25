@@ -8,14 +8,14 @@
 
 Antonio Páez (McMaster University)
 
-Paper submitted to *PLoS ONE*
+Paper submitted to *Science of the Total Environment*
 
 ## Abstract
 
 The emergence of the novel SARS-CoV-2 coronavirus and the global
 COVID-19 pandemic has led to explosive growth in scientific research.
 Given the high stakes of the situation, it is essential that scientific
-activites, on which good policy depends, are as transparent and
+activities, on which good policy depends, are as transparent and
 reproducible as possible. Reproducibility is key for the efficient
 operation of the self-correction mechanisms of science, which work to
 weed out errors and refine our understanding of social and physical
@@ -25,7 +25,7 @@ and the the spread of SARS-CoV-2. Transparency and openness means that
 the same problem can, with relatively modest efforts, be examined by
 independent researchers who can verify findings, and bring to bear
 different perspectives, approaches, and methods—sometimes with
-consequantial changes in the conclusions, as the empirical example in
+consequential changes in the conclusions, as the empirical example in
 this paper shows.
 
 ## Keywords

@@ -3,11 +3,14 @@ r0density
 miscTools
 maxLik
 censReg
+kableExtra
 Matrix
 nlme
+patchwork
+sampleSelection
+sf
 sp
 spData
-sf
 spdep
 mvtnorm
 sandwich
@@ -25,8 +28,5 @@ dplyr
 stringr
 forcats
 units
-kableExtra
 viridisLite
 viridis
-patchwork
-sampleSelection

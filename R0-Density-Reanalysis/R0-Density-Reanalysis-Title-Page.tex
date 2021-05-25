@@ -1,0 +1,100 @@
+\documentclass[]{elsarticle} %review=doublespace preprint=single 5p=2 column
+%%% Begin My package additions %%%%%%%%%%%%%%%%%%%
+\usepackage[hyphens]{url}
+
+  \journal{Science of the Total Environment} % Sets Journal name
+
+
+\usepackage{lineno} % add
+  \linenumbers % turns line numbering on
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\usepackage{graphicx}
+\usepackage{booktabs} % book-quality tables
+%%%%%%%%%%%%%%%% end my additions to header
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \usepackage{fontspec}
+  \ifxetex
+    \usepackage{xltxtra,xunicode}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use microtype if available
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\bibliographystyle{elsarticle-harv}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={},
+            pdftitle={The importance of reproducibility in COVID-19 research: the case of population density and the spread of the pandemic},
+            colorlinks=false,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+\setcounter{secnumdepth}{0}
+% Pandoc toggle for numbering sections (defaults to be off)
+\setcounter{secnumdepth}{0}
+
+% Pandoc citation processing
+
+% Pandoc header
+\usepackage{setspace}\doublespacing
+
+
+
+\begin{document}
+\begin{frontmatter}
+
+  \title{The importance of reproducibility in COVID-19 research: the
+case of population density and the spread of the pandemic}
+    \author[McMaster University]{Antonio Paez\corref{1}}
+   \ead{paezha@mcmaster.ca} 
+      \address[McMaster University]{School of Earth, Environment and
+Society, 1280 Main St West, Hamilton, Ontario L8S 4K1 Canada}
+      \cortext[1]{Corresponding Author}
+  
+  \begin{abstract}
+  The emergence of the novel SARS-CoV-2 coronavirus and the global
+  COVID-19 pandemic has led to explosive growth in scientific research.
+  Given the high stakes of the situation, it is essential that
+  scientific activities, on which good policy depends, are as
+  transparent and reproducible as possible. Reproducibility is key for
+  the efficient operation of the self-correction mechanisms of science,
+  which work to weed out errors and refine our understanding of social
+  and physical phenomena. In this paper, the importance of
+  reproducibility is illustrated for the case of the association between
+  population density and the the spread of SARS-CoV-2. Transparency and
+  openness means that the same problem can, with relatively modest
+  efforts, be examined by independent researchers who can verify
+  findings, and bring to bear different perspectives, approaches, and
+  methods---sometimes with consequential changes in the conclusions, as
+  the empirical example in this paper shows.
+  \end{abstract}
+  
+ \end{frontmatter}
+
+
+
+
+\end{document}
+
