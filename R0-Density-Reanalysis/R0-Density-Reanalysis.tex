@@ -2,7 +2,7 @@
 %%% Begin My package additions %%%%%%%%%%%%%%%%%%%
 \usepackage[hyphens]{url}
 
-  \journal{Science of the Total Environment} % Sets Journal name
+  \journal{Landscape and Urban Planning} % Sets Journal name
 
 
 \usepackage{lineno} % add
@@ -44,7 +44,7 @@
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={},
-            pdftitle={The importance of reproducibility in COVID-19 research: the case of population density and the spread of the pandemic},
+            pdftitle={Population density and the spread of the COVID-19 pandemic: a reproducible research example},
             colorlinks=false,
             urlcolor=blue,
             linkcolor=magenta,
@@ -104,30 +104,29 @@
 \begin{document}
 \begin{frontmatter}
 
-  \title{The importance of reproducibility in COVID-19 research: the
-case of population density and the spread of the pandemic}
-    \author[McMaster University]{Antonio Paez\corref{1}}
-   \ead{paezha@mcmaster.ca} 
-      \address[McMaster University]{School of Earth, Environment and
-Society, 1280 Main St West, Hamilton, Ontario L8S 4K1 Canada}
+  \title{Population density and the spread of the COVID-19 pandemic: a
+reproducible research example}
+    \author[University]{Author\corref{1}}
+   \ead{author@institution.edu} 
+      \address[University]{Department, Street, City, State ZIP}
       \cortext[1]{Corresponding Author}
   
   \begin{abstract}
   The emergence of the novel SARS-CoV-2 coronavirus and the global
   COVID-19 pandemic has led to explosive growth in scientific research.
-  Given the high stakes of the situation, it is essential that
-  scientific activities, on which good policy depends, are as
-  transparent and reproducible as possible. Reproducibility is key for
-  the efficient operation of the self-correction mechanisms of science,
-  which work to weed out errors and refine our understanding of social
-  and physical phenomena. In this paper, the importance of
-  reproducibility is illustrated for the case of the association between
-  population density and the the spread of SARS-CoV-2. Transparency and
-  openness means that the same problem can, with relatively modest
-  efforts, be examined by independent researchers who can verify
-  findings, and bring to bear different perspectives, approaches, and
-  methods---sometimes with consequential changes in the conclusions, as
-  the empirical example in this paper shows.
+  Of interest has been the associations between population density and
+  the spread of the pandemic. In this paper, population density and the
+  basic reproductive number of SARS-CoV-2 are examined in an example of
+  reproducible research. Given the high stakes of the situation, it is
+  essential that scientific activities, on which good policy depends,
+  are as transparent and reproducible as possible. Reproducibility is
+  key for the efficient operation of the self-correction mechanisms of
+  science. Transparency and openness means that the same problem can,
+  with relatively modest efforts, be examined by independent researchers
+  who can verify findings, and bring to bear different perspectives,
+  approaches, and methods---sometimes with consequential changes in the
+  conclusions, as the empirical example of the spread of COVID-19 in the
+  US shows.
   \end{abstract}
   
  \end{frontmatter}
@@ -149,18 +148,18 @@ Given the heavy human and economic cost of the pandemic, there has been
 a natural tension in the scientific community between the need to
 publish research results quickly and the imperative to maintain
 consistently high quality standards in scientific reporting; indeed, a
-call for maintaining the standards in published research has even called
-this deluge of publications a ``carnage of substandard research''
-(Bramstedt, 2020). Part of the challenge of maintaining quality
-standards in published research is that, despite an abundance of
-recommendations and guidelines (Broggini et al., 2017; Brunsdon and
-Comber, 2020; Ince et al., 2012; Ioannidis et al., 2014), in practice
-reproducibility has remained a lofty and somewhat aspirational goal
-(Konkol et al., 2019; Konkol and Kray, 2019). As reported in the
-literature, only a woefully small proportion of published research was
-actually reproducible before the pandemic (Iqbal et al., 2016; Stodden
-et al., 2018), and the situation does not appear to have changed
-substantially since (Gustot, 2020; Sumner et al., 2020).
+call for maintaining the standards in published research has termed this
+deluge of publications a ``carnage of substandard research'' (Bramstedt,
+2020). Part of the challenge of maintaining quality standards in
+published research is that, despite an abundance of recommendations and
+guidelines (Broggini et al., 2017; Brunsdon and Comber, 2020; Ince et
+al., 2012; Ioannidis et al., 2014), in practice reproducibility has
+remained a lofty and somewhat aspirational goal (Konkol et al., 2019;
+Konkol and Kray, 2019). As reported in the literature, only a woefully
+small proportion of published research was actually reproducible before
+the pandemic (Iqbal et al., 2016; Stodden et al., 2018), and the
+situation does not appear to have changed substantially since (Gustot,
+2020; Sumner et al., 2020).
 
 The push for open data and software, along with more strenuous efforts
 towards open, reproducible research, is simply a continuation of
@@ -194,32 +193,37 @@ pandemic. Some important questions hang on the results of these research
 efforts. For example, are lower density regions safer from the pandemic?
 Are de-densification policies warranted, even if just in the short term?
 And in the longer term, will the risks of life in high density regions
-presage a flight from cities? Over the past year, numerous papers have
-sought to throw light into the underlying issue of density and the
-pandemic; nonetheless the results, as will be detailed next, remain
-mixed. Further, to complicate matters, precious few of these studies
-appear to be sufficiently open to support independent verification.
+presage a flight from cities? What are the implications of the pandemic
+for future urban planning and practice? Over the past year, numerous
+papers have sought to throw light into the underlying issue of density
+and the pandemic; nonetheless the results, as will be detailed next,
+remain mixed. Further, to complicate matters, precious few of these
+studies appear to be sufficiently open to support independent
+verification.
 
 The objective of this paper is to illustrate the importance of
-reproducibility in research, particularly in the context of the flood of
-COVID-19 papers. To this end, a recent study by Sy et al. (2021) is
-chosen as an example of reproducible research. The objective is not to
-malign the analysis of these researchers, but rather to demonstrate the
-value of openness to allow for independent verification and further
-analysis. Open data and open code mean that an independent researcher
-can, with only modest efforts, not only verify the findings reported,
-but also examine the same data from a perspective which may not have
-been available to the original researchers due to differences in
-disciplinary perspectives, methodological traditions, and/or training,
-among other possible factors. The example, which shows consequential
-changes in the conclusions reached by different analyses, should serve
-as a call to researchers to redouble their efforts to increase
-transparency and reproducibility in research. This paper, in addition,
-aims to show how data can be packaged in well-documented, shareable
-units, and code can be embedded into self-contained documents suitable
-for review and independent verification. The source for this paper is an
+reproducibility in research in the context of the flood of COVID-19
+papers. To this end, a recent study by Sy et al. (2021) is chosen as an
+example of reproducible research. The objective is not to malign the
+analysis of these researchers, but rather to demonstrate the value of
+openness to allow for independent verification and further analysis.
+Open data and open code mean that an independent researcher can, with
+only modest efforts, not only verify the findings reported, but also
+examine the same data from a perspective which may not have been
+available to the original researchers due to differences in disciplinary
+perspectives, methodological traditions, and/or training, among other
+possible factors. The example, which shows consequential changes in the
+conclusions reached by different analyses, should serve as a call to
+researchers to redouble their efforts to increase transparency and
+reproducibility in research. This paper, in addition, aims to show how
+data can be packaged in well-documented, shareable units, and code can
+be embedded into self-contained documents suitable for review and
+independent verification. The source for this paper is an
 \href{http://rmarkdown.rstudio.com}{R Markdown} document which, along
-with the data package, is available in a public repository\footnote{\url{https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed}}.
+with the data package, will be available in a public
+repository\footnote{For peer-review purposes, the data package and code
+  are currently in an anonymous Drive folder:
+  \url{https://drive.google.com/drive/folders/1cT6tcUc1pJ4aT5ajQ0emO0lyS46P8Ige?usp=sharing}}.
 
 \hypertarget{background-the-intuitive-relationship-between-density-and-spread-of-contagious-diseases}{%
 \section{Background: the intuitive relationship between density and
@@ -282,14 +286,15 @@ available does indeed show that there were important changes in behavior
 with respect to mobility during the pandemic (Harris and Branion-Calles,
 2021; Jamal and Paez, 2020; Molloy et al., 2020); furthermore, shelter
 in place orders may have had greater buy-in from the public in higher
-density regions (Feyman et al., 2020), and the associated behavior may
-have persisted beyond the duration of official social-distancing
-policies (Praharaj et al., 2020). In addition, there is evidence that
-changes in mobility correlated with the trajectory of the pandemic
-(Noland, 2021; Paez, 2020). Given the potential for behavioral
-adaptation, the question of density becomes more nuanced: it is not just
-a matter of proximity, but also of human behavior, which is better
-studied using population-level data and models.
+density regions (Feyman et al., 2020; Hamidi and Zandiatashbar, 2021),
+and the associated behavior may have persisted beyond the duration of
+official social-distancing policies (Praharaj et al., 2020). In
+addition, there is evidence that changes in mobility correlated with the
+trajectory of the pandemic (Noland, 2021; Paez, 2020). Given the
+potential for behavioral adaptation, the question of density becomes
+more nuanced: it is not just a matter of proximity, but also of human
+behavior, which is better studied using population-level data and
+models.
 
 \hypertarget{background-but-what-does-the-literature-say}{%
 \section{Background: but what does the literature
@@ -894,6 +899,12 @@ Hamidi, S., Sabouri, S., Ewing, R., 2020b. Does density aggravate the
 COVID-19 pandemic? Journal of the American Planning Association 86,
 495--509.
 doi:\href{https://doi.org/10.1080/01944363.2020.1777891}{10.1080/01944363.2020.1777891}
+
+\leavevmode\hypertarget{ref-Hamidi2021compact}{}%
+Hamidi, S., Zandiatashbar, A., 2021. Compact development and adherence
+to stay-at-home order during the COVID-19 pandemic: A longitudinal
+investigation in the united states. Landscape and Urban Planning 205,
+103952. doi:\url{https://doi.org/10.1016/j.landurbplan.2020.103952}
 
 \leavevmode\hypertarget{ref-Harris2021Changes}{}%
 Harris, M.A., Branion-Calles, M., 2021. Changes in commute mode

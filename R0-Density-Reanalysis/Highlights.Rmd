@@ -1,0 +1,16 @@
+---
+title: "Highlights"
+output:
+  pdf_document: default
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+---
+
+- The emerging literature on the relationship between population density and the spread of COVID-19 is reviewed.
+
+- It is shown that reproducibility in this literature remains an elusive goal. 
+
+- Analysis of population density and basic reproductive number shows that density is not destiny.
+
+- The reanalysis and reappraisal of the conclusions demonstrates the importance of reproducible research.
+
+- The paper is an example of a reproducible research project

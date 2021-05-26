@@ -7,9 +7,7 @@ date: "`r format(Sys.time(), '%d %B, %Y')`"
 
 To the Editor:
 
-Please find attached the paper titled "The importance of reproducibility in COVID-19 research: the case of population density and the spread of the pandemic". The paper illustrates the importance of reproducibility in research in the particular context of COVID-19. Research on population density and the spread of COVID-19 has been published in Science of the Total Environment (see Sharifi and Khavarian-Garmsir, 2020; and Sun et al., 2020). 
-
-The present submission includes some original research, since in it I reanalyze data from a recent paper (Sy et al., 2021, published in PLoS ONE) and show that after taking into account sample selection the conclusions are drastically different. I think, however, that this paper is better classified as a "Discussion", since the reanalysis is the motivation for a broader discussion about reproducibility in COVID-19 research, and an example of how openly sharing data and code can accelerate research.
+Please find attached the paper titled "Population density and the spread of the COVID-19 pandemic: a reproducible research example". The question of population density has been of interest during the pandemic. On the one hand, mathematical models of contagion suggest that high density can catalyze transmission; on the other, the empirical literature remains decidedly mixed. In addition, an important aspect of the flood of research during the pandemic has been the need to maintain the quality of research, for which reproducibility is key. This paper presents an investigation of population density and the spread of COVID-19, and by doing so illustrates the importance of reproducible research. 
 
 This paper makes the following contributions to the literature:
 
@@ -21,7 +19,7 @@ This paper makes the following contributions to the literature:
 
 4. The reanalysis and reappraisal of the conclusions in a matter of weeks demonstrates the importance of reproducible research.
 
-4. Finally, the paper provides an example of a reproducible research project, with extensively documented workflows, from raw data processing, to modelling, and post-modelling outputs. The source document is an R Markdown file, a self-contained document with the text and _all_ the analysis. These materials are publicly available in a repository, as indicated in the paper. 
+4. Finally, the paper provides an example of a reproducible research project, with extensively documented workflows, from raw data processing, to modelling, and post-modelling outputs. The source document is an R Markdown file, a self-contained document with the text and _all_ the analysis. These materials are publicly available in a repository. 
 
 I trust that you will find that the paper is technically correct, and suitable for publication.
 
