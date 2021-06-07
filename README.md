@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# Population density and the spread of the COVID-19 pandemic: a reproducible research example
+# The importance of reproducibility in geographical research: the case of population density and the spread of COVID-19
 
 <!-- badges: start -->
 <!-- badges: end -->
