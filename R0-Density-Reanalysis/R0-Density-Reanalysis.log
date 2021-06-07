@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.18)  26 MAY 2021 09:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.18)  7 JUN 2021 07:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -944,7 +944,7 @@ Package rerunfilecheck Info: File `R0-Density-Reanalysis.out' has not changed.
 Here is how much of TeX's memory you used:
  13934 strings out of 480796
  212334 string characters out of 5903169
- 548435 words of memory out of 5000000
+ 548570 words of memory out of 5000000
  30743 multiletter control sequences out of 15000+600000
  468938 words of font info for 147 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -985,7 +985,7 @@ mss8.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public
 public/lm/lmsy6.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/t
 ype1/public/lm/lmsy7.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fo
 nts/type1/public/lm/lmtt8.pfb>
-Output written on R0-Density-Reanalysis.pdf (29 pages, 13526071 bytes).
+Output written on R0-Density-Reanalysis.pdf (29 pages, 13526579 bytes).
 PDF statistics:
  479 PDF objects out of 1000 (max. 8388607)
  415 compressed objects within 5 object streams

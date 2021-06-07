@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 
 Antonio Páez (McMaster University)  
 
-Paper submitted to *Landscape and Urban Planning*
+Paper submitted to [~~PLoS ONE~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/PLOS ONE Decision_ PONE-D-21-16874.pdf) [~~Science of the Total Environment~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Your Submission STOTEN-D-21-12077.pdf) [~~Landscape and Urban Planning~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Decision on submission to Landscape and Urban Planning.pdf)
 
 ## Abstract
 
@@ -49,11 +49,11 @@ if (!require("r0density", character.only = TRUE)) {
 
 ```{r load-packages, include=FALSE, cache=FALSE}
 library(censReg) # Package to estimate tobit model
-library(gridExtra)
+library(gridExtra) # PAckage used to arrange graphical objects
 library(kableExtra) # Package for creating tables
 library(Matrix) # Used to convert list of spatial weights to sparse matrix; needed for spatialprobit
-library(nlme) # Used to estimate 
-library(patchwork)
+library(nlme) # Used to estimate hierarchical models
+library(patchwork) # Package for arranging ggplot objects
 library(r0density) # Data package
 library(sampleSelection) # Package to estimate sampling selection models
 library(sf) # Package to work with spatial information in simple features format

@@ -8,7 +8,12 @@
 
 Antonio Páez (McMaster University)
 
-Paper submitted to *Landscape and Urban Planning*
+Paper submitted to [~~PLoS
+ONE~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/PLOS%20ONE%20Decision_%20PONE-D-21-16874.pdf)
+[~~Science of the Total
+Environment~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Your%20Submission%20STOTEN-D-21-12077.pdf)
+[~~Landscape and Urban
+Planning~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Decision%20on%20submission%20to%20Landscape%20and%20Urban%20Planning.pdf)
 
 ## Abstract
 
