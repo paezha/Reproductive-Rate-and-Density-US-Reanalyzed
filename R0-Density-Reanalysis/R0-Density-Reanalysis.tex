@@ -663,18 +663,60 @@ $\rho$ & 0.971 & [0.961, 0.98] & -0.199 & [-0.377, -0.022]\\
 \end{tabular}}
 \end{table}
 
-How relevant is the difference between these different model
-specifications? Figure \ref{fig:comparison-results} shows the
-relationship between density and \(R_0\) implied by SWN Model 1 and
-Selection Model 2. The left panel of the figure shows the non-linear but
-monotonic relationship implied by SWN Model 1. The conclusion is that at
-higher densities, \(R_0\) is \emph{always} higher. The right panel, in
-contrast, shows that, according to Selection Model 2, \(R_0\) is zero
-when density is zero (as expected), and then it tends to increase at
-higher densities. This continues until a density of approximately 2.9
-(1,000 people per sq.km). At higher densities than that \(R_0\) begins
-to decline, and the relationship becomes negative at densities higher
-than approximately 5.7 (1,000 people per sq.km).
+\hypertarget{proceed-with-caution-spatial-effects-ahead}{%
+\section{Proceed with caution: Spatial effects
+ahead!}\label{proceed-with-caution-spatial-effects-ahead}}
+
+Words go here.
+
+\begin{table}
+
+\caption{\label{tab:tabulate-sample-selection3-results}\label{tab:selection-results}Estimation results of sample selection model with spatial filter}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}[t]{lcc}
+\toprule
+\multicolumn{1}{c}{ } & \multicolumn{2}{c}{Selection Model 3} \\
+\cmidrule(l{3pt}r{3pt}){2-3}
+Variable & $\beta$ & 95\% CI\\
+\midrule
+\addlinespace[0.3em]
+\multicolumn{3}{l}{\textbf{Sample Selection Model}}\\
+\hspace{1em}Intercept & -7.304 & [-8.346, -6.262]\\
+\hspace{1em}Density (1,000 per sq.km) & 2.445 & [2.089, 2.802]\\
+\hspace{1em}Density squared & -0.380 & [-0.468, -0.292]\\
+\hspace{1em}Percent of private transportation & 0.056 & [0.046, 0.067]\\
+\hspace{1em}Median household income (10,000) & 0.318 & [0.28, 0.356]\\
+\addlinespace[0.3em]
+\multicolumn{3}{l}{\textbf{Outcome Model}}\\
+\hspace{1em}Intercept & 2.563 & [2.497, 2.629]\\
+\hspace{1em}Density (1,000 per sq.km) & 0.760 & [0.746, 0.774]\\
+\hspace{1em}Density squared & -0.133 & [-0.135, -0.13]\\
+\hspace{1em}Percent of private transportation & -0.011 & [-0.012, -0.011]\\
+\hspace{1em}Median household income (\$10,000) & 0.002 & [-0.001, 0.004]\\
+\hspace{1em}Spatial filter & 1.000 & [0.998, 1.001]\\
+$\sigma$ & 0.017 & [0.015, 0.019]\\
+$\rho$ & -0.304 & [-0.957, 0.349]\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
+
+How relevant are the difference between the different model
+specifications presented above? Figure \ref{fig:comparison-results}
+shows the relationship between density and \(R_0\) implied by SWN Model
+3, Selection Model 2, and Selection Model 3. The left panel of the
+figure shows the non-linear but monotonic relationship implied by SWN
+Model 1. The conclusion is that at higher densities, \(R_0\) is
+\emph{always} higher. The right panel, in contrast, shows that,
+according to Selection Model 2, \(R_0\) is zero when density is zero (as
+expected), and then it tends to increase at higher densities. This
+continues until a density of approximately 2.9 (1,000 people per sq.km).
+At higher densities than that \(R_0\) begins to decline, and the
+relationship becomes negative at densities higher than approximately 5.7
+(1,000 people per sq.km).
 
 Thus, other things being equal, the effect of density in a county like
 Charlottesville in Virginia (density \textasciitilde1,639 people per

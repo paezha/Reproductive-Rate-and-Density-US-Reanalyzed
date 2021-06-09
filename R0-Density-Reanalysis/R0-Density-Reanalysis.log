@@ -1,42 +1,42 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.5.18)  7 JUN 2021 07:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.6.8)  9 JUN 2021 14:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **R0-Density-Reanalysis.tex
 (./R0-Density-Reanalysis.tex
-LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-05-11> (./elsarticle.cls
+LaTeX2e <2021-06-01>
+L3 programming layer <2021-06-01> (./elsarticle.cls
 Document Class: elsarticle 2008/05/22, 1.0.1: Elsevier Science
 \@bls=\dimen138
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
+Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+File: size10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count179
-\c@section=\count180
-\c@subsection=\count181
-\c@subsubsection=\count182
-\c@paragraph=\count183
-\c@subparagraph=\count184
-\c@figure=\count185
-\c@table=\count186
+\c@part=\count182
+\c@section=\count183
+\c@subsection=\count184
+\c@subsubsection=\count185
+\c@paragraph=\count186
+\c@subparagraph=\count187
+\c@figure=\count188
+\c@table=\count189
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen139
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphicx
 .sty
-Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
 
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/keyval.s
 ty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks15
+\KV@toks@=\toks16
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/graphics
 .sty
-Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
 
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
@@ -45,7 +45,7 @@ Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 hics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 105.
+Package graphics Info: Driver file: pdftex.def on input line 107.
 
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics-def/pdft
 ex.def
@@ -66,21 +66,21 @@ LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/psnfss/upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
 ))
-\c@tnote=\count187
-\c@fnote=\count188
-\c@cnote=\count189
-\c@ead=\count190
-\c@author=\count191
-\@eadauthor=\toks16
-\c@affn=\count192
-\absbox=\box47
-\keybox=\box48
+\c@tnote=\count190
+\c@fnote=\count191
+\c@cnote=\count192
+\c@ead=\count193
+\c@author=\count194
+\@eadauthor=\toks17
+\c@affn=\count195
+\absbox=\box50
+\keybox=\box51
 \Columnwidth=\dimen142
 \space@left=\dimen143
-\els@boxa=\box49
-\els@boxb=\box50
+\els@boxa=\box52
+\els@boxb=\box53
 \leftMargin=\dimen144
-\@enLab=\toks17
+\@enLab=\toks18
 \@sep=\skip49
 \@@sep=\skip50
 (./R0-Density-Reanalysis.spl)
@@ -89,7 +89,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip51
 \bibsep=\skip52
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count193
+\c@NAT@ctr=\count196
 )
 \splwrite=\write3
 \openout3 = `R0-Density-Reanalysis.spl'.
@@ -100,20 +100,20 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lineno/lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count194
-\output=\toks18
-\linenoprevgraf=\count195
+\linenopenalty=\count197
+\output=\toks19
+\linenoprevgraf=\count198
 \linenumbersep=\dimen145
 \linenumberwidth=\dimen146
-\c@linenumber=\count196
-\c@pagewiselinenumber=\count197
-\c@LN@truepage=\count198
-\c@internallinenumber=\count199
-\c@internallinenumbers=\count266
+\c@linenumber=\count199
+\c@pagewiselinenumber=\count266
+\c@LN@truepage=\count267
+\c@internallinenumber=\count268
+\c@internallinenumbers=\count269
 \quotelinenumbersep=\dimen147
 \bframerule=\dimen148
 \bframesep=\dimen149
-\bframebox=\box51
+\bframebox=\box54
 LaTeX Info: Redefining \\ on input line 3056.
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs
@@ -129,16 +129,16 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen157
 \cmidrulekern=\dimen158
 \defaultaddspace=\dimen159
-\@cmidla=\count267
-\@cmidlb=\count268
+\@cmidla=\count270
+\@cmidlb=\count271
 \@aboverulesep=\dimen160
 \@belowrulesep=\dimen161
-\@thisruleclass=\count269
-\@lastruleclass=\count270
+\@thisruleclass=\count272
+\@lastruleclass=\count273
 \@thisrulewidth=\dimen162
 ) (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.st
 y
-Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 ) (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -181,7 +181,7 @@ Package: amssymb 2013/01/14 v3.01 AMS font symbols
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts
 .sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\@emptytoks=\toks19
+\@emptytoks=\toks20
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
@@ -190,7 +190,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 ))
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.s
 ty
-Package: amsmath 2020/09/23 v2.17i AMS math features
+Package: amsmath 2021/04/20 v2.17j AMS math features
 \@mathmargin=\skip53
 For additional information on amsmath, use the `?' option.
 
@@ -201,7 +201,7 @@ Package: amstext 2000/06/29 v2.01 AMS text
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.st
 y
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks20
+\@emptytoks=\toks21
 \ex@=\dimen163
 ))
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.st
@@ -213,41 +213,41 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 y
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count271
+\inf@bad=\count274
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count272
-\leftroot@=\count273
+\uproot@=\count275
+\leftroot@=\count276
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count274
-\DOTSCASE@=\count275
+\classnum@=\count277
+\DOTSCASE@=\count278
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box52
-\strutbox@=\box53
+\Mathstrutbox@=\box55
+\strutbox@=\box56
 \big@size=\dimen165
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count276
-\c@MaxMatrixCols=\count277
+\macc@depth=\count279
+\c@MaxMatrixCols=\count280
 \dotsspace@=\muskip17
-\c@parentequation=\count278
-\dspbrk@lvl=\count279
-\tag@help=\toks21
-\row@=\count280
-\column@=\count281
-\maxfields@=\count282
-\andhelp@=\toks22
+\c@parentequation=\count281
+\dspbrk@lvl=\count282
+\tag@help=\toks22
+\row@=\count283
+\column@=\count284
+\maxfields@=\count285
+\andhelp@=\toks23
 \eqnshift@=\dimen166
 \alignsep@=\dimen167
 \tagshift@=\dimen168
 \tagwidth@=\dimen169
 \totwidth@=\dimen170
 \lineht@=\dimen171
-\@envbody=\toks23
+\@envbody=\toks24
 \multlinegap=\skip54
 \multlinetaggap=\skip55
-\mathdisplay@stack=\toks24
+\mathdisplay@stack=\toks25
 LaTeX Info: Redefining \[ on input line 2923.
 LaTeX Info: Redefining \] on input line 2924.
 )
@@ -273,19 +273,19 @@ Package fixltx2e Warning: fixltx2e is not required with releases after 2015
 Already applied: [0000/00/00] Old fixltx2e package on input line 53.
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
-Package: inputenc 2020/08/01 v1.3d Input encoding file
-\inpenc@prehook=\toks25
-\inpenc@posthook=\toks26
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks26
+\inpenc@posthook=\toks27
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microty
 pe.sty
 Package: microtype 2021/03/14 v2.8c Micro-typographical refinements (RS)
-\MT@toks=\toks27
-\MT@count=\count283
+\MT@toks=\toks28
+\MT@count=\count286
 LaTeX Info: Redefining \textls on input line 790.
 \MT@outer@kern=\dimen172
 LaTeX Info: Redefining \textmicrotypecontext on input line 1374.
-\MT@listname@count=\count284
+\MT@listname@count=\count287
 
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/microtype/microty
 pe-pdftex.def
@@ -303,7 +303,7 @@ File: microtype.cfg 2021/03/14 v2.8c microtype main configuration file (RS)
 ))
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref
 .sty
-Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
+Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
 
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds
 .sty
@@ -351,18 +351,18 @@ ns.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
 \@linkdim=\dimen173
-\Hy@linkcounter=\count285
-\Hy@pagecounter=\count286
+\Hy@linkcounter=\count288
+\Hy@pagecounter=\count289
 
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.d
 ef
-File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref
 -langpatches.def
-File: hyperref-langpatches.def 2021-02-27 v7.00k Hyperref: patches for babel la
+File: hyperref-langpatches.def 2021-06-07 v7.00m Hyperref: patches for babel la
 nguages
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc
@@ -373,11 +373,11 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count287
+\Hy@SavedSpaceFactor=\count290
 
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.de
 f
-File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -389,7 +389,7 @@ Package hyperref Info: Plain pages OFF on input line 4207.
 Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count288
+\c@Hy@tempcnt=\count291
 LaTeX Info: Redefining \url on input line 4804.
 \XeTeXLinkMargin=\dimen174
 
@@ -402,34 +402,33 @@ ntcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count289
+\Fld@menulength=\count292
 \Field@Width=\dimen175
 \Fld@charsize=\dimen176
-Package hyperref Info: Hyper figures OFF on input line 6075.
-Package hyperref Info: Link nesting OFF on input line 6080.
-Package hyperref Info: Hyper index ON on input line 6083.
-Package hyperref Info: backreferencing OFF on input line 6090.
-Package hyperref Info: Link coloring OFF on input line 6095.
-Package hyperref Info: Link coloring with OCG OFF on input line 6100.
-Package hyperref Info: PDF/A mode OFF on input line 6105.
-LaTeX Info: Redefining \ref on input line 6145.
-LaTeX Info: Redefining \pageref on input line 6149.
+Package hyperref Info: Hyper figures OFF on input line 6076.
+Package hyperref Info: Link nesting OFF on input line 6081.
+Package hyperref Info: Hyper index ON on input line 6084.
+Package hyperref Info: backreferencing OFF on input line 6091.
+Package hyperref Info: Link coloring OFF on input line 6096.
+Package hyperref Info: Link coloring with OCG OFF on input line 6101.
+Package hyperref Info: PDF/A mode OFF on input line 6106.
+LaTeX Info: Redefining \ref on input line 6146.
+LaTeX Info: Redefining \pageref on input line 6150.
 
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx
 .sty
-Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
-ge
-with kernel methods
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
 )
-\Hy@abspage=\count290
-\c@Item=\count291
-\c@Hfootnote=\count292
+\Hy@abspage=\count293
+\c@Item=\count294
+\c@Hfootnote=\count295
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.
 def
-File: hpdftex.def 2021-02-27 v7.00k Hyperref driver for pdfTeX
+File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
 
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-lt
 x.sty
@@ -437,8 +436,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
 )
-\Fld@listcount=\count293
-\c@bookmark@seq@number=\count294
+\Fld@listcount=\count296
+\c@bookmark@seq@number=\count297
 
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/re
 runfilecheck.sty
@@ -463,15 +462,15 @@ Package hyperref Info: Option `colorlinks' set `false' on input line 51.
 \cslhangindent=\skip59
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count295
-\calc@Bcount=\count296
+\calc@Acount=\count298
+\calc@Bcount=\count299
 \calc@Adimen=\dimen177
 \calc@Bdimen=\dimen178
 \calc@Askip=\skip60
 \calc@Bskip=\skip61
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count297
+\calc@Ccount=\count300
 \calc@Cskip=\skip62
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/setspace/setspace
@@ -480,37 +479,38 @@ Package: setspace 2011/12/19 v6.7a set line spacing
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/longtable.s
 ty
-Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
+Package: longtable 2021-05-07 v4.16 Multi-page Table package (DPC)
 \LTleft=\skip63
 \LTright=\skip64
 \LTpre=\skip65
 \LTpost=\skip66
-\LTchunksize=\count298
+\LTchunksize=\count301
 \LTcapwidth=\dimen179
-\LT@head=\box54
-\LT@firsthead=\box55
-\LT@foot=\box56
-\LT@lastfoot=\box57
-\LT@cols=\count299
-\LT@rows=\count300
-\c@LT@tables=\count301
-\c@LT@chunks=\count302
-\LT@p@ftn=\toks28
+\LT@head=\box57
+\LT@firsthead=\box58
+\LT@foot=\box59
+\LT@lastfoot=\box60
+\LT@gbox=\box61
+\LT@cols=\count302
+\LT@rows=\count303
+\c@LT@tables=\count304
+\c@LT@chunks=\count305
+\LT@p@ftn=\toks29
 ) (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
-Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
+Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
 \col@sep=\dimen180
-\ar@mcellbox=\box58
+\ar@mcellbox=\box62
 \extrarowheight=\dimen181
-\NC@list=\toks29
+\NC@list=\toks30
 \extratabsurround=\skip67
 \backup@length=\skip68
-\ar@cellbox=\box59
+\ar@cellbox=\box63
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow
 .sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip69
-\multirow@cntb=\count303
+\multirow@cntb=\count306
 \multirow@dima=\skip70
 \bigstrutjot=\dimen182
 )
@@ -518,17 +518,17 @@ Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 ty
 \wrapoverhang=\dimen183
 \WF@size=\dimen184
-\c@WF@wrappedlines=\count304
-\WF@box=\box60
-\WF@everypar=\toks30
+\c@WF@wrappedlines=\count307
+\WF@box=\box64
+\WF@everypar=\toks31
 Package: wrapfig 2003/01/31  v 3.6
 ) (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count305
-\float@exts=\toks31
-\float@box=\box61
-\@float@everytoks=\toks32
-\@floatcapt=\box62
+\c@float@type=\count308
+\float@exts=\toks32
+\float@box=\box65
+\@float@everytoks=\toks33
+\@floatcapt=\box66
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl
 .sty
@@ -542,9 +542,9 @@ Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
 r.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package color Info: Driver file: pdftex.def on input line 147.
+Package color Info: Driver file: pdftex.def on input line 149.
 )
-\everycr=\toks33
+\everycr=\toks34
 \minrowclearance=\skip71
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflsca
@@ -562,17 +562,17 @@ Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth
 .sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box63
-\sift@deathcycles=\count306
+\@vwid@box=\box67
+\sift@deathcycles=\count309
 \@vwid@loff=\dimen185
 \@vwid@roff=\dimen186
 )
-\c@taburow=\count307
-\tabu@nbcols=\count308
-\tabu@cnt=\count309
-\tabu@Xcol=\count310
-\tabu@alloc=\count311
-\tabu@nested=\count312
+\c@taburow=\count310
+\tabu@nbcols=\count311
+\tabu@cnt=\count312
+\tabu@Xcol=\count313
+\tabu@alloc=\count314
+\tabu@nested=\count315
 \tabu@target=\dimen187
 \tabu@spreadtarget=\dimen188
 \tabu@naturalX=\dimen189
@@ -582,18 +582,18 @@ Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \abovetabulinesep=\dimen193
 \belowtabulinesep=\dimen194
 \tabustrutrule=\dimen195
-\tabu@thebody=\toks34
-\tabu@footnotes=\toks35
-\tabu@box=\box64
-\tabu@arstrutbox=\box65
-\tabu@hleads=\box66
-\tabu@vleads=\box67
+\tabu@thebody=\toks35
+\tabu@footnotes=\toks36
+\tabu@box=\box68
+\tabu@arstrutbox=\box69
+\tabu@hleads=\box70
+\tabu@vleads=\box71
 \tabu@cellskip=\skip72
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/th
 reeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box68
+\@tempboxb=\box72
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttablex/t
 hreeparttablex.sty
@@ -609,14 +609,14 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 ))
 \TPTL@width=\skip73
 ) (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box69
-\UL@hyphenbox=\box70
+\UL@box=\box73
+\UL@hyphenbox=\box74
 \UL@skip=\skip74
-\UL@hook=\toks36
+\UL@hook=\toks37
 \UL@height=\dimen196
-\UL@pe=\count313
+\UL@pe=\count316
 \UL@pixel=\dimen197
-\ULC@box=\box71
+\ULC@box=\box75
 Package: ulem 2019/11/18
 \ULdepth=\dimen198
 )
@@ -624,8 +624,8 @@ Package: ulem 2019/11/18
 .sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen199
-\c@nlinenum=\count314
-\TeXr@lab=\toks37
+\c@nlinenum=\count317
+\TeXr@lab=\toks38
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
@@ -654,8 +654,8 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backe
 nd-pdftex.def
 File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count315
-\l__pdf_internal_box=\box72
+\l__color_backend_stack_int=\count318
+\l__pdf_internal_box=\box76
 ) (./R0-Density-Reanalysis.aux
 
 LaTeX Warning: Label `fig:R0-map' multiply defined.
@@ -665,6 +665,9 @@ LaTeX Warning: Label `fig:random-terms-map' multiply defined.
 
 
 LaTeX Warning: Label `fig:urban-areas-map' multiply defined.
+
+
+LaTeX Warning: Label `tab:selection-results' multiply defined.
 
 
 LaTeX Warning: Label `fig:comparison-results' multiply defined.
@@ -733,7 +736,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count316
+\c@section@level=\count319
 )
 LaTeX Info: Redefining \ref on input line 104.
 LaTeX Info: Redefining \pageref on input line 104.
@@ -819,7 +822,7 @@ e of substandard research''
  []
 
 [2] [3] [4] [5] [6] [7] [8] [9] [10]
-<R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf, id=115, 469.755pt x 325
+<R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf, id=123, 469.755pt x 325
 .215pt>
 File: R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf Graphic file (type 
 pdf)
@@ -830,10 +833,10 @@ Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf
 [11] [12pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
+                                                  \__shipout_drop_firstpage_...
 l.488 
        <./R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf>]
-<R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf, id=139, 469.7
+<R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf, id=147, 469.7
 55pt x 325.215pt>
 File: R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf Graphic f
 ile (type pdf)
@@ -844,15 +847,15 @@ map-1.pdf  used on input line 512.
 [13pdfTeX warning (ext4): destination with the same identifier (name{table.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
+                                                  \__shipout_drop_firstpage_...
 l.537 
       ] [14pdfTeX warning (ext4): destination with the same identifier (name{fi
 gure.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
+                                                  \__shipout_drop_firstpage_...
 l.537 
        <./R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf>]
-<R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf, id=161, 469.75
+<R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf, id=169, 469.75
 5pt x 325.215pt>
 File: R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf Graphic fi
 le (type pdf)
@@ -863,92 +866,97 @@ ap-1.pdf  used on input line 539.
 [15pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
+                                                  \__shipout_drop_firstpage_...
 l.547 
        <./R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf>] [16]
 [17] [18pdfTeX warning (ext4): destination with the same identifier (name{table
 .2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.678 
-      ] [19]
-<R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf, id=200, 469
+                                                  \__shipout_drop_firstpage_...
+l.720 
+      ] [19pdfTeX warning (ext4): destination with the same identifier (name{ta
+ble.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.720 
+      ] [20]
+<R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf, id=215, 469
 .755pt x 325.215pt>
 File: R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf Graphic
  file (type pdf)
 <use R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/comparison-re
-sults-1.pdf  used on input line 725.
+sults-1.pdf  used on input line 767.
 (pdftex.def)             Requested size: 345.0pt x 238.84406pt.
-[20pdfTeX warning (ext4): destination with the same identifier (name{figure.4})
- has been already used, duplicate ignored
+[21] [22pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.729 \section{Conclusion}\label{conclusion}}
-                                              <./R0-Density-Reanalysis_files/fi
-gure-latex/comparison-results-1.pdf>] [21]
-Overfull \hbox (6.86313pt too wide) in paragraph at lines 813--817
+                                                  \__shipout_drop_firstpage_...
+l.795 
+       <./R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf>] [
+23]
+Overfull \hbox (6.86313pt too wide) in paragraph at lines 855--859
 \T1/lmr/m/n/10 (-20) physics pa-pers of the fu-ture - in-tro-duc-tion. Geo-phys
 ics 82. doi:[]10.1190/geo2017-
  []
 
-[22]
-Overfull \hbox (29.1155pt too wide) in paragraph at lines 832--835
+
+Overfull \hbox (29.1155pt too wide) in paragraph at lines 874--877
 [][]\T1/lmr/m/n/10 (-20) Cressie, N., 1989. Geo-statis-tics. The Amer-i-can Sta
 tis-ti-cian 43, 197. doi:[]10.2307/2685361[] 
  []
 
 
-Overfull \hbox (27.63686pt too wide) in paragraph at lines 836--841
+Overfull \hbox (27.63686pt too wide) in paragraph at lines 878--883
 \T1/lmr/m/n/10 (-20) and travel his-tory data. PLOS ONE 15, e0235306. doi:[]10.
 1371/journal.pone.0235306[] 
  []
 
-
-Overfull \hbox (89.08939pt too wide) in paragraph at lines 856--860
+[24]
+Overfull \hbox (89.08939pt too wide) in paragraph at lines 898--902
 \T1/lmr/m/n/10 (-20) shelter-in-place or-ders var-ied by state. PLOS ONE 15, e0
 245008. doi:[]10.1371/journal.pone.0245008[] 
  []
 
-[23]
-Overfull \hbox (26.81235pt too wide) in paragraph at lines 909--913
+[25]
+Overfull \hbox (26.81235pt too wide) in paragraph at lines 951--955
 \T1/lmr/m/n/10 (-20) COVID-19 risk in cana-dian na-tional sur-vey data. Find-in
 gs. doi:[]10.32866/001c.19088[] 
  []
 
-[24] [25] [26] [27]
-Overfull \hbox (20.51007pt too wide) in paragraph at lines 1086--1090
+[26] [27] [28]
+Overfull \hbox (20.51007pt too wide) in paragraph at lines 1128--1132
 \T1/lmr/m/n/10 (-20) fatality rate in france. PLOS ONE 15, e0243606. doi:[]10.1
 371/journal.pone.0243606[] 
  []
 
-[28]
-Overfull \hbox (7.10994pt too wide) in paragraph at lines 1130--1135
+[29]
+Overfull \hbox (7.10994pt too wide) in paragraph at lines 1172--1177
 \T1/lmr/m/n/10 (-20) temporal big data. PLOS ONE 16, e0249145. doi:[]10.1371/jo
 urnal.pone.0249145[] 
  []
 
 
-Overfull \hbox (54.69655pt too wide) in paragraph at lines 1136--1140
+Overfull \hbox (54.69655pt too wide) in paragraph at lines 1178--1182
 \T1/lmr/m/n/10 (-20) dy-nam-ics in the united states. PLOS ONE 15, e0240648. do
 i:[]10.1371/journal.pone.0240648[] 
  []
 
-[29] (./R0-Density-Reanalysis.aux)
+[30] (./R0-Density-Reanalysis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `R0-Density-Reanalysis.out' has not changed.
-(rerunfilecheck)             Checksum: F367FD251570150916D3D8E4CF6F31CF;1530.
+(rerunfilecheck)             Checksum: C2FF2F153661A273D53C704BCC0E54DF;1905.
  ) 
 Here is how much of TeX's memory you used:
- 13934 strings out of 480796
- 212334 string characters out of 5903169
- 548570 words of memory out of 5000000
- 30743 multiletter control sequences out of 15000+600000
- 468938 words of font info for 147 fonts, out of 8000000 for 9000
+ 14018 strings out of 480496
+ 214077 string characters out of 5897822
+ 559898 words of memory out of 5000000
+ 31126 multiletter control sequences out of 15000+600000
+ 468808 words of font info for 146 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 70i,11n,76p,571b,412s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 72i,11n,80p,571b,391s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -985,10 +993,10 @@ mss8.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public
 public/lm/lmsy6.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/t
 ype1/public/lm/lmsy7.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fo
 nts/type1/public/lm/lmtt8.pfb>
-Output written on R0-Density-Reanalysis.pdf (29 pages, 13526579 bytes).
+Output written on R0-Density-Reanalysis.pdf (30 pages, 13549370 bytes).
 PDF statistics:
- 479 PDF objects out of 1000 (max. 8388607)
- 415 compressed objects within 5 object streams
- 124 named destinations out of 1000 (max. 500000)
- 33365 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 510 PDF objects out of 1000 (max. 8388607)
+ 426 compressed objects within 5 object streams
+ 130 named destinations out of 1000 (max. 500000)
+ 33381 words of extra memory for PDF output out of 35830 (max. 10000000)
 

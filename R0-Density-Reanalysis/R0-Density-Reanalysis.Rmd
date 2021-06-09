@@ -36,6 +36,7 @@ Install data package as appropriate. The data package is file `r0density_0.1.0.t
 -->
 
 ```{r load-packages, include=FALSE, cache=FALSE}
+library(adespatial) # To calculate Moran eigenvector maps
 library(censReg) # Package to estimate tobit model
 library(kableExtra) # Package for creating tables
 library(Matrix) # Used to convert list of spatial weights to sparse matrix; needed for spatialprobit
@@ -114,6 +115,10 @@ nb_B <- nb2listw(county_nb,
                  style="B", 
                  zero.policy = TRUE)
 
+county_listw <- nb2listw(county_nb, 
+                        style="W", 
+                        zero.policy = TRUE)
+
 state_listw <- nb2listw(state_nb, 
                         style="W", 
                         zero.policy = TRUE)
@@ -121,6 +126,11 @@ state_listw <- nb2listw(state_nb,
 # Convert listw to sparse matrix for use in spatial tobit:
 B <- as(nb_B, "CsparseMatrix")
 ```
+
+```{r moran-eigenvector-maps, include=FALSE}
+county_mem <- mem(county_listw)
+```
+
 
 # Introduction
 
@@ -583,69 +593,128 @@ density = \frac{0.758}{2 * 0.132}
 $$
 -->
 
-How relevant is the difference between these different model specifications? Figure \ref{fig:comparison-results} shows the relationship between density and $R_0$ implied by SWN Model 1 and Selection Model 2. The left panel of the figure shows the non-linear but monotonic relationship implied by SWN Model 1. The conclusion is that at higher densities, $R_0$ is _always_ higher. The right panel, in contrast, shows that, according to Selection Model 2, $R_0$ is zero when density is zero (as expected), and then it tends to increase at higher densities. This continues until a density of approximately 2.9 (1,000 people per sq.km). At higher densities than that $R_0$ begins to decline, and the relationship becomes negative at densities higher than approximately 5.7 (1,000 people per sq.km). 
+# Proceed with caution: Spatial effects ahead!
 
-Thus, other things being equal, the effect of density in a county like Charlottesville in Virginia	 (density ~1,639 people per sq.km) is roughly the same as that in a county like Philadelphia (density ~4,127 people per sq.km). In contrast, the effect of density on $R_0$ in a county like Arlington in Virginia (density ~3,093 people per sq.km) is _stronger_ than either of the previous two examples. Lastly, the density of counties like San Francisco in California, or Queens and Bronx in NY, which are among the densest in the US, contributes even less to $R_0$ than even the most rural counties in the country.
+Words go here.
 
-It is worth at this point to recall Cressie's dictum about modelling: "[w]hat is one person's mean structure could be another person's correlation structure" [@Cressie1989geostatistics, p. 201]. There are almost always multiple ways to approach a modelling situation. In the present case, we would argue that spatial sampling is an important aspect of the modeling process, but one that perhaps required different technical skills than those available to SWN. There is nothing wrong with that. What matters is that, by adopting relatively high reproducibility standards, these researchers made a valuable and honest contribution to the collective enterprise of seeking knowledge. Their effort, and subsequent efforts to validate and expand on their work, can potentially contribute to provide clarity to ongoing conversations about the relevance of density and the spread of COVID-19.
+```{r selection-model-with-spatial-filter, include=FALSE}
 
-In particular, it is noteworthy that a sample selection model with a different variable transformation does not lend support to the thesis that higher density is _always_ associated with a greater risk of spread of the virus [as put by Wong and Li, "'Density is destiny' is probably an overstatement"; -@Wong2020spreading]. At the same time, this also stands in contrast to the findings of Hamidi et al., who found that higher density was either not significantly associated with the rate of the virus in a cross-sectional study [@Hamidi2020density], or was negatively associated with in a longitudinal setting [@Hamidi2020longitudinal. In this sense, the conclusion that density does not aggravate the pandemic may have been somewhat premature; instead, reanalysis of the data of SWN suggests that Fielding-Miller et al. [-@Fielding2020social] might be onto something with respect to the difference between rural and urban counties. More generally, in population-level studies, density is indicative of proximity, no doubt about that, but also for adaptive behavior. And it is possible that the determining factor during COVID-19, at least in the US, has been variations in perceptions of the risks associated with contagion [@Chauhan2021covid], and subsequent compensations in behavior in more and less dense regions.
+# Refit model selection2 to begin 
+selection3 <- selection(Ys ~ density + density_2 + private + hincome, R ~ density + density_2 + private + hincome, data = county_geo_clean)
 
-```{r comparison-results, echo=FALSE, out.width= "1\\linewidth", fig.cap="\\label{fig:comparison-results}Effect of density according to SWN Model 3 and Sample Selection Model 2."}
-# The maximum in-sample density is 6.255358
-# county_geo_clean %>% st_drop_geometry() %>% filter(R > 0) %>% summary()
+# Extract the residuals of the model. These residuals have NAs where the outcome was not observed
+res_selection3 <- residuals(selection3)
 
-example_df <- data.frame(density = seq(0, 6.3, 0.01)) %>% 
-  mutate(density_log = log(density),
-         density_2 = density^2, 
-         b_swn = model3$coefficients$fixed["density_log"] * density_log,
-         b_selection = selection2$estimate[7] * density + selection2$estimate[8] * density_2)
+#Initialize a spatial filter:
+SF <- numeric(length = length(res_selection3))
 
-# Plot of coefficient of density to R_0 according to SWN Model 3
-density_swn <- ggplot(data = example_df) + 
-  geom_line(aes(x = density, 
-                y = b_swn)) +
-  ggtitle("SWN Model 3") +
-  ylab(expression(paste("E[", R[0], "]"))) +
-  theme_minimal()
+#Initialize tolerance, counter, and index:
+tol <- 0;
 
-# Plot of coefficient of density to R_0  
-density_selection <- ggplot(data = example_df) + 
-  geom_line(aes(x = density, 
-                y = b_selection)) +
-  ggtitle("Selection Model 2") +
-  ylab(expression(paste("E[", R[0], "]"))) +
-  theme_minimal()
-
-density_swn + density_selection
+while(tol < 0.25){
+  #Initialize counter and index:
+  count <- 0;
+  SF_INDEX <- 0
+  
+  #Obtain filter to simulate the residuals
+  for(i in 1:length(county_mem)){
+    count <- count + 1
+    junkSF <- data.frame(SF = SF, V = county_mem[, count])
+    #remove columns with all zeros
+    junkSF <- Filter(function(x)!all(x == 0), junkSF)
+    #estimate model
+    junkmod <- lm(res_selection3 ~ .,
+                  data = cbind(res_selection3, junkSF))
+    junkmod_summary <- summary(junkmod) # Summary of model; needed to extract the pval of the filter
+    pvals<- junkmod_summary$coefficients[nrow(junkmod_summary$coefficients), 4]
+    #pvals <- get_pvalue(junkmod)
+    junkb <- coef(junkmod)
+    if(pvals <= 0.10){
+      SF_INDEX[count] <- count
+      SF <- as.matrix(junkSF) %*% junkb[(0+2):length(junkb)]
+      junkmod <- lm(res_selection3 ~ ., 
+                    data = data.frame(res_selection3, SF))
+    }
+  }
+  #SF_INDEX <- SF_INDEX[!is.na(SF_INDEX)]
+  Filter1 <- SF # Spatial filter for residuals
+  res_filter_cor <- cor(res_selection3, Filter1, use = "complete.obs")
+  Filter_mt <- moran.test(Filter1, county_listw)
+  tol <- Filter_mt$p.value
+  if(tol < 0.25){
+    selection3 <- selection(Ys ~ density + density_2 + private + hincome, 
+                            R ~ density + density_2 + private + hincome + Filter1, 
+                            data = county_geo_clean)
+  }  
+}
 ```
 
-```{r counties-by-density, include=FALSE}
-# the relationship between density and R_0 become negative in Selection Model 2 at about 5.74
+```{r prepare-selection3-results, include=FALSE}
+selection3_me <- selection3 %>%
+  summary()
 
-# Values of b_selection for a density similar a Philadelphia 
-example_df %>% filter(density > 4.10 & density < 4.14)
-# Densities with a similar b_selection
-example_df %>% filter(b_selection > 0.87 & b_selection < 0.89)
+selection3_me <- selection3_me$estimate %>%
+  as.data.frame()
 
-# Counties with densities with similar response to Philadelphia
-county_geo_clean %>% 
-  mutate(density = drop_units(density)) %>%
-  filter(density > 1.59 & density < 1.64) %>%
-  select(NAME.y, density)
+colnames(selection3_me) <- c("b", "se", "t", "p")
 
-# Counties with densities associated with the highest response to density
-county_geo_clean %>% 
-  mutate(density = drop_units(density)) %>%
-  filter(density > 2.70 & density < 3.10) %>%
-  select(NAME.y, density)
+selection3_me <- selection3_me %>%  
+  rownames_to_column(var = "Variable") %>% 
+  transmute(Variable,
+            b,
+            ll = b - 1.96 * se, 
+            ul = b + 1.96 * se)
 
-# Highly dense counties
-county_geo_clean %>% 
-  mutate(density = drop_units(density)) %>%
-  filter(density > 5.74) %>%
-  select(NAME.y)
+results_selection <- selection1_me %>%
+  full_join(selection2_me,
+            by = "Variable") 
 
+colnames(selection3_me) <- c("Variable",
+                                 "b1",
+                                 "l1",
+                                 "u1")
+
+selection3_me <- selection3_me %>%
+  transmute(Variable,
+            b1 = ifelse(is.na(b1),
+                        " ", 
+                        round(b1, 3)),
+            ci1 = ifelse(is.na(l1), 
+                         " ",
+                         paste0("[", round(l1, 3), ", ", round(u1, 3), "]")))
+#%>%
+#  arrange(Order) %>%
+#  select(-Order)
+```
+
+```{r tabulate-sample-selection3-results, echo=FALSE}
+selection3_me  %>%
+  mutate(Variable = c("Intercept",
+                      "Density (1,000 per sq.km)",
+                      "Density squared",
+                      "Percent of private transportation", 
+                      "Median household income (10,000)",
+                      "Intercept",
+                      "Density (1,000 per sq.km)",
+                      "Density squared",
+                      "Percent of private transportation", 
+                      "Median household income (\\$10,000)",
+                      "Spatial filter",
+                      "$\\sigma$",
+                      "$\\rho$")) %>%
+  kable("latex",
+        digits = 3,
+        booktabs = TRUE,
+        escape = FALSE,
+        col.names = c("Variable",
+                      "$\\beta$", 
+                      "95\\% CI"),
+        align = c("lcccc"),
+        caption = "\\label{tab:selection-results}Estimation results of sample selection model with spatial filter") %>%
+  kable_styling(latex_options = c("scale_down")) %>% 
+  pack_rows(group_label = "Sample Selection Model", 1, 5) %>%
+  pack_rows(group_label = "Outcome Model", 6, 11) %>%
+  add_header_above(c(" ", "Selection Model 3" = 2))
 ```
 
 <!--
@@ -686,6 +755,82 @@ impacts(fit_sartobit)
 ```
 
 -->
+
+# Discussion 
+
+How relevant are the difference between the different model specifications presented above? Figure \ref{fig:comparison-results} shows the relationship between density and $R_0$ implied by SWN Model 3, Selection Model 2, and Selection Model 3. The left panel of the figure shows the non-linear but monotonic relationship implied by SWN Model 1. The conclusion is that at higher densities, $R_0$ is _always_ higher. The right panel, in contrast, shows that, according to Selection Model 2, $R_0$ is zero when density is zero (as expected), and then it tends to increase at higher densities. This continues until a density of approximately 2.9 (1,000 people per sq.km). At higher densities than that $R_0$ begins to decline, and the relationship becomes negative at densities higher than approximately 5.7 (1,000 people per sq.km). 
+
+Thus, other things being equal, the effect of density in a county like Charlottesville in Virginia	 (density ~1,639 people per sq.km) is roughly the same as that in a county like Philadelphia (density ~4,127 people per sq.km). In contrast, the effect of density on $R_0$ in a county like Arlington in Virginia (density ~3,093 people per sq.km) is _stronger_ than either of the previous two examples. Lastly, the density of counties like San Francisco in California, or Queens and Bronx in NY, which are among the densest in the US, contributes even less to $R_0$ than even the most rural counties in the country.
+
+It is worth at this point to recall Cressie's dictum about modelling: "[w]hat is one person's mean structure could be another person's correlation structure" [@Cressie1989geostatistics, p. 201]. There are almost always multiple ways to approach a modelling situation. In the present case, we would argue that spatial sampling is an important aspect of the modeling process, but one that perhaps required different technical skills than those available to SWN. There is nothing wrong with that. What matters is that, by adopting relatively high reproducibility standards, these researchers made a valuable and honest contribution to the collective enterprise of seeking knowledge. Their effort, and subsequent efforts to validate and expand on their work, can potentially contribute to provide clarity to ongoing conversations about the relevance of density and the spread of COVID-19.
+
+In particular, it is noteworthy that a sample selection model with a different variable transformation does not lend support to the thesis that higher density is _always_ associated with a greater risk of spread of the virus [as put by Wong and Li, "'Density is destiny' is probably an overstatement"; -@Wong2020spreading]. At the same time, this also stands in contrast to the findings of Hamidi et al., who found that higher density was either not significantly associated with the rate of the virus in a cross-sectional study [@Hamidi2020density], or was negatively associated with in a longitudinal setting [@Hamidi2020longitudinal. In this sense, the conclusion that density does not aggravate the pandemic may have been somewhat premature; instead, reanalysis of the data of SWN suggests that Fielding-Miller et al. [-@Fielding2020social] might be onto something with respect to the difference between rural and urban counties. More generally, in population-level studies, density is indicative of proximity, no doubt about that, but also for adaptive behavior. And it is possible that the determining factor during COVID-19, at least in the US, has been variations in perceptions of the risks associated with contagion [@Chauhan2021covid], and subsequent compensations in behavior in more and less dense regions.
+
+```{r comparison-results, echo=FALSE, out.width= "1\\linewidth", fig.cap="\\label{fig:comparison-results}Effect of density according to SWN Model 3 and Sample Selection Model 2."}
+# The maximum in-sample density is 6.255358
+# county_geo_clean %>% st_drop_geometry() %>% filter(R > 0) %>% summary()
+
+example_df <- data.frame(density = seq(0, 6.3, 0.01)) %>% 
+  mutate(density_log = log(density),
+         density_2 = density^2, 
+         b_swn = model3$coefficients$fixed["density_log"] * density_log,
+         b_selection = selection2$estimate[7] * density + selection2$estimate[8] * density_2,
+         b_selection3 = selection3$estimate[7] * density + selection3$estimate[8] * density_2)
+
+# Plot of coefficient of density to R_0 according to SWN Model 3
+density_swn <- ggplot(data = example_df) + 
+  geom_line(aes(x = density, 
+                y = b_swn)) +
+  ggtitle("SWN Model 3") +
+  ylab(expression(paste("E[", R[0], "]"))) +
+  theme_minimal()
+
+# Plot of coefficient of density to R_0  
+density_selection <- ggplot(data = example_df) + 
+  geom_line(aes(x = density, 
+                y = b_selection)) +
+  ggtitle("Selection Model 2") +
+  ylab(expression(paste("E[", R[0], "]"))) +
+  theme_minimal()
+
+# Plot of coefficient of density to R_0  
+density_selection3 <- ggplot(data = example_df) + 
+  geom_line(aes(x = density, 
+                y = b_selection3)) +
+  ggtitle("Selection Model 3") +
+  ylab(expression(paste("E[", R[0], "]"))) +
+  theme_minimal()
+
+density_swn + density_selection + density_selection3
+```
+
+```{r counties-by-density, include=FALSE}
+# the relationship between density and R_0 become negative in Selection Model 2 at about 5.74
+
+# Values of b_selection for a density similar a Philadelphia 
+example_df %>% filter(density > 4.10 & density < 4.14)
+# Densities with a similar b_selection
+example_df %>% filter(b_selection > 0.87 & b_selection < 0.89)
+
+# Counties with densities with similar response to Philadelphia
+county_geo_clean %>% 
+  mutate(density = drop_units(density)) %>%
+  filter(density > 1.59 & density < 1.64) %>%
+  select(NAME.y, density)
+
+# Counties with densities associated with the highest response to density
+county_geo_clean %>% 
+  mutate(density = drop_units(density)) %>%
+  filter(density > 2.70 & density < 3.10) %>%
+  select(NAME.y, density)
+
+# Highly dense counties
+county_geo_clean %>% 
+  mutate(density = drop_units(density)) %>%
+  filter(density > 5.74) %>%
+  select(NAME.y)
+
+```
 
 # Conclusion
 
