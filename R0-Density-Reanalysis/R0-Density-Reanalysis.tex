@@ -44,7 +44,7 @@
 \hypersetup{breaklinks=true,
             bookmarks=true,
             pdfauthor={},
-            pdftitle={The importance of reproducibility in geographical research: the case of population density and the spread of COVID-19},
+            pdftitle={Reproducibility of research during COVID-19: examining the case of population density and the basic reproductive rate from the perspective of spatial analysis},
             colorlinks=false,
             urlcolor=blue,
             linkcolor=magenta,
@@ -83,7 +83,7 @@
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 % Pandoc header
-\usepackage{setspace}\doublespacing
+\usepackage{setspace}\onehalfspacing
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage{array}
@@ -104,8 +104,9 @@
 \begin{document}
 \begin{frontmatter}
 
-  \title{The importance of reproducibility in geographical research: the
-case of population density and the spread of COVID-19}
+  \title{Reproducibility of research during COVID-19: examining the case
+of population density and the basic reproductive rate from the
+perspective of spatial analysis}
     \author[University]{Author\corref{1}}
    \ead{author@institution.edu} 
       \address[University]{Department, Street, City, State ZIP}
@@ -114,19 +115,19 @@ case of population density and the spread of COVID-19}
   \begin{abstract}
   The emergence of the novel SARS-CoV-2 coronavirus and the global
   COVID-19 pandemic has led to explosive growth in scientific research.
-  Of interest has been the associations between population density and
-  the spread of the pandemic. In this paper, population density and the
-  basic reproductive number of SARS-CoV-2 are examined in an example of
-  reproducible research. Given the high stakes of the situation, it is
-  essential that scientific activities, on which good policy depends,
-  are as transparent and reproducible as possible. Reproducibility is
-  key for the efficient operation of the self-correction mechanisms of
-  science. Transparency and openness means that the same problem can,
-  with relatively modest efforts, be examined by independent researchers
-  who can verify findings, and bring to bear different perspectives,
-  approaches, and methods---sometimes with consequential changes in the
-  conclusions, as the empirical example of the spread of COVID-19 in the
-  US shows.
+  Alas, much of the research in the literature lacks conditions to be
+  reproducible, and recent publications on the association between
+  population density and the basic reproductive number of SARS-CoV-2 are
+  no exception. Relatively few papers share code and data sufficiently,
+  which hinders not only verification but additional experimentation. In
+  this paper, an example of reproducible research shows the potential of
+  spatial analysis for epidemiology research during COVID-19.
+  Transparency and openness means that independent researchers can, with
+  relatively modest efforts, verify findings and use different
+  approaches as appropriate. Given the high stakes of the situation, it
+  is essential that scientific findings, on which good policy depends,
+  are as robust as possible; as the empirical example shows,
+  reproducibility is one of the keys to ensure this.
   \end{abstract}
   
  \end{frontmatter}
@@ -144,22 +145,22 @@ from the first confirmed case of the disease. Of these, more than 30,000
 were shared in pre-print servers, the use of which also exploded in the
 past year (Añazco et al., 2021; Kwon, 2020; Vlasschaert et al., 2020).
 
-Given the heavy human and economic cost of the pandemic, there has been
-a natural tension in the scientific community between the need to
+Given the ruinous human and economic cost of the pandemic, there has
+been a natural tension in the scientific community between the need to
 publish research results quickly and the imperative to maintain
 consistently high quality standards in scientific reporting; indeed, a
-call for maintaining the standards in published research has termed this
-deluge of publications a ``carnage of substandard research'' (Bramstedt,
-2020). Part of the challenge of maintaining quality standards in
-published research is that, despite an abundance of recommendations and
-guidelines (Broggini et al., 2017; Brunsdon and Comber, 2020; Ince et
-al., 2012; Ioannidis et al., 2014), in practice reproducibility has
-remained a lofty and somewhat aspirational goal (Konkol et al., 2019;
-Konkol and Kray, 2019). As reported in the literature, only a woefully
-small proportion of published research was actually reproducible before
-the pandemic (Iqbal et al., 2016; Stodden et al., 2018), and the
-situation does not appear to have changed substantially since (Gustot,
-2020; Sumner et al., 2020).
+call for maintaining the standards in published research has termed the
+deluge of COVID-19 publications a ``carnage of substandard research''
+(Bramstedt, 2020). Part of the challenge of maintaining quality
+standards in published research is that, despite an abundance of
+recommendations and guidelines (e.g., Broggini et al., 2017; Brunsdon
+and Comber, 2020; Ince et al., 2012; Ioannidis et al., 2014), in
+practice reproducibility has remained a lofty and somewhat aspirational
+goal (Konkol et al., 2019; Konkol and Kray, 2019). As reported in the
+literature, only a woefully small proportion of published research was
+actually reproducible before the pandemic (Iqbal et al., 2016; Stodden
+et al., 2018), and the situation does not appear to have changed
+substantially since (Gustot, 2020; Sumner et al., 2020).
 
 The push for open data and software, along with more strenuous efforts
 towards open, reproducible research, is simply a continuation of
@@ -184,22 +185,22 @@ and their sequels continued to be felt for years (Basu et al., 2017).
 
 In the context of COVID-19, a topic that has grabbed the imagination of
 numerous thinkers has been the prospect of life in cities after the
-pandemic (Florida et al., 2020); the implications are the topic of
-ongoing research (Sharifi and Khavarian-Garmsir, 2020). The fact that
-the worst of the pandemic was initially felt in dense population centers
-such as Wuhan, Milan, Madrid, and New York, brought a torrent of
-research into the associations between density and the spread of the
-pandemic. Some important questions hang on the results of these research
+pandemic (Florida et al., 2020); the implications of the pandemic for
+urban planning, design, and management are the topic of ongoing research
+(Sharifi and Khavarian-Garmsir, 2020). The fact that the worst of the
+pandemic was initially felt in dense population centers such as Wuhan,
+Milan, Madrid, and New York, unleashed a torrent of research into the
+associations between density and the spread of the pandemic. he answers
+to some important questions hang on the results of these research
 efforts. For example, are lower density regions safer from the pandemic?
 Are de-densification policies warranted, even if just in the short term?
 And in the longer term, will the risks of life in high density regions
 presage a flight from cities? What are the implications of the pandemic
 for future urban planning and practice? Over the past year, numerous
-papers have sought to throw light into the underlying issue of density
-and the pandemic; nonetheless the results, as will be detailed next,
-remain mixed. Further, to complicate matters, precious few of these
-studies appear to be sufficiently open to support independent
-verification.
+papers have sought to throw light on the underlying issue of density and
+the pandemic; nonetheless the results, as will be detailed next, remain
+mixed. Further, to complicate matters, precious few of these studies
+appear to be sufficiently open to support independent verification.
 
 The objective of this paper is to illustrate the importance of
 reproducibility in research in the context of the flood of COVID-19
@@ -215,10 +216,10 @@ perspectives, methodological traditions, and/or training, among other
 possible factors. The example, which shows consequential changes in the
 conclusions reached by different analyses, should serve as a call to
 researchers to redouble their efforts to increase transparency and
-reproducibility in research. This paper, in addition, aims to show how
-data can be packaged in well-documented, shareable units, and code can
-be embedded into self-contained documents suitable for review and
-independent verification. The source for this paper is an
+reproducibility in research. The present paper, in addition, aims to
+show how data can be packaged in well-documented, shareable units, and
+code can be embedded into self-contained documents suitable for review
+and independent verification. The source for this paper is an
 \href{http://rmarkdown.rstudio.com}{R Markdown} document which, along
 with the data package, will be available in a public
 repository\footnote{For peer-review purposes, the data package and code
@@ -256,12 +257,12 @@ scales (and presumably, small temporal scales too, such as time spent in
 restaurants, concert halls, cruises), and the results do not necessarily
 transfer to larger spatial units and different time scales. There are
 solid reasons for this: while in a restaurant, one can hardly avoid
-being in proximity to other customers-however, a person can choose to
-(or be forced to as a matter of policy) not go to a restaurant in the
-first place. Nonetheless, the idea that high density correlates with
-high transmission is so seemingly reasonable that it is often taken for
-granted even at larger scales (e.g., Cruz et al., 2020; Micallef et al.,
-2020). At larger scales, however, there exists the possibility of
+being in proximity to other customers. On the other hand, a person can
+choose to (or be forced to as a matter of policy) not go to a restaurant
+in the first place. Nonetheless, the idea that high density correlates
+with high transmission is so seemingly sensible that it is often taken
+for granted even at larger scales (e.g., Cruz et al., 2020; Micallef et
+al., 2020). At larger scales, however, there exists the possibility of
 behavioral adaptations, which are difficult to capture in the
 mechanistic framework of differential equations (or can be missing in
 agent-based models, e.g., Gomez et al., 2021); these adaptations, in
@@ -276,8 +277,8 @@ al. (Chauhan et al., 2021) have found that perception of risks in the US
 varies between rural, suburban, and urban residents, with rural
 residents in general expressing less concern about the virus. It is
 possible that people who listened to the message of leaders saying that
-they were safe because of low density may not have taken adequate
-precautions against the virus. People in dense places who could more
+they were safe from the virus because of low density may not have taken
+adequate precautions. Conversely, people in dense places who could more
 directly observe the impact of the pandemic may have become overly
 cautious. Both Paez et al. (2020) and Hamidi et al. (2020b) posit this
 mechanism (i.e., greater compliance with social distancing in denser
@@ -346,13 +347,13 @@ rural counties with a negative relationship between COVID-19 deaths and
 population density in urban counties in the US. For their part, in their
 investigation of doubling time, White and Hébert-Dufresne (2020)
 identified a negative and significant correlation between population
-density and doubling time in US states. Likewise, (2021) fond a small
+density and doubling time in US states. Likewise, (2021) found a small
 negative (and significant) association between population density and
 COVID-19 morbidity in districts in Tehran. Finally, two of the most
-complete studies in the US {[}by Hamidi et al.; (2020a); (2020b){]} used
-an extensive set of controls to find negative and significant
-correlations between density and COVID-19 cases and fatalities at the
-level of counties in the US.
+complete studies in the US (by Hamidi et al. 2020a, and 2020b) used an
+extensive set of controls to find negative and significant correlations
+between density and COVID-19 cases and fatalities at the level of
+counties in the US.
 
 As can be seen, these studies are implemented at different scales in
 different regions of the world. They also use a range of techniques,
@@ -362,7 +363,7 @@ expected: individual researchers have only limited time and expertise.
 This is why reproducibility is important. To pick an example (which will
 be further elaborated in later sections of this paper), the study of Sy
 et al.~{[}(2021); hereafter SWN{]} would immediately grab the attention
-of a researcher with a somewhat different toolbox.
+of a researcher with expertise in spatial analysis.
 
 \hypertarget{reproducibility-of-research}{%
 \section{Reproducibility of
@@ -377,15 +378,15 @@ using linear regression; further, as SWN note there is a likelihood that
 the process in not independent ``among counties within each state,
 potentially due to variable resource allocation and differing health
 systems across states'' (p.~3). A mixed linear model accounts for this
-by introducing random components (in the case of SWN, random intercepts
-at the state level). SWN estimated various models with different
-combinations of variables, including median household income and
-prevalence of travel by private transportation. These are sensible
+by introducing random components; in the case of SWN, these are random
+intercepts at the state level. SWN estimated various models with
+different combinations of variables, including median household income
+and prevalence of travel by private transportation. These are sensible
 controls, given potential variations in behavior: people in more
 affluent counties may have greater opportunities to work from home, and
 use of private transportation reduces contact with strangers. Moreover,
 they also conducted various sensitivity analyses. After these efforts,
-SWN conclude that there is a positive association between the basic
+SWN concluded that there is a positive association between the basic
 reproductive number and population density at the level of counties in
 the US.
 
@@ -394,11 +395,13 @@ number can only be calculated reliably with a minimum number of cases,
 and a large number of counties did not meet such threshold. As
 researchers do, SWN made modelling decisions, in this case basing their
 analysis only on counties with valid observations. A modeler with
-expertise in different methods would likely ask some of the following
+expertise in spatial analysis would likely ask some of the following
 questions on reading SWN's paper: how were missing counties treated?
 What are the implications of the spatial sampling framework used in the
 analysis? Is it possible to spatially interpolate the missing
-observations? These questions are relevant and their implications
+observations? Was there spatial residual autocorrelation in the models,
+or was the use of mixed models sufficient to capture spatial
+dependencies? These questions are relevant and their implications
 important. Fortunately, SWN are an example of a reasonably open,
 reproducible research product: their paper is accompanied by (most of)
 the data and (most of) the code used in the analysis. This means that an
@@ -442,11 +445,21 @@ there are those papers that more closely comply with reproducibility
 standards, and share well-documented processes and data, as well as the
 code used in any analyses reported (Feyman et al., 2020; Paez et al.,
 2020; Stephens et al., 2021; Sy et al., 2021; White and Hébert-Dufresne,
-2020).
+2020). Even in this case, the pressure to publish ``new findings''
+instead of replication studies can act as a deterrent, perhaps
+particularly for younger researchers\footnote{The present paper was desk
+  rejected by three journals that had previously published research on
+  population density and the spread of COVID-19; in one case, the paper
+  was too opinionated for the journal, in the other two cases, the paper
+  was not a ``good fit'' despite dealing with a nearly identical issue
+  as papers previously published in said journals. This does not inspire
+  much confidence in the commitment of journals to reproducibility in
+  research.}.
 
 In the following sections, the analysis of RWN is reproduced, some
-relevant questions from the perspective of an independent researcher are
-asked, and the data are reanalyzed.
+relevant questions from the perspective of an independent researcher
+with expertise in spatial analysis are asked, and the data are
+reanalyzed.
 
 \hypertarget{reproducing-swn}{%
 \section{Reproducing SWN}\label{reproducing-swn}}
@@ -474,11 +487,11 @@ Table \ref{tab:swn-results} reproduces the first three models of SWN
 SWN). It is possible to verify that the results match, with only the
 minor (and irrelevant) exception of the magnitude of the coefficient for
 travel by private transportation, which is due to a difference in the
-input (here the variable is one percent units, whereas in SWN it was ten
-percent units). The mixed linear model gives random intercepts (i.e.,
-the intercept is a random variable), and the standard deviation is
-reported in the fourth row of Table \ref{tab:swn-results}. It is useful
-to map the random intercepts: as seen in Figure
+input (here the variable is changed to one percent units, instead of the
+ten percent units used by SWN). The mixed linear model gives random
+intercepts (i.e., the intercept is a random variable), and the standard
+deviation is reported in the fourth row of Table \ref{tab:swn-results}.
+It is useful to map the random intercepts: as seen in Figure
 \ref{fig:random-terms-map}, other things being equal, counties in Texas
 tend to have somewhat lower values of \(R_0\) (i.e., a negative random
 intercept), whereas counties in South Dakota tend to have higher values
@@ -529,11 +542,11 @@ greater than 50,000 on the counties with valid values of \(R_0\) (see
 Figure \ref{fig:urban-areas-map}). The fact that \(R_0\) could not be
 accurately computed in many counties without large urban areas does not
 mean that there was no transmission of the virus: it simply means that
-we do not know with precision whether that was the case. The low number
-of cases may be related to low population and/or low population density.
-This is intriguing, to say the least: by excluding cases based on the
-ability to calculate \(R_0\) we are potentially \emph{censoring} the
-sample in a non-random way.
+we do not know with sufficient precision to what extent that was the
+case. The low number of cases may be related to low population and/or
+low population density. This is intriguing, to say the least: by
+excluding cases based on the ability to calculate \(R_0\) we are
+potentially \emph{selecting} the sample in a non-random way.
 
 \begin{figure}
 \includegraphics[width=1\linewidth]{R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1} \caption{\label{fig:urban-areas-map}Urban areas with population > 50,000 (Alaska, Hawaii, Puerto Rico, and territories not shown).}\label{fig:urban-areas-map}
@@ -541,11 +554,9 @@ sample in a non-random way.
 
 A problematic issue with non-random sample selection is that parameter
 estimates can become unreliable, and numerous techniques have been
-developed over time to address this. A model useful for sample selection
-problems is Heckman's selection model (see Maddala, 1983). The selection
-model is in fact a system of two equations, as follows:
-
-\[
+developed to address this. A model useful for sample selection problems
+is Heckman's selection model (see Maddala, 1983). The selection model is
+in fact a system of two equations, as follows: \[
 \begin{array}{c}
 y_i^{S*} = \beta^{S\prime}x_i^S+\epsilon_i^S\\
 y_i^{O*} = \beta^{O\prime}x_i^O+\epsilon_i^O
@@ -554,8 +565,8 @@ y_i^{O*} = \beta^{O\prime}x_i^O+\epsilon_i^O
 selection process, and \(y_i^{O*}\) is the latent outcome. Vectors
 \(x_i^S\) and \(x_i^O\) are explanatory variables (with the possibility
 that \(x_i^S = x_i^S\)). Both equations include random terms (i.e.,
-\(\epsilon_i^S\) and \(\epsilon_i^O\)) The first equation is designed to
-model the \emph{probability} of sampling, and the second equation the
+\(\epsilon_i^S\) and \(\epsilon_i^O\)). The first equation is designed
+to model the \emph{probability} of sampling, and the second equation the
 outcome of interest (say \(R_0\)). The random terms are jointly
 distributed and correlated with parameter \(\rho\).
 
@@ -581,13 +592,13 @@ the outcome \(y_i^O\) depends on \(x_i^O\).
 A sample selection model is estimated using the same selection of
 variables as SWN Model 3. This is Sample Selection Model 1 in Table
 \ref{tab:selection-results}. The first thing to notice about this model
-is that the sample selection process and the outcome are not independent
+is that the sample selection process and the outcome are correlated
 (\(\rho\ne0\) with 5\% of confidence). The selection equation indicates
 that the probability of a county to be in the sample increases with
 population density (but at a decreasing rate due to the
 log-transformation), when travel by private modes is more prevalent, and
 as median household income in the county is higher. This is in line with
-the impression left by Figure \ref{fig:urban-areas-map} that counties
+the impression made by Figure \ref{fig:urban-areas-map} that counties
 with reliable values of \(R_0\) tended to be those with larger urban
 centers. Once that the selection probabilities are accounted for in the
 model, several things happen with the outcomes model. First, the
@@ -616,19 +627,19 @@ changes in the relationship is the square of the density.
 As seen in the table, Selection Model 2 replaces the log-transformation
 of population density with a quadratic expansion. The results of this
 analysis indicate that with this variable transformation, the selection
-and outcome processes are still not independent (\(\rho\ne0\) with 5\%
-of confidence). But a few interesting things emerge. When we examine the
-outcomes model, we see that the quadratic expansion has a positive
+and outcome processes are still correlated (\(\rho\ne0\) with 5\% of
+confidence). But a few other interesting things emerge. When we examine
+the outcomes model, we see that the quadratic expansion has a positive
 coefficient for the first order term, but a negative coefficient for the
 second order term. This indicates that \(R_0\) initially tends to
-increase with higher density, but only up to a point, after which the
+increase as density grows, but only up to a point, after which the
 negative second term (which grows more rapidly due to the square),
 becomes increasingly dominant. Secondly, the sign of the coefficient for
 travel by private transportation becomes negative again. This, of
 course, makes more sense than the positive sign of Selection Model 1: if
 people tend to travel in private transportation, the potential for
 contact should be lower instead of higher. And finally median household
-income is no longer significant.
+income is no longer significant, similar to SWN Model 3.
 
 \begin{table}
 
@@ -664,16 +675,82 @@ $\rho$ & 0.971 & [0.961, 0.98] & -0.199 & [-0.377, -0.022]\\
 \end{table}
 
 \hypertarget{proceed-with-caution-spatial-effects-ahead}{%
-\section{Proceed with caution: Spatial effects
-ahead!}\label{proceed-with-caution-spatial-effects-ahead}}
+\section{Proceed with caution: spatial effects
+ahead}\label{proceed-with-caution-spatial-effects-ahead}}
 
-Words go here.
+The results of the selection models, in particular Selection Model 2,
+make us reassess the original conclusion that density has a positive
+association with the basic reproductive number of COVID-19. A spatial
+analyst might still wonder about spatial residual autocorrelation. A
+challenge here is that spatial models tend to be technically more
+demanding, and although spatial models for qualitative variables exist,
+a spatial implementation of the sample selection model does not appear
+to exist. It might be argued that a reproducible research project can
+also allow a researcher to be more adventurous with their modeling
+decisions: since data and code are shared, other researchers can
+promptly and with relative ease poke the methods and see if they appear
+to be sound.
 
-\begin{table}
+In the present case, it appears that an application of spatial filtering
+(see Getis and Griffith, 2002; Griffith, 2004; Paez, 2019) can help.
+Spatial filtering provides an elegant solution to regression problems
+that may have difficulties handling the spatial structures of spatial
+statistical and econometric models (Griffith, 2000). A key issue in the
+present example is the fact that there are numerous missing
+observations, which prevents the calculation of autocorrelation
+statistics, let alone the estimation of models with spatial components.
 
-\caption{\label{tab:tabulate-sample-selection3-results}\label{tab:selection-results}Estimation results of sample selection model with spatial filter}
+The following is an unorthodox, but potentially effective use of filters
+in a sample selection model:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Estimate a sample selection model and retrieve the residuals of the
+  outcome. This will be a vector with missing values for locations that
+  were not sampled.
+\item
+  Fit a spatial filter to the residuals. This is done by regressing the
+  estimated residuals of the \emph{observed} data on the corresponding
+  values of the Moran eigenvectors.
+\item
+  The resulting filter will correlate highly with the known residuals,
+  and will provide information in non-sampled locations that is
+  consistent with the spatial pattern of the known residuals.
+\item
+  Test the filter for spatial autocorrelation:
+
+  4.1 If significant spatial autocorrelation is detected, this would be
+  indicative of residual spatial pattern. Introduce the filter as a
+  covariate in the outcome model of the sample selection model and
+  return to step 1.
+
+  4.2 If no significant spatial autocorrelation is detected, this would
+  be indicative of random residual pattern. Stop.
+\end{enumerate}
+
+This procedure is implemented using a stopping criterion whereby the
+search for the filter only stops when the p-value of Moran's Coefficient
+of the filter fitted to the residuals is greater than 0.25, which was
+chosen as a sufficiently conservative value for testing for
+autocorrelation. The correlation of the known residuals with the
+corresponding elements of the filter is consistently high (the
+correlation coefficient typically is greater than 0.9). The results of
+implementing this procedure appear in Table \ref{tab:selection3-results}
+as Selection Model 3. The results are consistent with Selection Model 2,
+with two intriguing differences: 1) the variance of Sample Model 3 is
+smaller; and 2) the sample and outcome processes are no longer
+correlated (the confidence interval of \(\rho\) includes zero). It
+appears that by capturing the spatial pattern of the residuals, which is
+likely strongly determined by the non-random sampling framework, the
+outcome model is not only substantially more precise, but also appears
+to be independent from the selection process.
+
+\begin{table}[!h]
+
+\caption{\label{tab:tabulate-sample-selection3-results}\label{tab:selection3-results}Estimation results of sample selection model with spatial filter}
 \centering
-\resizebox{\linewidth}{!}{
+\fontsize{8}{10}\selectfont
 \begin{tabular}[t]{lcc}
 \toprule
 \multicolumn{1}{c}{ } & \multicolumn{2}{c}{Selection Model 3} \\
@@ -698,36 +775,36 @@ Variable & $\beta$ & 95\% CI\\
 $\sigma$ & 0.017 & [0.015, 0.019]\\
 $\rho$ & -0.304 & [-0.957, 0.349]\\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}
 
-How relevant are the difference between the different model
+How relevant are the differences between the various model
 specifications presented above? Figure \ref{fig:comparison-results}
 shows the relationship between density and \(R_0\) implied by SWN Model
 3, Selection Model 2, and Selection Model 3. The left panel of the
 figure shows the non-linear but monotonic relationship implied by SWN
 Model 1. The conclusion is that at higher densities, \(R_0\) is
-\emph{always} higher. The right panel, in contrast, shows that,
-according to Selection Model 2, \(R_0\) is zero when density is zero (as
-expected), and then it tends to increase at higher densities. This
-continues until a density of approximately 2.9 (1,000 people per sq.km).
-At higher densities than that \(R_0\) begins to decline, and the
-relationship becomes negative at densities higher than approximately 5.7
-(1,000 people per sq.km).
+\emph{always} higher. The two panels on the right, in contrast, shows
+that Selection Model 2 and Selection Model 3 coincide that \(R_0\) tends
+to increase as density grows. This continues until a density of
+approximately 2.9 (1,000 people per sq.km). At higher densities than
+that the relationship between density and \(R_0\) begins to weaken, and
+the relationship becomes negative at densities higher than approximately
+5.7 (1,000 people per sq.km).
 
-Thus, other things being equal, the effect of density in a county like
-Charlottesville in Virginia (density \textasciitilde1,639 people per
-sq.km) is roughly the same as that in a county like Philadelphia
-(density \textasciitilde4,127 people per sq.km). In contrast, the effect
-of density on \(R_0\) in a county like Arlington in Virginia (density
-\textasciitilde3,093 people per sq.km) is \emph{stronger} than either of
-the previous two examples. Lastly, the density of counties like San
-Francisco in California, or Queens and Bronx in NY, which are among the
-densest in the US, contributes even less to \(R_0\) than even the most
-rural counties in the country.
+To put this into context, other things being equal, the effect of
+density in a county like Charlottesville in Virginia (density
+\textasciitilde1,639 people per sq.km) is roughly the same as that in a
+county like Philadelphia (density \textasciitilde4,127 people per
+sq.km). In contrast, the effect of density on \(R_0\) in a county like
+Arlington in Virginia (density \textasciitilde3,093 people per sq.km) is
+\emph{stronger} than either of the previous two examples. Lastly, the
+density of counties like San Francisco in California, or Queens and
+Bronx in NY, which are among the densest in the US, contributes even
+less to \(R_0\) than even the most rural counties in the country.
 
 It is worth at this point to recall Cressie's dictum about modelling:
 ``{[}w{]}hat is one person's mean structure could be another person's
@@ -751,17 +828,18 @@ is probably an overstatement''; (2020){]}. At the same time, this also
 stands in contrast to the findings of Hamidi et al., who found that
 higher density was either not significantly associated with the rate of
 the virus in a cross-sectional study (Hamidi et al., 2020b), or was
-negatively associated with in a longitudinal setting {[}Hamidi et al.
+negatively associated with it in a longitudinal setting {[}Hamidi et al.
 (2020a). In this sense, the conclusion that density does not aggravate
 the pandemic may have been somewhat premature; instead, reanalysis of
 the data of SWN suggests that Fielding-Miller et al. (2020) might be
 onto something with respect to the difference between rural and urban
-counties. More generally, in population-level studies, density is
-indicative of proximity, no doubt about that, but also for adaptive
-behavior. And it is possible that the determining factor during
-COVID-19, at least in the US, has been variations in perceptions of the
-risks associated with contagion (Chauhan et al., 2021), and subsequent
-compensations in behavior in more and less dense regions.
+counties. More generally, there is no doubt that in population-level
+studies density is indicative of proximity, but it also potentially is a
+proxy for adaptive behavior. And it is possible that the determining
+factor during COVID-19, at least in the US, has been variations in
+perceptions of the risks associated with contagion (Chauhan et al.,
+2021), and subsequent compensations in behavior in more and less dense
+regions.
 
 \begin{figure}
 \includegraphics[width=1\linewidth]{R0-Density-Reanalysis_files/figure-latex/comparison-results-1} \caption{\label{fig:comparison-results}Effect of density according to SWN Model 3 and Sample Selection Model 2.}\label{fig:comparison-results}
@@ -771,7 +849,7 @@ compensations in behavior in more and less dense regions.
 \section{Conclusion}\label{conclusion}}
 
 The tension between the need to publish research potentially useful in
-dealing with a global pandemic, and a ``carnage of substandard
+dealing with a global pandemic, and a potential ``carnage of substandard
 research'' (Bramstedt, 2020), highlights the importance of efforts to
 maintain the quality of scientific outputs during COVID-19. An important
 part of quality control is the ability of independent researchers to
@@ -918,11 +996,23 @@ of COVID-19 research and their impact on the science communication
 landscape. PLOS Biology 19, e3000959.
 doi:\href{https://doi.org/10.1371/journal.pbio.3000959}{10.1371/journal.pbio.3000959}
 
+\leavevmode\hypertarget{ref-Getis2002comparative}{}%
+Getis, A., Griffith, D.A., 2002. Comparative spatial filtering in
+regression analysis. Geographical Analysis 34, 130--140.
+
 \leavevmode\hypertarget{ref-Gomez2021infekta}{}%
 Gomez, J., Prieto, J., Leon, E., Rodríguez, A., 2021. INFEKTA---an
 agent-based model for transmission of infectious diseases: The COVID-19
 case in bogotá, colombia. PLOS ONE 16, e0245787.
 doi:\href{https://doi.org/10.1371/journal.pone.0245787}{10.1371/journal.pone.0245787}
+
+\leavevmode\hypertarget{ref-Griffith2000linear}{}%
+Griffith, D.A., 2000. A linear regression solution to the spatial
+autocorrelation problem. Journal of Geographical Systems 2, 141--156.
+
+\leavevmode\hypertarget{ref-Griffith2004spatial}{}%
+Griffith, D.A., 2004. A spatial filtering specification for the
+autologistic model. Environment and Planning A 36, 1791--1811.
 
 \leavevmode\hypertarget{ref-Gustot2020quality}{}%
 Gustot, T., 2020. Quality and reproducibility during the COVID-19
@@ -1069,6 +1159,12 @@ Noury, A., François, A., Gergaud, O., Garel, A., 2021. How does COVID-19
 affect electoral participation? Evidence from the french municipal
 elections. PLOS ONE 16, e0247026.
 doi:\href{https://doi.org/10.1371/journal.pone.0247026}{10.1371/journal.pone.0247026}
+
+\leavevmode\hypertarget{ref-Paez2019using}{}%
+Paez, A., 2019. Using spatial filters and exploratory data analysis to
+enhance regression models of spatial data. Geographical Analysis 51,
+314--338.
+doi:\href{https://doi.org/10.1111/gean.12180}{10.1111/gean.12180}
 
 \leavevmode\hypertarget{ref-Paez2020using}{}%
 Paez, A., 2020. Using google community mobility reports to investigate

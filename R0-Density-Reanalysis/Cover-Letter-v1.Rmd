@@ -5,9 +5,9 @@ output:
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 ---
 
-To the Editor:
+Dear Rachel:
 
-Please find attached the paper titled "Population density and the spread of the COVID-19 pandemic: a reproducible research example". The question of population density has been of interest during the pandemic. On the one hand, mathematical models of contagion suggest that high density can catalyze transmission; on the other, the empirical literature remains decidedly mixed. In addition, an important aspect of the flood of research during the pandemic has been the need to maintain the quality of research, for which reproducibility is key. This paper presents an investigation of population density and the spread of COVID-19, and by doing so illustrates the importance of reproducible research. 
+Please find attached the paper titled "Reproducibility of research during COVID-19: examining the case of population density and the basic reproductive rate from the perspective of spatial analysis". The question of population density has been of interest during the pandemic. On the one hand, mathematical models of contagion suggest that high density can catalyze transmission; on the other, the empirical literature remains decidedly mixed. In addition, an important aspect of the flood of research during the pandemic has been the need to maintain the quality of research, for which reproducibility is key. This paper presents an investigation of population density and the spread of COVID-19, and by doing so illustrates the importance of reproducible research. 
 
 This paper makes the following contributions to the literature:
 
@@ -19,11 +19,11 @@ This paper makes the following contributions to the literature:
 
 4. The reanalysis and reappraisal of the conclusions in a matter of weeks demonstrates the importance of reproducible research.
 
-4. Finally, the paper provides an example of a reproducible research project, with extensively documented workflows, from raw data processing, to modelling, and post-modelling outputs. The source document is an R Markdown file, a self-contained document with the text and _all_ the analysis. These materials are publicly available in a repository. 
+4. Finally, the paper provides an example of a reproducible research project, with extensively documented workflows, from raw data processing, to modelling, and post-modelling outputs. The source document is an R Markdown file, a self-contained document with the text and _all_ the analysis. These materials will be publicly available in a repository. For review purposes, they are currently in an anonymous Drive folder, and also supplied as supplementary files for review purposes.
 
-I trust that you will find that the paper is technically correct, and suitable for publication.
+I trust that you will find that the paper is technically correct, and suitable for review.
 
 Sincerely,
 
-Antonio Paez
+Antonio
 

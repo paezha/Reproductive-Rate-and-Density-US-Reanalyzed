@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.6.8)  9 JUN 2021 14:13
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.6.8)  9 JUN 2021 21:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -667,9 +667,6 @@ LaTeX Warning: Label `fig:random-terms-map' multiply defined.
 LaTeX Warning: Label `fig:urban-areas-map' multiply defined.
 
 
-LaTeX Warning: Label `tab:selection-results' multiply defined.
-
-
 LaTeX Warning: Label `fig:comparison-results' multiply defined.
 
 )
@@ -746,32 +743,32 @@ LaTeX Info: Redefining \nameref on input line 104.
 \openout4 = `R0-Density-Reanalysis.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-32.
+33.
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-32.
+33.
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-132.
+133.
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-132.
+133.
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 132.
+(Font)              <8> on input line 133.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 132.
+(Font)              <6> on input line 133.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 132.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 132
+(Font)              <5> on input line 133.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 133
 .
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -780,7 +777,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 132
+LaTeX Font Info:    Trying to load font information for U+msb on input line 133
 .
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -790,7 +787,7 @@ cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-32.
+33.
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -799,7 +796,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
-32.
+33.
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -808,157 +805,160 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 132.
+(Font)              <10> on input line 133.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 132.
+(Font)              <7> on input line 133.
 [1
 
 
 {c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdft
-ex.map}]
-Overfull \hbox (0.96602pt too wide) in paragraph at lines 147--163
-\T1/lmr/m/n/10 (-20) research has termed this deluge of publications a ``carnag
-e of substandard research''
- []
-
-[2] [3] [4] [5] [6] [7] [8] [9] [10]
-<R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf, id=123, 469.755pt x 325
+ex.map}] [2] [3] [4] [5] [6] [7] [8]
+<R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf, id=117, 469.755pt x 325
 .215pt>
 File: R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf Graphic file (type 
 pdf)
 <use R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf 
- used on input line 469.
+ used on input line 482.
 (pdftex.def)             Requested size: 345.0pt x 238.84406pt.
-[11] [12pdfTeX warning (ext4): destination with the same identifier (name{figur
-e.1}) has been already used, duplicate ignored
+[9] [10pdfTeX warning (ext4): destination with the same identifier (name{figure
+.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.488 
+l.501 
        <./R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf>]
-<R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf, id=147, 469.7
+<R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf, id=141, 469.7
 55pt x 325.215pt>
 File: R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf Graphic f
 ile (type pdf)
 <use R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/random-terms-
-map-1.pdf  used on input line 512.
+map-1.pdf  used on input line 525.
 (pdftex.def)             Requested size: 345.0pt x 238.84406pt.
-[13pdfTeX warning (ext4): destination with the same identifier (name{table.1}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.537 
-      ] [14pdfTeX warning (ext4): destination with the same identifier (name{fi
-gure.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.537 
-       <./R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf>]
-<R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf, id=169, 469.75
+<R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf, id=144, 469.75
 5pt x 325.215pt>
 File: R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf Graphic fi
 le (type pdf)
 <use R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/urban-areas-m
-ap-1.pdf  used on input line 539.
+ap-1.pdf  used on input line 552.
 (pdftex.def)             Requested size: 345.0pt x 238.84406pt.
-[15pdfTeX warning (ext4): destination with the same identifier (name{figure.3})
- has been already used, duplicate ignored
+[11pdfTeX warning (ext4): destination with the same identifier (name{table.1}) 
+has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.547 
-       <./R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf>] [16]
+l.559 ...a system of two equations, as follows: \[
+                                                  ] [12pdfTeX warning (ext4): d
+estination with the same identifier (name{figure.2}) has been already used, dup
+licate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.559 ...a system of two equations, as follows: \[
+                                                   <./R0-Density-Reanalysis_fil
+es/figure-latex/random-terms-map-1.pdf>] [13pdfTeX warning (ext4): destination 
+with the same identifier (name{figure.3}) has been already used, duplicate igno
+red
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.559 ...a system of two equations, as follows: \[
+                                                   <./R0-Density-Reanalysis_fil
+es/figure-latex/urban-areas-map-1.pdf>] [14] [15] [16pdfTeX warning (ext4): des
+tination with the same identifier (name{table.2}) has been already used, duplic
+ate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.717   T
+         he resulting filter will correlate highly with the known residuals,]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 [17] [18pdfTeX warning (ext4): destination with the same identifier (name{table
-.2}) has been already used, duplicate ignored
+.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.720 
-      ] [19pdfTeX warning (ext4): destination with the same identifier (name{ta
-ble.3}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.720 
-      ] [20]
+l.822 
+      ]
 <R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf, id=215, 469
 .755pt x 325.215pt>
 File: R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf Graphic
  file (type pdf)
 <use R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/comparison-re
-sults-1.pdf  used on input line 767.
+sults-1.pdf  used on input line 845.
 (pdftex.def)             Requested size: 345.0pt x 238.84406pt.
-[21] [22pdfTeX warning (ext4): destination with the same identifier (name{figur
+[19] [20pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.795 
-       <./R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf>] [
-23]
-Overfull \hbox (6.86313pt too wide) in paragraph at lines 855--859
+l.900 
+       <./R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf>]
+Overfull \hbox (6.86313pt too wide) in paragraph at lines 933--937
 \T1/lmr/m/n/10 (-20) physics pa-pers of the fu-ture - in-tro-duc-tion. Geo-phys
 ics 82. doi:[]10.1190/geo2017-
  []
 
 
-Overfull \hbox (29.1155pt too wide) in paragraph at lines 874--877
+Overfull \hbox (29.1155pt too wide) in paragraph at lines 952--955
 [][]\T1/lmr/m/n/10 (-20) Cressie, N., 1989. Geo-statis-tics. The Amer-i-can Sta
 tis-ti-cian 43, 197. doi:[]10.2307/2685361[] 
  []
 
 
-Overfull \hbox (27.63686pt too wide) in paragraph at lines 878--883
+Overfull \hbox (27.63686pt too wide) in paragraph at lines 956--961
 \T1/lmr/m/n/10 (-20) and travel his-tory data. PLOS ONE 15, e0235306. doi:[]10.
 1371/journal.pone.0235306[] 
  []
 
-[24]
-Overfull \hbox (89.08939pt too wide) in paragraph at lines 898--902
+[21]
+Overfull \hbox (89.08939pt too wide) in paragraph at lines 976--980
 \T1/lmr/m/n/10 (-20) shelter-in-place or-ders var-ied by state. PLOS ONE 15, e0
 245008. doi:[]10.1371/journal.pone.0245008[] 
  []
 
-[25]
-Overfull \hbox (26.81235pt too wide) in paragraph at lines 951--955
+[22]
+Overfull \hbox (26.81235pt too wide) in paragraph at lines 1041--1045
 \T1/lmr/m/n/10 (-20) COVID-19 risk in cana-dian na-tional sur-vey data. Find-in
 gs. doi:[]10.32866/001c.19088[] 
  []
 
-[26] [27] [28]
-Overfull \hbox (20.51007pt too wide) in paragraph at lines 1128--1132
+[23] [24]
+Overfull \hbox (20.51007pt too wide) in paragraph at lines 1224--1228
 \T1/lmr/m/n/10 (-20) fatality rate in france. PLOS ONE 15, e0243606. doi:[]10.1
 371/journal.pone.0243606[] 
  []
 
-[29]
-Overfull \hbox (7.10994pt too wide) in paragraph at lines 1172--1177
+[25]
+Overfull \hbox (7.10994pt too wide) in paragraph at lines 1268--1273
 \T1/lmr/m/n/10 (-20) temporal big data. PLOS ONE 16, e0249145. doi:[]10.1371/jo
 urnal.pone.0249145[] 
  []
 
 
-Overfull \hbox (54.69655pt too wide) in paragraph at lines 1178--1182
+Overfull \hbox (54.69655pt too wide) in paragraph at lines 1274--1278
 \T1/lmr/m/n/10 (-20) dy-nam-ics in the united states. PLOS ONE 15, e0240648. do
 i:[]10.1371/journal.pone.0240648[] 
  []
 
-[30] (./R0-Density-Reanalysis.aux)
+[26] (./R0-Density-Reanalysis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `R0-Density-Reanalysis.out' has not changed.
-(rerunfilecheck)             Checksum: C2FF2F153661A273D53C704BCC0E54DF;1905.
+(rerunfilecheck)             Checksum: 12611DAD15B79EB35F22E0E8CD6355BB;1900.
  ) 
 Here is how much of TeX's memory you used:
- 14018 strings out of 480496
- 214077 string characters out of 5897822
- 559898 words of memory out of 5000000
- 31126 multiletter control sequences out of 15000+600000
- 468808 words of font info for 146 fonts, out of 8000000 for 9000
+ 14041 strings out of 480496
+ 214389 string characters out of 5897822
+ 558182 words of memory out of 5000000
+ 31131 multiletter control sequences out of 15000+600000
+ 472414 words of font info for 153 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,11n,80p,571b,391s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exi
+ 72i,11n,80p,571b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exi
 st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
+, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.3} has been referenced but does not exist
 , replaced by a fixed one
@@ -969,34 +969,36 @@ pdfTeX warning (dest): name{Hfootnote.2} has been referenced but does not exist
 pdfTeX warning (dest): name{Hfootnote.1} has been referenced but does not exist
 , replaced by a fixed one
 
-{c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-maths
-y.enc}{c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm
--mathex.enc}{c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips
-/lm/lm-mathit.enc}{c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc
-/dvips/lm/lm-rm.enc}{c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/e
-nc/dvips/lm/lm-ec.enc}<c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts
+{c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.en
+c}{c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mat
+hit.enc}{c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/
+lm-mathsy.enc}{c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvi
+ps/lm/lm-mathex.enc}{c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/e
+nc/dvips/lm/lm-rm.enc}<c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts
 /type1/public/lm/lmbx10.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist
-/fonts/type1/public/lm/lmex10.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texm
-f-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/paezha/AppData/Roaming/TinyTe
-X/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/paezha/AppData/Roaming/T
-inyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/paezha/AppData/Roam
-ing/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/paezha/AppData
-/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/paezha/App
-Data/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Users/paezha
-/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/Users/pa
-ezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Us
-ers/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri7.pfb><
-c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri8.
+/fonts/type1/public/lm/lmbx8.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf
+-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX
+/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/paezha/AppData/Roaming/T
+inyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/paezha/AppData/Roam
+ing/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/paezha/AppData
+/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/paezha/Ap
+pData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/paez
+ha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/Users/
+paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.pfb><c:/Us
+ers/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c
+:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.
 pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/l
-mss8.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public
-/lm/lmsy10.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/
-public/lm/lmsy6.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/t
-ype1/public/lm/lmsy7.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fo
-nts/type1/public/lm/lmtt8.pfb>
-Output written on R0-Density-Reanalysis.pdf (30 pages, 13549370 bytes).
+mri7.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public
+/lm/lmri8.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/p
+ublic/lm/lmss8.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fonts/ty
+pe1/public/lm/lmsy10.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fo
+nts/type1/public/lm/lmsy6.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-di
+st/fonts/type1/public/lm/lmsy7.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/tex
+mf-dist/fonts/type1/public/lm/lmtt8.pfb>
+Output written on R0-Density-Reanalysis.pdf (26 pages, 13583772 bytes).
 PDF statistics:
- 510 PDF objects out of 1000 (max. 8388607)
- 426 compressed objects within 5 object streams
- 130 named destinations out of 1000 (max. 500000)
- 33381 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 517 PDF objects out of 1000 (max. 8388607)
+ 433 compressed objects within 5 object streams
+ 135 named destinations out of 1000 (max. 500000)
+ 35429 words of extra memory for PDF output out of 35830 (max. 10000000)
 
