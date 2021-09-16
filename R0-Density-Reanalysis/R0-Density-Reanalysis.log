@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.6.8)  9 JUN 2021 21:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.8.29)  15 SEP 2021 22:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **R0-Density-Reanalysis.tex
 (./R0-Density-Reanalysis.tex
-LaTeX2e <2021-06-01>
-L3 programming layer <2021-06-01> (./elsarticle.cls
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-08-27> (./elsarticle.cls
 Document Class: elsarticle 2008/05/22, 1.0.1: Elsevier Science
 \@bls=\dimen138
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/article.cls
@@ -458,8 +458,8 @@ Package hyperref Warning: Option `bookmarks' has already been used,
 (hyperref)                setting the option has no effect on input line 51.
 
 Package hyperref Info: Option `colorlinks' set `false' on input line 51.
-\csllabelwidth=\skip58
-\cslhangindent=\skip59
+\cslhangindent=\skip58
+\csllabelwidth=\skip59
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count298
@@ -653,7 +653,7 @@ File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3backe
 nd-pdftex.def
-File: l3backend-pdftex.def 2021-05-07 L3 backend support: PDF output (pdfTeX)
+File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count318
 \l__pdf_internal_box=\box76
 ) (./R0-Density-Reanalysis.aux
@@ -812,20 +812,20 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 
 
 {c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdft
-ex.map}] [2] [3] [4] [5] [6] [7] [8]
-<R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf, id=117, 469.755pt x 325
+ex.map}] [2] [3] [4] [5] [6] [7] [8] [9]
+<R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf, id=123, 469.755pt x 325
 .215pt>
 File: R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf Graphic file (type 
 pdf)
 <use R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf 
- used on input line 482.
+ used on input line 496.
 (pdftex.def)             Requested size: 345.0pt x 238.84406pt.
-[9] [10pdfTeX warning (ext4): destination with the same identifier (name{figure
-.1}) has been already used, duplicate ignored
+[10pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
+ has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.501 
+l.515 
        <./R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf>]
 <R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf, id=141, 469.7
 55pt x 325.215pt>
@@ -833,7 +833,7 @@ File: R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf Graphic f
 ile (type pdf)
 <use R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/random-terms-
-map-1.pdf  used on input line 525.
+map-1.pdf  used on input line 539.
 (pdftex.def)             Requested size: 345.0pt x 238.84406pt.
 <R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf, id=144, 469.75
 5pt x 325.215pt>
@@ -841,105 +841,103 @@ File: R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf Graphic fi
 le (type pdf)
 <use R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/urban-areas-m
-ap-1.pdf  used on input line 552.
+ap-1.pdf  used on input line 566.
 (pdftex.def)             Requested size: 345.0pt x 238.84406pt.
 [11pdfTeX warning (ext4): destination with the same identifier (name{table.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.559 ...a system of two equations, as follows: \[
-                                                  ] [12pdfTeX warning (ext4): d
-estination with the same identifier (name{figure.2}) has been already used, dup
-licate ignored
+l.578 \]
+         \noindent where \(y_i^{S*}\) is a latent variable for the sample] [12p
+dfTeX warning (ext4): destination with the same identifier (name{figure.2}) has
+ been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.559 ...a system of two equations, as follows: \[
-                                                   <./R0-Density-Reanalysis_fil
-es/figure-latex/random-terms-map-1.pdf>] [13pdfTeX warning (ext4): destination 
-with the same identifier (name{figure.3}) has been already used, duplicate igno
-red
+l.578 \]
+         \noindent where \(y_i^{S*}\) is a latent variable for the sample <./R0
+-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf>] [13pdfTeX warni
+ng (ext4): destination with the same identifier (name{figure.3}) has been alrea
+dy used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.559 ...a system of two equations, as follows: \[
-                                                   <./R0-Density-Reanalysis_fil
-es/figure-latex/urban-areas-map-1.pdf>] [14] [15] [16pdfTeX warning (ext4): des
-tination with the same identifier (name{table.2}) has been already used, duplic
-ate ignored
+l.578 \]
+         \noindent where \(y_i^{S*}\) is a latent variable for the sample <./R0
+-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf>] [14] [15] [16pdf
+TeX warning (ext4): destination with the same identifier (name{table.2}) has be
+en already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.717   T
-         he resulting filter will correlate highly with the known residuals,]
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[17] [18pdfTeX warning (ext4): destination with the same identifier (name{table
-.3}) has been already used, duplicate ignored
+l.735   T
+         est the filter for spatial autocorrelation:] [17pdfTeX warning (ext4):
+ destination with the same identifier (name{table.3}) has been already used, du
+plicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.822 
+l.808 
       ]
-<R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf, id=215, 469
+<R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf, id=208, 469
 .755pt x 325.215pt>
 File: R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf Graphic
  file (type pdf)
 <use R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/comparison-re
-sults-1.pdf  used on input line 845.
+sults-1.pdf  used on input line 821.
 (pdftex.def)             Requested size: 345.0pt x 238.84406pt.
-[19] [20pdfTeX warning (ext4): destination with the same identifier (name{figur
+[18] [19pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.900 
-       <./R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf>]
-Overfull \hbox (6.86313pt too wide) in paragraph at lines 933--937
+l.875 
+       <./R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf>] [
+20]
+Overfull \hbox (6.86313pt too wide) in paragraph at lines 960--964
 \T1/lmr/m/n/10 (-20) physics pa-pers of the fu-ture - in-tro-duc-tion. Geo-phys
 ics 82. doi:[]10.1190/geo2017-
  []
 
 
-Overfull \hbox (29.1155pt too wide) in paragraph at lines 952--955
+Overfull \hbox (29.1155pt too wide) in paragraph at lines 979--982
 [][]\T1/lmr/m/n/10 (-20) Cressie, N., 1989. Geo-statis-tics. The Amer-i-can Sta
 tis-ti-cian 43, 197. doi:[]10.2307/2685361[] 
  []
 
 
-Overfull \hbox (27.63686pt too wide) in paragraph at lines 956--961
+Overfull \hbox (27.63686pt too wide) in paragraph at lines 983--988
 \T1/lmr/m/n/10 (-20) and travel his-tory data. PLOS ONE 15, e0235306. doi:[]10.
 1371/journal.pone.0235306[] 
  []
 
 [21]
-Overfull \hbox (89.08939pt too wide) in paragraph at lines 976--980
+Overfull \hbox (89.08939pt too wide) in paragraph at lines 1003--1007
 \T1/lmr/m/n/10 (-20) shelter-in-place or-ders var-ied by state. PLOS ONE 15, e0
 245008. doi:[]10.1371/journal.pone.0245008[] 
  []
 
 [22]
-Overfull \hbox (26.81235pt too wide) in paragraph at lines 1041--1045
+Overfull \hbox (26.81235pt too wide) in paragraph at lines 1068--1072
 \T1/lmr/m/n/10 (-20) COVID-19 risk in cana-dian na-tional sur-vey data. Find-in
 gs. doi:[]10.32866/001c.19088[] 
  []
 
-[23] [24]
-Overfull \hbox (20.51007pt too wide) in paragraph at lines 1224--1228
+[23] [24] [25]
+Overfull \hbox (20.51007pt too wide) in paragraph at lines 1293--1297
 \T1/lmr/m/n/10 (-20) fatality rate in france. PLOS ONE 15, e0243606. doi:[]10.1
 371/journal.pone.0243606[] 
  []
 
-[25]
-Overfull \hbox (7.10994pt too wide) in paragraph at lines 1268--1273
+[26]
+Overfull \hbox (7.10994pt too wide) in paragraph at lines 1341--1346
 \T1/lmr/m/n/10 (-20) temporal big data. PLOS ONE 16, e0249145. doi:[]10.1371/jo
 urnal.pone.0249145[] 
  []
 
 
-Overfull \hbox (54.69655pt too wide) in paragraph at lines 1274--1278
+Overfull \hbox (54.69655pt too wide) in paragraph at lines 1347--1351
 \T1/lmr/m/n/10 (-20) dy-nam-ics in the united states. PLOS ONE 15, e0240648. do
 i:[]10.1371/journal.pone.0240648[] 
  []
 
-[26] (./R0-Density-Reanalysis.aux)
+[27] (./R0-Density-Reanalysis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -947,10 +945,10 @@ Package rerunfilecheck Info: File `R0-Density-Reanalysis.out' has not changed.
 (rerunfilecheck)             Checksum: 12611DAD15B79EB35F22E0E8CD6355BB;1900.
  ) 
 Here is how much of TeX's memory you used:
- 14041 strings out of 480496
- 214389 string characters out of 5897822
- 558182 words of memory out of 5000000
- 31131 multiletter control sequences out of 15000+600000
+ 14037 strings out of 480559
+ 214395 string characters out of 5901696
+ 554947 words of memory out of 5000000
+ 31057 multiletter control sequences out of 15000+600000
  472414 words of font info for 153 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,11n,80p,571b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -995,10 +993,10 @@ pe1/public/lm/lmsy10.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/fo
 nts/type1/public/lm/lmsy6.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-di
 st/fonts/type1/public/lm/lmsy7.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/tex
 mf-dist/fonts/type1/public/lm/lmtt8.pfb>
-Output written on R0-Density-Reanalysis.pdf (26 pages, 13583772 bytes).
+Output written on R0-Density-Reanalysis.pdf (27 pages, 13588801 bytes).
 PDF statistics:
- 517 PDF objects out of 1000 (max. 8388607)
- 433 compressed objects within 5 object streams
- 135 named destinations out of 1000 (max. 500000)
+ 529 PDF objects out of 1000 (max. 8388607)
+ 444 compressed objects within 5 object streams
+ 140 named destinations out of 1000 (max. 500000)
  35429 words of extra memory for PDF output out of 35830 (max. 10000000)
 

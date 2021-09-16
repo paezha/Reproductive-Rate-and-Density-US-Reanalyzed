@@ -1,0 +1,180 @@
+---
+title: "Response to Reviewers"
+output:
+  pdf_document: default
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+bibliography: bibliography.bib
+nocite: |
+  @Gordon1989gasoline, @Newman1989gasoline
+---
+
+Dear Editor:
+
+I would like to thank you and the two anonymous reviewers for the attention paid to my submission entitled "Reproducibility of research during COVID-19: examining the case of population density and the basic reproductive rate from the perspective of spatial analysis" (GEAN-06-21-053).
+
+The reviewers are generally positive about the contents of the paper, and there are no comments requiring additional analytical work. The most serious comment, from Reviewer 2, concerns the _tone_ and _presentation_ of the paper. You ask that I revise the paper to ensure that I am fair to a junior researcher (Reese Sy). This is a reasonable request. In this letter I respond to the thoughtful feedback I received and how I revised the paper in response. 
+
+I would like to assure the reviewers and you that my intention in using their work as an example was to constructively engage with Sy, White, and Nichols (SWN). In fact, even before submission to GA I had already taken steps to ensure that I was not acting like a complete jackass and a bully. I hope that my responses will persuade you of this.
+
+Sincerely,
+
+The author
+
+<!--
+Note to self: check this on how to create a document with the differences: https://tex.stackexchange.com/questions/165543/using-latexdiff-in-miktex
+-->
+
+\newpage
+
+## Reviewer 1
+
+The study aims to demonstrate the value of reproducible research, which involves making code and data publicly available. A strength of the manuscript is the expansion of relevant concerns with the SWN model, from the perspective of spatial analysis, and extensive and detailed justification for every model specification choice in the reanalysis. The inclusion of a RMarkdown file also guides the reader in understanding the models used in the reanalysis.
+
+I have no major comments that can improve the study, as I believe the study is analytically sound and well-written. The only minor comment I have is the length of the background of the association of density and R0, which could be condensed further. Overall, the study is a good example of a manuscript that demonstrates the value of reproducible research, and would be an outstanding contribution to the scientific literature.
+
+> \color{blue}{Many thanks for your comments and positive assessment of the paper. I lightly edited the background section for conciseness, while trying to keep the paper as self-contained as possible.}
+
+\newpage
+
+## Reviewer 2
+
+The stated goal of this article is to promote reproducible research. This is done by reviewing another paper (SWN) that followed the standards advocated by this paper.
+
+> \color{blue}{Thank you for this comment. In fact, I reviewed at least 22 papers for this research. Of these, SWN was almost alone in being reproducible. Furthermore, of those that were reproducible, SWN was the only one that I thought I could engage with in an interesting way. The papers that I reviewed, along with notes about their reproducibility, are in the table below.}
+
+Paper | Reproducibility Notes
+---   | ---
+@Ahmad2020association | Code not shared, data are provided but data pre-processing is not documented
+@Amadu2021assessing | Code not shared, data provenance is documented, data are not shared
+@Bhadra2021impact | Code and data not available; only data provenance is documented
+@Brandtner2021creatures | Code is available on demand, data are shared
+@Cruz2020exploring | Code is shared, sources of data are documented, data are not actually provided
+@Feng2020spread | Code not shared, data provenance is documented, data are not shared
+@Feyman2020effectiveness | Code and data are provided
+@Fielding2020social | Code not shared, data provenance is documented, data are not actually provided
+@Hamidi2020longitudinal |  Code and data not available
+@Hamidi2020density |  Code and data not available
+@Inbaraj2021seroprevalence | Code not shared, data are not shared
+@Lee2020human | Code not provided, data sources are documented but data are not shared (privacy & confidentiality)
+@Noury2021how | Code not shared, data are shared
+@Pequeno2020air | Raw data supplied in supplemental files, code not available
+@Roy2020factors | Code not shared, data are provided and data processing is documented
+@Skorka2020macroecology | Code and data are shared but data processing is not documented, 
+@Souris2020covid | Code not provided, data sources are documented but data are not shared
+@Stephens2021impact | Code and data are shared
+@Sy2021population | Code and data are shared
+@Wang2021transmission | Code not shared, data are available
+@White2020state | Code and data are in repository
+@Wong2020spreading | Code not provided, data are shared but data pre-processing is not documented
+
+My summary of the paper: 1) It is partly a new "COVID-19 paper" because it provides a new way to understand the population density hypothesis. 2) It is partly a "response paper" because it provides in-depth criticism of a recent paper. 3) It is partly an "advocacy paper" because it is clearly promoting open science. I will address these in order.
+
+> \color{blue}{Thank you for this insightful summary, which I think captures quite well the different missions of the paper.}
+
+1) The new models shown look sound and are an improvement over other models in this field. The density hypothesis is often discussed, so it is important to continuously improve our understanding of it.
+
+> \color{blue}{Thank you for your positive assessment of the technical aspects of the paper.}
+
+2) Since this will not be published in PLOS, the original authors will not have the opportunity to respond. It does not feel fair. The authors of the GA paper might argue, “this is not a response paper.” SWN seems to be a strange choice for a larger example. The first author is a graduate student. No one should be immune from scientific criticism (the selection bias criticism is valid), but choosing a generally good graduate-led paper (if I correctly understand the GA authors) feels wrong. If the GA authors chose the papers led by well-established authors such as Paez or Wong, I would not feel so queasy.
+
+> \color{blue}{Thank you for the thoughtful response to this aspect of my paper. I would like to begin my response by noting that PLoS ONE desk-rejected my paper, which deprived me of an opportunity to engage in scientific discourse with SWN (apparently PLoS ONE does not think that science should be discursive). Even worse, by forcing me to take my paper elsewhere, PLoS ONE deprived SWN of the opportunity to respond to my paper in their journal of choice. This is, in my view, a very weird aspect of PLoS ONE's editorial policy. Secondly, I did not choose SWN for the example to pick on them, but rather because they were, as I noted above, almost the only example of reproducible research that I found in my research. I chose SWN partly of necessity, and partly as a homage, not because I particularly wished to criticize them.}
+
+> \color{blue}{More generally, I fully agree with you and the editor that criticism should be professional, in particular when directed at the work of junior researchers. Graduate students should be nurtured, not crushed. I tried to be respectful of Sy, White, and Nichols, which is why I carefully checked myself to avoid any and all arguments that could be construed as ad hominem. I tried to engage with the science, not with them personally. I also made an effort to recognize that I, just like everyone else, have strengths and limitations as researcher; I don't pretend to have the last work on density and the spread of COVID, and recognize that others may be better equipped to analyze these data more competently than me.}
+
+> \color{blue}{Incidentally, your comment brought to mind memories of Gordon and Richardson's (1989) response to Newman and Kenworthy's (1989) paper on Gasoline Consumption and Cities. In their response, Gordon and Richardson concluded by suggesting that "[p]erhaps Newman and Kenworthy would be well advised to seek out another planet, preferably unpopulated, where they can build their compact cities from scratch with solar-powered transit." I read this many years ago as a graduate student, and to the date I still find it shockingly unprofessional. I must admit that I lack the viciousness and ferocity of Gordon and Richardson. Rather, my aim is to be a good scientist, a decent professional, but if at all possible an even better human being. For this reason I took steps, from the moment I completed the first draft of the paper, to ensure that I was operating within the parameters of my moral compass:}
+
+> \color{blue}{1. I submitted the paper to PLoS ONE so that, if accepted, it would be a companion to the original SWN paper. As I noted above, PLoS ONE issued a desk rejection within two days: apparently their editorial policy precludes "commentary"; this leads me to believe that a response from SWN would also not have been acceptable in PLoS ONE. Only after being rejected there, did I try a different journal for the paper.}
+
+> \color{blue}{2. Immediately after I pushed the first version of the paper to my repository, thereby making it public, I communicated with Reese Sy, Laura White, and Brooke Nichols. This was my e-mail to them on May 21, 2021:}.
+
+> \color{blue}{\textit{Dear Ms. Sy, Dr. White, and Dr. Nichols, I would like to express my appreciation for your recent work on population density and the spread of COVID-19. I came across your paper while doing a search for a review assignment, and it caught my attention given some of my earlier work on COVID-19. Your paper is a relatively rare example of reproducible research, and it allowed me to relatively quickly replicate your results. I submitted a paper to PLoS ONE that builds on your analyses, and I thought that it would be just courteous to share it with you. Please see: *repository*. The README page needs some tidying up (for some reason a figure is not displayed). The source document is an R Markdown document which, along with the pdf you can find in this folder: R0-Density-Reanalysis. I also packaged the data for ease of distribution, and the workflow for data preparation is documented in this folder: raw-data-processing). If you have any questions or comments about this, I would be happy to hear from you.}}
+
+>\color{blue}{As you can see from the salutation, I was well-aware that Ms. Sy is a graduate student. This was the response from Prof. White to my email:}
+
+> \color{blue}{\textit{Dear Dr. X, Thanks for sharing this. I enjoyed reading your paper and find your results really interesting. I am happy to see you addressing the selection bias issues and considering nonlinearities in the association between density and R0. As you noted, these were issues that we chose not to address, but I am happy to see this picked up on. I agree with your premise the making our research reproducible only leads to better science. Hopefully we all get a bit better at this going forward. Best regards, Laura}}
+
+> \color{blue}{This was followed by a response from Prof. Nichols:}
+
+> \color{blue}{\textit{Dear X, I would like to echo Laura’s words. I really enjoyed reading your work- and this is the type of thing we should do more often in science! Cheers, Brooke}}
+
+> \color{blue}{Last but not least, this was the response from Ms. Sy:}
+
+> \color{blue}{\textit{Dear X, I agree with Laura and Brooke - thank you for sharing this with us. I completely agree with what you wrote about reproducible research as vital to examine the same data from a variety of different perspectives. This strengthens scientific discourse! Have a wonderful day. Best, Reese}}
+
+> \color{blue}{Why did I ask SWN to comment on a first version of the paper? First, I strongly felt it was the courteous and decent thing to do. And secondly, I think that science is better and more fun when it is done in a spirit of cooperation instead of antagonism. Their responses do not give a sense that they felt the paper was unfair to any of them as a team, let alone to Ms. Sy as an individual. Quite the opposite. I was very happy (not to mention relieved!) when their responses were as supportive as they were.}
+
+> \color{blue}{3. In addition, when submitting the paper to PLoS ONE (and after that to Science of the Total Environment, Landscape and Urban Planning, and Geographical Analysis), I always recommended that at least one of the authors of SWN be invited to review the paper.}
+
+> \color{blue}{It seems clear to me that PLoS ONE is not interested in responses to research, only in research. But does PLoS ONE's editorial policy really mean that SWN cannot respond? If fairness to SWN is important, the Editor of GA could easily invite them to respond to my paper in GA! Since PLoS ONE does not seem to care about this conversation, why shouldn't we take it to continue it elsewhere?}
+
+3) A well-documented paper containing data and code is easier to replicate and improve than a paper without these items. This seems obvious. The paper possibly indicates to journal editors that response papers are more likely to be submitted under open science. It possibly forms a cautionary tale that authors need to be extra diligent if they make their work easily replicable. However, using a case study method, as the GA paper does, seems to hurt the original paper/authors more than promote open science.
+
+> \color{blue}{I agree with you that this seems obvious. The reality is that, as I noted above, the examples of replicable research are still few and far between, and in the whole literature of density and COVID, SWN was in the minority. I think my message is only partially directed to editors: for example, PLoS ONE already has a data and code policy - and yet, it is so seldom followed, let alone enforced, as to be next to useless. My message, instead, is mainly directed to researchers: we need to do much better than the very lowly expectations of journals. I already explained that I did not choose SWN to pick on them, but rather because they were one of the precious few papers that were reproducible. My communications with them do not give the impression that they were hurt by this paper, but rather felt it was an encouraging product of open science. And, if in doubt, GA could always invite them to respond.}
+
+I want to think the GA paper comes from a place that respects the SWN paper, but the implementation of the GA paper does not give that impression. However, I do like the improved COVID-19 density model.
+
+>\color{blue}{I am sorry that you were left with the impression that I was not respectful of SWN. I have no reason to think that they themselves felt disrespected. In my revisions I have been extra-careful to ensure that I engage with the material in a respectful and professional way.}
+
+Other suggestions
+
+Schweinsberg et al. (2021) supports the view that different researchers reach different conclusions (https://doi.org/10.1016/j.obhdp.2021.02.003).
+
+>\color{blue}{Thank you for suggesting this paper. I have included it in the discussion and references.}
+
+Pages 4,5. I think the authors have swapped the meanings of "large" and "small" scales.
+
+>\color{blue}{Thank you for pointing this out. The text has been revised to avoid confusion.}
+
+The authors did not mention the time period studied.
+
+>\color{blue}{SWN obtained publicly available daily COVID-19 cases among United States counties from the New York Times and for each county assumed that the exponential growth period began one week prior to the second daily increase in cases. We assumed that the period of exponential growth lasted approximately 18 days, as previous research have shown the COVID-19 exponential period to be around 20–24 days in New York City.}
+
+I assume that the data for the GA paper comes from the Johns Hopkins database. This data is sometimes revised, so this particular data set is an example of citations being insufficient to achieve exact replicability.
+
+>\color{blue}{The data were obtained from the New York Times. Since the New York Times uses GitHub for their data repository, data versioning is available. See: https://github.com/nytimes/covid-19-data.}
+
+Please define the basic reproductive number for non-epidemiologist readers earlier in the paper.
+
+>\color{blue}{Done.}
+
+The first part of the discussion section contains additional results. The discussion seems to start on page 18, line 41.
+
+>\color{blue}{I reorganized the discussion following this comment.}
+
+These opinions on the SWN paper and its authors seem unnecessary.
+Page 7, line 30. "reasonable modeling choice"
+Page 7, line 40. "sensible controls"
+Page 8, lines 34,35. "whether a graduate student or a seasoned scientist"
+Page 18, lines 46-47. "required different technical skills than those available to SWN"
+
+>\color{blue}{I appreciate your attention to these statements, which have been revised to make them more a matter of factly and less opinionated. Some statements were deleted altogether since they were unnecessary.}
+
+Page 8, line 19. It seems that the authors call themselves "expert"s. This seems unnecessary.
+
+>\color{blue}{This was more of a general statement rather than an exlusive reference to me, and has been changed to "independent researcher" to avoid implying expertise.}
+
+Page 9, lines 49-52. There are many reasons to delete this footnote.
+
+>\color{blue}{It is a fact that the paper was desk rejected by the journals for the reasons stated. The fact that one of them was PLoS ONE helps to explain why publishing this paper elsewhere is not unfair to SWN. I did delete the editorial comment to the effect that "[t]his does not inspire much confidence in the commitment of journals to reproducibility in research."}
+
+Citation typos: page 6, line 44; page 6, line 51; page 7, line 9; page 7, line 20; page 8, line 51
+
+>\color{blue}{Errors corrected.}
+
+Typos
+Page 9, line 20. "RWN" should be "SWN"
+Page 11, line 21. "fourth" should be "fifth"
+
+>\color{blue}{Typos corrected.}
+
+Mapping
+Figure 1: A narrower border on counties would better highlight the fill color.
+Figure 2: Rainbow colors are difficult to interpret. A divergent color band would be better.
+Figure 3: A single color could display counties with data. This will link the map to the binary variable in the model.
+
+>\color{blue}{Changes in the cartography include narrower borders for the boundaries and the use of different color palettes. I used palettes from the `scico` package. It provides perceptually uniform and colourblind safe palettes.}
+
+>\color{blue}{I wish to thank you again for the care paid to reviewing this submission. I hope that you will find my responses to your concerns to be fair and sufficient.}
+
+## References 
+
