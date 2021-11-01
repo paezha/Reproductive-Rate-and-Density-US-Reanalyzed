@@ -231,10 +231,7 @@ well-documented, shareable units, and code can be embedded into
 self-contained documents suitable for review and independent
 verification. The source for this paper is an
 \href{http://rmarkdown.rstudio.com}{R Markdown} document which, along
-with the data package, will be available in a public
-repository\footnote{For peer-review purposes, the data package and code
-  are currently in an anonymous Drive folder:
-  \url{https://drive.google.com/drive/folders/1cT6tcUc1pJ4aT5ajQ0emO0lyS46P8Ige?usp=sharing}}.
+with the data package, are available in a public repository\footnote{\url{https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed}}.
 
 \hypertarget{background-the-intuitive-relationship-between-density-and-spread-of-contagious-diseases}{%
 \section{Background: the intuitive relationship between density and
@@ -895,6 +892,38 @@ present paper, and similar reproducible publications, will continue to
 encourage others to adopt higher reproducibility standards in their
 research.
 
+\hypertarget{acknwledgments}{%
+\section*{Acknowledgments}\label{acknwledgments}}
+\addcontentsline{toc}{section}{Acknowledgments}
+
+The analysis reported in this paper was conducted in the \texttt{R}
+computing statistical language (R Core Team, 2021). The source document
+is an Rmarkdown document (Xie et al., 2020, 2018) processed using
+\texttt{knitr} (Xie, 2015, 2014). The following packages were used in
+the analysis, and I wish to acknowledge their creators for their
+generous efforts: \texttt{adespatial} (Dray et al., 2021),
+\texttt{censReg} (Henningsen, 2020), \texttt{dplyr} (Wickham et al.,
+2021), \texttt{forcats} (Wickham, 2021a), \texttt{ggplot2} (Wickham,
+2016), \texttt{gmm} (Chaussé, 2010), \texttt{kableExtra} (Zhu, 2021),
+\texttt{Matrix} (Bates and Maechler, 2021), \texttt{maxLik} (Henningsen
+and Toomet, 2011), \texttt{miscTools} (Henningsen and Toomet, 2019),
+\texttt{mvtnorm} (Genz and Bretz, 2009), \texttt{nlme} (Pinheiro et al.,
+2021), \texttt{patchwork} (Pedersen, 2020), \texttt{purrr} (Henry and
+Wickham, 2020), \texttt{readr} (Wickham and Hester, 2021),
+\texttt{sampleSelection} (Toomet and Henningsen, 2008),
+\texttt{sandwich} (Zeileis et al., 2020; Zeileis, 2006, 2004),
+\texttt{scico} (Pedersen and Crameri, 2020), \texttt{sf} (Pebesma,
+2018), \texttt{sp} (Bivand et al., 2013a; Pebesma and Bivand, 2005),
+\texttt{spatialprobit} (Wilhelm and de Matos, 2015), \texttt{spData}
+(Bivand et al., 2021), \texttt{spdep} (Bivand et al., 2013b; Bivand and
+Wong, 2018), \texttt{stringr} {[}R-stringr{]}, \texttt{tibble} (Müller
+and Wickham, 2021), \texttt{tidycensus} (Walker and Herman, 2021),
+\texttt{tidyr} (Wickham, 2021b), \texttt{tidyverse} (Wickham et al.,
+2019), \texttt{tmvtnorm} (Manjunath B G
+\textless bgmanjunath@gmail.com\textgreater, 2015), \texttt{units}
+(Pebesma et al., 2016). This research was not supported by Canada's
+Research Councils.
+
 \hypertarget{references}{%
 \section*{References}\label{references}}
 \addcontentsline{toc}{section}{References}
@@ -933,16 +962,36 @@ financial crisis: The long reach of austerity and its global impacts on
 health. Social Science \& Medicine 187, 203--207.
 doi:\href{https://doi.org/10.1016/j.socscimed.2017.06.026}{10.1016/j.socscimed.2017.06.026}
 
+\leavevmode\hypertarget{ref-R-Matrix}{}%
+Bates, D., Maechler, M., 2021. Matrix: Sparse and dense matrix classes
+and methods.
+
 \leavevmode\hypertarget{ref-Bhadra2021impact}{}%
 Bhadra, A., Mukherjee, A., Sarkar, K., 2021. Impact of population
 density on covid-19 infected and mortality rate in india. Modeling Earth
 Systems and Environment 7, 623--629.
 doi:\href{https://doi.org/10.1007/s40808-020-00984-7}{10.1007/s40808-020-00984-7}
 
+\leavevmode\hypertarget{ref-R-spData}{}%
+Bivand, R., Nowosad, J., Lovelace, R., 2021. spData: Datasets for
+spatial analysis.
+
 \leavevmode\hypertarget{ref-Bivand2020progress}{}%
 Bivand, R.S., 2020. Progress in the r ecosystem for representing and
 handling spatial data. Journal of Geographical Systems.
 doi:\href{https://doi.org/10.1007/s10109-020-00336-0}{10.1007/s10109-020-00336-0}
+
+\leavevmode\hypertarget{ref-sp2013}{}%
+Bivand, R.S., Pebesma, E., Gomez-Rubio, V., 2013a. Applied spatial data
+analysis with {R}, second edition. Springer, NY.
+
+\leavevmode\hypertarget{ref-spdep2013}{}%
+Bivand, R.S., Pebesma, E., Gomez-Rubio, V., 2013b. Applied spatial data
+analysis with {R}, second edition. Springer, NY.
+
+\leavevmode\hypertarget{ref-spdep2018}{}%
+Bivand, R., Wong, D.W.S., 2018. Comparing implementations of global and
+local indicators of spatial association. TEST 27, 716--748.
 
 \leavevmode\hypertarget{ref-Bramstedt2020carnage}{}%
 Bramstedt, K.A., 2020. The carnage of substandard research during the
@@ -976,6 +1025,11 @@ perceptions across urban, rural, and suburban areas in the united
 states. Findings.
 doi:\href{https://doi.org/10.32866/001c.23714}{10.32866/001c.23714}
 
+\leavevmode\hypertarget{ref-gmm2010}{}%
+Chaussé, P., 2010. Computing generalized method of moments and
+generalized empirical likelihood with {R}. Journal of Statistical
+Software 34, 1--35.
+
 \leavevmode\hypertarget{ref-Cressie1989geostatistics}{}%
 Cressie, N., 1989. Geostatistics. The American Statistician 43, 197.
 doi:\href{https://doi.org/10.2307/2685361}{10.2307/2685361}
@@ -985,6 +1039,11 @@ Cruz, C.J.P., Ganly, R., Li, Z., Gietel-Basten, S., 2020. Exploring the
 young demographic profile of COVID-19 cases in hong kong: Evidence from
 migration and travel history data. PLOS ONE 15, e0235306.
 doi:\href{https://doi.org/10.1371/journal.pone.0235306}{10.1371/journal.pone.0235306}
+
+\leavevmode\hypertarget{ref-R-adespatial}{}%
+Dray, S., Bauman, D., Blanchet, G., Borcard, D., Clappe, S., Guenard,
+G., Jombart, T., Larocque, G., Legendre, P., Madi, N., Wagner, H.H.,
+2021. Adespatial: Multivariate multiscale spatial analysis.
 
 \leavevmode\hypertarget{ref-Farber2011running}{}%
 Farber, S., Páez, A., 2011. Running to stay in place: The time-use
@@ -1022,6 +1081,10 @@ Coates, J.A., 2021. The evolving role of preprints in the dissemination
 of COVID-19 research and their impact on the science communication
 landscape. PLOS Biology 19, e3000959.
 doi:\href{https://doi.org/10.1371/journal.pbio.3000959}{10.1371/journal.pbio.3000959}
+
+\leavevmode\hypertarget{ref-mvtnorm2009}{}%
+Genz, A., Bretz, F., 2009. Computation of multivariate normal and t
+probabilities, Lecture notes in statistics. Springer-Verlag, Heidelberg.
 
 \leavevmode\hypertarget{ref-Getis2002comparative}{}%
 Getis, A., Griffith, D.A., 2002. Comparative spatial filtering in
@@ -1069,6 +1132,21 @@ investigation in the united states. Landscape and Urban Planning 205,
 Harris, M.A., Branion-Calles, M., 2021. Changes in commute mode
 attributed to COVID-19 risk in canadian national survey data. Findings.
 doi:\href{https://doi.org/10.32866/001c.19088}{10.32866/001c.19088}
+
+\leavevmode\hypertarget{ref-R-censReg}{}%
+Henningsen, A., 2020. censReg: Censored regression (tobit) models.
+
+\leavevmode\hypertarget{ref-maxLik2011}{}%
+Henningsen, A., Toomet, O., 2011. maxLik: A package for maximum
+likelihood estimation in {R}. Computational Statistics 26, 443--458.
+doi:\href{https://doi.org/10.1007/s00180-010-0217-1}{10.1007/s00180-010-0217-1}
+
+\leavevmode\hypertarget{ref-R-miscTools}{}%
+Henningsen, A., Toomet, O., 2019. miscTools: Miscellaneous tools and
+utilities.
+
+\leavevmode\hypertarget{ref-R-purrr}{}%
+Henry, L., Wickham, H., 2020. Purrr: Functional programming tools.
 
 \leavevmode\hypertarget{ref-Herndon2014high}{}%
 Herndon, T., Ash, M., Pollin, R., 2014. Does high public debt
@@ -1150,6 +1228,11 @@ doi:\href{https://doi.org/10.1016/j.physa.2018.07.025}{10.1016/j.physa.2018.07.0
 Maddala, G.S., 1983. Limited-dependent and qualitative variables in
 econometrics. Cambridge University Press, Cambridge.
 
+\leavevmode\hypertarget{ref-R-tmvtnorm}{}%
+Manjunath B G \textless bgmanjunath@gmail.com\textgreater, S.W. with
+contributions from, 2015. Tmvtnorm: Truncated multivariate normal and
+student t distribution.
+
 \leavevmode\hypertarget{ref-Micallef2020first}{}%
 Micallef, S., Piscopo, T.V., Casha, R., Borg, D., Vella, C., Zammit,
 M.-A., Borg, J., Mallia, D., Farrugia, J., Vella, S.M., Xerri, T.,
@@ -1170,6 +1253,9 @@ Geographical Analysis 2, 376--386.
 \leavevmode\hypertarget{ref-Moore1970urban}{}%
 Moore, E.G., Brown, L.A., 1970. Urban acquaintance fields: An evaluation
 of a spatial model. Environment and Planning 2, 443--454.
+
+\leavevmode\hypertarget{ref-R-tibble}{}%
+Müller, K., Wickham, H., 2021. Tibble: Simple data frames.
 
 \leavevmode\hypertarget{ref-Noland1995perceived}{}%
 Noland, R.B., 1995. PERCEIVED RISK AND MODAL CHOICE - RISK COMPENSATION
@@ -1204,6 +1290,27 @@ Paez, A., Lopez, F.A., Menezes, T., Cavalcanti, R., Pitta, M.G. da R.,
 COVID-19 incidence in spain. Geographical Analysis n/a.
 doi:\href{https://doi.org/10.1111/gean.12241}{10.1111/gean.12241}
 
+\leavevmode\hypertarget{ref-sf2018}{}%
+Pebesma, E., 2018. {Simple Features for R: Standardized Support for
+Spatial Vector Data}. {The R Journal} 10, 439--446.
+doi:\href{https://doi.org/10.32614/RJ-2018-009}{10.32614/RJ-2018-009}
+
+\leavevmode\hypertarget{ref-sp2005}{}%
+Pebesma, E.J., Bivand, R.S., 2005. Classes and methods for spatial data
+in {R}. R News 5, 9--13.
+
+\leavevmode\hypertarget{ref-units2016}{}%
+Pebesma, E., Mailund, T., Hiebert, J., 2016. Measurement units in {R}. R
+Journal 8, 486--494.
+doi:\href{https://doi.org/10.32614/RJ-2016-061}{10.32614/RJ-2016-061}
+
+\leavevmode\hypertarget{ref-R-patchwork}{}%
+Pedersen, T.L., 2020. Patchwork: The composer of plots.
+
+\leavevmode\hypertarget{ref-R-scico}{}%
+Pedersen, T.L., Crameri, F., 2020. Scico: Colour palettes based on the
+scientific colour-maps.
+
 \leavevmode\hypertarget{ref-Pequeno2020air}{}%
 Pequeno, P., Mendel, B., Rosa, C., Bosholn, M., Souza, J.L., Baccaro,
 F., Barbosa, R., Magnusson, W., 2020. Air transportation, population
@@ -1216,11 +1323,19 @@ Phillips, R.O., Fyhri, A., Sagberg, F., 2011. Risk compensation and
 bicycle helmets. Risk Analysis 31, 1187--1195.
 doi:\href{https://doi.org/10.1111/j.1539-6924.2011.01589.x}{10.1111/j.1539-6924.2011.01589.x}
 
+\leavevmode\hypertarget{ref-R-nlme}{}%
+Pinheiro, J., Bates, D., R-core, 2021. Nlme: Linear and nonlinear mixed
+effects models.
+
 \leavevmode\hypertarget{ref-Praharaj2020Using}{}%
 Praharaj, S., King, D., Pettit, C., Wentz, E., 2020. Using aggregated
 mobility data to measure the effect of COVID-19 policies on mobility
 changes in sydney, london, phoenix, and pune. Findings.
 doi:\href{https://doi.org/10.32866/001c.17590}{10.32866/001c.17590}
+
+\leavevmode\hypertarget{ref-R-base}{}%
+R Core Team, 2021. R: A language and environment for statistical
+computing. R Foundation for Statistical Computing, Vienna, Austria.
 
 \leavevmode\hypertarget{ref-Richens2000condoms}{}%
 Richens, J., Imrie, J., Copas, A., 2000. Condoms and seat belts: The
@@ -1327,6 +1442,10 @@ basic reproductive number of COVID-19 across united states counties.
 PLOS ONE 16, e0249271.
 doi:\href{https://doi.org/10.1371/journal.pone.0249271}{10.1371/journal.pone.0249271}
 
+\leavevmode\hypertarget{ref-sampleSelection2008}{}%
+Toomet, O., Henningsen, A., 2008. Sample selection models in {R}:
+Package {sampleSelection}. Journal of Statistical Software 27.
+
 \leavevmode\hypertarget{ref-Viglione2020avalanche}{}%
 Viglione, G., 2020. 'Avalanche'of spider-paper retractions shakes
 behavioural-ecology community. Nature 578, 199--201.
@@ -1337,6 +1456,10 @@ and preprints during the coronavirus disease 2019 pandemic: Progress or
 problems with peer review? Advances in Chronic Kidney Disease 27,
 418--426.
 doi:\href{https://doi.org/10.1053/j.ackd.2020.08.003}{10.1053/j.ackd.2020.08.003}
+
+\leavevmode\hypertarget{ref-R-tidycensus}{}%
+Walker, K., Herman, M., 2021. Tidycensus: Load US census boundary and
+attribute data as tidyverse and sf-ready data frames.
 
 \leavevmode\hypertarget{ref-Wang2021transmission}{}%
 Wang, F., Tan, Z., Yu, Z., Yao, S., Guo, C., 2021. Transmission and
@@ -1349,10 +1472,77 @@ White, E.R., Hébert-Dufresne, L., 2020. State-level variation of initial
 COVID-19 dynamics in the united states. PLOS ONE 15, e0240648.
 doi:\href{https://doi.org/10.1371/journal.pone.0240648}{10.1371/journal.pone.0240648}
 
+\leavevmode\hypertarget{ref-ggplot22016}{}%
+Wickham, H., 2016. ggplot2: Elegant graphics for data analysis.
+Springer-Verlag New York.
+
+\leavevmode\hypertarget{ref-R-forcats}{}%
+Wickham, H., 2021a. Forcats: Tools for working with categorical
+variables (factors).
+
+\leavevmode\hypertarget{ref-R-tidyr}{}%
+Wickham, H., 2021b. Tidyr: Tidy messy data.
+
+\leavevmode\hypertarget{ref-tidyverse2019}{}%
+Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L.D., François,
+R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M., Pedersen,
+T.L., Miller, E., Bache, S.M., Müller, K., Ooms, J., Robinson, D.,
+Seidel, D.P., Spinu, V., Takahashi, K., Vaughan, D., Wilke, C., Woo, K.,
+Yutani, H., 2019. Welcome to the {tidyverse}. Journal of Open Source
+Software 4, 1686.
+doi:\href{https://doi.org/10.21105/joss.01686}{10.21105/joss.01686}
+
+\leavevmode\hypertarget{ref-R-dplyr}{}%
+Wickham, H., François, R., Henry, L., Müller, K., 2021. Dplyr: A grammar
+of data manipulation.
+
+\leavevmode\hypertarget{ref-R-readr}{}%
+Wickham, H., Hester, J., 2021. Readr: Read rectangular text data.
+
+\leavevmode\hypertarget{ref-R-spatialprobit}{}%
+Wilhelm, S., de Matos, M.G., 2015. Spatialprobit: Spatial probit models.
+
 \leavevmode\hypertarget{ref-Wong2020spreading}{}%
 Wong, D.W.S., Li, Y., 2020. Spreading of COVID-19: Density matters. PLOS
 ONE 15, e0242398.
 doi:\href{https://doi.org/10.1371/journal.pone.0242398}{10.1371/journal.pone.0242398}
+
+\leavevmode\hypertarget{ref-knitr2014}{}%
+Xie, Y., 2014. Knitr: A comprehensive tool for reproducible research in
+{R}, in: Stodden, V., Leisch, F., Peng, R.D. (Eds.), Implementing
+Reproducible Computational Research. Chapman; Hall/CRC.
+
+\leavevmode\hypertarget{ref-knitr2015}{}%
+Xie, Y., 2015. Dynamic documents with {R} and knitr, 2nd ed. Chapman;
+Hall/CRC, Boca Raton, Florida.
+
+\leavevmode\hypertarget{ref-rmarkdown2018}{}%
+Xie, Y., Allaire, J.J., Grolemund, G., 2018. R markdown: The definitive
+guide. Chapman; Hall/CRC, Boca Raton, Florida.
+
+\leavevmode\hypertarget{ref-rmarkdown2020}{}%
+Xie, Y., Dervieux, C., Riederer, E., 2020. R markdown cookbook. Chapman;
+Hall/CRC, Boca Raton, Florida.
+
+\leavevmode\hypertarget{ref-sandwich2004}{}%
+Zeileis, A., 2004. Econometric computing with {HC} and {HAC} covariance
+matrix estimators. Journal of Statistical Software 11, 1--17.
+doi:\href{https://doi.org/10.18637/jss.v011.i10}{10.18637/jss.v011.i10}
+
+\leavevmode\hypertarget{ref-sandwich2006}{}%
+Zeileis, A., 2006. Object-oriented computation of sandwich estimators.
+Journal of Statistical Software 16, 1--16.
+doi:\href{https://doi.org/10.18637/jss.v016.i09}{10.18637/jss.v016.i09}
+
+\leavevmode\hypertarget{ref-sandwich2020}{}%
+Zeileis, A., Köll, S., Graham, N., 2020. Various versatile variances: An
+object-oriented implementation of clustered covariances in {R}. Journal
+of Statistical Software 95, 1--36.
+doi:\href{https://doi.org/10.18637/jss.v095.i01}{10.18637/jss.v095.i01}
+
+\leavevmode\hypertarget{ref-R-kableExtra}{}%
+Zhu, H., 2021. kableExtra: Construct complex table with kable and pipe
+syntax.
 
 \end{CSLReferences}
 

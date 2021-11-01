@@ -3,7 +3,7 @@ output:
   github_document:
     pandoc_args: --webtex
 always_allow_html: true
-bibliography: R0-Density-Reanalysis/bibliography.bib
+bibliography: [R0-Density-Reanalysis/bibliography.bib, R0-Density-Reanalysis/packages.bib]
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -42,9 +42,13 @@ The emergence of the novel SARS-CoV-2 coronavirus and the global COVID-19 pandem
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-<!--
-Install data package as appropriate. The data package is file `r0density_0.1.0.tar.gz`
--->
+```{r install-data-package, include=FALSE}
+if(!require(r0density)){
+    remotes::install_github("paezha/Reproductive-Rate-and-Density-US-Reanalyzed", 
+                         subdir = "r0density")
+    library(r0density)
+}
+```
 
 ```{r load-packages, include=FALSE, cache=FALSE}
 library(adespatial) # Used to calculate Moran eigenvector maps
@@ -63,6 +67,13 @@ library(tidycensus) # Package to retrieve census information
 library(tidyverse) # Data carpentry and analysis tools
 library(units) # Package to work with units of measurement
 #library(viridis) # Color palettes
+```
+
+```{r generate-package-bibliography, include=FALSE}
+knitr::write_bib(c(.packages(), 
+                   "knitr", 
+                   "rmarkdown"), 
+                 file = "R0-Density-Reanalysis/packages.bib")
 ```
 
 ```{r invoke-data, include=FALSE}
@@ -153,7 +164,7 @@ The push for open software and data [e.g., @Bivand2020progress; @Arribas2021open
 
 In the context of COVID-19, a topic that has grabbed the imagination of numerous thinkers has been the prospect of life in cities after the pandemic [e.g., @Florida2020how]; as a result, the implications of the pandemic for urban planning, design, and management are the topic of ongoing research [e.g., @Sharifi2020covid]. The fact that the worst of the pandemic was initially felt in dense population centers such as Wuhan, Milan, Madrid, and New York, unleashed a torrent of research into the associations between density and the spread of the pandemic. The answers to some important questions hang on the results of these research efforts. For example, are lower density regions safer from the pandemic? Are de-densification policies warranted, even if just in the short term? In the longer term, will the risks of life in high density regions presage a flight from cities? And, what are the implications of the pandemic for future urban planning and practice? Over the past year, numerous papers have sought to throw light on the underlying issue of density and the pandemic; nonetheless the results, as will be detailed next, remain mixed. Further, to complicate matters, precious few of these studies appear to be sufficiently open to support independent verification.
 
-The objective of this paper is to illustrate the importance of reproducibility in research in the context of the flood of COVID-19 papers. For this, I focus on a recent study by Sy et al. [-@Sy2021population] that examined the correlation between the basic reproductive number of COVID-19, $R_0$, and population density.  The basic reproductive number is a summary measure of contact rates, probability of transmission of a pathogen, and duration of infectiousness. In rough terms, it measures how many new infections each infections begets. The paper of Sy et al. [-@Sy2021population] was selected for being, in the literature examined, almost alone in supporting reproducible research. Accordingly, I wish to be clear that my objective in singling their work for discussion is not to malign their efforts, but rather to demonstrate how open and reproducible research efforts can greatly help to accelerate discovery. More concretely, open data and open code mean that an independent researcher can, with only modest efforts, not only verify the findings reported, but also examine the same data from a perspective which may not have been available to the original researchers due to differences in disciplinary perspectives, methodological traditions, and/or training, among other possible factors. The example, which shows consequential changes in the conclusions reached by different analyses, should serve as a call to researchers to redouble their efforts to increase transparency and reproducibility in their research. In this spirit, the present paper also aims to show how data can be packaged in well-documented, shareable units, and code can be embedded into self-contained documents suitable for review and independent verification. The source for this paper is an [R Markdown](http://rmarkdown.rstudio.com) document which, along with the data package, will be available in a public repository^[For peer-review purposes, the data package and code are currently in an anonymous Drive folder: \url{https://drive.google.com/drive/folders/1cT6tcUc1pJ4aT5ajQ0emO0lyS46P8Ige?usp=sharing}].
+The objective of this paper is to illustrate the importance of reproducibility in research in the context of the flood of COVID-19 papers. For this, I focus on a recent study by Sy et al. [-@Sy2021population] that examined the correlation between the basic reproductive number of COVID-19, $R_0$, and population density.  The basic reproductive number is a summary measure of contact rates, probability of transmission of a pathogen, and duration of infectiousness. In rough terms, it measures how many new infections each infections begets. The paper of Sy et al. [-@Sy2021population] was selected for being, in the literature examined, almost alone in supporting reproducible research. Accordingly, I wish to be clear that my objective in singling their work for discussion is not to malign their efforts, but rather to demonstrate how open and reproducible research efforts can greatly help to accelerate discovery. More concretely, open data and open code mean that an independent researcher can, with only modest efforts, not only verify the findings reported, but also examine the same data from a perspective which may not have been available to the original researchers due to differences in disciplinary perspectives, methodological traditions, and/or training, among other possible factors. The example, which shows consequential changes in the conclusions reached by different analyses, should serve as a call to researchers to redouble their efforts to increase transparency and reproducibility in their research. In this spirit, the present paper also aims to show how data can be packaged in well-documented, shareable units, and code can be embedded into self-contained documents suitable for review and independent verification. The source for this paper is an [R Markdown](http://rmarkdown.rstudio.com) document which, along with the data package, are available in a public repository^[\url{https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed}]
 
 # Background: the intuitive relationship between density and spread of contagious diseases
 
@@ -870,6 +881,10 @@ The tension between the need to publish research potentially useful in dealing w
 Taking one recent example from the literature [Sy et al., @Sy2021population; SWN], the present paper illustrates the importance of good reproducibility practices. Sharing data and code can catalyze research, by allowing independent verification of findings, as well as additional research. After verifying the results of SWN, experiments with sample selection models and variations in the definition of model inputs, lead to an important reappraisal of the conclusion that high density is associated with greater spread of the virus. Instead, the possibility of a non-monotonical relationship between population density and contagion is raised. I do not claim that the analysis presented here is the last word on the topic of density and the spread of COVID-19, and there is always the possibility that someone else will be better equipped to analyze these data with greater competence. By opening up the analysis, documenting the way data were pre-processed, and by sharing analysis ready data, my hope would be that others will be able to discover the limitations of my own analysis and improve on it, as appropriate.
 
 More generally, my hope is that the research of Sy et al. [-@Sy2021population], the present paper, and similar reproducible publications, will continue to encourage others to adopt higher reproducibility standards in their research.
+
+# Acknowledgments {#acknwledgments .unnumbered}
+
+The analysis reported in this paper was conducted in the `R` computing statistical language [@R-base]. The source document is an Rmarkdown document [@rmarkdown2018; @rmarkdown2020] processed using `knitr` [@knitr2015; @knitr2014]. The following packages were used in the analysis, and I wish to acknowledge their creators for their generous efforts: `adespatial` [@R-adespatial], `censReg` [@R-censReg], `dplyr` [@R-dplyr], `forcats` [@R-forcats], `ggplot2` [@ggplot22016], `gmm` [@gmm2010], `kableExtra` [@R-kableExtra], `Matrix` [@R-Matrix], `maxLik` [@maxLik2011], `miscTools` [@R-miscTools], `mvtnorm` [@mvtnorm2009], `nlme` [@R-nlme], `patchwork` [@R-patchwork], `purrr` [@R-purrr], `readr` [@R-readr], `sampleSelection` [@sampleSelection2008], `sandwich` [@sandwich2020; @sandwich2004; @sandwich2006], `scico` [@R-scico], `sf` [@sf2018], `sp` [@sp2005; @sp2013], `spatialprobit` [@R-spatialprobit], `spData` [@R-spData], `spdep` [@spdep2018; @spdep2013], `stringr` [R-stringr], `tibble` [@R-tibble], `tidycensus` [@R-tidycensus], `tidyr` [@R-tidyr], `tidyverse` [@tidyverse2019], `tmvtnorm` [@R-tmvtnorm], `units` [@units2016]. This research was not supported by Canada's Research Councils.
 
 # References {#references .unnumbered}
 

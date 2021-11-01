@@ -42,10 +42,6 @@ ensure this.
 -   Population density  
 -   Basic reproductive number
 
-<!--
-Install data package as appropriate. The data package is file `r0density_0.1.0.tar.gz`
--->
-
 # Introduction
 
 The emergence of the novel SARS-CoV-2 coronavirus in 2019, and the
@@ -75,21 +71,21 @@ of published research was actually reproducible before the pandemic
 does not appear to have changed substantially since (Sumner et al. 2020;
 Gustot 2020).
 
-The push for open software and data (e.g., Bivand 2020; Arribas-Bel et
-al. 2021), along with more strenuous efforts towards open, reproducible
-research, is simply a continuation of long-standing scientific practices
-of independent verification. Despite the (at times disproportionate)
-attention that high profile scandals in science tend to elicit in the
-media, science as a collective endeavor is remarkable for being a
-self-correcting enterprise, one with built-in mechanisms and incentives
-to weed out erroneous ideas. Over the long term, facts tend to prevail
-in science. At stake is the shorter-term impacts that research may have
-in other spheres of economic and social life. The case of economists
-Reinhart and Rogoff comes to mind: by the time the inaccuracies and
-errors in their research were uncovered (see Herndon, Ash, and Pollin
-2014), their claims about debt and economic growth had already been
-seized by policy-makers on both sides of the Atlantic to justify
-austerity policies in the aftermath of the Great Recession of
+The push for open software and data (e.g., R. S. Bivand 2020;
+Arribas-Bel et al. 2021), along with more strenuous efforts towards
+open, reproducible research, is simply a continuation of long-standing
+scientific practices of independent verification. Despite the (at times
+disproportionate) attention that high profile scandals in science tend
+to elicit in the media, science as a collective endeavor is remarkable
+for being a self-correcting enterprise, one with built-in mechanisms and
+incentives to weed out erroneous ideas. Over the long term, facts tend
+to prevail in science. At stake is the shorter-term impacts that
+research may have in other spheres of economic and social life. The case
+of economists Reinhart and Rogoff comes to mind: by the time the
+inaccuracies and errors in their research were uncovered (see Herndon,
+Ash, and Pollin 2014), their claims about debt and economic growth had
+already been seized by policy-makers on both sides of the Atlantic to
+justify austerity policies in the aftermath of the Great Recession of
 2007-2009[1]. As later research has demonstrated, those policies cast a
 long shadow, and their sequels continued to be felt for years (Basu,
 Carney, and Kenworthy 2017).
@@ -142,7 +138,7 @@ well-documented, shareable units, and code can be embedded into
 self-contained documents suitable for review and independent
 verification. The source for this paper is an [R
 Markdown](http://rmarkdown.rstudio.com) document which, along with the
-data package, will be available in a public repository[2].
+data package, are available in a public repository[2]
 
 # Background: the intuitive relationship between density and spread of contagious diseases
 
@@ -1493,6 +1489,33 @@ present paper, and similar reproducible publications, will continue to
 encourage others to adopt higher reproducibility standards in their
 research.
 
+# Acknowledgments
+
+The analysis reported in this paper was conducted in the `R` computing
+statistical language (R Core Team 2021). The source document is an
+Rmarkdown document (Xie, Allaire, and Grolemund 2018; Xie, Dervieux, and
+Riederer 2020) processed using `knitr` (Xie 2015, 2014). The following
+packages were used in the analysis, and I wish to acknowledge their
+creators for their generous efforts: `adespatial` (Dray et al. 2021),
+`censReg` (Henningsen 2020), `dplyr` (Wickham et al. 2021), `forcats`
+(Wickham 2021a), `ggplot2` (Wickham 2016), `gmm` (Chaussé 2010),
+`kableExtra` (Zhu 2021), `Matrix` (Bates and Maechler 2021), `maxLik`
+(Henningsen and Toomet 2011), `miscTools` (Henningsen and Toomet 2019),
+`mvtnorm` (Genz and Bretz 2009), `nlme` (Pinheiro, Bates, and R-core
+2021), `patchwork` (Pedersen 2020), `purrr` (Henry and Wickham 2020),
+`readr` (Wickham and Hester 2021), `sampleSelection` (Toomet and
+Henningsen 2008), `sandwich` (Zeileis, Köll, and Graham 2020; Zeileis
+2004, 2006), `scico` (Pedersen and Crameri 2020), `sf` (E. Pebesma
+2018), `sp` (E. J. Pebesma and Bivand 2005; R. S. Bivand, Pebesma, and
+Gomez-Rubio 2013a), `spatialprobit` (Wilhelm and de Matos 2015),
+`spData` (R. Bivand, Nowosad, and Lovelace 2021), `spdep` (R. Bivand and
+Wong 2018; R. S. Bivand, Pebesma, and Gomez-Rubio 2013b), `stringr`
+\[R-stringr\], `tibble` (Müller and Wickham 2021), `tidycensus` (Walker
+and Herman 2021), `tidyr` (Wickham 2021b), `tidyverse` (Wickham et al.
+2019), `tmvtnorm` (Manjunath B G &lt;bgmanjunath@gmail.com&gt; 2015),
+`units` (E. Pebesma, Mailund, and Hiebert 2016). This research was not
+supported by Canada’s Research Councils.
+
 # References
 
 <div id="refs" class="references csl-bib-body hanging-indent">
@@ -1546,6 +1569,13 @@ Impacts on Health.” Journal Article. *Social Science & Medicine* 187:
 
 </div>
 
+<div id="ref-R-Matrix" class="csl-entry">
+
+Bates, Douglas, and Martin Maechler. 2021. *Matrix: Sparse and Dense
+Matrix Classes and Methods*. <http://Matrix.R-forge.R-project.org/>.
+
+</div>
+
 <div id="ref-Bhadra2021impact" class="csl-entry">
 
 Bhadra, Arunava, Arindam Mukherjee, and Kabita Sarkar. 2021. “Impact of
@@ -1560,6 +1590,36 @@ Journal Article. *Modeling Earth Systems and Environment* 7 (1): 623–29.
 Bivand, Roger S. 2020. “Progress in the r Ecosystem for Representing and
 Handling Spatial Data.” Journal Article. *Journal of Geographical
 Systems*. <https://doi.org/10.1007/s10109-020-00336-0>.
+
+</div>
+
+<div id="ref-sp2013" class="csl-entry">
+
+Bivand, Roger S., Edzer Pebesma, and Virgilio Gomez-Rubio. 2013a.
+*Applied Spatial Data Analysis with R, Second Edition*. Springer, NY.
+<https://asdar-book.org/>.
+
+</div>
+
+<div id="ref-spdep2013" class="csl-entry">
+
+———. 2013b. *Applied Spatial Data Analysis with R, Second Edition*.
+Springer, NY. <https://asdar-book.org/>.
+
+</div>
+
+<div id="ref-R-spData" class="csl-entry">
+
+Bivand, Roger, Jakub Nowosad, and Robin Lovelace. 2021. *spData:
+Datasets for Spatial Analysis*. <https://nowosad.github.io/spData/>.
+
+</div>
+
+<div id="ref-spdep2018" class="csl-entry">
+
+Bivand, Roger, and David W. S. Wong. 2018. “Comparing Implementations of
+Global and Local Indicators of Spatial Association.” *TEST* 27 (3):
+716–48. <https://doi.org/10.1007/s11749-018-0599-x>.
 
 </div>
 
@@ -1611,6 +1671,14 @@ Areas in the United States.” *Findings*, June.
 
 </div>
 
+<div id="ref-gmm2010" class="csl-entry">
+
+Chaussé, Pierre. 2010. “Computing Generalized Method of Moments and
+Generalized Empirical Likelihood with R.” *Journal of Statistical
+Software* 34 (11): 1–35. <https://www.jstatsoft.org/v34/i11/>.
+
+</div>
+
 <div id="ref-Cressie1989geostatistics" class="csl-entry">
 
 Cressie, Noel. 1989. “Geostatistics.” Journal Article. *The American
@@ -1625,6 +1693,15 @@ Gietel-Basten. 2020. “Exploring the Young Demographic Profile of
 COVID-19 Cases in Hong Kong: Evidence from Migration and Travel History
 Data.” Journal Article. *PLOS ONE* 15 (6): e0235306.
 <https://doi.org/10.1371/journal.pone.0235306>.
+
+</div>
+
+<div id="ref-R-adespatial" class="csl-entry">
+
+Dray, Stéphane, David Bauman, Guillaume Blanchet, Daniel Borcard, Sylvie
+Clappe, Guillaume Guenard, Thibaut Jombart, et al. 2021. *Adespatial:
+Multivariate Multiscale Spatial Analysis*.
+<https://github.com/sdray/adespatial>.
 
 </div>
 
@@ -1682,6 +1759,14 @@ Role of Preprints in the Dissemination of COVID-19 Research and Their
 Impact on the Science Communication Landscape.” Journal Article. *PLOS
 Biology* 19 (4): e3000959.
 <https://doi.org/10.1371/journal.pbio.3000959>.
+
+</div>
+
+<div id="ref-mvtnorm2009" class="csl-entry">
+
+Genz, Alan, and Frank Bretz. 2009. *Computation of Multivariate Normal
+and t Probabilities*. Lecture Notes in Statistics. Heidelberg:
+Springer-Verlag.
 
 </div>
 
@@ -1762,6 +1847,35 @@ https://doi.org/<https://doi.org/10.1016/j.landurbplan.2020.103952>.
 Harris, M. Anne, and Michael Branion-Calles. 2021. “Changes in Commute
 Mode Attributed to COVID-19 Risk in Canadian National Survey Data.”
 *Findings*, February. <https://doi.org/10.32866/001c.19088>.
+
+</div>
+
+<div id="ref-R-censReg" class="csl-entry">
+
+Henningsen, Arne. 2020. *censReg: Censored Regression (Tobit) Models*.
+<http://www.sampleSelection.org>.
+
+</div>
+
+<div id="ref-maxLik2011" class="csl-entry">
+
+Henningsen, Arne, and Ott Toomet. 2011. “maxLik: A Package for Maximum
+Likelihood Estimation in R.” *Computational Statistics* 26 (3): 443–58.
+<https://doi.org/10.1007/s00180-010-0217-1>.
+
+</div>
+
+<div id="ref-R-miscTools" class="csl-entry">
+
+———. 2019. *miscTools: Miscellaneous Tools and Utilities*.
+<http://www.micEcon.org>.
+
+</div>
+
+<div id="ref-R-purrr" class="csl-entry">
+
+Henry, Lionel, and Hadley Wickham. 2020. *Purrr: Functional Programming
+Tools*. <https://CRAN.R-project.org/package=purrr>.
 
 </div>
 
@@ -1889,6 +2003,14 @@ Econometrics*. Book. Cambridge: Cambridge University Press.
 
 </div>
 
+<div id="ref-R-tmvtnorm" class="csl-entry">
+
+Manjunath B G &lt;bgmanjunath@gmail.com&gt;, Stefan Wilhelm with
+contributions from. 2015. *Tmvtnorm: Truncated Multivariate Normal and
+Student t Distribution*. <http://www.r-project.org>.
+
+</div>
+
 <div id="ref-Micallef2020first" class="csl-entry">
 
 Micallef, Sarah, Tonio V. Piscopo, Ramon Casha, Denise Borg, Chantal
@@ -1920,6 +2042,13 @@ Moore, E. G., and L. A. Brown. 1970. “Urban Acquaintance Fields: An
 Evaluation of a Spatial Model.” Journal Article. *Environment and
 Planning* 2 (4): 443–54.
 <http://www.envplan.com/abstract.cgi?id=a020443>.
+
+</div>
+
+<div id="ref-R-tibble" class="csl-entry">
+
+Müller, Kirill, and Hadley Wickham. 2021. *Tibble: Simple Data Frames*.
+<https://CRAN.R-project.org/package=tibble>.
 
 </div>
 
@@ -1976,6 +2105,45 @@ Article. *Geographical Analysis* n/a (n/a).
 
 </div>
 
+<div id="ref-sf2018" class="csl-entry">
+
+Pebesma, Edzer. 2018. “<span class="nocase">Simple Features for R:
+Standardized Support for Spatial Vector Data</span>.” *The R Journal* 10
+(1): 439–46. <https://doi.org/10.32614/RJ-2018-009>.
+
+</div>
+
+<div id="ref-sp2005" class="csl-entry">
+
+Pebesma, Edzer J., and Roger S. Bivand. 2005. “Classes and Methods for
+Spatial Data in R.” *R News* 5 (2): 9–13.
+<https://CRAN.R-project.org/doc/Rnews/>.
+
+</div>
+
+<div id="ref-units2016" class="csl-entry">
+
+Pebesma, Edzer, Thomas Mailund, and James Hiebert. 2016. “Measurement
+Units in R.” *R Journal* 8 (2): 486–94.
+<https://doi.org/10.32614/RJ-2016-061>.
+
+</div>
+
+<div id="ref-R-patchwork" class="csl-entry">
+
+Pedersen, Thomas Lin. 2020. *Patchwork: The Composer of Plots*.
+<https://CRAN.R-project.org/package=patchwork>.
+
+</div>
+
+<div id="ref-R-scico" class="csl-entry">
+
+Pedersen, Thomas Lin, and Fabio Crameri. 2020. *Scico: Colour Palettes
+Based on the Scientific Colour-Maps*.
+<https://github.com/thomasp85/scico>.
+
+</div>
+
 <div id="ref-Pequeno2020air" class="csl-entry">
 
 Pequeno, Pedro, Bruna Mendel, Clarissa Rosa, Mariane Bosholn, Jorge Luiz
@@ -1994,12 +2162,28 @@ Bicycle Helmets.” Journal Article. *Risk Analysis* 31 (8): 1187–95.
 
 </div>
 
+<div id="ref-R-nlme" class="csl-entry">
+
+Pinheiro, José, Douglas Bates, and R-core. 2021. *Nlme: Linear and
+Nonlinear Mixed Effects Models*.
+<https://svn.r-project.org/R-packages/trunk/nlme/>.
+
+</div>
+
 <div id="ref-Praharaj2020Using" class="csl-entry">
 
 Praharaj, Sarbeswar, David King, Christopher Pettit, and Elizabeth
 Wentz. 2020. “Using Aggregated Mobility Data to Measure the Effect of
 COVID-19 Policies on Mobility Changes in Sydney, London, Phoenix, and
 Pune.” *Findings*, October. <https://doi.org/10.32866/001c.17590>.
+
+</div>
+
+<div id="ref-R-base" class="csl-entry">
+
+R Core Team. 2021. *R: A Language and Environment for Statistical
+Computing*. Vienna, Austria: R Foundation for Statistical Computing.
+<https://www.R-project.org/>.
 
 </div>
 
@@ -2114,6 +2298,14 @@ United States Counties.” Journal Article. *PLOS ONE* 16 (4): e0249271.
 
 </div>
 
+<div id="ref-sampleSelection2008" class="csl-entry">
+
+Toomet, Ott, and Arne Henningsen. 2008. “Sample Selection Models in R:
+Package <span class="nocase">sampleSelection</span>.” *Journal of
+Statistical Software* 27 (7). <https://www.jstatsoft.org/v27/i07/>.
+
+</div>
+
 <div id="ref-Viglione2020avalanche" class="csl-entry">
 
 Viglione, Giuliana. 2020. “’Avalanche’of Spider-Paper Retractions Shakes
@@ -2128,6 +2320,14 @@ Vlasschaert, Caitlyn, Joel M. Topf, and Swapnil Hiremath. 2020.
 2019 Pandemic: Progress or Problems with Peer Review?” Journal Article.
 *Advances in Chronic Kidney Disease* 27 (5): 418–26.
 <https://doi.org/10.1053/j.ackd.2020.08.003>.
+
+</div>
+
+<div id="ref-R-tidycensus" class="csl-entry">
+
+Walker, Kyle, and Matt Herman. 2021. *Tidycensus: Load US Census
+Boundary and Attribute Data as Tidyverse and Sf-Ready Data Frames*.
+<https://github.com/walkerke/tidycensus>.
 
 </div>
 
@@ -2150,11 +2350,127 @@ Article. *PLOS ONE* 15 (10): e0240648.
 
 </div>
 
+<div id="ref-ggplot22016" class="csl-entry">
+
+Wickham, Hadley. 2016. *Ggplot2: Elegant Graphics for Data Analysis*.
+Springer-Verlag New York. <https://ggplot2.tidyverse.org>.
+
+</div>
+
+<div id="ref-R-forcats" class="csl-entry">
+
+———. 2021a. *Forcats: Tools for Working with Categorical Variables
+(Factors)*. <https://CRAN.R-project.org/package=forcats>.
+
+</div>
+
+<div id="ref-R-tidyr" class="csl-entry">
+
+———. 2021b. *Tidyr: Tidy Messy Data*.
+<https://CRAN.R-project.org/package=tidyr>.
+
+</div>
+
+<div id="ref-tidyverse2019" class="csl-entry">
+
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
+D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
+“Welcome to the <span class="nocase">tidyverse</span>.” *Journal of Open
+Source Software* 4 (43): 1686. <https://doi.org/10.21105/joss.01686>.
+
+</div>
+
+<div id="ref-R-dplyr" class="csl-entry">
+
+Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2021.
+*Dplyr: A Grammar of Data Manipulation*.
+<https://CRAN.R-project.org/package=dplyr>.
+
+</div>
+
+<div id="ref-R-readr" class="csl-entry">
+
+Wickham, Hadley, and Jim Hester. 2021. *Readr: Read Rectangular Text
+Data*. <https://CRAN.R-project.org/package=readr>.
+
+</div>
+
+<div id="ref-R-spatialprobit" class="csl-entry">
+
+Wilhelm, Stefan, and Miguel Godinho de Matos. 2015. *Spatialprobit:
+Spatial Probit Models*. <http://www.r-project.org>.
+
+</div>
+
 <div id="ref-Wong2020spreading" class="csl-entry">
 
 Wong, David W. S., and Yun Li. 2020. “Spreading of COVID-19: Density
 Matters.” Journal Article. *PLOS ONE* 15 (12): e0242398.
 <https://doi.org/10.1371/journal.pone.0242398>.
+
+</div>
+
+<div id="ref-knitr2014" class="csl-entry">
+
+Xie, Yihui. 2014. “Knitr: A Comprehensive Tool for Reproducible Research
+in R.” In *Implementing Reproducible Computational Research*, edited by
+Victoria Stodden, Friedrich Leisch, and Roger D. Peng. Chapman;
+Hall/CRC. <http://www.crcpress.com/product/isbn/9781466561595>.
+
+</div>
+
+<div id="ref-knitr2015" class="csl-entry">
+
+———. 2015. *Dynamic Documents with R and Knitr*. 2nd ed. Boca Raton,
+Florida: Chapman; Hall/CRC. <https://yihui.org/knitr/>.
+
+</div>
+
+<div id="ref-rmarkdown2018" class="csl-entry">
+
+Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. *R Markdown: The
+Definitive Guide*. Boca Raton, Florida: Chapman; Hall/CRC.
+<https://bookdown.org/yihui/rmarkdown>.
+
+</div>
+
+<div id="ref-rmarkdown2020" class="csl-entry">
+
+Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. *R Markdown
+Cookbook*. Boca Raton, Florida: Chapman; Hall/CRC.
+<https://bookdown.org/yihui/rmarkdown-cookbook>.
+
+</div>
+
+<div id="ref-sandwich2004" class="csl-entry">
+
+Zeileis, Achim. 2004. “Econometric Computing with HC and HAC Covariance
+Matrix Estimators.” *Journal of Statistical Software* 11 (10): 1–17.
+<https://doi.org/10.18637/jss.v011.i10>.
+
+</div>
+
+<div id="ref-sandwich2006" class="csl-entry">
+
+———. 2006. “Object-Oriented Computation of Sandwich Estimators.”
+*Journal of Statistical Software* 16 (9): 1–16.
+<https://doi.org/10.18637/jss.v016.i09>.
+
+</div>
+
+<div id="ref-sandwich2020" class="csl-entry">
+
+Zeileis, Achim, Susanne Köll, and Nathaniel Graham. 2020. “Various
+Versatile Variances: An Object-Oriented Implementation of Clustered
+Covariances in R.” *Journal of Statistical Software* 95 (1): 1–36.
+<https://doi.org/10.18637/jss.v095.i01>.
+
+</div>
+
+<div id="ref-R-kableExtra" class="csl-entry">
+
+Zhu, Hao. 2021. *kableExtra: Construct Complex Table with Kable and Pipe
+Syntax*. <https://CRAN.R-project.org/package=kableExtra>.
 
 </div>
 
@@ -2164,8 +2480,7 @@ Matters.” Journal Article. *PLOS ONE* 15 (12): e0242398.
 may have had more immediate influence on public debate than any previous
 paper in the history of economics”
 
-[2] For peer-review purposes, the data package and code are currently in
-an anonymous Drive folder:
+[2] 
 
 [3] Governor Kristi Noem of South Dakota, for example, claimed that
 sparse population density allowed her state to face the pandemic down
