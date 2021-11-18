@@ -1,28 +1,30 @@
 ---
 title: "Reproducibility of research during COVID-19: examining the case of population density and the basic reproductive rate from the perspective of spatial analysis"
 author:
-  - name: Author
-    email: author@institution.edu
-    affiliation: University
+  - name: Antonio Paez
+    email: paezha@mcmaster.ca
+    affiliation: McMaster University
     footnote: 1
 address:
-  - code: University
-    address: Department, Street, City, State ZIP
+  - code: McMaster University
+    address: School of Earth, Environment and Society, 1280 Main St West, Hamilton, Ontario L8S 4K1 Canada
 footnote:
   - code: 1
     text: "Corresponding Author"
 abstract: |
-  The emergence of the novel SARS-CoV-2 coronavirus and the global COVID-19 pandemic in 2019 led to explosive growth in scientific research. Alas, much of the research in the literature lacks conditions to be reproducible, and recent publications on the association between population density and the basic reproductive number of SARS-CoV-2 are no exception. Relatively few papers share code and data sufficiently, which hinders not only verification but additional experimentation. In this paper, an example of reproducible research shows the potential of spatial analysis for epidemiology research during COVID-19. Transparency and openness means that independent researchers can, with only modest efforts, verify findings and use different approaches as appropriate. Given the high stakes of the situation, it is essential that scientific findings, on which good policy depends, are as robust as possible; as the empirical example shows, reproducibility is one of the keys to ensure this.
+  The emergence of the novel SARS-CoV-2 coronavirus and the global COVID-19 pandemic in 2019 led to explosive growth in scientific research. Alas, much of the research in the literature lacks conditions to be reproducible, and recent publications on the association between population density and the basic reproductive number of SARS-CoV-2 are no exception. Relatively few papers share code and data sufficiently, which hinders not only verification but additional experimentation. In this paper, an example of reproducible research shows the potential of spatial analysis for epidemiology research during COVID-19. Transparency and openness means that independent researchers can, with only modest efforts, verify findings and use different approaches as appropriate. Given the high stakes of the situation, it is essential that scientific findings, on which good policy depends, are as robust as possible; as the empirical example shows, reproducibility is one of the keys to ensure this. 
+  
+  This paper is now published in Geographical Analysis (\url{https://doi.org/10.1111/gean.12307})
 
 journal: "Geographical Analysis"
 date: "`r Sys.Date()`"
-bibliography: [bibliography.bib, packages.bib]
+bibliography: bibliography.bib
 linenumbers: true
 #numbersections: true
 csl: elsevier-harvard.csl
 output: rticles::elsevier_article
 header-includes:
-    - \usepackage{setspace}\onehalfspacing
+    - \usepackage{setspace}\onehalfspacing    
 ---
 
 \newpage

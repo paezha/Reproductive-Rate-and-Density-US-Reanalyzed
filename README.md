@@ -9,13 +9,13 @@
 Antonio Páez (McMaster University)
 
 Paper desk-rejected by [~~PLoS
-ONE~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/PLOS%20ONE%20Decision_%20PONE-D-21-16874.pdf)
+ONE~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Editorial-Materials-and-Correspondence/PLOS%20ONE%20Decision_%20PONE-D-21-16874.pdf)
 [~~Science of the Total
-Environment~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Your%20Submission%20STOTEN-D-21-12077.pdf)
+Environment~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Editorial-Materials-and-Correspondence/Your%20Submission%20STOTEN-D-21-12077.pdf)
 [~~Landscape and Urban
-Planning~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Decision%20on%20submission%20to%20Landscape%20and%20Urban%20Planning.pdf)
+Planning~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Editorial-Materials-and-Correspondence/Decision%20on%20submission%20to%20Landscape%20and%20Urban%20Planning.pdf)
 
-Forthcoming in Geographical Analysis
+Geographical Analysis (2021) <https://doi.org/10.1111/gean.12307>
 
 ## Abstract
 
@@ -1216,10 +1216,10 @@ Variable
 Intercept
 </td>
 <td style="text-align:center;">
--7.304
+-7.249
 </td>
 <td style="text-align:center;">
-\[-8.346, -6.262\]
+\[-8.285, -6.214\]
 </td>
 </tr>
 <tr>
@@ -1227,10 +1227,10 @@ Intercept
 Density (1,000 per sq.km)
 </td>
 <td style="text-align:center;">
-2.445
+2.424
 </td>
 <td style="text-align:center;">
-\[2.089, 2.802\]
+\[2.074, 2.774\]
 </td>
 </tr>
 <tr>
@@ -1238,10 +1238,10 @@ Density (1,000 per sq.km)
 Density squared
 </td>
 <td style="text-align:center;">
--0.380
+-0.373
 </td>
 <td style="text-align:center;">
-\[-0.468, -0.292\]
+\[-0.459, -0.288\]
 </td>
 </tr>
 <tr>
@@ -1252,7 +1252,7 @@ Percent of private transportation
 0.056
 </td>
 <td style="text-align:center;">
-\[0.046, 0.067\]
+\[0.045, 0.066\]
 </td>
 </tr>
 <tr>
@@ -1260,10 +1260,10 @@ Percent of private transportation
 Median household income (10,000)
 </td>
 <td style="text-align:center;">
-0.318
+0.319
 </td>
 <td style="text-align:center;">
-\[0.28, 0.356\]
+\[0.282, 0.356\]
 </td>
 </tr>
 <tr grouplength="6">
@@ -1276,10 +1276,10 @@ Median household income (10,000)
 Intercept
 </td>
 <td style="text-align:center;">
-2.563
+2.290
 </td>
 <td style="text-align:center;">
-\[2.497, 2.629\]
+\[2.026, 2.553\]
 </td>
 </tr>
 <tr>
@@ -1287,10 +1287,10 @@ Intercept
 Density (1,000 per sq.km)
 </td>
 <td style="text-align:center;">
-0.760
+0.843
 </td>
 <td style="text-align:center;">
-\[0.746, 0.774\]
+\[0.786, 0.9\]
 </td>
 </tr>
 <tr>
@@ -1298,10 +1298,10 @@ Density (1,000 per sq.km)
 Density squared
 </td>
 <td style="text-align:center;">
--0.133
+-0.142
 </td>
 <td style="text-align:center;">
-\[-0.135, -0.13\]
+\[-0.153, -0.131\]
 </td>
 </tr>
 <tr>
@@ -1309,10 +1309,10 @@ Density squared
 Percent of private transportation
 </td>
 <td style="text-align:center;">
--0.011
+-0.010
 </td>
 <td style="text-align:center;">
-\[-0.012, -0.011\]
+\[-0.012, -0.008\]
 </td>
 </tr>
 <tr>
@@ -1320,10 +1320,10 @@ Percent of private transportation
 Median household income ($10,000)
 </td>
 <td style="text-align:center;">
-0.002
+0.011
 </td>
 <td style="text-align:center;">
-\[-0.001, 0.004\]
+\[0.003, 0.02\]
 </td>
 </tr>
 <tr>
@@ -1331,10 +1331,10 @@ Median household income ($10,000)
 Spatial filter
 </td>
 <td style="text-align:center;">
-1.000
+1.001
 </td>
 <td style="text-align:center;">
-\[0.998, 1.001\]
+\[0.992, 1.011\]
 </td>
 </tr>
 <tr>
@@ -1342,10 +1342,10 @@ Spatial filter
 ![\\sigma](https://latex.codecogs.com/png.latex?%5Csigma "\sigma")
 </td>
 <td style="text-align:center;">
-0.017
+0.120
 </td>
 <td style="text-align:center;">
-\[0.015, 0.019\]
+\[0.107, 0.133\]
 </td>
 </tr>
 <tr>
@@ -1353,10 +1353,10 @@ Spatial filter
 ![\\rho](https://latex.codecogs.com/png.latex?%5Crho "\rho")
 </td>
 <td style="text-align:center;">
--0.304
+0.495
 </td>
 <td style="text-align:center;">
-\[-0.957, 0.349\]
+\[0.218, 0.772\]
 </td>
 </tr>
 </tbody>

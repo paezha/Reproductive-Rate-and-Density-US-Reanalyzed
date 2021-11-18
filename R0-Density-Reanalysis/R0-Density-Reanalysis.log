@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.14)  1 NOV 2021 19:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.10.14)  18 NOV 2021 14:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -743,32 +743,32 @@ LaTeX Info: Redefining \nameref on input line 104.
 \openout4 = `R0-Density-Reanalysis.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
-33.
+34.
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
-33.
+34.
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-133.
+134.
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-133.
+134.
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 133.
+(Font)              <10> on input line 134.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 133.
+(Font)              <7> on input line 134.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 133.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 133
+(Font)              <5> on input line 134.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 134
 .
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -777,7 +777,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 133
+LaTeX Font Info:    Trying to load font information for U+msb on input line 134
 .
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -786,8 +786,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 137.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 137.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-33.
+37.
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -796,7 +800,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 1
-33.
+37.
 (c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -804,140 +808,152 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `lmss' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 133.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 133.
 [1
 
 
 {c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdft
 ex.map}] [2] [3] [4] [5] [6] [7] [8] [9]
-<R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf, id=126, 469.755pt x 325
+<R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf, id=128, 469.755pt x 325
 .215pt>
 File: R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf Graphic file (type 
 pdf)
 <use R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf 
- used on input line 493.
+ used on input line 497.
 (pdftex.def)             Requested size: 345.0pt x 238.84406pt.
 [10pdfTeX warning (ext4): destination with the same identifier (name{figure.1})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.512 
+l.516 
        <./R0-Density-Reanalysis_files/figure-latex/R0-map-1.pdf>]
-<R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf, id=144, 469.7
+<R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf, id=146, 469.7
 55pt x 325.215pt>
 File: R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf Graphic f
 ile (type pdf)
 <use R0-Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/random-terms-
-map-1.pdf  used on input line 536.
+map-1.pdf  used on input line 540.
 (pdftex.def)             Requested size: 345.0pt x 238.84406pt.
-<R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf, id=147, 469.75
+<R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf, id=149, 469.75
 5pt x 325.215pt>
 File: R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf Graphic fi
 le (type pdf)
 <use R0-Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/urban-areas-m
-ap-1.pdf  used on input line 563.
+ap-1.pdf  used on input line 567.
 (pdftex.def)             Requested size: 345.0pt x 238.84406pt.
 [11pdfTeX warning (ext4): destination with the same identifier (name{table.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.575 \]
+l.579 \]
          \noindent where \(y_i^{S*}\) is a latent variable for the sample] [12p
 dfTeX warning (ext4): destination with the same identifier (name{figure.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.575 \]
+l.579 \]
          \noindent where \(y_i^{S*}\) is a latent variable for the sample <./R0
 -Density-Reanalysis_files/figure-latex/random-terms-map-1.pdf>] [13pdfTeX warni
 ng (ext4): destination with the same identifier (name{figure.3}) has been alrea
 dy used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.575 \]
+l.579 \]
          \noindent where \(y_i^{S*}\) is a latent variable for the sample <./R0
 -Density-Reanalysis_files/figure-latex/urban-areas-map-1.pdf>] [14] [15] [16pdf
 TeX warning (ext4): destination with the same identifier (name{table.2}) has be
 en already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.732   T
+l.736   T
          est the filter for spatial autocorrelation:] [17pdfTeX warning (ext4):
  destination with the same identifier (name{table.3}) has been already used, du
 plicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.805 
+l.809 
       ]
-<R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf, id=211, 469
+<R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf, id=213, 469
 .755pt x 325.215pt>
 File: R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf Graphic
  file (type pdf)
 <use R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf>
 Package pdftex.def Info: R0-Density-Reanalysis_files/figure-latex/comparison-re
-sults-1.pdf  used on input line 818.
+sults-1.pdf  used on input line 822.
 (pdftex.def)             Requested size: 345.0pt x 238.84406pt.
 [18] [19pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.872 
-       <./R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf>] [
-20] [21]
-Overfull \hbox (6.86313pt too wide) in paragraph at lines 1009--1013
+l.876 
+       <./R0-Density-Reanalysis_files/figure-latex/comparison-results-1.pdf>]
+Overfull \hbox (22.36195pt too wide) in paragraph at lines 903--931
+\T1/lmr/bx/n/10 (-20) purrr?\T1/lmr/m/n/10 (-20) ), \T1/lmtt/m/n/10 readr \T1/l
+mr/m/n/10 (-20) (\T1/lmr/bx/n/10 (-20) R-readr?\T1/lmr/m/n/10 (-20) ), \T1/lmtt
+/m/n/10 sampleSelection \T1/lmr/m/n/10 (-20) (\T1/lmr/bx/n/10 (-20) sampleSelec
+tion2008?\T1/lmr/m/n/10 (-20) ), \T1/lmtt/m/n/10 sandwich
+ []
+
+
+Overfull \hbox (5.24323pt too wide) in paragraph at lines 903--931
+\T1/lmr/m/n/10 (-20) (\T1/lmr/bx/n/10 (-20) sf2018?\T1/lmr/m/n/10 (-20) ), \T1/
+lmtt/m/n/10 sp \T1/lmr/m/n/10 (-20) (\T1/lmr/bx/n/10 (-20) sp2005?\T1/lmr/m/n/1
+0 (-20) ; \T1/lmr/bx/n/10 (-20) sp2013?\T1/lmr/m/n/10 (-20) ), \T1/lmtt/m/n/10 
+spatialprobit \T1/lmr/m/n/10 (-20) (\T1/lmr/bx/n/10 (-20) R-spatialprobit?\T1/l
+mr/m/n/10 (-20) ), \T1/lmtt/m/n/10 spData
+ []
+
+[20] [21]
+Overfull \hbox (6.86313pt too wide) in paragraph at lines 994--998
 \T1/lmr/m/n/10 (-20) physics pa-pers of the fu-ture - in-tro-duc-tion. Geo-phys
 ics 82. doi:[]10.1190/geo2017-
  []
 
 
-Overfull \hbox (29.1155pt too wide) in paragraph at lines 1033--1036
+Overfull \hbox (29.1155pt too wide) in paragraph at lines 1013--1016
 [][]\T1/lmr/m/n/10 (-20) Cressie, N., 1989. Geo-statis-tics. The Amer-i-can Sta
 tis-ti-cian 43, 197. doi:[]10.2307/2685361[] 
  []
 
 
-Overfull \hbox (27.63686pt too wide) in paragraph at lines 1037--1042
+Overfull \hbox (27.63686pt too wide) in paragraph at lines 1017--1022
 \T1/lmr/m/n/10 (-20) and travel his-tory data. PLOS ONE 15, e0235306. doi:[]10.
 1371/journal.pone.0235306[] 
  []
 
-[22]
-Overfull \hbox (89.08939pt too wide) in paragraph at lines 1062--1066
+
+Overfull \hbox (89.08939pt too wide) in paragraph at lines 1037--1041
 \T1/lmr/m/n/10 (-20) shelter-in-place or-ders var-ied by state. PLOS ONE 15, e0
 245008. doi:[]10.1371/journal.pone.0245008[] 
  []
 
-[23]
-Overfull \hbox (26.81235pt too wide) in paragraph at lines 1131--1135
+[22]
+Overfull \hbox (26.81235pt too wide) in paragraph at lines 1102--1106
 \T1/lmr/m/n/10 (-20) COVID-19 risk in cana-dian na-tional sur-vey data. Find-in
 gs. doi:[]10.32866/001c.19088[] 
  []
 
-[24] [25] [26] [27]
-Overfull \hbox (20.51007pt too wide) in paragraph at lines 1408--1412
+[23] [24] [25] [26]
+Overfull \hbox (20.51007pt too wide) in paragraph at lines 1327--1331
 \T1/lmr/m/n/10 (-20) fatality rate in france. PLOS ONE 15, e0243606. doi:[]10.1
 371/journal.pone.0243606[] 
  []
 
-[28]
-Overfull \hbox (7.10994pt too wide) in paragraph at lines 1464--1469
+[27]
+Overfull \hbox (7.10994pt too wide) in paragraph at lines 1375--1380
 \T1/lmr/m/n/10 (-20) temporal big data. PLOS ONE 16, e0249145. doi:[]10.1371/jo
 urnal.pone.0249145[] 
  []
 
 
-Overfull \hbox (54.69655pt too wide) in paragraph at lines 1470--1474
+Overfull \hbox (54.69655pt too wide) in paragraph at lines 1381--1385
 \T1/lmr/m/n/10 (-20) dy-nam-ics in the united states. PLOS ONE 15, e0240648. do
 i:[]10.1371/journal.pone.0240648[] 
  []
 
-[29] [30] (./R0-Density-Reanalysis.aux)
+[28] (./R0-Density-Reanalysis.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -945,11 +961,11 @@ Package rerunfilecheck Info: File `R0-Density-Reanalysis.out' has not changed.
 (rerunfilecheck)             Checksum: FC45AB84828FE889B3E14A69C6B51BCB;2021.
  ) 
 Here is how much of TeX's memory you used:
- 14083 strings out of 480559
- 215018 string characters out of 5901695
- 554996 words of memory out of 5000000
+ 14057 strings out of 480559
+ 214649 string characters out of 5901695
+ 554998 words of memory out of 5000000
  31061 multiletter control sequences out of 15000+600000
- 472649 words of font info for 153 fonts, out of 8000000 for 9000
+ 473385 words of font info for 160 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,11n,80p,571b,452s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exi
@@ -994,10 +1010,10 @@ nts/type1/public/lm/lmsy6.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/texmf-di
 st/fonts/type1/public/lm/lmsy7.pfb><c:/Users/paezha/AppData/Roaming/TinyTeX/tex
 mf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/paezha/AppData/Roaming/TinyT
 eX/texmf-dist/fonts/type1/public/lm/lmtt8.pfb>
-Output written on R0-Density-Reanalysis.pdf (30 pages, 13624112 bytes).
+Output written on R0-Density-Reanalysis.pdf (28 pages, 13620736 bytes).
 PDF statistics:
- 607 PDF objects out of 1000 (max. 8388607)
- 516 compressed objects within 6 object streams
- 183 named destinations out of 1000 (max. 500000)
+ 544 PDF objects out of 1000 (max. 8388607)
+ 456 compressed objects within 5 object streams
+ 143 named destinations out of 1000 (max. 500000)
  35949 words of extra memory for PDF output out of 42996 (max. 10000000)
 

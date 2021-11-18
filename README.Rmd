@@ -22,9 +22,9 @@ knitr::opts_chunk$set(
 
 Antonio Páez (McMaster University)  
 
-Paper desk-rejected by [~~PLoS ONE~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/PLOS ONE Decision_ PONE-D-21-16874.pdf) [~~Science of the Total Environment~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Your Submission STOTEN-D-21-12077.pdf) [~~Landscape and Urban Planning~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Decision on submission to Landscape and Urban Planning.pdf)  
+Paper desk-rejected by [~~PLoS ONE~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Editorial-Materials-and-Correspondence/PLOS ONE Decision_ PONE-D-21-16874.pdf) [~~Science of the Total Environment~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Editorial-Materials-and-Correspondence/Your Submission STOTEN-D-21-12077.pdf) [~~Landscape and Urban Planning~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Editorial-Materials-and-Correspondence/Decision on submission to Landscape and Urban Planning.pdf)  
 
-Forthcoming in Geographical Analysis
+Geographical Analysis (2021) https://doi.org/10.1111/gean.12307
 
 ## Abstract
 
