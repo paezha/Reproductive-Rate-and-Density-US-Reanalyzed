@@ -4,27 +4,29 @@ author:
   - name: Antonio Paez
     email: paezha@mcmaster.ca
     affiliation: McMaster University
-    footnote: 1
+    correspondingauthor: true
 address:
   - code: McMaster University
     address: School of Earth, Environment and Society, 1280 Main St West, Hamilton, Ontario L8S 4K1 Canada
-footnote:
-  - code: 1
-    text: "Corresponding Author"
 abstract: |
   The emergence of the novel SARS-CoV-2 coronavirus and the global COVID-19 pandemic in 2019 led to explosive growth in scientific research. Alas, much of the research in the literature lacks conditions to be reproducible, and recent publications on the association between population density and the basic reproductive number of SARS-CoV-2 are no exception. Relatively few papers share code and data sufficiently, which hinders not only verification but additional experimentation. In this paper, an example of reproducible research shows the potential of spatial analysis for epidemiology research during COVID-19. Transparency and openness means that independent researchers can, with only modest efforts, verify findings and use different approaches as appropriate. Given the high stakes of the situation, it is essential that scientific findings, on which good policy depends, are as robust as possible; as the empirical example shows, reproducibility is one of the keys to ensure this. 
   
   This paper is now published in Geographical Analysis (\url{https://doi.org/10.1111/gean.12307})
-
+keywords: 
+  - keyword1
+  - keyword2
 journal: "Geographical Analysis"
-date: "`r Sys.Date()`"
+date: "Final form published in Volume 54, Issue 4"
+classoption: preprint, 3p, authoryear
 bibliography: bibliography.bib
 linenumbers: true
-#numbersections: true
-csl: elsevier-harvard.csl
-output: rticles::elsevier_article
-header-includes:
-    - \usepackage{setspace}\onehalfspacing    
+numbersections: false
+# Use a CSL with `citation_package = "default"`
+# csl: https://www.zotero.org/styles/elsevier-harvard
+output: 
+  rticles::elsevier_article:
+    keep_tex: true
+    citation_package: natbib
 ---
 
 \newpage
@@ -33,22 +35,15 @@ header-includes:
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-```{r install-data-package, include=FALSE}
-if(!require(r0density)){
-    remotes::install_github("paezha/Reproductive-Rate-and-Density-US-Reanalyzed", 
-                         subdir = "r0density")
-    library(r0density)
-}
-```
-
 ```{r load-packages, include=FALSE, cache=FALSE}
 library(adespatial) # Used to calculate Moran eigenvector maps
 library(censReg) # Package to estimate tobit model
+library(here) # A Simpler Way to Find Your Files
 library(kableExtra) # Package for creating tables
 library(Matrix) # Used to convert list of spatial weights to sparse matrix; needed for spatialprobit
 library(nlme) # Used to estimate 
 library(patchwork) # Package to organize ggplot2 plots
-library(r0density) # Data package
+library(rticles) # Article Formats for R Markdown
 library(sampleSelection) # Package to estimate sampling selection models
 library(scico) # Package with color palettes
 library(sf) # Package to work with spatial information in simple features format
@@ -57,16 +52,18 @@ library(spdep) # Utilities to create spatial weights and work with spatial data
 library(tidycensus) # Package to retrieve census information 
 library(tidyverse) # Data carpentry and analysis tools
 library(units) # Package to work with units of measurement
-#library(viridis) # Color palettes
 ```
 
-```{r generate-package-bibliography, include=FALSE}
-knitr::write_bib(c(.packages(), 
-                   "knitr", 
-                   "rmarkdown"), 
-                 file = "packages.bib")
+```{r install-data-package, include=FALSE}
+if(!require(r0density)){
+    install.packages(paste0(here(), "/r0density_0.1.0.tar.gz"), repos = NULL, type="source")
+    library(r0density) # not installed on this machine
+}
 ```
 
+```{r load-data-package, include=FALSE, cache=FALSE}
+library(r0density) # Data package
+```
 
 ```{r invoke-data, include=FALSE}
 data(county_geo)
@@ -879,3 +876,5 @@ More generally, my hope is that the research of Sy et al. [-@Sy2021population], 
 The analysis reported in this paper was conducted in the `R` computing statistical language [@R-base]. The source document is an Rmarkdown document [@rmarkdown2018; @rmarkdown2020] processed using `knitr` [@knitr2015; @knitr2014]. The following packages were used in the analysis, and I wish to acknowledge their creators for their generous efforts: `adespatial` [@R-adespatial], `censReg` [@R-censReg], `dplyr` [@R-dplyr], `forcats` [@R-forcats], `ggplot2` [@ggplot22016], `gmm` [@gmm2010], `kableExtra` [@R-kableExtra], `Matrix` [@R-Matrix], `maxLik` [@maxLik2011], `miscTools` [@R-miscTools], `mvtnorm` [@mvtnorm2009], `nlme` [@R-nlme], `patchwork` [@R-patchwork], `purrr` [@R-purrr], `readr` [@R-readr], `sampleSelection` [@sampleSelection2008], `sandwich` [@sandwich2020; @sandwich2004; @sandwich2006], `scico` [@R-scico], `sf` [@sf2018], `sp` [@sp2005; @sp2013], `spatialprobit` [@R-spatialprobit], `spData` [@R-spData], `spdep` [@spdep2018; @spdep2013], `stringr` [R-stringr], `tibble` [@R-tibble], `tidycensus` [@R-tidycensus], `tidyr` [@R-tidyr], `tidyverse` [@tidyverse2019], `tmvtnorm` [@R-tmvtnorm], `units` [@units2016]. This research was not supported by Canada's Research Councils.
 
 # References {#references .unnumbered}
+
+

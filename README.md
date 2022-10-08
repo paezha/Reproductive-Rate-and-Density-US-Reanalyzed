@@ -15,7 +15,10 @@ Environment~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanal
 [~~Landscape and Urban
 Planning~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Editorial-Materials-and-Correspondence/Decision%20on%20submission%20to%20Landscape%20and%20Urban%20Planning.pdf)
 
-Geographical Analysis (2021) <https://doi.org/10.1111/gean.12307>
+Paez, A (2022) Reproducibility of Research During COVID-19: Examining
+the Case of Population Density and the Basic Reproductive Rate from the
+Perspective of Spatial Analysis. Geographical Analysis. 54(4) 860-880
+(<https://doi.org/10.1111/gean.12307>)
 
 ## Abstract
 
@@ -86,7 +89,7 @@ inaccuracies and errors in their research were uncovered (see Herndon,
 Ash, and Pollin 2014), their claims about debt and economic growth had
 already been seized by policy-makers on both sides of the Atlantic to
 justify austerity policies in the aftermath of the Great Recession of
-2007-2009[1]. As later research has demonstrated, those policies cast a
+2007-2009[^1]. As later research has demonstrated, those policies cast a
 long shadow, and their sequels continued to be felt for years (Basu,
 Carney, and Kenworthy 2017).
 
@@ -114,7 +117,7 @@ The objective of this paper is to illustrate the importance of
 reproducibility in research in the context of the flood of COVID-19
 papers. For this, I focus on a recent study by Sy et al. (2021) that
 examined the correlation between the basic reproductive number of
-COVID-19, ![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0"), and
+COVID-19, ![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0"), and
 population density. The basic reproductive number is a summary measure
 of contact rates, probability of transmission of a pathogen, and
 duration of infectiousness. In rough terms, it measures how many new
@@ -138,7 +141,7 @@ well-documented, shareable units, and code can be embedded into
 self-contained documents suitable for review and independent
 verification. The source for this paper is an [R
 Markdown](http://rmarkdown.rstudio.com) document which, along with the
-data package, are available in a public repository[2]
+data package, are available in a public repository[^2]
 
 # Background: the intuitive relationship between density and spread of contagious diseases
 
@@ -156,7 +159,7 @@ that higher densities can catalyze the transmission of contagious
 diseases (Rocklöv and Sjödin 2020; Li, Richmond, and Roehner 2018). The
 idea is intuitive and likely at the root of messages, by some figures in
 positions of authority, that regions with sparse population densities
-faced lower risks from the pandemic[3].
+faced lower risks from the pandemic[^3].
 
 As Rocklöv and Sjödin (Rocklöv and Sjödin 2020) note, however,
 mathematical models of contagion are valid at small-to-medium spaces
@@ -277,7 +280,7 @@ SWN investigated the basic reproductive number of COVID-19 in US
 counties, and its association with population density, median household
 income, and prevalence of private mobility. For their multivariate
 analysis, SWN used mixed linear models. This is an appropriate modelling
-choice: ![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") is an
+choice: ![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") is an
 interval-ratio variable that is suitably modeled using linear
 regression; further, as SWN note there is a likelihood that the process
 in not independent “among counties within each state, potentially due to
@@ -353,7 +356,7 @@ processes and data, as well as the code used in any analyses reported
 and Bruns 2021; White and Hébert-Dufresne 2020; Sy, White, and Nichols
 2021). Even in this case, the pressure to publish “new findings” instead
 of replication studies can act as a deterrent, perhaps particularly for
-younger researchers[4].
+younger researchers[^4].
 
 <!--
 @Ahmad2020association -> code is not shared, data are provided but data pre-processing is not documented
@@ -387,24 +390,24 @@ reanalyzed.
 
 SWN examined the association between the basic reproductive number of
 COVID-19 and population density. The basic reproductive number
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") is a summary
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") is a summary
 measure of contact rates, probability of transmission of a pathogen, and
 duration of infectiousness. In rough terms,
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") measures how
-many new infections each infections begets. Infectious disease outbreaks
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") measures how many
+new infections each infections begets. Infectious disease outbreaks
 generally tend to die out when
-![R\_0&lt;1](https://latex.codecogs.com/png.latex?R_0%3C1 "R_0<1"), and
-to grow when
-![R\_0&gt;1](https://latex.codecogs.com/png.latex?R_0%3E1 "R_0>1").
+![R_0\<1](https://latex.codecogs.com/png.latex?R_0%3C1 "R_0<1"), and to
+grow when
+![R_0\>1](https://latex.codecogs.com/png.latex?R_0%3E1 "R_0>1").
 Reliable calculation of
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") requires a
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") requires a
 minimum number of cases to be able to assume that there is community
 transmission of the pathogen. Accordingly, SWN based their analysis only
 on counties that had at least 25 cases or more at the end of the
 exponential growth phase (see Fig. ). Their final sample included 1,151
 counties in the US, including in Alaska, Hawaii, Puerto Rico, and island
 territories. SWN used COVID-19 data collected by the New York Times and
-made available (with versioning) in a GitHub repository[5]. For each
+made available (with versioning) in a GitHub repository[^5]. For each
 county, SWN assumed that the exponential growth period began one week
 prior to the second daily increase in cases, and assumed that the period
 of exponential growth lasted approximately 18 days.
@@ -430,13 +433,12 @@ units used by SWN). The mixed linear model gives random intercepts
 is reported in the fifth row of Table . It is useful to map the random
 intercepts: as seen in Figure , other things being equal, counties in
 Texas tend to have somewhat lower values of
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") (i.e., a
-negative random intercept), whereas counties in South Dakota tend to
-have higher values of
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0"). The key of the
-analysis, after extensive sensitivity analysis, is a robust finding that
-population density has a positive association with the basic
-reproductive number. But does it?
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") (i.e., a negative
+random intercept), whereas counties in South Dakota tend to have higher
+values of ![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0"). The
+key of the analysis, after extensive sensitivity analysis, is a robust
+finding that population density has a positive association with the
+basic reproductive number. But does it?
 
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -568,7 +570,7 @@ Percent of private transportation
 </tr>
 <tr>
 <td style="text-align:left;">
-Median household income ($10,000)
+Median household income (\$10,000)
 </td>
 <td style="text-align:left;">
 </td>
@@ -654,27 +656,27 @@ to use a sample of counties with reliable basic reproductive numbers,
 although apparently sensible, results in a non-random spatial sampling
 scheme. Turning our attention back to Figure , we form the impression
 that many counties without reliable values of
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") are in more
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") are in more
 rural, less dense parts of the United States. This impression is
 reinforced when we overlay the boundaries of urban areas with population
 greater than 50,000 on the counties with valid values of
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") (see Figure ).
-The fact that ![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0")
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") (see Figure ).
+The fact that ![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0")
 could not be accurately computed in many counties without large urban
 areas does not mean that there was no transmission of the virus: it
 simply means that we do not know with sufficient precision to what
 extent that was the case. The low number of cases may be related to low
 population and/or low population density. This is intriguing, to say the
 least: by excluding cases based on the ability to calculate
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") we are
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") we are
 potentially *selecting* the sample in a non-random way.
 
 <div class="figure">
 
 <img src="README_files/figure-gfm/urban-areas-map-1.png" alt="\label{fig:urban-areas-map}Urban areas with population &gt; 50,000 (Alaska, Hawaii, Puerto Rico, and territories not shown)." width="1\linewidth" />
 <p class="caption">
-Urban areas with population &gt; 50,000 (Alaska, Hawaii, Puerto Rico,
-and territories not shown).
+Urban areas with population \> 50,000 (Alaska, Hawaii, Puerto Rico, and
+territories not shown).
 </p>
 
 </div>
@@ -685,90 +687,78 @@ developed to address this. A model useful for sample selection problems
 is Heckman’s selection model (see Maddala 1983). The selection model is
 in fact a system of two equations, as follows:
 
-![
-\\begin{array}{c}
-y\_i^{S\*} = \\beta^{S\\prime}x\_i^S+\\epsilon\_i^S\\\\
-y\_i^{O\*} = \\beta^{O\\prime}x\_i^O+\\epsilon\_i^O
-\\end{array}
-](https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Barray%7D%7Bc%7D%0Ay_i%5E%7BS%2A%7D%20%3D%20%5Cbeta%5E%7BS%5Cprime%7Dx_i%5ES%2B%5Cepsilon_i%5ES%5C%5C%0Ay_i%5E%7BO%2A%7D%20%3D%20%5Cbeta%5E%7BO%5Cprime%7Dx_i%5EO%2B%5Cepsilon_i%5EO%0A%5Cend%7Barray%7D%0A "
-\begin{array}{c}
+![\begin{array}{c}
+y_i^{S\*} = \beta^{S\prime}x_i^S+\epsilon_i^S\\\\
+y_i^{O\*} = \beta^{O\prime}x_i^O+\epsilon_i^O
+\end{array}](https://latex.codecogs.com/png.latex?%5Cbegin%7Barray%7D%7Bc%7D%0Ay_i%5E%7BS%2A%7D%20%3D%20%5Cbeta%5E%7BS%5Cprime%7Dx_i%5ES%2B%5Cepsilon_i%5ES%5C%5C%0Ay_i%5E%7BO%2A%7D%20%3D%20%5Cbeta%5E%7BO%5Cprime%7Dx_i%5EO%2B%5Cepsilon_i%5EO%0A%5Cend%7Barray%7D "\begin{array}{c}
 y_i^{S*} = \beta^{S\prime}x_i^S+\epsilon_i^S\\
 y_i^{O*} = \beta^{O\prime}x_i^O+\epsilon_i^O
-\end{array}
-")
+\end{array}")
 
 where
-![y\_i^{S\*}](https://latex.codecogs.com/png.latex?y_i%5E%7BS%2A%7D "y_i^{S*}")
+![y_i^{S\*}](https://latex.codecogs.com/png.latex?y_i%5E%7BS%2A%7D "y_i^{S*}")
 is a latent variable for the sample selection process, and
-![y\_i^{O\*}](https://latex.codecogs.com/png.latex?y_i%5E%7BO%2A%7D "y_i^{O*}")
+![y_i^{O\*}](https://latex.codecogs.com/png.latex?y_i%5E%7BO%2A%7D "y_i^{O*}")
 is the latent outcome. Vectors
-![x\_i^S](https://latex.codecogs.com/png.latex?x_i%5ES "x_i^S") and
-![x\_i^O](https://latex.codecogs.com/png.latex?x_i%5EO "x_i^O") are
+![x_i^S](https://latex.codecogs.com/png.latex?x_i%5ES "x_i^S") and
+![x_i^O](https://latex.codecogs.com/png.latex?x_i%5EO "x_i^O") are
 explanatory variables (with the possibility that
-![x\_i^S = x\_i^S](https://latex.codecogs.com/png.latex?x_i%5ES%20%3D%20x_i%5ES "x_i^S = x_i^S")).
+![x_i^S = x_i^S](https://latex.codecogs.com/png.latex?x_i%5ES%20%3D%20x_i%5ES "x_i^S = x_i^S")).
 Both equations include random terms (i.e.,
-![\\epsilon\_i^S](https://latex.codecogs.com/png.latex?%5Cepsilon_i%5ES "\epsilon_i^S")
+![\epsilon_i^S](https://latex.codecogs.com/png.latex?%5Cepsilon_i%5ES "\epsilon_i^S")
 and
-![\\epsilon\_i^O](https://latex.codecogs.com/png.latex?%5Cepsilon_i%5EO "\epsilon_i^O")).
+![\epsilon_i^O](https://latex.codecogs.com/png.latex?%5Cepsilon_i%5EO "\epsilon_i^O")).
 The first equation is designed to model the *probability* of sampling,
 and the second equation the outcome of interest (say
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0")). The random
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0")). The random
 terms are jointly distributed and correlated with parameter
-![\\rho](https://latex.codecogs.com/png.latex?%5Crho "\rho").
+![\rho](https://latex.codecogs.com/png.latex?%5Crho "\rho").
 
 What the analyst observes is the following:
 
-![
-y\_i^S =
-\\begin{cases}
-0 & \\text{if } y\_i^{S\*} &lt; 0\\\\
-1 & \\text{otherwise}
-\\end{cases}
-](https://latex.codecogs.com/png.latex?%0Ay_i%5ES%20%3D%0A%5Cbegin%7Bcases%7D%0A0%20%26%20%5Ctext%7Bif%20%7D%20y_i%5E%7BS%2A%7D%20%3C%200%5C%5C%0A1%20%26%20%5Ctext%7Botherwise%7D%0A%5Cend%7Bcases%7D%0A "
-y_i^S =
+![y_i^S =
+\begin{cases}
+0 & \text{if } y_i^{S\*} \< 0\\\\
+1 & \text{otherwise}
+\end{cases}](https://latex.codecogs.com/png.latex?y_i%5ES%20%3D%0A%5Cbegin%7Bcases%7D%0A0%20%26%20%5Ctext%7Bif%20%7D%20y_i%5E%7BS%2A%7D%20%3C%200%5C%5C%0A1%20%26%20%5Ctext%7Botherwise%7D%0A%5Cend%7Bcases%7D "y_i^S =
 \begin{cases}
 0 & \text{if } y_i^{S*} < 0\\
 1 & \text{otherwise}
-\end{cases}
-")
+\end{cases}")
 
 and:
 
-![
-y\_i^O =
-\\begin{cases}
-0 & \\text{if } y\_i^{S} = 0\\\\
-y\_i^{O\*} & \\text{otherwise}
-\\end{cases}
-](https://latex.codecogs.com/png.latex?%0Ay_i%5EO%20%3D%0A%5Cbegin%7Bcases%7D%0A0%20%26%20%5Ctext%7Bif%20%7D%20y_i%5E%7BS%7D%20%3D%200%5C%5C%0Ay_i%5E%7BO%2A%7D%20%26%20%5Ctext%7Botherwise%7D%0A%5Cend%7Bcases%7D%0A "
-y_i^O =
+![y_i^O =
+\begin{cases}
+0 & \text{if } y_i^{S} = 0\\\\
+y_i^{O\*} & \text{otherwise}
+\end{cases}](https://latex.codecogs.com/png.latex?y_i%5EO%20%3D%0A%5Cbegin%7Bcases%7D%0A0%20%26%20%5Ctext%7Bif%20%7D%20y_i%5E%7BS%7D%20%3D%200%5C%5C%0Ay_i%5E%7BO%2A%7D%20%26%20%5Ctext%7Botherwise%7D%0A%5Cend%7Bcases%7D "y_i^O =
 \begin{cases}
 0 & \text{if } y_i^{S} = 0\\
 y_i^{O*} & \text{otherwise}
-\end{cases}
-")
+\end{cases}")
 
 In other words, the outcome of interest is observed *only* for certain
 cases
-(![y\_i^S=1](https://latex.codecogs.com/png.latex?y_i%5ES%3D1 "y_i^S=1"),
+(![y_i^S=1](https://latex.codecogs.com/png.latex?y_i%5ES%3D1 "y_i^S=1"),
 i.e., for sampled observations). The probability of sampling depends on
-![x\_i^S](https://latex.codecogs.com/png.latex?x_i%5ES "x_i^S"). For the
+![x_i^S](https://latex.codecogs.com/png.latex?x_i%5ES "x_i^S"). For the
 cases observed, the outcome
-![y\_i^O](https://latex.codecogs.com/png.latex?y_i%5EO "y_i^O") depends
-on ![x\_i^O](https://latex.codecogs.com/png.latex?x_i%5EO "x_i^O").
+![y_i^O](https://latex.codecogs.com/png.latex?y_i%5EO "y_i^O") depends
+on ![x_i^O](https://latex.codecogs.com/png.latex?x_i%5EO "x_i^O").
 
 A sample selection model is estimated using the same selection of
 variables as SWN Model 3. This is Sample Selection Model 1 in Table .
 The first thing to notice about this model is that the sample selection
 process and the outcome are correlated
-(![\\rho\\ne0](https://latex.codecogs.com/png.latex?%5Crho%5Cne0 "\rho\ne0")
+(![\rho\ne0](https://latex.codecogs.com/png.latex?%5Crho%5Cne0 "\rho\ne0")
 with 5% of confidence). The selection equation indicates that the
 probability of a county to be in the sample increases with population
 density (but at a decreasing rate due to the log-transformation), when
 travel by private modes is more prevalent, and as median household
 income in the county is higher. This is in line with the impression made
 by Figure that counties with reliable values of
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") tended to be
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") tended to be
 those with larger urban centers. Once that the selection probabilities
 are accounted for in the model, several things happen with the outcomes
 model. First, the coefficient for population density is still positive,
@@ -780,7 +770,7 @@ coefficient for median household income is now significant.
 The second model in Table (Selection Model 2) changes the way the
 variables are entered into the model. The log-transformation of density
 in SWN and Selection Model 1 assumes that the association between
-density and ![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") is
+density and ![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") is
 monotonically increasing (if the sign of the coefficient is positive) or
 decreasing (if the sign of the coefficient is negative). There are some
 indications that the relationship may actually not be monotonical. For
@@ -798,12 +788,12 @@ As seen in the table, Selection Model 2 replaces the log-transformation
 of population density with a quadratic expansion. The results of this
 analysis indicate that with this variable transformation, the selection
 and outcome processes are still correlated
-(![\\rho\\ne0](https://latex.codecogs.com/png.latex?%5Crho%5Cne0 "\rho\ne0")
+(![\rho\ne0](https://latex.codecogs.com/png.latex?%5Crho%5Cne0 "\rho\ne0")
 with 5% of confidence). But a few other interesting things emerge. When
 we examine the outcomes model, we see that the quadratic expansion has a
 positive coefficient for the first order term, but a negative
 coefficient for the second order term. This indicates that
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") initially tends
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") initially tends
 to increase as density grows, but only up to a point, after which the
 negative second term (which grows more rapidly due to the square),
 becomes increasingly dominant. Secondly, the sign of the coefficient for
@@ -845,13 +835,13 @@ Selection Model 2
 Variable
 </th>
 <th style="text-align:center;">
-![\\beta](https://latex.codecogs.com/png.latex?%5Cbeta "\beta")
+![\beta](https://latex.codecogs.com/png.latex?%5Cbeta "\beta")
 </th>
 <th style="text-align:center;">
 95% CI
 </th>
 <th style="text-align:center;">
-![\\beta](https://latex.codecogs.com/png.latex?%5Cbeta "\beta")
+![\beta](https://latex.codecogs.com/png.latex?%5Cbeta "\beta")
 </th>
 <th style="text-align:center;">
 95% CI
@@ -1046,7 +1036,7 @@ Percent of private transportation
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Median household income ($10,000)
+Median household income (\$10,000)
 </td>
 <td style="text-align:center;">
 0.126
@@ -1063,7 +1053,7 @@ Median household income ($10,000)
 </tr>
 <tr>
 <td style="text-align:left;">
-![\\sigma](https://latex.codecogs.com/png.latex?%5Csigma "\sigma")
+![\sigma](https://latex.codecogs.com/png.latex?%5Csigma "\sigma")
 </td>
 <td style="text-align:center;">
 0.954
@@ -1080,7 +1070,7 @@ Median household income ($10,000)
 </tr>
 <tr>
 <td style="text-align:left;">
-![\\rho](https://latex.codecogs.com/png.latex?%5Crho "\rho")
+![\rho](https://latex.codecogs.com/png.latex?%5Crho "\rho")
 </td>
 <td style="text-align:center;">
 0.971
@@ -1169,7 +1159,7 @@ implementing this procedure appear in Table as Selection Model 3. The
 results are consistent with Selection Model 2, with two intriguing
 differences: 1) the variance of Sample Model 3 is smaller; and 2) the
 sample and outcome processes are no longer correlated (the confidence
-interval of ![\\rho](https://latex.codecogs.com/png.latex?%5Crho "\rho")
+interval of ![\rho](https://latex.codecogs.com/png.latex?%5Crho "\rho")
 includes zero). It appears that by capturing the spatial pattern of the
 residuals, which is likely strongly determined by the non-random
 sampling framework, the outcome model is not only substantially more
@@ -1198,7 +1188,7 @@ Selection Model 3
 Variable
 </th>
 <th style="text-align:center;">
-![\\beta](https://latex.codecogs.com/png.latex?%5Cbeta "\beta")
+![\beta](https://latex.codecogs.com/png.latex?%5Cbeta "\beta")
 </th>
 <th style="text-align:center;">
 95% CI
@@ -1317,7 +1307,7 @@ Percent of private transportation
 </tr>
 <tr>
 <td style="text-align:left;padding-left: 2em;" indentlevel="1">
-Median household income ($10,000)
+Median household income (\$10,000)
 </td>
 <td style="text-align:center;">
 0.011
@@ -1339,7 +1329,7 @@ Spatial filter
 </tr>
 <tr>
 <td style="text-align:left;">
-![\\sigma](https://latex.codecogs.com/png.latex?%5Csigma "\sigma")
+![\sigma](https://latex.codecogs.com/png.latex?%5Csigma "\sigma")
 </td>
 <td style="text-align:center;">
 0.120
@@ -1350,7 +1340,7 @@ Spatial filter
 </tr>
 <tr>
 <td style="text-align:left;">
-![\\rho](https://latex.codecogs.com/png.latex?%5Crho "\rho")
+![\rho](https://latex.codecogs.com/png.latex?%5Crho "\rho")
 </td>
 <td style="text-align:center;">
 0.495
@@ -1365,32 +1355,32 @@ Spatial filter
 Clearly, the various models display some intriguing differences; but how
 relevant are said differences from a more substantive standpoint? Figure
 shows the relationship between density and
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") implied by SWN
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") implied by SWN
 Model 3, Selection Model 2, and Selection Model 3. The left panel of the
 figure shows the non-linear but monotonic relationship implied by SWN
 Model 1. The conclusion is that at higher densities,
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") is *always*
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") is *always*
 higher. The two panels on the right, in contrast, shows that Selection
 Model 2 and Selection Model 3 coincide that
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") tends to
-increase as density grows. This continues until a density of
-approximately 2.9 (1,000 people per sq.km). At higher densities than
-that the relationship between density and
-![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") begins to
-weaken, and the relationship becomes negative at densities higher than
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") tends to increase
+as density grows. This continues until a density of approximately 2.9
+(1,000 people per sq.km). At higher densities than that the relationship
+between density and
+![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") begins to weaken,
+and the relationship becomes negative at densities higher than
 approximately 5.7 (1,000 people per sq.km).
 
 To put this into context, other things being equal, the effect of
 density in a county like Charlottesville in Virginia (density \~1,639
 people per sq.km) is roughly the same as that in a county like
 Philadelphia (density \~4,127 people per sq.km). In contrast, the effect
-of density on ![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") in
+of density on ![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") in
 a county like Arlington in Virginia (density \~3,093 people per sq.km)
 is *stronger* than either of the previous two examples. Lastly, the
 density of counties like San Francisco in California, or Queens and
 Bronx in NY, which are among the densest in the US, contributes even
-less to ![R\_0](https://latex.codecogs.com/png.latex?R_0 "R_0") than
-even the most rural counties in the country.
+less to ![R_0](https://latex.codecogs.com/png.latex?R_0 "R_0") than even
+the most rural counties in the country.
 
 <div class="figure">
 
@@ -1435,14 +1425,14 @@ In particular, it is noteworthy that a sample selection model with a
 different variable transformation does not lend support to the thesis
 that higher density is *always* associated with a greater risk of spread
 of the virus \[in Wong and Li’s words, “‘Density is destiny’ is probably
-an overstatement”; (2020)\]. At the same time, the results presented
-here also stand in contrast to the findings of Hamidi et al., who found
-that higher density was either not significantly associated with the
-rate of the virus in a cross-sectional study (Hamidi, Sabouri, and Ewing
-2020), or was negatively associated with it in a longitudinal setting
-\[Hamidi, Ewing, and Sabouri (2020). In this sense, the conclusion that
-density does not aggravate the pandemic may have been somewhat
-premature; instead, reanalysis of the data of SWN suggests that
+an overstatement”; -Wong and Li (2020)\]. At the same time, the results
+presented here also stand in contrast to the findings of Hamidi et al.,
+who found that higher density was either not significantly associated
+with the rate of the virus in a cross-sectional study (Hamidi, Sabouri,
+and Ewing 2020), or was negatively associated with it in a longitudinal
+setting \[Hamidi, Ewing, and Sabouri (2020). In this sense, the
+conclusion that density does not aggravate the pandemic may have been
+somewhat premature; instead, reanalysis of the data of SWN suggests that
 Fielding-Miller et al. (2020) might be onto something with respect to
 the difference between rural and urban counties. More generally, there
 is no doubt that in population-level studies density is indicative of
@@ -1512,7 +1502,7 @@ Gomez-Rubio 2013a), `spatialprobit` (Wilhelm and de Matos 2015),
 Wong 2018; R. S. Bivand, Pebesma, and Gomez-Rubio 2013b), `stringr`
 \[R-stringr\], `tibble` (Müller and Wickham 2021), `tidycensus` (Walker
 and Herman 2021), `tidyr` (Wickham 2021b), `tidyverse` (Wickham et al.
-2019), `tmvtnorm` (Manjunath B G &lt;bgmanjunath@gmail.com&gt; 2015),
+2019), `tmvtnorm` (Manjunath B G \<bgmanjunath@gmail.com\> 2015),
 `units` (E. Pebesma, Mailund, and Hiebert 2016). This research was not
 supported by Canada’s Research Councils.
 
@@ -1799,8 +1789,8 @@ Systems* 2 (2): 141–56.
 
 ———. 2004. “A Spatial Filtering Specification for the Autologistic
 Model.” Journal Article. *Environment and Planning A* 36 (10): 1791–811.
-[ISI:000224552100007
-C:/Papers/Environment and Planning A/Environment and Planning A (2004) 36 (10) 791-181.pdf](https://ISI:000224552100007
+[ISI:000224552100007 C:/Papers/Environment and Planning A/Environment
+and Planning A (2004) 36 (10) 791-181.pdf](https://ISI:000224552100007
 C:/Papers/Environment and Planning A/Environment and Planning A (2004) 36 (10) 791-181.pdf).
 
 </div>
@@ -2005,7 +1995,7 @@ Econometrics*. Book. Cambridge: Cambridge University Press.
 
 <div id="ref-R-tmvtnorm" class="csl-entry">
 
-Manjunath B G &lt;bgmanjunath@gmail.com&gt;, Stefan Wilhelm with
+Manjunath B G \<bgmanjunath@gmail.com\>, Stefan Wilhelm with
 contributions from. 2015. *Tmvtnorm: Truncated Multivariate Normal and
 Student t Distribution*. <http://www.r-project.org>.
 
@@ -2476,21 +2466,21 @@ Syntax*. <https://CRAN.R-project.org/package=kableExtra>.
 
 </div>
 
-[1] Nobel Prize in Economics Paul Krugman noted that “Reinhart–Rogoff
-may have had more immediate influence on public debate than any previous
-paper in the history of economics”
+[^1]: Nobel Prize in Economics Paul Krugman noted that “Reinhart–Rogoff
+    may have had more immediate influence on public debate than any
+    previous paper in the history of economics”
 
-[2] 
+[^2]: 
 
-[3] Governor Kristi Noem of South Dakota, for example, claimed that
-sparse population density allowed her state to face the pandemic down
-without the need for strict policy interventions
+[^3]: Governor Kristi Noem of South Dakota, for example, claimed that
+    sparse population density allowed her state to face the pandemic
+    down without the need for strict policy interventions
 
-[4] The present paper was desk rejected by three journals that had
-previously published research on population density and the spread of
-COVID-19; in one case, the paper was too opinionated for the journal, in
-the other two cases, the paper was not a “good fit” despite dealing with
-a nearly identical issue as papers previously published in said
-journals.
+[^4]: The present paper was desk rejected by three journals that had
+    previously published research on population density and the spread
+    of COVID-19; in one case, the paper was too opinionated for the
+    journal, in the other two cases, the paper was not a “good fit”
+    despite dealing with a nearly identical issue as papers previously
+    published in said journals.
 
-[5] <https://github.com/nytimes/covid-19-data>
+[^5]: <https://github.com/nytimes/covid-19-data>

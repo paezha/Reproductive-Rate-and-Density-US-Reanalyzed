@@ -1,4 +1,3 @@
-base
 r0density
 miscTools
 maxLik
@@ -32,3 +31,5 @@ viridisLite
 viridis
 adespatial
 scico
+here
+spatialreg

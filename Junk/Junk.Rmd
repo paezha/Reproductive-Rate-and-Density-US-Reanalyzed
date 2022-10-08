@@ -1,0 +1,40 @@
+---
+title: "Reproducibility of research during COVID-19: examining the case of population density and the basic reproductive rate from the perspective of spatial analysis"
+author:
+  - name: Antonio Paez
+    email: paezha@mcmaster.ca
+    affiliation: McMaster University
+    correspondingauthor: true
+address:
+  - code: McMaster University
+    address: School of Earth, Environment and Society, 1280 Main St West, Hamilton, Ontario L8S 4K1 Canada
+abstract: |
+  The emergence of the novel SARS-CoV-2 coronavirus and the global COVID-19 pandemic in 2019 led to explosive growth in scientific research. Alas, much of the research in the literature lacks conditions to be reproducible, and recent publications on the association between population density and the basic reproductive number of SARS-CoV-2 are no exception. Relatively few papers share code and data sufficiently, which hinders not only verification but additional experimentation. In this paper, an example of reproducible research shows the potential of spatial analysis for epidemiology research during COVID-19. Transparency and openness means that independent researchers can, with only modest efforts, verify findings and use different approaches as appropriate. Given the high stakes of the situation, it is essential that scientific findings, on which good policy depends, are as robust as possible; as the empirical example shows, reproducibility is one of the keys to ensure this. 
+  
+  This paper is now published in Geographical Analysis (\url{https://doi.org/10.1111/gean.12307})
+keywords: 
+  - keyword1
+  - keyword2
+journal: "Geographical Analysis"
+date: "`r Sys.Date()`"
+classoption: preprint, 3p, authoryear
+bibliography: bibliography.bib
+linenumbers: true
+numbersections: false
+# Use a CSL with `citation_package = "default"`
+# csl: https://www.zotero.org/styles/elsevier-harvard
+output: 
+  rticles::elsevier_article:
+    keep_tex: true
+    citation_package: natbib
+---
+
+Please make sure that your manuscript follows the guidelines in the 
+Guide for Authors of the relevant journal. It is not necessary to 
+typeset your manuscript in exactly the same way as an article, 
+unless you are submitting to a camera-ready copy (CRC) journal.
+
+For detailed instructions regarding the elsevier article class, see   <https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions>
+
+# References {-}
+

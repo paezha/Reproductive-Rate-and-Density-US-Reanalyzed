@@ -24,7 +24,7 @@ Antonio Páez (McMaster University)
 
 Paper desk-rejected by [~~PLoS ONE~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Editorial-Materials-and-Correspondence/PLOS ONE Decision_ PONE-D-21-16874.pdf) [~~Science of the Total Environment~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Editorial-Materials-and-Correspondence/Your Submission STOTEN-D-21-12077.pdf) [~~Landscape and Urban Planning~~](https://github.com/paezha/Reproductive-Rate-and-Density-US-Reanalyzed/tree/main/R0-Density-Reanalysis/Editorial-Materials-and-Correspondence/Decision on submission to Landscape and Urban Planning.pdf)  
 
-Geographical Analysis (2021) https://doi.org/10.1111/gean.12307
+Paez, A (2022) Reproducibility of Research During COVID-19: Examining the Case of Population Density and the Basic Reproductive Rate from the Perspective of Spatial Analysis. Geographical Analysis. 54(4) 860-880 (https://doi.org/10.1111/gean.12307)
 
 ## Abstract
 
@@ -42,22 +42,14 @@ The emergence of the novel SARS-CoV-2 coronavirus and the global COVID-19 pandem
 knitr::opts_chunk$set(cache = TRUE)
 ```
 
-```{r install-data-package, include=FALSE}
-if(!require(r0density)){
-    remotes::install_github("paezha/Reproductive-Rate-and-Density-US-Reanalyzed", 
-                         subdir = "r0density")
-    library(r0density)
-}
-```
-
 ```{r load-packages, include=FALSE, cache=FALSE}
 library(adespatial) # Used to calculate Moran eigenvector maps
 library(censReg) # Package to estimate tobit model
+library(here) # A Simpler Way to Find Your Files
 library(kableExtra) # Package for creating tables
 library(Matrix) # Used to convert list of spatial weights to sparse matrix; needed for spatialprobit
 library(nlme) # Used to estimate 
 library(patchwork) # Package to organize ggplot2 plots
-library(r0density) # Data package
 library(sampleSelection) # Package to estimate sampling selection models
 library(scico) # Package with color palettes
 library(sf) # Package to work with spatial information in simple features format
@@ -66,7 +58,17 @@ library(spdep) # Utilities to create spatial weights and work with spatial data
 library(tidycensus) # Package to retrieve census information 
 library(tidyverse) # Data carpentry and analysis tools
 library(units) # Package to work with units of measurement
-#library(viridis) # Color palettes
+```
+
+```{r install-data-package, include=FALSE}
+if(!require(r0density)){
+    install.packages(paste0(here(), "/r0density_0.1.0.tar.gz"), repos = NULL, type="source")
+    library(r0density) # not installed on this machine
+}
+```
+
+```{r load-data-package, include=FALSE, cache=FALSE}
+library(r0density) # Data package
 ```
 
 ```{r generate-package-bibliography, include=FALSE}
@@ -887,4 +889,6 @@ More generally, my hope is that the research of Sy et al. [-@Sy2021population], 
 The analysis reported in this paper was conducted in the `R` computing statistical language [@R-base]. The source document is an Rmarkdown document [@rmarkdown2018; @rmarkdown2020] processed using `knitr` [@knitr2015; @knitr2014]. The following packages were used in the analysis, and I wish to acknowledge their creators for their generous efforts: `adespatial` [@R-adespatial], `censReg` [@R-censReg], `dplyr` [@R-dplyr], `forcats` [@R-forcats], `ggplot2` [@ggplot22016], `gmm` [@gmm2010], `kableExtra` [@R-kableExtra], `Matrix` [@R-Matrix], `maxLik` [@maxLik2011], `miscTools` [@R-miscTools], `mvtnorm` [@mvtnorm2009], `nlme` [@R-nlme], `patchwork` [@R-patchwork], `purrr` [@R-purrr], `readr` [@R-readr], `sampleSelection` [@sampleSelection2008], `sandwich` [@sandwich2020; @sandwich2004; @sandwich2006], `scico` [@R-scico], `sf` [@sf2018], `sp` [@sp2005; @sp2013], `spatialprobit` [@R-spatialprobit], `spData` [@R-spData], `spdep` [@spdep2018; @spdep2013], `stringr` [R-stringr], `tibble` [@R-tibble], `tidycensus` [@R-tidycensus], `tidyr` [@R-tidyr], `tidyverse` [@tidyverse2019], `tmvtnorm` [@R-tmvtnorm], `units` [@units2016]. This research was not supported by Canada's Research Councils.
 
 # References {#references .unnumbered}
+
+
 
